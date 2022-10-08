@@ -1,0 +1,1324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="bd_blulightModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categoria_producto">
+          <Key>
+            <PropertyRef Name="idCategoriaProd" />
+          </Key>
+          <Property Name="idCategoriaProd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoria" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categoria_servicio">
+          <Key>
+            <PropertyRef Name="idCategoriaServ" />
+          </Key>
+          <Property Name="idCategoriaServ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoria" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Color_producto">
+          <Key>
+            <PropertyRef Name="idColor" />
+          </Key>
+          <Property Name="idColor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Detalle_factura_producto">
+          <Key>
+            <PropertyRef Name="idFacturaProd" />
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="idFacturaProd" Type="int" Nullable="false" />
+          <Property Name="idProducto" Type="int" Nullable="false" />
+          <Property Name="precio" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Detalle_factura_servicio">
+          <Key>
+            <PropertyRef Name="idFacturaServ" />
+            <PropertyRef Name="idServicio" />
+          </Key>
+          <Property Name="idFacturaServ" Type="int" Nullable="false" />
+          <Property Name="idServicio" Type="int" Nullable="false" />
+          <Property Name="idEstado" Type="int" Nullable="false" />
+          <Property Name="precio" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="idEmpleado" />
+          </Key>
+          <Property Name="idEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="maxTitulo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idLab" Type="int" />
+          <Property Name="idPersona" Type="int" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estado_solicitud_servicio">
+          <Key>
+            <PropertyRef Name="idEstado" />
+          </Key>
+          <Property Name="idEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Factura_producto">
+          <Key>
+            <PropertyRef Name="idFacturaProd" />
+          </Key>
+          <Property Name="idFacturaProd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idMetodoPago" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="hora" Type="time" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Factura_servicio">
+          <Key>
+            <PropertyRef Name="idFacturaServ" />
+          </Key>
+          <Property Name="idFacturaServ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idMetodoPago" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="hora" Type="time" Precision="3" Nullable="false" />
+          <Property Name="idPersona" Type="int" Nullable="false" />
+          <Property Name="institucion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Inscripto_jornada">
+          <Key>
+            <PropertyRef Name="idJornada" />
+            <PropertyRef Name="idPersona" />
+          </Key>
+          <Property Name="idJornada" Type="int" Nullable="false" />
+          <Property Name="idPersona" Type="int" Nullable="false" />
+          <Property Name="fechaInscripcion" Type="date" Nullable="false" />
+          <Property Name="horaInscripcion" Type="time" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jefe_laboratorio">
+          <Key>
+            <PropertyRef Name="idJefeLab" />
+          </Key>
+          <Property Name="idJefeLab" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEmpleado" Type="int" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jornada">
+          <Key>
+            <PropertyRef Name="idJornada" />
+          </Key>
+          <Property Name="idJornada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="cupo" Type="int" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="hora" Type="time" Precision="3" Nullable="false" />
+          <Property Name="idJefeLab" Type="int" Nullable="false" />
+          <Property Name="idAuditorio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Laboratorio">
+          <Key>
+            <PropertyRef Name="idLab" />
+          </Key>
+          <Property Name="idLab" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Metodo_de_pago">
+          <Key>
+            <PropertyRef Name="idMetodoPago" />
+          </Key>
+          <Property Name="idMetodoPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="metodo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Perfil_de_usuario">
+          <Key>
+            <PropertyRef Name="idPerfil" />
+          </Key>
+          <Property Name="idPerfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="perfil" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="idPersona" />
+          </Key>
+          <Property Name="idPersona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="bigint" Nullable="false" />
+          <Property Name="dni" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="idProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="precio" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="stock" Type="int" Nullable="false" />
+          <Property Name="idCategoriaProd" Type="int" Nullable="false" />
+          <Property Name="idColor" Type="int" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+          <Property Name="imagen" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Salon_auditorio">
+          <Key>
+            <PropertyRef Name="idAuditorio" />
+          </Key>
+          <Property Name="idAuditorio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="idServicio" />
+          </Key>
+          <Property Name="idServicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="precio" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="idCategoriaServ" Type="int" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servicio-laboratorio">
+          <Key>
+            <PropertyRef Name="idServicio" />
+            <PropertyRef Name="idLab" />
+          </Key>
+          <Property Name="idServicio" Type="int" Nullable="false" />
+          <Property Name="idLab" Type="int" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="idPerfil" Type="int" Nullable="false" />
+          <Property Name="idEmpleado" Type="int" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Color_producto">
+          <End Role="Color_producto" Type="Self.Color_producto" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color_producto">
+              <PropertyRef Name="idColor" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="idColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_factura_producto-Factura">
+          <End Role="Factura_producto" Type="Self.Factura_producto" Multiplicity="1" />
+          <End Role="Detalle_factura_producto" Type="Self.Detalle_factura_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura_producto">
+              <PropertyRef Name="idFacturaProd" />
+            </Principal>
+            <Dependent Role="Detalle_factura_producto">
+              <PropertyRef Name="idFacturaProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_factura_producto-Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Detalle_factura_producto" Type="Self.Detalle_factura_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="idProducto" />
+            </Principal>
+            <Dependent Role="Detalle_factura_producto">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_factura_servicio-Factura">
+          <End Role="Factura_servicio" Type="Self.Factura_servicio" Multiplicity="1" />
+          <End Role="Detalle_factura_servicio" Type="Self.Detalle_factura_servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura_servicio">
+              <PropertyRef Name="idFacturaServ" />
+            </Principal>
+            <Dependent Role="Detalle_factura_servicio">
+              <PropertyRef Name="idFacturaServ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empleado-laboratorio">
+          <End Role="Laboratorio" Type="Self.Laboratorio" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Laboratorio">
+              <PropertyRef Name="idLab" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idLab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empleado-persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factura_producto-Metodo">
+          <End Role="Metodo_de_pago" Type="Self.Metodo_de_pago" Multiplicity="1" />
+          <End Role="Factura_producto" Type="Self.Factura_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Metodo_de_pago">
+              <PropertyRef Name="idMetodoPago" />
+            </Principal>
+            <Dependent Role="Factura_producto">
+              <PropertyRef Name="idMetodoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factura_servicio_metodo_de_pago">
+          <End Role="Metodo_de_pago" Type="Self.Metodo_de_pago" Multiplicity="1" />
+          <End Role="Factura_servicio" Type="Self.Factura_servicio" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Metodo_de_pago">
+              <PropertyRef Name="idMetodoPago" />
+            </Principal>
+            <Dependent Role="Factura_servicio">
+              <PropertyRef Name="idFacturaServ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inscripcion-jornada">
+          <End Role="Jornada" Type="Self.Jornada" Multiplicity="1" />
+          <End Role="Inscripto_jornada" Type="Self.Inscripto_jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jornada">
+              <PropertyRef Name="idJornada" />
+            </Principal>
+            <Dependent Role="Inscripto_jornada">
+              <PropertyRef Name="idJornada" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inscripcion-persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+          <End Role="Inscripto_jornada" Type="Self.Inscripto_jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Inscripto_jornada">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jefe_laboratorio-empleado">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+          <End Role="Jefe_laboratorio" Type="Self.Jefe_laboratorio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="Jefe_laboratorio">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jornada-jefelab">
+          <End Role="Jefe_laboratorio" Type="Self.Jefe_laboratorio" Multiplicity="1" />
+          <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jefe_laboratorio">
+              <PropertyRef Name="idJefeLab" />
+            </Principal>
+            <Dependent Role="Jornada">
+              <PropertyRef Name="idJefeLab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jornada-salon">
+          <End Role="Salon_auditorio" Type="Self.Salon_auditorio" Multiplicity="1" />
+          <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salon_auditorio">
+              <PropertyRef Name="idAuditorio" />
+            </Principal>
+            <Dependent Role="Jornada">
+              <PropertyRef Name="idAuditorio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_categoria-producto">
+          <End Role="Categoria_producto" Type="Self.Categoria_producto" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria_producto">
+              <PropertyRef Name="idCategoriaProd" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="idCategoriaProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_servicio-categoria_servicio">
+          <End Role="Categoria_servicio" Type="Self.Categoria_servicio" Multiplicity="1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria_servicio">
+              <PropertyRef Name="idCategoriaServ" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idCategoriaServ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_servicio-laboratorio_servicio">
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="1" />
+          <End Role="Servicio-laboratorio" Type="Self.Servicio-laboratorio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="idServicio" />
+            </Principal>
+            <Dependent Role="Servicio-laboratorio">
+              <PropertyRef Name="idServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_servicio-laboratorio-laboratorio">
+          <End Role="Laboratorio" Type="Self.Laboratorio" Multiplicity="1" />
+          <End Role="Servicio-laboratorio" Type="Self.Servicio-laboratorio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Laboratorio">
+              <PropertyRef Name="idLab" />
+            </Principal>
+            <Dependent Role="Servicio-laboratorio">
+              <PropertyRef Name="idLab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario-empleado">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario-perfil">
+          <End Role="Perfil_de_usuario" Type="Self.Perfil_de_usuario" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfil_de_usuario">
+              <PropertyRef Name="idPerfil" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bd_blulightModelStoreContainer">
+          <EntitySet Name="Categoria_producto" EntityType="Self.Categoria_producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categoria_servicio" EntityType="Self.Categoria_servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Color_producto" EntityType="Self.Color_producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detalle_factura_producto" EntityType="Self.Detalle_factura_producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detalle_factura_servicio" EntityType="Self.Detalle_factura_servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estado_solicitud_servicio" EntityType="Self.Estado_solicitud_servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Factura_producto" EntityType="Self.Factura_producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Factura_servicio" EntityType="Self.Factura_servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inscripto_jornada" EntityType="Self.Inscripto_jornada" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jefe_laboratorio" EntityType="Self.Jefe_laboratorio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jornada" EntityType="Self.Jornada" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Laboratorio" EntityType="Self.Laboratorio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Metodo_de_pago" EntityType="Self.Metodo_de_pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perfil_de_usuario" EntityType="Self.Perfil_de_usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salon_auditorio" EntityType="Self.Salon_auditorio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicio-laboratorio" EntityType="Self.Servicio-laboratorio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Color_producto" Association="Self.FK_Color_producto">
+            <End Role="Color_producto" EntitySet="Color_producto" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_factura_producto-Factura" Association="Self.FK_detalle_factura_producto-Factura">
+            <End Role="Factura_producto" EntitySet="Factura_producto" />
+            <End Role="Detalle_factura_producto" EntitySet="Detalle_factura_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_factura_producto-Producto" Association="Self.FK_detalle_factura_producto-Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Detalle_factura_producto" EntitySet="Detalle_factura_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_factura_servicio-Factura" Association="Self.FK_detalle_factura_servicio-Factura">
+            <End Role="Factura_servicio" EntitySet="Factura_servicio" />
+            <End Role="Detalle_factura_servicio" EntitySet="Detalle_factura_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empleado-laboratorio" Association="Self.FK_empleado-laboratorio">
+            <End Role="Laboratorio" EntitySet="Laboratorio" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empleado-persona" Association="Self.FK_empleado-persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factura_producto-Metodo" Association="Self.FK_factura_producto-Metodo">
+            <End Role="Metodo_de_pago" EntitySet="Metodo_de_pago" />
+            <End Role="Factura_producto" EntitySet="Factura_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factura_servicio_metodo_de_pago" Association="Self.FK_factura_servicio_metodo_de_pago">
+            <End Role="Metodo_de_pago" EntitySet="Metodo_de_pago" />
+            <End Role="Factura_servicio" EntitySet="Factura_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inscripcion-jornada" Association="Self.FK_inscripcion-jornada">
+            <End Role="Jornada" EntitySet="Jornada" />
+            <End Role="Inscripto_jornada" EntitySet="Inscripto_jornada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inscripcion-persona" Association="Self.FK_inscripcion-persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Inscripto_jornada" EntitySet="Inscripto_jornada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jefe_laboratorio-empleado" Association="Self.FK_jefe_laboratorio-empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Jefe_laboratorio" EntitySet="Jefe_laboratorio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jornada-jefelab" Association="Self.FK_jornada-jefelab">
+            <End Role="Jefe_laboratorio" EntitySet="Jefe_laboratorio" />
+            <End Role="Jornada" EntitySet="Jornada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jornada-salon" Association="Self.FK_jornada-salon">
+            <End Role="Salon_auditorio" EntitySet="Salon_auditorio" />
+            <End Role="Jornada" EntitySet="Jornada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_categoria-producto" Association="Self.FK_productos_categoria-producto">
+            <End Role="Categoria_producto" EntitySet="Categoria_producto" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_servicio-categoria_servicio" Association="Self.FK_servicio-categoria_servicio">
+            <End Role="Categoria_servicio" EntitySet="Categoria_servicio" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_servicio-laboratorio_servicio" Association="Self.FK_servicio-laboratorio_servicio">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="Servicio-laboratorio" EntitySet="Servicio-laboratorio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_servicio-laboratorio-laboratorio" Association="Self.FK_servicio-laboratorio-laboratorio">
+            <End Role="Laboratorio" EntitySet="Laboratorio" />
+            <End Role="Servicio-laboratorio" EntitySet="Servicio-laboratorio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario-empleado" Association="Self.FK_usuario-empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario-perfil" Association="Self.FK_usuario-perfil">
+            <End Role="Perfil_de_usuario" EntitySet="Perfil_de_usuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bd_blulightModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categoria_producto">
+          <Key>
+            <PropertyRef Name="idCategoriaProd" />
+          </Key>
+          <Property Name="idCategoriaProd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_productos_categoria_producto" FromRole="Categoria_producto" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Categoria_servicio">
+          <Key>
+            <PropertyRef Name="idCategoriaServ" />
+          </Key>
+          <Property Name="idCategoriaServ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Servicio" Relationship="Self.FK_servicio_categoria_servicio" FromRole="Categoria_servicio" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="Color_producto">
+          <Key>
+            <PropertyRef Name="idColor" />
+          </Key>
+          <Property Name="idColor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_Color_producto" FromRole="Color_producto" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Detalle_factura_producto">
+          <Key>
+            <PropertyRef Name="idFacturaProd" />
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="idFacturaProd" Type="Int32" Nullable="false" />
+          <Property Name="idProducto" Type="Int32" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Factura_producto" Relationship="Self.FK_detalle_factura_producto_Factura" FromRole="Detalle_factura_producto" ToRole="Factura_producto" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_detalle_factura_producto_Producto" FromRole="Detalle_factura_producto" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Detalle_factura_servicio">
+          <Key>
+            <PropertyRef Name="idFacturaServ" />
+            <PropertyRef Name="idServicio" />
+          </Key>
+          <Property Name="idFacturaServ" Type="Int32" Nullable="false" />
+          <Property Name="idServicio" Type="Int32" Nullable="false" />
+          <Property Name="idEstado" Type="Int32" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Factura_servicio" Relationship="Self.FK_detalle_factura_servicio_Factura" FromRole="Detalle_factura_servicio" ToRole="Factura_servicio" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="idEmpleado" />
+          </Key>
+          <Property Name="idEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="maxTitulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idLab" Type="Int32" />
+          <Property Name="idPersona" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Laboratorio" Relationship="Self.FK_empleado_laboratorio" FromRole="Empleado" ToRole="Laboratorio" />
+          <NavigationProperty Name="Persona" Relationship="Self.FK_empleado_persona" FromRole="Empleado" ToRole="Persona" />
+          <NavigationProperty Name="Jefe_laboratorio" Relationship="Self.FK_jefe_laboratorio_empleado" FromRole="Empleado" ToRole="Jefe_laboratorio" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_usuario_empleado" FromRole="Empleado" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Estado_solicitud_servicio">
+          <Key>
+            <PropertyRef Name="idEstado" />
+          </Key>
+          <Property Name="idEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Factura_producto">
+          <Key>
+            <PropertyRef Name="idFacturaProd" />
+          </Key>
+          <Property Name="idFacturaProd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idMetodoPago" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="hora" Type="Time" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Detalle_factura_producto" Relationship="Self.FK_detalle_factura_producto_Factura" FromRole="Factura_producto" ToRole="Detalle_factura_producto" />
+          <NavigationProperty Name="Metodo_de_pago" Relationship="Self.FK_factura_producto_Metodo" FromRole="Factura_producto" ToRole="Metodo_de_pago" />
+        </EntityType>
+        <EntityType Name="Factura_servicio">
+          <Key>
+            <PropertyRef Name="idFacturaServ" />
+          </Key>
+          <Property Name="idFacturaServ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idMetodoPago" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="hora" Type="Time" Nullable="false" Precision="3" />
+          <Property Name="idPersona" Type="Int32" Nullable="false" />
+          <Property Name="institucion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Detalle_factura_servicio" Relationship="Self.FK_detalle_factura_servicio_Factura" FromRole="Factura_servicio" ToRole="Detalle_factura_servicio" />
+          <NavigationProperty Name="Metodo_de_pago" Relationship="Self.FK_factura_servicio_metodo_de_pago" FromRole="Factura_servicio" ToRole="Metodo_de_pago" />
+        </EntityType>
+        <EntityType Name="Inscripto_jornada">
+          <Key>
+            <PropertyRef Name="idJornada" />
+            <PropertyRef Name="idPersona" />
+          </Key>
+          <Property Name="idJornada" Type="Int32" Nullable="false" />
+          <Property Name="idPersona" Type="Int32" Nullable="false" />
+          <Property Name="fechaInscripcion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="horaInscripcion" Type="Time" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Jornada" Relationship="Self.FK_inscripcion_jornada" FromRole="Inscripto_jornada" ToRole="Jornada" />
+          <NavigationProperty Name="Persona" Relationship="Self.FK_inscripcion_persona" FromRole="Inscripto_jornada" ToRole="Persona" />
+        </EntityType>
+        <EntityType Name="Jefe_laboratorio">
+          <Key>
+            <PropertyRef Name="idJefeLab" />
+          </Key>
+          <Property Name="idJefeLab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK_jefe_laboratorio_empleado" FromRole="Jefe_laboratorio" ToRole="Empleado" />
+          <NavigationProperty Name="Jornada" Relationship="Self.FK_jornada_jefelab" FromRole="Jefe_laboratorio" ToRole="Jornada" />
+        </EntityType>
+        <EntityType Name="Jornada">
+          <Key>
+            <PropertyRef Name="idJornada" />
+          </Key>
+          <Property Name="idJornada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cupo" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="hora" Type="Time" Nullable="false" Precision="3" />
+          <Property Name="idJefeLab" Type="Int32" Nullable="false" />
+          <Property Name="idAuditorio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Inscripto_jornada" Relationship="Self.FK_inscripcion_jornada" FromRole="Jornada" ToRole="Inscripto_jornada" />
+          <NavigationProperty Name="Jefe_laboratorio" Relationship="Self.FK_jornada_jefelab" FromRole="Jornada" ToRole="Jefe_laboratorio" />
+          <NavigationProperty Name="Salon_auditorio" Relationship="Self.FK_jornada_salon" FromRole="Jornada" ToRole="Salon_auditorio" />
+        </EntityType>
+        <EntityType Name="Laboratorio">
+          <Key>
+            <PropertyRef Name="idLab" />
+          </Key>
+          <Property Name="idLab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK_empleado_laboratorio" FromRole="Laboratorio" ToRole="Empleado" />
+          <NavigationProperty Name="Servicio_laboratorio" Relationship="Self.FK_servicio_laboratorio_laboratorio" FromRole="Laboratorio" ToRole="Servicio_laboratorio" />
+        </EntityType>
+        <EntityType Name="Metodo_de_pago">
+          <Key>
+            <PropertyRef Name="idMetodoPago" />
+          </Key>
+          <Property Name="idMetodoPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="metodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Factura_producto" Relationship="Self.FK_factura_producto_Metodo" FromRole="Metodo_de_pago" ToRole="Factura_producto" />
+          <NavigationProperty Name="Factura_servicio" Relationship="Self.FK_factura_servicio_metodo_de_pago" FromRole="Metodo_de_pago" ToRole="Factura_servicio" />
+        </EntityType>
+        <EntityType Name="Perfil_de_usuario">
+          <Key>
+            <PropertyRef Name="idPerfil" />
+          </Key>
+          <Property Name="idPerfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="perfil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_usuario_perfil" FromRole="Perfil_de_usuario" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="idPersona" />
+          </Key>
+          <Property Name="idPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="Int64" Nullable="false" />
+          <Property Name="dni" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK_empleado_persona" FromRole="Persona" ToRole="Empleado" />
+          <NavigationProperty Name="Inscripto_jornada" Relationship="Self.FK_inscripcion_persona" FromRole="Persona" ToRole="Inscripto_jornada" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="idProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="stock" Type="Int32" Nullable="false" />
+          <Property Name="idCategoriaProd" Type="Int32" Nullable="false" />
+          <Property Name="idColor" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Categoria_producto" Relationship="Self.FK_productos_categoria_producto" FromRole="Producto" ToRole="Categoria_producto" />
+          <NavigationProperty Name="Color_producto" Relationship="Self.FK_Color_producto" FromRole="Producto" ToRole="Color_producto" />
+          <NavigationProperty Name="Detalle_factura_producto" Relationship="Self.FK_detalle_factura_producto_Producto" FromRole="Producto" ToRole="Detalle_factura_producto" />
+        </EntityType>
+        <EntityType Name="Salon_auditorio">
+          <Key>
+            <PropertyRef Name="idAuditorio" />
+          </Key>
+          <Property Name="idAuditorio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Jornada" Relationship="Self.FK_jornada_salon" FromRole="Salon_auditorio" ToRole="Jornada" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="idServicio" />
+          </Key>
+          <Property Name="idServicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="idCategoriaServ" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Categoria_servicio" Relationship="Self.FK_servicio_categoria_servicio" FromRole="Servicio" ToRole="Categoria_servicio" />
+          <NavigationProperty Name="Servicio_laboratorio" Relationship="Self.FK_servicio_laboratorio_servicio" FromRole="Servicio" ToRole="Servicio_laboratorio" />
+        </EntityType>
+        <EntityType Name="Servicio_laboratorio">
+          <Key>
+            <PropertyRef Name="idServicio" />
+            <PropertyRef Name="idLab" />
+          </Key>
+          <Property Name="idServicio" Type="Int32" Nullable="false" />
+          <Property Name="idLab" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Laboratorio" Relationship="Self.FK_servicio_laboratorio_laboratorio" FromRole="Servicio_laboratorio" ToRole="Laboratorio" />
+          <NavigationProperty Name="Servicio" Relationship="Self.FK_servicio_laboratorio_servicio" FromRole="Servicio_laboratorio" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idPerfil" Type="Int32" Nullable="false" />
+          <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK_usuario_empleado" FromRole="Usuario" ToRole="Empleado" />
+          <NavigationProperty Name="Perfil_de_usuario" Relationship="Self.FK_usuario_perfil" FromRole="Usuario" ToRole="Perfil_de_usuario" />
+        </EntityType>
+        <Association Name="FK_productos_categoria_producto">
+          <End Role="Categoria_producto" Type="Self.Categoria_producto" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria_producto">
+              <PropertyRef Name="idCategoriaProd" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="idCategoriaProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_servicio_categoria_servicio">
+          <End Role="Categoria_servicio" Type="Self.Categoria_servicio" Multiplicity="1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria_servicio">
+              <PropertyRef Name="idCategoriaServ" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idCategoriaServ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Color_producto">
+          <End Role="Color_producto" Type="Self.Color_producto" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color_producto">
+              <PropertyRef Name="idColor" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="idColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_factura_producto_Factura">
+          <End Role="Factura_producto" Type="Self.Factura_producto" Multiplicity="1" />
+          <End Role="Detalle_factura_producto" Type="Self.Detalle_factura_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura_producto">
+              <PropertyRef Name="idFacturaProd" />
+            </Principal>
+            <Dependent Role="Detalle_factura_producto">
+              <PropertyRef Name="idFacturaProd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_factura_producto_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Detalle_factura_producto" Type="Self.Detalle_factura_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="idProducto" />
+            </Principal>
+            <Dependent Role="Detalle_factura_producto">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_factura_servicio_Factura">
+          <End Role="Factura_servicio" Type="Self.Factura_servicio" Multiplicity="1" />
+          <End Role="Detalle_factura_servicio" Type="Self.Detalle_factura_servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura_servicio">
+              <PropertyRef Name="idFacturaServ" />
+            </Principal>
+            <Dependent Role="Detalle_factura_servicio">
+              <PropertyRef Name="idFacturaServ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empleado_laboratorio">
+          <End Role="Laboratorio" Type="Self.Laboratorio" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Laboratorio">
+              <PropertyRef Name="idLab" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idLab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empleado_persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jefe_laboratorio_empleado">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+          <End Role="Jefe_laboratorio" Type="Self.Jefe_laboratorio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="Jefe_laboratorio">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_empleado">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factura_producto_Metodo">
+          <End Role="Metodo_de_pago" Type="Self.Metodo_de_pago" Multiplicity="1" />
+          <End Role="Factura_producto" Type="Self.Factura_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Metodo_de_pago">
+              <PropertyRef Name="idMetodoPago" />
+            </Principal>
+            <Dependent Role="Factura_producto">
+              <PropertyRef Name="idMetodoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factura_servicio_metodo_de_pago">
+          <End Role="Metodo_de_pago" Type="Self.Metodo_de_pago" Multiplicity="1" />
+          <End Role="Factura_servicio" Type="Self.Factura_servicio" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Metodo_de_pago">
+              <PropertyRef Name="idMetodoPago" />
+            </Principal>
+            <Dependent Role="Factura_servicio">
+              <PropertyRef Name="idFacturaServ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inscripcion_jornada">
+          <End Role="Jornada" Type="Self.Jornada" Multiplicity="1" />
+          <End Role="Inscripto_jornada" Type="Self.Inscripto_jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jornada">
+              <PropertyRef Name="idJornada" />
+            </Principal>
+            <Dependent Role="Inscripto_jornada">
+              <PropertyRef Name="idJornada" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inscripcion_persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+          <End Role="Inscripto_jornada" Type="Self.Inscripto_jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Inscripto_jornada">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jornada_jefelab">
+          <End Role="Jefe_laboratorio" Type="Self.Jefe_laboratorio" Multiplicity="1" />
+          <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jefe_laboratorio">
+              <PropertyRef Name="idJefeLab" />
+            </Principal>
+            <Dependent Role="Jornada">
+              <PropertyRef Name="idJefeLab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jornada_salon">
+          <End Role="Salon_auditorio" Type="Self.Salon_auditorio" Multiplicity="1" />
+          <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salon_auditorio">
+              <PropertyRef Name="idAuditorio" />
+            </Principal>
+            <Dependent Role="Jornada">
+              <PropertyRef Name="idAuditorio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_servicio_laboratorio_laboratorio">
+          <End Role="Laboratorio" Type="Self.Laboratorio" Multiplicity="1" />
+          <End Role="Servicio_laboratorio" Type="Self.Servicio_laboratorio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Laboratorio">
+              <PropertyRef Name="idLab" />
+            </Principal>
+            <Dependent Role="Servicio_laboratorio">
+              <PropertyRef Name="idLab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_perfil">
+          <End Role="Perfil_de_usuario" Type="Self.Perfil_de_usuario" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfil_de_usuario">
+              <PropertyRef Name="idPerfil" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_servicio_laboratorio_servicio">
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="1" />
+          <End Role="Servicio_laboratorio" Type="Self.Servicio_laboratorio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="idServicio" />
+            </Principal>
+            <Dependent Role="Servicio_laboratorio">
+              <PropertyRef Name="idServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bd_blulightEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categoria_producto" EntityType="Self.Categoria_producto" />
+          <EntitySet Name="Categoria_servicio" EntityType="Self.Categoria_servicio" />
+          <EntitySet Name="Color_producto" EntityType="Self.Color_producto" />
+          <EntitySet Name="Detalle_factura_producto" EntityType="Self.Detalle_factura_producto" />
+          <EntitySet Name="Detalle_factura_servicio" EntityType="Self.Detalle_factura_servicio" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+          <EntitySet Name="Estado_solicitud_servicio" EntityType="Self.Estado_solicitud_servicio" />
+          <EntitySet Name="Factura_producto" EntityType="Self.Factura_producto" />
+          <EntitySet Name="Factura_servicio" EntityType="Self.Factura_servicio" />
+          <EntitySet Name="Inscripto_jornada" EntityType="Self.Inscripto_jornada" />
+          <EntitySet Name="Jefe_laboratorio" EntityType="Self.Jefe_laboratorio" />
+          <EntitySet Name="Jornada" EntityType="Self.Jornada" />
+          <EntitySet Name="Laboratorio" EntityType="Self.Laboratorio" />
+          <EntitySet Name="Metodo_de_pago" EntityType="Self.Metodo_de_pago" />
+          <EntitySet Name="Perfil_de_usuario" EntityType="Self.Perfil_de_usuario" />
+          <EntitySet Name="Persona" EntityType="Self.Persona" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" />
+          <EntitySet Name="Salon_auditorio" EntityType="Self.Salon_auditorio" />
+          <EntitySet Name="Servicio" EntityType="Self.Servicio" />
+          <EntitySet Name="Servicio_laboratorio" EntityType="Self.Servicio_laboratorio" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK_productos_categoria_producto" Association="Self.FK_productos_categoria_producto">
+            <End Role="Categoria_producto" EntitySet="Categoria_producto" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_servicio_categoria_servicio" Association="Self.FK_servicio_categoria_servicio">
+            <End Role="Categoria_servicio" EntitySet="Categoria_servicio" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Color_producto" Association="Self.FK_Color_producto">
+            <End Role="Color_producto" EntitySet="Color_producto" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_factura_producto_Factura" Association="Self.FK_detalle_factura_producto_Factura">
+            <End Role="Factura_producto" EntitySet="Factura_producto" />
+            <End Role="Detalle_factura_producto" EntitySet="Detalle_factura_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_factura_producto_Producto" Association="Self.FK_detalle_factura_producto_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Detalle_factura_producto" EntitySet="Detalle_factura_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_factura_servicio_Factura" Association="Self.FK_detalle_factura_servicio_Factura">
+            <End Role="Factura_servicio" EntitySet="Factura_servicio" />
+            <End Role="Detalle_factura_servicio" EntitySet="Detalle_factura_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empleado_laboratorio" Association="Self.FK_empleado_laboratorio">
+            <End Role="Laboratorio" EntitySet="Laboratorio" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empleado_persona" Association="Self.FK_empleado_persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jefe_laboratorio_empleado" Association="Self.FK_jefe_laboratorio_empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Jefe_laboratorio" EntitySet="Jefe_laboratorio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_empleado" Association="Self.FK_usuario_empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factura_producto_Metodo" Association="Self.FK_factura_producto_Metodo">
+            <End Role="Metodo_de_pago" EntitySet="Metodo_de_pago" />
+            <End Role="Factura_producto" EntitySet="Factura_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factura_servicio_metodo_de_pago" Association="Self.FK_factura_servicio_metodo_de_pago">
+            <End Role="Metodo_de_pago" EntitySet="Metodo_de_pago" />
+            <End Role="Factura_servicio" EntitySet="Factura_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inscripcion_jornada" Association="Self.FK_inscripcion_jornada">
+            <End Role="Jornada" EntitySet="Jornada" />
+            <End Role="Inscripto_jornada" EntitySet="Inscripto_jornada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inscripcion_persona" Association="Self.FK_inscripcion_persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Inscripto_jornada" EntitySet="Inscripto_jornada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jornada_jefelab" Association="Self.FK_jornada_jefelab">
+            <End Role="Jefe_laboratorio" EntitySet="Jefe_laboratorio" />
+            <End Role="Jornada" EntitySet="Jornada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jornada_salon" Association="Self.FK_jornada_salon">
+            <End Role="Salon_auditorio" EntitySet="Salon_auditorio" />
+            <End Role="Jornada" EntitySet="Jornada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_servicio_laboratorio_laboratorio" Association="Self.FK_servicio_laboratorio_laboratorio">
+            <End Role="Laboratorio" EntitySet="Laboratorio" />
+            <End Role="Servicio_laboratorio" EntitySet="Servicio_laboratorio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_perfil" Association="Self.FK_usuario_perfil">
+            <End Role="Perfil_de_usuario" EntitySet="Perfil_de_usuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_servicio_laboratorio_servicio" Association="Self.FK_servicio_laboratorio_servicio">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="Servicio_laboratorio" EntitySet="Servicio_laboratorio" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bd_blulightModelStoreContainer" CdmEntityContainer="bd_blulightEntities">
+          <EntitySetMapping Name="Categoria_producto">
+            <EntityTypeMapping TypeName="bd_blulightModel.Categoria_producto">
+              <MappingFragment StoreEntitySet="Categoria_producto">
+                <ScalarProperty Name="idCategoriaProd" ColumnName="idCategoriaProd" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categoria_servicio">
+            <EntityTypeMapping TypeName="bd_blulightModel.Categoria_servicio">
+              <MappingFragment StoreEntitySet="Categoria_servicio">
+                <ScalarProperty Name="idCategoriaServ" ColumnName="idCategoriaServ" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Color_producto">
+            <EntityTypeMapping TypeName="bd_blulightModel.Color_producto">
+              <MappingFragment StoreEntitySet="Color_producto">
+                <ScalarProperty Name="idColor" ColumnName="idColor" />
+                <ScalarProperty Name="color" ColumnName="color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detalle_factura_producto">
+            <EntityTypeMapping TypeName="bd_blulightModel.Detalle_factura_producto">
+              <MappingFragment StoreEntitySet="Detalle_factura_producto">
+                <ScalarProperty Name="idFacturaProd" ColumnName="idFacturaProd" />
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detalle_factura_servicio">
+            <EntityTypeMapping TypeName="bd_blulightModel.Detalle_factura_servicio">
+              <MappingFragment StoreEntitySet="Detalle_factura_servicio">
+                <ScalarProperty Name="idFacturaServ" ColumnName="idFacturaServ" />
+                <ScalarProperty Name="idServicio" ColumnName="idServicio" />
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleado">
+            <EntityTypeMapping TypeName="bd_blulightModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="maxTitulo" ColumnName="maxTitulo" />
+                <ScalarProperty Name="idLab" ColumnName="idLab" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado_solicitud_servicio">
+            <EntityTypeMapping TypeName="bd_blulightModel.Estado_solicitud_servicio">
+              <MappingFragment StoreEntitySet="Estado_solicitud_servicio">
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Factura_producto">
+            <EntityTypeMapping TypeName="bd_blulightModel.Factura_producto">
+              <MappingFragment StoreEntitySet="Factura_producto">
+                <ScalarProperty Name="idFacturaProd" ColumnName="idFacturaProd" />
+                <ScalarProperty Name="idMetodoPago" ColumnName="idMetodoPago" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Factura_servicio">
+            <EntityTypeMapping TypeName="bd_blulightModel.Factura_servicio">
+              <MappingFragment StoreEntitySet="Factura_servicio">
+                <ScalarProperty Name="idFacturaServ" ColumnName="idFacturaServ" />
+                <ScalarProperty Name="idMetodoPago" ColumnName="idMetodoPago" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="institucion" ColumnName="institucion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inscripto_jornada">
+            <EntityTypeMapping TypeName="bd_blulightModel.Inscripto_jornada">
+              <MappingFragment StoreEntitySet="Inscripto_jornada">
+                <ScalarProperty Name="idJornada" ColumnName="idJornada" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="fechaInscripcion" ColumnName="fechaInscripcion" />
+                <ScalarProperty Name="horaInscripcion" ColumnName="horaInscripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jefe_laboratorio">
+            <EntityTypeMapping TypeName="bd_blulightModel.Jefe_laboratorio">
+              <MappingFragment StoreEntitySet="Jefe_laboratorio">
+                <ScalarProperty Name="idJefeLab" ColumnName="idJefeLab" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jornada">
+            <EntityTypeMapping TypeName="bd_blulightModel.Jornada">
+              <MappingFragment StoreEntitySet="Jornada">
+                <ScalarProperty Name="idJornada" ColumnName="idJornada" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="cupo" ColumnName="cupo" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="idJefeLab" ColumnName="idJefeLab" />
+                <ScalarProperty Name="idAuditorio" ColumnName="idAuditorio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Laboratorio">
+            <EntityTypeMapping TypeName="bd_blulightModel.Laboratorio">
+              <MappingFragment StoreEntitySet="Laboratorio">
+                <ScalarProperty Name="idLab" ColumnName="idLab" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Metodo_de_pago">
+            <EntityTypeMapping TypeName="bd_blulightModel.Metodo_de_pago">
+              <MappingFragment StoreEntitySet="Metodo_de_pago">
+                <ScalarProperty Name="idMetodoPago" ColumnName="idMetodoPago" />
+                <ScalarProperty Name="metodo" ColumnName="metodo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfil_de_usuario">
+            <EntityTypeMapping TypeName="bd_blulightModel.Perfil_de_usuario">
+              <MappingFragment StoreEntitySet="Perfil_de_usuario">
+                <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+                <ScalarProperty Name="perfil" ColumnName="perfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Persona">
+            <EntityTypeMapping TypeName="bd_blulightModel.Persona">
+              <MappingFragment StoreEntitySet="Persona">
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="bd_blulightModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="stock" ColumnName="stock" />
+                <ScalarProperty Name="idCategoriaProd" ColumnName="idCategoriaProd" />
+                <ScalarProperty Name="idColor" ColumnName="idColor" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salon_auditorio">
+            <EntityTypeMapping TypeName="bd_blulightModel.Salon_auditorio">
+              <MappingFragment StoreEntitySet="Salon_auditorio">
+                <ScalarProperty Name="idAuditorio" ColumnName="idAuditorio" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicio">
+            <EntityTypeMapping TypeName="bd_blulightModel.Servicio">
+              <MappingFragment StoreEntitySet="Servicio">
+                <ScalarProperty Name="idServicio" ColumnName="idServicio" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="idCategoriaServ" ColumnName="idCategoriaServ" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicio_laboratorio">
+            <EntityTypeMapping TypeName="bd_blulightModel.Servicio_laboratorio">
+              <MappingFragment StoreEntitySet="Servicio-laboratorio">
+                <ScalarProperty Name="idServicio" ColumnName="idServicio" />
+                <ScalarProperty Name="idLab" ColumnName="idLab" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="bd_blulightModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="usuario1" ColumnName="usuario" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

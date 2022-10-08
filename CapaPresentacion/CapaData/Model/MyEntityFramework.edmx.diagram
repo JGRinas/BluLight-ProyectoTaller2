@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f548d050d03e4a07bd5ef7c682d32ae0" Name="Diagram1">
+        <EntityTypeShape EntityType="bd_blulightModel.Categoria_producto" Width="1.5" PointX="8.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Categoria_servicio" Width="1.5" PointX="1.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Color_producto" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Detalle_factura_producto" Width="1.5" PointX="13.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Detalle_factura_servicio" Width="1.5" PointX="13.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Empleado" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Estado_solicitud_servicio" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Factura_producto" Width="1.5" PointX="11" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Factura_servicio" Width="1.5" PointX="11" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Inscripto_jornada" Width="1.5" PointX="9.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Jefe_laboratorio" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Jornada" Width="1.5" PointX="7.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Laboratorio" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Metodo_de_pago" Width="1.5" PointX="8.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Perfil_de_usuario" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Persona" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Producto" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Salon_auditorio" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Servicio" Width="1.5" PointX="3.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Servicio_laboratorio" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Usuario" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="bd_blulightModel.FK_productos_categoria_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_servicio_categoria_servicio" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_Color_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_detalle_factura_producto_Factura" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_detalle_factura_producto_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_detalle_factura_servicio_Factura" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_empleado_laboratorio" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_empleado_persona" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_jefe_laboratorio_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_usuario_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_factura_producto_Metodo" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_factura_servicio_metodo_de_pago" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_inscripcion_jornada" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_inscripcion_persona" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_jornada_jefelab" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_jornada_salon" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_servicio_laboratorio_laboratorio" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_usuario_perfil" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.FK_servicio_laboratorio_servicio" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
