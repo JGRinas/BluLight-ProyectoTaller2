@@ -804,6 +804,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="CapaData\Model\MyEntityFramework.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MyEntityFramework.edmx</DependentUpon>

@@ -25,7 +25,7 @@ namespace CapaLogica.LAdmin
             }
                 
         }
-        public void registerEmp(List<TextBox> listTextBoxes, List<Label> listLabels, ComboBox comboBoxLaboratorio)
+        public void registerEmp(List<TextBox> listTextBoxes, ComboBox comboBoxLaboratorio)
         {
             bool validation = true;
 
@@ -49,8 +49,7 @@ namespace CapaLogica.LAdmin
 
                     if (dniValidate.ToArray().Length > 0)
                     {
-                        listLabels[2].Text = "DNI: ya registrado";
-                        listLabels[2].ForeColor = Color.Red;
+                        MessageBox.Show("DNI ya registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -79,8 +78,6 @@ namespace CapaLogica.LAdmin
 
                         MessageBox.Show("Empleado " + listTextBoxes[0].Text + " " + listTextBoxes[1].Text + " agregado!", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                        
-                        listLabels[2].Text = "DNI";
-                        listLabels[2].ForeColor = Color.White;
                         for (int i = 0; i < listTextBoxes.Count; i++)
                         {
                             listTextBoxes[i].Text = "";
@@ -97,6 +94,20 @@ namespace CapaLogica.LAdmin
 
         }
 
+        public void restaurarCampos(List<TextBox> listTextBox, ComboBox comboBoxLaboratorio, List<Button> buttons)
+        {
+            foreach (TextBox empleado in listTextBox)
+            {
+                empleado.Text = "";
+            }
+            comboBoxLaboratorio.SelectedIndex = -1;
+
+            buttons[0].Enabled = false;
+            buttons[0].Text = "Modificar";
+
+            buttons[1].Enabled = false;
+            buttons[1].Text = "Eliminar";
+        }
         public void modificarEmpleado(List<TextBox> listTextBox, ComboBox comboBoxLaboratorio, Button buttonModificar)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
