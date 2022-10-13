@@ -1,11 +1,11 @@
 ﻿using CapaLogica;
 using CapaLogica.LAdmin;
 using CapaPresentacion;
+using CapaPresentacion.CapaPresentacion.VistaAdmin.GestionEmpleado;
 using CapaPresentacion.CapaPresentacion.VistaAdmin.GestionServicioA;
 using CapaPresentacion.VistaAdmin.GestionUsuarios;
 using Proyecto2022.CapaPresentacion.VistaAdmin;
 using Proyecto2022.CapaPresentacion.VistaAdmin.GestionarProductos;
-using Proyecto2022.CapaPresentacion.VistaAdmin.GestionarUsuario;
 using Proyecto2022.CapaPresentacion.VistaAdmin.GestionLaboratorios;
 using System;
 using System.Collections.Generic;
@@ -102,21 +102,9 @@ namespace Proyecto2022.CapaPresentacion
         {
             verSubMenu(panelUsuarios);
         }
-        private void buttonModificarUsuario_Click(object sender, EventArgs e)
+        private void buttonGestionarEmpleados_Click(object sender, EventArgs e)
         {
-            abrirFormHijo(new ModificarEmpleado());
-            esconderSubMenu();
-        }
-
-        private void buttonEliminarUsuario_Click(object sender, EventArgs e)
-        {
-            abrirFormHijo(new EliminarEmpleado());
-            esconderSubMenu();
-        }
-
-        private void buttonAgregarUsuario_Click(object sender, EventArgs e)
-        {
-            abrirFormHijo(new AgregarEmpleado());
+            abrirFormHijo(new GestionEmpleadosA());
             esconderSubMenu();
         }
 
@@ -209,5 +197,6 @@ namespace Proyecto2022.CapaPresentacion
             esconderSubMenu();
         }
 
+        
     }
 }

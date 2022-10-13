@@ -360,6 +360,12 @@
     <Compile Include="CapaPresentacion\FormWelcome.designer.cs">
       <DependentUpon>FormWelcome.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaPresentacion\VistaAdmin\GestionEmpleado\GestionEmpleadosA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaAdmin\GestionEmpleado\GestionEmpleadosA.Designer.cs">
+      <DependentUpon>GestionEmpleadosA.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\VistaAdmin\GestionServicioA\GestionServiciosA.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -415,24 +421,6 @@
     </Compile>
     <Compile Include="CapaPresentacion\VistaAdmin\FormAdminInicio.Designer.cs">
       <DependentUpon>FormAdminInicio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaAdmin\GestionEmpleado\AgregarEmpleado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaAdmin\GestionEmpleado\AgregarEmpleado.Designer.cs">
-      <DependentUpon>AgregarEmpleado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaAdmin\GestionEmpleado\EliminarEmpleado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaAdmin\GestionEmpleado\EliminarEmpleado.Designer.cs">
-      <DependentUpon>EliminarEmpleado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaAdmin\GestionEmpleado\ModificarEmpleado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaAdmin\GestionEmpleado\ModificarEmpleado.Designer.cs">
-      <DependentUpon>ModificarEmpleado.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\VistaAdmin\GestionLaboratorios\AgregarLaboratorio.cs">
       <SubType>Form</SubType>
@@ -596,6 +584,9 @@
     <EmbeddedResource Include="CapaPresentacion\FormWelcome.resx">
       <DependentUpon>FormWelcome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaAdmin\GestionEmpleado\GestionEmpleadosA.resx">
+      <DependentUpon>GestionEmpleadosA.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaAdmin\GestionServicioA\GestionServiciosA.resx">
       <DependentUpon>GestionServiciosA.cs</DependentUpon>
     </EmbeddedResource>
@@ -633,15 +624,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaAdmin\FormAdminInicio.resx">
       <DependentUpon>FormAdminInicio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaAdmin\GestionEmpleado\AgregarEmpleado.resx">
-      <DependentUpon>AgregarEmpleado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaAdmin\GestionEmpleado\EliminarEmpleado.resx">
-      <DependentUpon>EliminarEmpleado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaAdmin\GestionEmpleado\ModificarEmpleado.resx">
-      <DependentUpon>ModificarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaAdmin\GestionLaboratorios\AgregarLaboratorio.resx">
       <DependentUpon>AgregarLaboratorio.cs</DependentUpon>

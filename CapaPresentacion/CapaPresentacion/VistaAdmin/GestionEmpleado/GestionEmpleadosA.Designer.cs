@@ -28,20 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridViewEmpleados = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.ColumnActivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnLaboratorio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buttonBuscar = new System.Windows.Forms.Button();
+            this.textBoxDniBuscar = new System.Windows.Forms.TextBox();
+            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.buttonModificar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.labelLaboratorio = new System.Windows.Forms.Label();
             this.comboBoxLaboratorio = new System.Windows.Forms.ComboBox();
@@ -58,11 +53,16 @@
             this.labelNombre = new System.Windows.Forms.Label();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.buttonRegistrarUsuario = new System.Windows.Forms.Button();
-            this.buttonModificar = new System.Windows.Forms.Button();
-            this.buttonEliminar = new System.Windows.Forms.Button();
-            this.textBoxDniBuscar = new System.Windows.Forms.TextBox();
-            this.buttonBuscar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridViewEmpleados = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.ColumnActivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnLaboratorio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).BeginInit();
@@ -97,135 +97,70 @@
             this.panel1.Size = new System.Drawing.Size(760, 318);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // label2
             // 
-            this.panel2.Controls.Add(this.dataGridViewEmpleados);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 318);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(760, 241);
-            this.panel2.TabIndex = 1;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(78, 99);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 22);
+            this.label2.TabIndex = 81;
+            this.label2.Text = "DNI";
             // 
-            // dataGridViewEmpleados
+            // buttonBuscar
             // 
-            this.dataGridViewEmpleados.AllowCustomTheming = false;
-            this.dataGridViewEmpleados.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewEmpleados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewEmpleados.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewEmpleados.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridViewEmpleados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewEmpleados.ColumnHeadersHeight = 40;
-            this.dataGridViewEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnActivo,
-            this.ColumnName,
-            this.ColumnSurname,
-            this.ColumnDni,
-            this.ColumnTelefono,
-            this.ColumnEmail,
-            this.ColumnTitulo,
-            this.ColumnLaboratorio});
-            this.dataGridViewEmpleados.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.dataGridViewEmpleados.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dataGridViewEmpleados.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewEmpleados.CurrentTheme.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.dataGridViewEmpleados.CurrentTheme.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridViewEmpleados.CurrentTheme.BackColor = System.Drawing.Color.White;
-            this.dataGridViewEmpleados.CurrentTheme.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.dataGridViewEmpleados.CurrentTheme.HeaderStyle.BackColor = System.Drawing.Color.DodgerBlue;
-            this.dataGridViewEmpleados.CurrentTheme.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            this.dataGridViewEmpleados.CurrentTheme.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dataGridViewEmpleados.CurrentTheme.HeaderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            this.dataGridViewEmpleados.CurrentTheme.HeaderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewEmpleados.CurrentTheme.Name = null;
-            this.dataGridViewEmpleados.CurrentTheme.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dataGridViewEmpleados.CurrentTheme.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dataGridViewEmpleados.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewEmpleados.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.dataGridViewEmpleados.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewEmpleados.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewEmpleados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewEmpleados.EnableHeadersVisualStyles = false;
-            this.dataGridViewEmpleados.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.dataGridViewEmpleados.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dataGridViewEmpleados.HeaderBgColor = System.Drawing.Color.Empty;
-            this.dataGridViewEmpleados.HeaderForeColor = System.Drawing.Color.White;
-            this.dataGridViewEmpleados.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewEmpleados.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridViewEmpleados.Name = "dataGridViewEmpleados";
-            this.dataGridViewEmpleados.RowHeadersVisible = false;
-            this.dataGridViewEmpleados.RowHeadersWidth = 51;
-            this.dataGridViewEmpleados.RowTemplate.Height = 40;
-            this.dataGridViewEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEmpleados.Size = new System.Drawing.Size(760, 241);
-            this.dataGridViewEmpleados.TabIndex = 7;
-            this.dataGridViewEmpleados.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
-            this.dataGridViewEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmpleados_CellClick);
+            this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBuscar.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonBuscar.Location = new System.Drawing.Point(12, 156);
+            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(176, 38);
+            this.buttonBuscar.TabIndex = 80;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
-            // ColumnActivo
+            // textBoxDniBuscar
             // 
-            this.ColumnActivo.HeaderText = "Activo";
-            this.ColumnActivo.MinimumWidth = 6;
-            this.ColumnActivo.Name = "ColumnActivo";
+            this.textBoxDniBuscar.Location = new System.Drawing.Point(32, 123);
+            this.textBoxDniBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxDniBuscar.Multiline = true;
+            this.textBoxDniBuscar.Name = "textBoxDniBuscar";
+            this.textBoxDniBuscar.Size = new System.Drawing.Size(131, 29);
+            this.textBoxDniBuscar.TabIndex = 79;
+            this.textBoxDniBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDniBuscar_KeyPress);
             // 
-            // ColumnName
+            // buttonEliminar
             // 
-            this.ColumnName.HeaderText = "Nombre";
-            this.ColumnName.MinimumWidth = 6;
-            this.ColumnName.Name = "ColumnName";
+            this.buttonEliminar.Enabled = false;
+            this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEliminar.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonEliminar.Location = new System.Drawing.Point(565, 264);
+            this.buttonEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(176, 38);
+            this.buttonEliminar.TabIndex = 78;
+            this.buttonEliminar.Text = "Eliminar";
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
-            // ColumnSurname
+            // buttonModificar
             // 
-            this.ColumnSurname.HeaderText = "Apellido";
-            this.ColumnSurname.MinimumWidth = 6;
-            this.ColumnSurname.Name = "ColumnSurname";
-            // 
-            // ColumnDni
-            // 
-            this.ColumnDni.HeaderText = "DNI";
-            this.ColumnDni.MinimumWidth = 6;
-            this.ColumnDni.Name = "ColumnDni";
-            // 
-            // ColumnTelefono
-            // 
-            this.ColumnTelefono.HeaderText = "Tel.";
-            this.ColumnTelefono.MinimumWidth = 6;
-            this.ColumnTelefono.Name = "ColumnTelefono";
-            // 
-            // ColumnEmail
-            // 
-            this.ColumnEmail.HeaderText = "Email";
-            this.ColumnEmail.MinimumWidth = 6;
-            this.ColumnEmail.Name = "ColumnEmail";
-            // 
-            // ColumnTitulo
-            // 
-            this.ColumnTitulo.HeaderText = "Titulo";
-            this.ColumnTitulo.MinimumWidth = 6;
-            this.ColumnTitulo.Name = "ColumnTitulo";
-            // 
-            // ColumnLaboratorio
-            // 
-            this.ColumnLaboratorio.HeaderText = "Lab.";
-            this.ColumnLaboratorio.MinimumWidth = 6;
-            this.ColumnLaboratorio.Name = "ColumnLaboratorio";
+            this.buttonModificar.Enabled = false;
+            this.buttonModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonModificar.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonModificar.Location = new System.Drawing.Point(376, 264);
+            this.buttonModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonModificar.Name = "buttonModificar";
+            this.buttonModificar.Size = new System.Drawing.Size(176, 38);
+            this.buttonModificar.TabIndex = 77;
+            this.buttonModificar.Text = "Modificar";
+            this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
             // label1
             // 
@@ -397,67 +332,135 @@
             this.buttonRegistrarUsuario.UseVisualStyleBackColor = true;
             this.buttonRegistrarUsuario.Click += new System.EventHandler(this.buttonRegistrarUsuario_Click);
             // 
-            // buttonModificar
+            // panel2
             // 
-            this.buttonModificar.Enabled = false;
-            this.buttonModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonModificar.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.buttonModificar.Location = new System.Drawing.Point(376, 264);
-            this.buttonModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonModificar.Name = "buttonModificar";
-            this.buttonModificar.Size = new System.Drawing.Size(176, 38);
-            this.buttonModificar.TabIndex = 77;
-            this.buttonModificar.Text = "Modificar";
-            this.buttonModificar.UseVisualStyleBackColor = true;
+            this.panel2.Controls.Add(this.dataGridViewEmpleados);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 318);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(760, 241);
+            this.panel2.TabIndex = 1;
             // 
-            // buttonEliminar
+            // dataGridViewEmpleados
             // 
-            this.buttonEliminar.Enabled = false;
-            this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEliminar.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.buttonEliminar.Location = new System.Drawing.Point(565, 264);
-            this.buttonEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(176, 38);
-            this.buttonEliminar.TabIndex = 78;
-            this.buttonEliminar.Text = "Eliminar";
-            this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.dataGridViewEmpleados.AllowCustomTheming = false;
+            this.dataGridViewEmpleados.AllowUserToAddRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewEmpleados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewEmpleados.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewEmpleados.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridViewEmpleados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewEmpleados.ColumnHeadersHeight = 40;
+            this.dataGridViewEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnActivo,
+            this.ColumnName,
+            this.ColumnSurname,
+            this.ColumnDni,
+            this.ColumnTelefono,
+            this.ColumnEmail,
+            this.ColumnTitulo,
+            this.ColumnLaboratorio});
+            this.dataGridViewEmpleados.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.dataGridViewEmpleados.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dataGridViewEmpleados.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewEmpleados.CurrentTheme.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.dataGridViewEmpleados.CurrentTheme.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewEmpleados.CurrentTheme.BackColor = System.Drawing.Color.White;
+            this.dataGridViewEmpleados.CurrentTheme.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.dataGridViewEmpleados.CurrentTheme.HeaderStyle.BackColor = System.Drawing.Color.DodgerBlue;
+            this.dataGridViewEmpleados.CurrentTheme.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            this.dataGridViewEmpleados.CurrentTheme.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dataGridViewEmpleados.CurrentTheme.HeaderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            this.dataGridViewEmpleados.CurrentTheme.HeaderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewEmpleados.CurrentTheme.Name = null;
+            this.dataGridViewEmpleados.CurrentTheme.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dataGridViewEmpleados.CurrentTheme.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dataGridViewEmpleados.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewEmpleados.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.dataGridViewEmpleados.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewEmpleados.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewEmpleados.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewEmpleados.EnableHeadersVisualStyles = false;
+            this.dataGridViewEmpleados.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.dataGridViewEmpleados.HeaderBackColor = System.Drawing.Color.DodgerBlue;
+            this.dataGridViewEmpleados.HeaderBgColor = System.Drawing.Color.Empty;
+            this.dataGridViewEmpleados.HeaderForeColor = System.Drawing.Color.White;
+            this.dataGridViewEmpleados.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewEmpleados.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewEmpleados.Name = "dataGridViewEmpleados";
+            this.dataGridViewEmpleados.RowHeadersVisible = false;
+            this.dataGridViewEmpleados.RowHeadersWidth = 51;
+            this.dataGridViewEmpleados.RowTemplate.Height = 40;
+            this.dataGridViewEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewEmpleados.Size = new System.Drawing.Size(760, 241);
+            this.dataGridViewEmpleados.TabIndex = 7;
+            this.dataGridViewEmpleados.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.dataGridViewEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmpleados_CellClick);
             // 
-            // textBoxDniBuscar
+            // ColumnActivo
             // 
-            this.textBoxDniBuscar.Location = new System.Drawing.Point(32, 123);
-            this.textBoxDniBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxDniBuscar.Multiline = true;
-            this.textBoxDniBuscar.Name = "textBoxDniBuscar";
-            this.textBoxDniBuscar.Size = new System.Drawing.Size(131, 29);
-            this.textBoxDniBuscar.TabIndex = 79;
-            this.textBoxDniBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDniBuscar_KeyPress);
+            this.ColumnActivo.HeaderText = "Activo";
+            this.ColumnActivo.MinimumWidth = 6;
+            this.ColumnActivo.Name = "ColumnActivo";
             // 
-            // buttonBuscar
+            // ColumnName
             // 
-            this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBuscar.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.buttonBuscar.Location = new System.Drawing.Point(12, 156);
-            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(176, 38);
-            this.buttonBuscar.TabIndex = 80;
-            this.buttonBuscar.Text = "Buscar";
-            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.ColumnName.HeaderText = "Nombre";
+            this.ColumnName.MinimumWidth = 6;
+            this.ColumnName.Name = "ColumnName";
             // 
-            // label2
+            // ColumnSurname
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(78, 99);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 22);
-            this.label2.TabIndex = 81;
-            this.label2.Text = "DNI";
+            this.ColumnSurname.HeaderText = "Apellido";
+            this.ColumnSurname.MinimumWidth = 6;
+            this.ColumnSurname.Name = "ColumnSurname";
+            // 
+            // ColumnDni
+            // 
+            this.ColumnDni.HeaderText = "DNI";
+            this.ColumnDni.MinimumWidth = 6;
+            this.ColumnDni.Name = "ColumnDni";
+            // 
+            // ColumnTelefono
+            // 
+            this.ColumnTelefono.HeaderText = "Tel.";
+            this.ColumnTelefono.MinimumWidth = 6;
+            this.ColumnTelefono.Name = "ColumnTelefono";
+            // 
+            // ColumnEmail
+            // 
+            this.ColumnEmail.HeaderText = "Email";
+            this.ColumnEmail.MinimumWidth = 6;
+            this.ColumnEmail.Name = "ColumnEmail";
+            // 
+            // ColumnTitulo
+            // 
+            this.ColumnTitulo.HeaderText = "Titulo";
+            this.ColumnTitulo.MinimumWidth = 6;
+            this.ColumnTitulo.Name = "ColumnTitulo";
+            // 
+            // ColumnLaboratorio
+            // 
+            this.ColumnLaboratorio.HeaderText = "Lab.";
+            this.ColumnLaboratorio.MinimumWidth = 6;
+            this.ColumnLaboratorio.Name = "ColumnLaboratorio";
             // 
             // GestionEmpleadosA
             // 

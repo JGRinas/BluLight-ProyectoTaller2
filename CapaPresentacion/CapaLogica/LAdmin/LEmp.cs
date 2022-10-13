@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,7 +14,7 @@ namespace CapaLogica.LAdmin
 {
     public class LEmp : Librerias
     {
-        
+        private int dniEmpleadoBuscar;
         public void comboBoxLaboratorio(ComboBox comboBox)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
@@ -29,22 +30,22 @@ namespace CapaLogica.LAdmin
         {
             bool validation = true;
 
-            for (int i = 0; i < listTextBoxes.Count; i++)
+            foreach(TextBox textBox in listTextBoxes)
             {
-                if (listTextBoxes[i].Text.Equals(""))
+                if (textBox.Text.Equals(""))
                 {
                     validation = false;
                 }
             }
 
-            bool valEmail = textBoxEvent.validateEmail(listTextBoxes[5].Text);
+            bool valEmail = textBoxEvent.validateEmail(listTextBoxes[3].Text);
 
             if (validation && valEmail)
             {
                 using (bd_blulightEntities db = new bd_blulightEntities())
                 {
 
-                    var dni = Int32.Parse(listTextBoxes[2].Text);
+                    int dni = Int32.Parse(listTextBoxes[2].Text.ToString());
                     var dniValidate = from p in db.Empleado where p.Persona.dni == dni select p;
 
                     if (dniValidate.ToArray().Length > 0)
@@ -54,11 +55,11 @@ namespace CapaLogica.LAdmin
                     else
                     {
                         Persona persona = new Persona();
-                        persona.nombre = listTextBoxes[0].Text;
-                        persona.apellido = listTextBoxes[1].Text;
-                        persona.dni = Int32.Parse(listTextBoxes[2].Text);
-                        persona.telefono = Int32.Parse(listTextBoxes[4].Text);
-                        persona.email = listTextBoxes[5].Text;
+                        persona.nombre = listTextBoxes[0].Text.ToString();
+                        persona.apellido = listTextBoxes[1].Text.ToString();
+                        persona.dni = Int32.Parse(listTextBoxes[2].Text.ToString());
+                        persona.telefono = Int32.Parse(listTextBoxes[4].Text.ToString());
+                        persona.email = listTextBoxes[3].Text.ToString();
 
                         db.Persona.Add(persona);
                         db.SaveChanges();
@@ -66,7 +67,7 @@ namespace CapaLogica.LAdmin
                         var personaE = db.Persona.Where(b => b.dni.Equals(dni)).ToList();
                         Empleado empleado = new Empleado();
 
-                        empleado.maxTitulo = listTextBoxes[3].Text;
+                        empleado.maxTitulo = listTextBoxes[5].Text.ToString();
                         empleado.idPersona = personaE[0].idPersona;
 
                         if (comboBoxLaboratorio.SelectedIndex == -1) empleado.idLab = null;
@@ -107,26 +108,28 @@ namespace CapaLogica.LAdmin
 
             buttons[1].Enabled = false;
             buttons[1].Text = "Eliminar";
+
+            buttons[2].Text = "Registrar";
         }
-        public void modificarEmpleado(List<TextBox> listTextBox, ComboBox comboBoxLaboratorio, Button buttonModificar)
+        public void modificarEmpleado(List<TextBox> listTextBox, ComboBox comboBoxLaboratorio)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
                 bool validation = true;
 
-                for (int i = 0; i < listTextBox.Count; i++)
+                foreach (TextBox textBox in listTextBox)
                 {
-                    if (listTextBox[i].Text.Equals(""))
+                    if (textBox.Text.Equals(""))
                     {
                         validation = false;
                     }
                 }
 
-                bool valEmail = textBoxEvent.validateEmail(listTextBox[5].Text);
+                bool valEmail = textBoxEvent.validateEmail(listTextBox[2].Text);
 
                 if (validation && valEmail) 
                 {
-                    int dniIngresado = Int32.Parse(listTextBox[2].Text);
+                    int dniIngresado = Int32.Parse(listTextBox[3].Text);
                     var dniValidate = from p in db.Empleado where p.Persona.dni == dniIngresado select p;
                     if (dniEmpleadoBuscar == dniIngresado || dniValidate.ToArray().Length <= 0)
                     {
@@ -137,10 +140,10 @@ namespace CapaLogica.LAdmin
 
                         empleado.Persona.nombre = listTextBox[0].Text;
                         empleado.Persona.apellido = listTextBox[1].Text;
-                        empleado.Persona.dni = Int32.Parse(listTextBox[2].Text);
-                        empleado.maxTitulo = listTextBox[3].Text;
+                        empleado.Persona.dni = Int32.Parse(listTextBox[3].Text);
+                        empleado.maxTitulo = listTextBox[5].Text;
                         empleado.Persona.telefono = Int32.Parse(listTextBox[4].Text);
-                        empleado.Persona.email = listTextBox[5].Text;
+                        empleado.Persona.email = listTextBox[2].Text;
                         db.SaveChanges();
                         MessageBox.Show("Empleado modificado", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -149,7 +152,6 @@ namespace CapaLogica.LAdmin
                             listTextBox[i].Text = "";
                         }
                         comboBoxLaboratorio.SelectedIndex = -1;
-                        buttonModificar.Enabled = false;
                         
                     }
                     else if(dniValidate.ToArray().Length > 0)
@@ -210,130 +212,131 @@ namespace CapaLogica.LAdmin
            }
         }
 
-        public void buscarEmpleado(List<Label> listLabels, int dni, Button buttonEliminar)
+        public void obtenerEmpleado(List<TextBox> textBoxes, ComboBox comboBox, DataGridView dataGridView, List<Button> buttons)
         {
-            using (bd_blulightEntities db = new bd_blulightEntities())
+            textBoxes[0].Text = dataGridView.CurrentRow.Cells[1].Value.ToString();
+            textBoxes[1].Text = dataGridView.CurrentRow.Cells[2].Value.ToString();
+            textBoxes[2].Text = dataGridView.CurrentRow.Cells[3].Value.ToString();
+            textBoxes[3].Text = dataGridView.CurrentRow.Cells[4].Value.ToString();
+            textBoxes[4].Text = dataGridView.CurrentRow.Cells[5].Value.ToString();
+            textBoxes[5].Text = dataGridView.CurrentRow.Cells[6].Value.ToString();
+            textBoxes[6].Text = dataGridView.CurrentRow.Cells[3].Value.ToString();
+
+            using (bd_blulightEntities bd = new bd_blulightEntities())
             {
-                foreach (Label label in listLabels)
+                List<Laboratorio> laboratorios = new List<Laboratorio>();
+                laboratorios = bd.Laboratorio.ToList();
+
+                int idlabo = 0;
+                foreach(Laboratorio laboratorio in laboratorios)
                 {
-                    label.Text = "";
+                    if (laboratorio.nombre.Equals(dataGridView.CurrentRow.Cells[7].Value.ToString()))
+                    {
+                        idlabo = laboratorio.idLab;
+                    }
                 }
-
-                Empleado empleados = new Empleado();
-
-                var personaE = db.Empleado.Where(b => b.Persona.dni.Equals(dni)).ToList();
-
-                if (personaE.Count > 0)
-                {
-                    var idP = Int32.Parse(personaE[0].idPersona.ToString());
-                    empleados = db.Empleado.Where(e => e.idPersona.Equals(idP)).First();
-
-                    var lab = "No corresponde";
-                    if (empleados.idLab != null) lab = empleados.Laboratorio.nombre;
-
-                    listLabels[0].Text += empleados.Persona.nombre + " " + empleados.Persona.apellido;
-                    listLabels[1].Text += empleados.Persona.email;
-                    listLabels[2].Text += empleados.Persona.dni.ToString();
-                    listLabels[3].Text += lab;
-
-                    if (empleados.activo) buttonEliminar.Text = "Eliminar";
-                    else buttonEliminar.Text = "Restaurar";
-
-                }
-                else
-                {
-                    MessageBox.Show("Empleado inexistente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                comboBox.SelectedIndex = idlabo - 1;
             }
-        }
 
-        private int dniEmpleadoBuscar;
-        public void buscarEmpleadoModificar(List<TextBox> listTextBox, ComboBox comboBoxLaboratorio, Button buttonModificar, int dni)
+            dniEmpleadoBuscar = Int32.Parse(dataGridView.CurrentRow.Cells[3].Value.ToString());
+
+            buttons[0].Enabled = true;
+            buttons[1].Enabled = true;
+            buttons[1].Text = "Eliminar";
+            if (dataGridView.CurrentRow.Cells[0].Value.ToString().Equals("No")) buttons[1].Text = "Restaurar";
+            buttons[2].Text = "Restablecer";
+        }
+        public void buscarEmpleado(List<TextBox> textBoxes, ComboBox comboBox, List<Button> buttons)
         {
-            using (bd_blulightEntities db = new bd_blulightEntities())
+            if (textBoxes[6].Text.Equals(""))
             {
-                foreach (TextBox textBox in listTextBox)
-                {
-                    textBox.Text = "";
-                }
-
-                comboBoxLaboratorio.SelectedIndex = -1;
-                Empleado empleados = new Empleado();
-
-                var personaE = db.Empleado.Where(b => b.Persona.dni.Equals(dni)).ToList();
-
-                if (personaE.Count > 0)
-                {
-                    dniEmpleadoBuscar = dni;
-                    var idP = Int32.Parse(personaE[0].idPersona.ToString());
-                    empleados = db.Empleado.Where(e => e.idPersona.Equals(idP)).First();
-                    listTextBox[0].Text = empleados.Persona.nombre;
-                    listTextBox[1].Text = empleados.Persona.apellido;
-                    listTextBox[2].Text = empleados.Persona.dni.ToString();
-                    listTextBox[3].Text = empleados.maxTitulo;
-                    listTextBox[4].Text = empleados.Persona.telefono.ToString();
-                    listTextBox[5].Text = empleados.Persona.email;
-
-                    int lab = -1;
-                    if (empleados.idLab != null) lab = Int32.Parse(empleados.idLab.ToString()) - 1;
-
-                    comboBoxLaboratorio.SelectedIndex = lab;
-
-                    buttonModificar.Enabled = true;
-                }
-                else
-                {
-                    MessageBox.Show("Empleado inexistente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Ingrese un dni", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+            else
+            {
+                using (bd_blulightEntities db = new bd_blulightEntities())
+                {
+                    Empleado empleados = new Empleado();
+                    int dniB = Int32.Parse(textBoxes[6].Text);
+                    var personaE = db.Empleado.Where(b => b.Persona.dni.Equals(dniB)).ToList();
 
-        
-        public void deleteUser(int dni)
+                    if (personaE.Count > 0)
+                    {
+                        empleados = db.Empleado.Where(b => b.Persona.dni.Equals(dniB)).FirstOrDefault();
+                        var lab = 0;
+                        if (empleados.idLab != null) lab = empleados.Laboratorio.idLab;
+                        dniEmpleadoBuscar = dniB;
+                        textBoxes[0].Text = empleados.Persona.nombre;
+                        textBoxes[1].Text = empleados.Persona.apellido;
+                        textBoxes[2].Text = empleados.Persona.email;
+                        textBoxes[3].Text = empleados.Persona.dni.ToString(); 
+                        textBoxes[4].Text = empleados.Persona.telefono.ToString();
+                        textBoxes[5].Text = empleados.maxTitulo;
+
+                        comboBox.SelectedIndex = lab;
+
+                        buttons[0].Enabled = true;
+                       
+
+                        if (empleados.activo) buttons[1].Text = "Eliminar";
+                        else buttons[1].Text = "Restaurar";
+
+                        buttons[1].Enabled = true;
+
+                        buttons[2].Text = "Restablecer";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Empleado inexistente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            } 
+        }
+        public void deleteUser()
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
                 if (MessageBox.Show("Estas seguro de que desea eliminar al empleado?", "Eliminar empleado", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     
-                    if (db.Empleado.Where(e => e.Persona.dni.Equals(dni)).ToList().Count > 0)
+                    if (db.Empleado.Where(e => e.Persona.dni.Equals(dniEmpleadoBuscar)).ToList().Count > 0)
                     {
-                        var activo = db.Empleado.SingleOrDefault(e => e.Persona.dni.Equals(dni));
+                        var activo = db.Empleado.SingleOrDefault(e => e.Persona.dni.Equals(dniEmpleadoBuscar));
 
                             activo.activo = false;
-                            MessageBox.Show("Empleado eliminado", "Eliminar Empleado", MessageBoxButtons.OK);
+                            MessageBox.Show("Empleado eliminado", "Eliminar Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         db.SaveChanges();
 
                     }
                     else
                     {
-                        MessageBox.Show("El empleado No Existe", "Error", MessageBoxButtons.OK);
+                        MessageBox.Show("El empleado No Existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
         }
 
-        public void restoreUser(int dni)
+        public void restoreUser()
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
                 if (MessageBox.Show("Estas seguro de que desea restaurar al empleado?", "Resaturar empleado", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
 
-                    if (db.Empleado.Where(e => e.Persona.dni.Equals(dni)).ToList().Count > 0)
+                    if (db.Empleado.Where(e => e.Persona.dni.Equals(dniEmpleadoBuscar)).ToList().Count > 0)
                     {
-                        var activo = db.Empleado.SingleOrDefault(e => e.Persona.dni.Equals(dni));
+                        var activo = db.Empleado.SingleOrDefault(e => e.Persona.dni.Equals(dniEmpleadoBuscar));
 
                             activo.activo = true;
-                            MessageBox.Show("Empleado restaurado", "Restaurar Empleado", MessageBoxButtons.OK);
+                            MessageBox.Show("Empleado restaurado", "Restaurar Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         db.SaveChanges();
 
                     }
                     else
                     {
-                        MessageBox.Show("El empleado No Existe", "Error", MessageBoxButtons.OK);
+                        MessageBox.Show("El empleado No Existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
             }
