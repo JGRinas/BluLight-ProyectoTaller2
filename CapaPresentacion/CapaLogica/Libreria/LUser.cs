@@ -20,7 +20,8 @@ namespace CapaLogica.LAdmin
             {
                 string sPass = Encrypt.GetSHA256(listLogin[1].Text);
                 var usuario = listLogin[0].Text.ToString();
-                if (db.Usuario.Where(d => d.usuario1.Equals(usuario) && d.password.Equals(sPass)).ToList().Count > 0)
+                var userValidate = db.Usuario.Where(d => d.usuario1.Equals(usuario) && d.password.Equals(sPass));
+                if (userValidate.ToList().Count > 0 && userValidate.FirstOrDefault().activo)
                 {
                     MyGlobals.usuario = db.Usuario.Where(d => d.usuario1.Equals(usuario)).FirstOrDefault();
 

@@ -22,7 +22,7 @@
         <EntityTypeShape EntityType="bd_blulightModel.Perfil_de_usuario" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="bd_blulightModel.Persona" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="bd_blulightModel.Producto" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="bd_blulightModel.Salon_auditorio" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Salon_auditorio" Width="1.5" PointX="3.375" PointY="10.875" IsExpanded="true" />
         <EntityTypeShape EntityType="bd_blulightModel.Servicio" Width="1.5" PointX="3.75" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="bd_blulightModel.Servicio_laboratorio" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="bd_blulightModel.Usuario" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />

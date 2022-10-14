@@ -35,42 +35,47 @@ namespace CapaLogica.LAdmin
                 {
                     foreach (Empleado empleado in empleados)
                     {
-                        var activo = "";
-                        int fila = dataGrid.Rows.Add();
                         if (empleado.activo)
                         {
-                            activo = "Si";
-                            dataGrid.Rows[fila].DefaultCellStyle.BackColor = Color.White;
+                            var activo = "-";
+                            int fila = dataGrid.Rows.Add();
+
+                            var usuario = db.Usuario.Where(u => u.idEmpleado.Equals(empleado.idEmpleado));
+                            var esUsuario = "";
+                           
+                            var nombreDeUsuario = " - ";
+                            var tipoPerfil = " - ";
+                            if (usuario.ToList().Count > 0)
+                            {
+                                esUsuario = "Si";
+
+                                nombreDeUsuario = usuario.FirstOrDefault().usuario1;
+                                tipoPerfil = usuario.FirstOrDefault().Perfil_de_usuario.perfil;
+
+                                if (usuario.FirstOrDefault().activo)
+                                {
+                                    activo = "Si";
+                                    dataGrid.Rows[fila].DefaultCellStyle.BackColor = Color.White;
+                                }
+                                else
+                                {
+                                    activo = "No";
+                                    dataGrid.Rows[fila].DefaultCellStyle.BackColor = Color.Gray;
+                                }
+                            }
+                            else esUsuario = "No";
+
+
+
+                            dataGrid.Rows[fila].Cells["ColumnActivo"].Value = activo;
+                            dataGrid.Rows[fila].Cells["ColumnName"].Value = empleado.Persona.nombre;
+                            dataGrid.Rows[fila].Cells["ColumnSurname"].Value = empleado.Persona.apellido;
+                            dataGrid.Rows[fila].Cells["ColumnDni"].Value = empleado.Persona.dni;
+                            dataGrid.Rows[fila].Cells["ColumnUsuario"].Value = esUsuario;
+                            dataGrid.Rows[fila].Cells["ColumnNombreUsuario"].Value = nombreDeUsuario;
+                            dataGrid.Rows[fila].Cells["ColumnTipoDePerfil"].Value = tipoPerfil;
                         }
-                        else
-                        {
-                            activo = "No";
-                            dataGrid.Rows[fila].DefaultCellStyle.BackColor = Color.Gray;
-                        }
-
-                        var usuario = db.Usuario.Where(u => u.idEmpleado.Equals(empleado.idEmpleado));
-                        var esUsuario = "";
-
-                        var nombreDeUsuario = " - ";
-                        var tipoPerfil = " - ";
-                        if (usuario.ToList().Count > 0)
-                        {
-                            esUsuario = "Si";
-
-                            nombreDeUsuario = usuario.FirstOrDefault().usuario1;
-                            tipoPerfil = usuario.FirstOrDefault().Perfil_de_usuario.perfil;
-                        }
-                        else esUsuario = "No";
-
-
-
-                        dataGrid.Rows[fila].Cells["ColumnActivo"].Value = activo;
-                        dataGrid.Rows[fila].Cells["ColumnName"].Value = empleado.Persona.nombre;
-                        dataGrid.Rows[fila].Cells["ColumnSurname"].Value = empleado.Persona.apellido;
-                        dataGrid.Rows[fila].Cells["ColumnDni"].Value = empleado.Persona.dni;
-                        dataGrid.Rows[fila].Cells["ColumnUsuario"].Value = esUsuario;
-                        dataGrid.Rows[fila].Cells["ColumnNombreUsuario"].Value = nombreDeUsuario;
-                        dataGrid.Rows[fila].Cells["ColumnTipoDePerfil"].Value = tipoPerfil;
+                        
                     }
                 }
             }
@@ -94,13 +99,12 @@ namespace CapaLogica.LAdmin
 
                 Empleado empleados = new Empleado();
 
-                var personaE = db.Persona.Where(b => b.dni.Equals(dni)).ToList();
+                var personaE = db.Empleado.Where(b => b.Persona.dni.Equals(dni));
 
-                if (personaE.Count > 0)
+                if (personaE.ToList().Count > 0 && personaE.FirstOrDefault().activo)
                 {
                     dniNuevoUsuario = dni;
-                    var idP = Int32.Parse(personaE[0].idPersona.ToString());
-                    empleados = db.Empleado.Where(e => e.idPersona.Equals(idP)).First();
+                    empleados = personaE.FirstOrDefault();
 
                     var lab = "No corresponde";
                     if (empleados.idLab != null)
