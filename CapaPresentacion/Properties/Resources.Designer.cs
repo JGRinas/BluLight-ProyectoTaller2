@@ -113,6 +113,26 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cesta_de_la_compra__1_ {
+            get {
+                object obj = ResourceManager.GetObject("cesta-de-la-compra (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cliente {
+            get {
+                object obj = ResourceManager.GetObject("cliente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap construccion_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("construccion-removebg-preview", resourceCulture);
@@ -233,6 +253,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap servicio_al_cliente__1_ {
+            get {
+                object obj = ResourceManager.GetObject("servicio-al-cliente (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap space {
             get {
                 object obj = ResourceManager.GetObject("space", resourceCulture);
@@ -276,6 +306,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap undraw_Welcoming_re_x0qo_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("undraw_Welcoming_re_x0qo-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ventas__1_ {
+            get {
+                object obj = ResourceManager.GetObject("ventas (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

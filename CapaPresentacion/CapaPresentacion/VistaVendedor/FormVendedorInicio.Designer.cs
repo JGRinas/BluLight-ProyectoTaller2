@@ -35,10 +35,8 @@
             this.buttonListaProductos = new System.Windows.Forms.Button();
             this.buttonNuevaVenta = new System.Windows.Forms.Button();
             this.buttonCerrarSesion = new System.Windows.Forms.Button();
-            this.buttonVentas = new System.Windows.Forms.Button();
             this.panelUsuarios = new System.Windows.Forms.Panel();
             this.buttonGestionClientes = new System.Windows.Forms.Button();
-            this.buttonClientes = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.labelApellido = new System.Windows.Forms.Label();
             this.labelNombre = new System.Windows.Forms.Label();
@@ -46,10 +44,13 @@
             this.panelSecundario = new System.Windows.Forms.Panel();
             this.panelss = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.buttonMinimizar = new Bunifu.UI.WinForms.BunifuImageButton();
             this.buttonMaximizar = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuImageButton1 = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonVentas = new System.Windows.Forms.Button();
+            this.buttonClientes = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panelVentas.SuspendLayout();
             this.panelUsuarios.SuspendLayout();
@@ -61,6 +62,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.panelVentas);
             this.panel2.Controls.Add(this.buttonCerrarSesion);
             this.panel2.Controls.Add(this.buttonVentas);
@@ -80,7 +82,7 @@
             this.panelVentas.Controls.Add(this.buttonListaProductos);
             this.panelVentas.Controls.Add(this.buttonNuevaVenta);
             this.panelVentas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelVentas.Location = new System.Drawing.Point(0, 252);
+            this.panelVentas.Location = new System.Drawing.Point(0, 302);
             this.panelVentas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelVentas.Name = "panelVentas";
             this.panelVentas.Size = new System.Drawing.Size(240, 70);
@@ -139,30 +141,12 @@
             this.buttonCerrarSesion.UseVisualStyleBackColor = false;
             this.buttonCerrarSesion.Click += new System.EventHandler(this.buttonCerrarSesion_Click);
             // 
-            // buttonVentas
-            // 
-            this.buttonVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.buttonVentas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonVentas.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonVentas.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVentas.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonVentas.Location = new System.Drawing.Point(0, 221);
-            this.buttonVentas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonVentas.Name = "buttonVentas";
-            this.buttonVentas.Size = new System.Drawing.Size(240, 31);
-            this.buttonVentas.TabIndex = 10;
-            this.buttonVentas.Text = "Ventas";
-            this.buttonVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonVentas.UseVisualStyleBackColor = false;
-            this.buttonVentas.Click += new System.EventHandler(this.buttonListProductos_Click);
-            // 
             // panelUsuarios
             // 
             this.panelUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.panelUsuarios.Controls.Add(this.buttonGestionClientes);
             this.panelUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelUsuarios.Location = new System.Drawing.Point(0, 181);
+            this.panelUsuarios.Location = new System.Drawing.Point(0, 204);
             this.panelUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelUsuarios.Name = "panelUsuarios";
             this.panelUsuarios.Size = new System.Drawing.Size(240, 40);
@@ -185,24 +169,6 @@
             this.buttonGestionClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonGestionClientes.UseVisualStyleBackColor = true;
             this.buttonGestionClientes.Click += new System.EventHandler(this.buttonGestionClientes_Click);
-            // 
-            // buttonClientes
-            // 
-            this.buttonClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.buttonClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonClientes.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClientes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClientes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonClientes.Location = new System.Drawing.Point(0, 150);
-            this.buttonClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonClientes.Name = "buttonClientes";
-            this.buttonClientes.Size = new System.Drawing.Size(240, 31);
-            this.buttonClientes.TabIndex = 8;
-            this.buttonClientes.Text = "Clientes";
-            this.buttonClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonClientes.UseVisualStyleBackColor = false;
-            this.buttonClientes.Click += new System.EventHandler(this.buttonClientes_Click);
             // 
             // panelLogo
             // 
@@ -287,6 +253,11 @@
             this.panel1.Size = new System.Drawing.Size(760, 41);
             this.panel1.TabIndex = 1;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 20;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // buttonMinimizar
             // 
@@ -399,10 +370,64 @@
             this.bunifuImageButton1.ZoomSpeed = 10;
             this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
             // 
-            // bunifuElipse1
+            // button1
             // 
-            this.bunifuElipse1.ElipseRadius = 20;
-            this.bunifuElipse1.TargetControl = this;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button1.Image = global::CapaPresentacion.Properties.Resources.ventas__1_;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Location = new System.Drawing.Point(0, 372);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(240, 58);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Ventas realizadas";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // buttonVentas
+            // 
+            this.buttonVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.buttonVentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonVentas.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonVentas.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVentas.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonVentas.Image = global::CapaPresentacion.Properties.Resources.cesta_de_la_compra__1_;
+            this.buttonVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonVentas.Location = new System.Drawing.Point(0, 244);
+            this.buttonVentas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonVentas.Name = "buttonVentas";
+            this.buttonVentas.Size = new System.Drawing.Size(240, 58);
+            this.buttonVentas.TabIndex = 10;
+            this.buttonVentas.Text = "Ventas";
+            this.buttonVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonVentas.UseVisualStyleBackColor = false;
+            this.buttonVentas.Click += new System.EventHandler(this.buttonListProductos_Click);
+            // 
+            // buttonClientes
+            // 
+            this.buttonClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.buttonClientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonClientes.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClientes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClientes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonClientes.Image = global::CapaPresentacion.Properties.Resources.servicio_al_cliente__1_;
+            this.buttonClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonClientes.Location = new System.Drawing.Point(0, 150);
+            this.buttonClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonClientes.Name = "buttonClientes";
+            this.buttonClientes.Size = new System.Drawing.Size(240, 54);
+            this.buttonClientes.TabIndex = 8;
+            this.buttonClientes.Text = "Clientes";
+            this.buttonClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonClientes.UseVisualStyleBackColor = false;
+            this.buttonClientes.Click += new System.EventHandler(this.buttonClientes_Click);
             // 
             // FormVendedorInicio
             // 
@@ -450,5 +475,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelApellido;
         private System.Windows.Forms.Label labelNombre;
+        private System.Windows.Forms.Button button1;
     }
 }

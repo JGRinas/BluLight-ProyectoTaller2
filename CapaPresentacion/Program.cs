@@ -23,7 +23,7 @@ namespace CapaPresentacion
             Application.SetCompatibleTextRenderingDefault(false);
 
             //FormOpen formOpen = new FormOpen();
-            FormAdminInicio formOpen = new FormAdminInicio();
+            FormVendedorInicio formOpen = new FormVendedorInicio();
             formOpen.Show();
 
            

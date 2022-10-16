@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="bd_blulightModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="bd_blulightModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categoria_producto">
           <Key>
             <PropertyRef Name="idCategoriaProd" />
@@ -143,8 +143,10 @@
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="telefono" Type="bigint" Nullable="false" />
           <Property Name="dni" Type="int" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="50" />
+          <Property Name="activo" Type="bit" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -523,8 +525,7 @@
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="bd_blulightModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -692,10 +693,12 @@
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="telefono" Type="Int64" Nullable="false" />
+          <Property Name="telefono" Type="String" />
           <Property Name="dni" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Empleado" Relationship="Self.FK_empleado_persona" FromRole="Persona" ToRole="Empleado" />
           <NavigationProperty Name="Inscripto_jornada" Relationship="Self.FK_inscripcion_persona" FromRole="Persona" ToRole="Inscripto_jornada" />
+          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="activo" Type="Boolean" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -1235,6 +1238,8 @@
           <EntitySetMapping Name="Persona">
             <EntityTypeMapping TypeName="bd_blulightModel.Persona">
               <MappingFragment StoreEntitySet="Persona">
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
                 <ScalarProperty Name="idPersona" ColumnName="idPersona" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="apellido" ColumnName="apellido" />

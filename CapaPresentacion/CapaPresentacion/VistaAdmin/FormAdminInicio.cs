@@ -35,8 +35,8 @@ namespace Proyecto2022.CapaPresentacion
             InitializeComponent();
             customizarDiseno();
             user = new LUser();
-            //labelNombre.Text = MyGlobals.persona.nombre;
-            //labelApellido.Text = MyGlobals.persona.apellido;
+            labelNombre.Text = MyGlobals.persona.nombre;
+            labelApellido.Text = MyGlobals.persona.apellido;
         }
 
         private void customizarDiseno()

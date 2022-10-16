@@ -58,7 +58,7 @@ namespace CapaLogica.LAdmin
                         persona.nombre = listTextBoxes[0].Text.ToString();
                         persona.apellido = listTextBoxes[1].Text.ToString();
                         persona.dni = Int32.Parse(listTextBoxes[2].Text.ToString());
-                        persona.telefono = Int32.Parse(listTextBoxes[4].Text.ToString());
+                        persona.telefono = listTextBoxes[4].Text.ToString();
                         persona.email = listTextBoxes[3].Text.ToString();
 
                         db.Persona.Add(persona);
@@ -142,7 +142,7 @@ namespace CapaLogica.LAdmin
                         empleado.Persona.apellido = listTextBox[1].Text;
                         empleado.Persona.dni = Int32.Parse(listTextBox[3].Text);
                         empleado.maxTitulo = listTextBox[5].Text;
-                        empleado.Persona.telefono = Int32.Parse(listTextBox[4].Text);
+                        empleado.Persona.telefono = listTextBox[4].Text;
                         empleado.Persona.email = listTextBox[2].Text;
                         db.SaveChanges();
                         MessageBox.Show("Empleado modificado", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);

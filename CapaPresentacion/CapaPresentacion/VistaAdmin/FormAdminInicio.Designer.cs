@@ -200,14 +200,14 @@
             this.buttonUsuario.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUsuario.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonUsuario.Image = global::CapaPresentacion.Properties.Resources.perfil_del_usuario;
-            this.buttonUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonUsuario.Location = new System.Drawing.Point(0, 429);
             this.buttonUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUsuario.Name = "buttonUsuario";
             this.buttonUsuario.Size = new System.Drawing.Size(219, 57);
             this.buttonUsuario.TabIndex = 14;
             this.buttonUsuario.Text = "Usuarios";
-            this.buttonUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonUsuario.UseVisualStyleBackColor = false;
             this.buttonUsuario.Click += new System.EventHandler(this.buttonUsuario_Click);
             // 
@@ -316,14 +316,14 @@
             this.buttonProductos.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonProductos.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonProductos.Image = global::CapaPresentacion.Properties.Resources.arbol_de_la_planta;
-            this.buttonProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonProductos.Location = new System.Drawing.Point(0, 242);
             this.buttonProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonProductos.Name = "buttonProductos";
             this.buttonProductos.Size = new System.Drawing.Size(219, 57);
             this.buttonProductos.TabIndex = 3;
             this.buttonProductos.Text = "Productos";
-            this.buttonProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonProductos.UseVisualStyleBackColor = false;
             this.buttonProductos.Click += new System.EventHandler(this.buttonProductos_Click);
             // 

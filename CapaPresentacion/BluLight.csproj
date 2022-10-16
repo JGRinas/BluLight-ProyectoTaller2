@@ -797,6 +797,10 @@
       <DependentUpon>MyEntityFramework.edmx</DependentUpon>
       <LastGenOutput>MyEntityFramework.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\ventas %281%29.png" />
+    <None Include="Resources\cesta-de-la-compra %281%29.png" />
+    <None Include="Resources\servicio-al-cliente %281%29.png" />
+    <None Include="Resources\cliente.png" />
     <None Include="Resources\biologia.png" />
     <None Include="Resources\perfil-del-usuario.png" />
     <None Include="Resources\microscopio %281%29.png" />
