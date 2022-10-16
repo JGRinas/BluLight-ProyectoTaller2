@@ -333,6 +333,7 @@
     <Compile Include="CapaLogica\Libreria\MyGlobals.cs" />
     <Compile Include="CapaLogica\Libreria\TextBoxEvent.cs" />
     <Compile Include="CapaLogica\Libreria\UploadImage.cs" />
+    <Compile Include="CapaLogica\LJefeLab\LJornada.cs" />
     <Compile Include="CapaLogica\LJefeLab\LServicio.cs" />
     <Compile Include="CapaLogica\LVendedor\LClient.cs" />
     <Compile Include="CapaLogica\LVendedor\LProductV.cs" />
@@ -784,7 +785,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="CapaLogica\LRecepcionista\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="CapaData\Model\MyEntityFramework.Context.tt">
