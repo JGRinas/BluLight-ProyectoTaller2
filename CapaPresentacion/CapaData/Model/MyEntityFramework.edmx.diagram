@@ -24,7 +24,7 @@
         <EntityTypeShape EntityType="bd_blulightModel.Producto" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="bd_blulightModel.Salon_auditorio" Width="1.5" PointX="3.375" PointY="10.875" IsExpanded="true" />
         <EntityTypeShape EntityType="bd_blulightModel.Servicio" Width="1.5" PointX="3.75" PointY="13.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="bd_blulightModel.Servicio_laboratorio" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_blulightModel.Servicio_laboratorio" Width="1.5" PointX="6" PointY="4.75" IsExpanded="false" />
         <EntityTypeShape EntityType="bd_blulightModel.Usuario" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
         <AssociationConnector Association="bd_blulightModel.FK_productos_categoria_producto" ManuallyRouted="false" />
         <AssociationConnector Association="bd_blulightModel.FK_servicio_categoria_servicio" ManuallyRouted="false" />
@@ -45,6 +45,10 @@
         <AssociationConnector Association="bd_blulightModel.FK_servicio_laboratorio_laboratorio" ManuallyRouted="false" />
         <AssociationConnector Association="bd_blulightModel.FK_usuario_perfil" ManuallyRouted="false" />
         <AssociationConnector Association="bd_blulightModel.FK_servicio_laboratorio_servicio" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_blulightModel.fk_Detalle_Estado" />
+        <AssociationConnector Association="bd_blulightModel.fk_FacturaProducto_Empleado" />
+        <AssociationConnector Association="bd_blulightModel.fk_FacturaServicio_Empleado" />
+        <AssociationConnector Association="bd_blulightModel.fk_FacturaServicio_Persona" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

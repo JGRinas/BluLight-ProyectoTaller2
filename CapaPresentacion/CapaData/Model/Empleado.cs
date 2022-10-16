@@ -19,6 +19,8 @@ namespace CapaPresentacion.CapaData.Model
         {
             this.Jefe_laboratorio = new HashSet<Jefe_laboratorio>();
             this.Usuario = new HashSet<Usuario>();
+            this.Factura_producto = new HashSet<Factura_producto>();
+            this.Factura_servicio = new HashSet<Factura_servicio>();
         }
     
         public int idEmpleado { get; set; }
@@ -26,6 +28,7 @@ namespace CapaPresentacion.CapaData.Model
         public Nullable<int> idLab { get; set; }
         public int idPersona { get; set; }
         public bool activo { get; set; }
+        public Nullable<int> idTipoEmpleado { get; set; }
     
         public virtual Laboratorio Laboratorio { get; set; }
         public virtual Persona Persona { get; set; }
@@ -33,5 +36,9 @@ namespace CapaPresentacion.CapaData.Model
         public virtual ICollection<Jefe_laboratorio> Jefe_laboratorio { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario> Usuario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Factura_producto> Factura_producto { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Factura_servicio> Factura_servicio { get; set; }
     }
 }

@@ -14,7 +14,16 @@ namespace CapaPresentacion.CapaData.Model
     
     public partial class Estado_solicitud_servicio
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Estado_solicitud_servicio()
+        {
+            this.Detalle_factura_servicio = new HashSet<Detalle_factura_servicio>();
+        }
+    
         public int idEstado { get; set; }
         public string estado { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Detalle_factura_servicio> Detalle_factura_servicio { get; set; }
     }
 }

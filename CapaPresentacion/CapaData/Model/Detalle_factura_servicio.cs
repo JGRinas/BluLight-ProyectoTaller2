@@ -21,5 +21,6 @@ namespace CapaPresentacion.CapaData.Model
         public int cantidad { get; set; }
     
         public virtual Factura_servicio Factura_servicio { get; set; }
+        public virtual Estado_solicitud_servicio Estado_solicitud_servicio { get; set; }
     }
 }

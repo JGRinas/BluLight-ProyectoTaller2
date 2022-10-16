@@ -22,8 +22,9 @@ namespace CapaPresentacion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //FormOpen formOpen = new FormOpen();
-            FormAdminInicio formOpen = new FormAdminInicio();
+            FormOpen formOpen = new FormOpen();
+            //FormAdminInicio formOpen = new FormAdminInicio();
+            //FormJefeLabInicio formOpen = new FormJefeLabInicio();
             formOpen.Show();
 
            

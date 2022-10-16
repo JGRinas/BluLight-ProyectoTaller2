@@ -23,6 +23,7 @@ namespace CapaPresentacion.CapaData.Model
     
         public int idLab { get; set; }
         public string nombre { get; set; }
+        public Nullable<bool> activo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Empleado> Empleado { get; set; }

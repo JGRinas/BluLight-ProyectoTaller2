@@ -26,9 +26,13 @@ namespace CapaPresentacion.CapaData.Model
         public System.TimeSpan hora { get; set; }
         public int idPersona { get; set; }
         public string institucion { get; set; }
+        public Nullable<bool> activo { get; set; }
+        public Nullable<int> idEmpleado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Detalle_factura_servicio> Detalle_factura_servicio { get; set; }
         public virtual Metodo_de_pago Metodo_de_pago { get; set; }
+        public virtual Empleado Empleado { get; set; }
+        public virtual Persona Persona { get; set; }
     }
 }
