@@ -24,7 +24,8 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionCursos
             jornada1.rellenarDataGridJornadas(dataGridJornadas);
             jornada1.rellenarComboBoxAuditorios(comboBoxAuditorios);
             textBoxNombre.MaxLength = 150;
-            textBoxCupo.MaxLength = 3; 
+            textBoxCupo.MaxLength = 3;
+            labelIdJornada.Text = "";
         }
 
         private void btnRegistrarJornada_Click(object sender, EventArgs e)
@@ -82,11 +83,43 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionCursos
             botones.Add(btnModificarJornada);
             botones.Add(btnEliminarJornada);
 
-            jornada1.obtenerJornada(textBoxes, comboBoxAuditorios, dataGridJornadas);
+            jornada1.obtenerJornada(textBoxes, comboBoxAuditorios, dataGridJornadas, labelIdJornada);
 
             btnModificarJornada.Enabled = true;
             btnEliminarJornada.Enabled = true;
             btnRegistrarJornada.Text = "Restaurar";
+            
+        }
+
+        private void btnEliminarJornada_Click(object sender, EventArgs e)
+        {
+            List<TextBox> listTextBoxes = new List<TextBox>();
+            listTextBoxes.Add(textBoxNombre);
+            listTextBoxes.Add(textBoxCupo);
+
+            List<DateTimePicker> listDateTime = new List<DateTimePicker>();
+            listDateTime.Add(dateTimePickerFecha);
+            listDateTime.Add(dateTimePickerHora);
+           
+            jornada1.eliminarJornada(Int32.Parse(labelIdJornada.Text), listTextBoxes, listDateTime, comboBoxAuditorios);
+        }
+
+        private void labelIdJornada_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificarJornada_Click(object sender, EventArgs e)
+        {
+            List<TextBox> listTextBoxes = new List<TextBox>();
+            listTextBoxes.Add(textBoxNombre);
+            listTextBoxes.Add(textBoxCupo);
+
+            List<DateTimePicker> listDateTime = new List<DateTimePicker>();
+            listDateTime.Add(dateTimePickerFecha);
+            listDateTime.Add(dateTimePickerHora);
+
+            jornada1.modificarJornada(Int32.Parse(labelIdJornada.Text), listTextBoxes, listDateTime, comboBoxAuditorios);
         }
     }
 }
