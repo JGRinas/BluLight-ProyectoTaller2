@@ -184,8 +184,8 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                             jornada.nombre = listTextBoxes[1].Text;
                             jornada.cupo = Int32.Parse(listTextBoxes[2].Text);
                             jornada.fecha = listDateTime[0].Value;
-                            jornada.hora = listDateTime[1].Value;
-                            jornada.idAuditorio = comboBox[1].SelectedIndex + 1;
+                            jornada.hora = listDateTime[1].Value.TimeOfDay;
+                            jornada.idAuditorio = comboBoxAuditorios.SelectedIndex + 1;
 
                             db.SaveChanges();
                             MessageBox.Show("Jornada modificada", "Modificar jornada", MessageBoxButtons.OK, MessageBoxIcon.Information);

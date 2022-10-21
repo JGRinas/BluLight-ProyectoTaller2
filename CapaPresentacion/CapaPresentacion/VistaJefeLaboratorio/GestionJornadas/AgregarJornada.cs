@@ -121,5 +121,10 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionCursos
 
             jornada1.modificarJornada(Int32.Parse(labelIdJornada.Text), listTextBoxes, listDateTime, comboBoxAuditorios);
         }
+
+        private void dataGridJornadas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
