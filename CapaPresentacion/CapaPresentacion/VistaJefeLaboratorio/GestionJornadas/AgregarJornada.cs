@@ -51,6 +51,7 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionCursos
                 btnModificarJornada.Enabled = false;
                 btnEliminarJornada.Enabled = false;
                 btnRegistrarJornada.Text = "Registrar";
+                btnActivarJornada.Enabled = false;
 
             }
 
@@ -82,11 +83,11 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionCursos
             botones.Add(btnRegistrarJornada);
             botones.Add(btnModificarJornada);
             botones.Add(btnEliminarJornada);
+            botones.Add(btnActivarJornada);
 
-            jornada1.obtenerJornada(textBoxes, comboBoxAuditorios, dataGridJornadas, labelIdJornada);
+            jornada1.obtenerJornada(textBoxes, comboBoxAuditorios, dataGridJornadas, labelIdJornada, botones);
 
-            btnModificarJornada.Enabled = true;
-            btnEliminarJornada.Enabled = true;
+            
             btnRegistrarJornada.Text = "Restaurar";
             
         }
@@ -124,6 +125,36 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionCursos
 
         private void dataGridJornadas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void labelIdJornada_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMostrarInactivas_Click(object sender, EventArgs e)
+        {
+            if (btnMostrarInactivas.Text == "Mostrar Inactivas")
+            {
+                btnMostrarInactivas.Text = "Mostrar Activas";
+                dataGridJornadas.Rows.Clear();
+                jornada1.rellenarDataGridJornadasInactivas(dataGridJornadas);
+            }
+            else
+            {
+                btnMostrarInactivas.Text = "Mostrar Inactivas";
+                dataGridJornadas.Rows.Clear();
+                jornada1.rellenarDataGridJornadas(dataGridJornadas);
+            }
+        }
+
+        private void btnActivarJornada_Click(object sender, EventArgs e)
+        {
+             int idJornadaSeleccionada = Int32.Parse(labelIdJornada.Text);
+             jornada1.activarJornada(idJornadaSeleccionada);
+             dataGridJornadas.Rows.Clear();
+             jornada1.rellenarDataGridJornadasInactivas(dataGridJornadas);
 
         }
     }

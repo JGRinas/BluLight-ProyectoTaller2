@@ -459,18 +459,6 @@
     <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\AgregarJornada.Designer.cs">
       <DependentUpon>AgregarJornada.cs</DependentUpon>
     </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\EliminarJornada.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\EliminarJornada.Designer.cs">
-      <DependentUpon>EliminarJornada.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\ModificarJornada.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\ModificarJornada.Designer.cs">
-      <DependentUpon>ModificarJornada.cs</DependentUpon>
-    </Compile>
     <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionLaboratorios\DesvincularInvestigador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -643,12 +631,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\AgregarJornada.resx">
       <DependentUpon>AgregarJornada.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\EliminarJornada.resx">
-      <DependentUpon>EliminarJornada.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\ModificarJornada.resx">
-      <DependentUpon>ModificarJornada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionLaboratorios\DesvincularInvestigador.resx">
       <DependentUpon>DesvincularInvestigador.cs</DependentUpon>

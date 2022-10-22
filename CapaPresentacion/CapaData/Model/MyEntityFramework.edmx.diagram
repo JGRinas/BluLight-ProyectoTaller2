@@ -52,6 +52,7 @@
         <AssociationConnector Association="bd_blulightModel.FK_Detalle_factura_servicio_Servicio_laboratorio" />
         <AssociationConnector Association="bd_blulightModel.FK_DetalleFacturaServicio_Empleado" />
         <AssociationConnector Association="bd_blulightModel.FK_FacturaProducto_Persona" />
+        <AssociationConnector Association="bd_blulightModel.FK_Jornada_JefeLab1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelIdJornada = new System.Windows.Forms.Label();
             this.btnModificarJornada = new System.Windows.Forms.Button();
@@ -60,15 +57,17 @@
             this.ColumnHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnJefeLab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAuditorio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bunifuDataGridView1 = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.btnMostrarInactivas = new System.Windows.Forms.Button();
+            this.btnActivarJornada = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridJornadas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnActivarJornada);
+            this.panel1.Controls.Add(this.btnMostrarInactivas);
             this.panel1.Controls.Add(this.labelIdJornada);
             this.panel1.Controls.Add(this.btnModificarJornada);
             this.panel1.Controls.Add(this.btnEliminarJornada);
@@ -97,12 +96,14 @@
             this.labelIdJornada.AutoSize = true;
             this.labelIdJornada.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelIdJornada.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelIdJornada.Location = new System.Drawing.Point(401, 159);
+            this.labelIdJornada.Location = new System.Drawing.Point(373, 15);
             this.labelIdJornada.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelIdJornada.Name = "labelIdJornada";
-            this.labelIdJornada.Size = new System.Drawing.Size(45, 19);
+            this.labelIdJornada.Size = new System.Drawing.Size(171, 19);
             this.labelIdJornada.TabIndex = 35;
-            this.labelIdJornada.Text = "Cupo";
+            this.labelIdJornada.Text = "IdJornadaInvisible";
+            this.labelIdJornada.Visible = false;
+            this.labelIdJornada.Click += new System.EventHandler(this.labelIdJornada_Click_1);
             // 
             // btnModificarJornada
             // 
@@ -110,10 +111,10 @@
             this.btnModificarJornada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarJornada.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarJornada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnModificarJornada.Location = new System.Drawing.Point(207, 191);
+            this.btnModificarJornada.Location = new System.Drawing.Point(223, 151);
             this.btnModificarJornada.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificarJornada.Name = "btnModificarJornada";
-            this.btnModificarJornada.Size = new System.Drawing.Size(132, 31);
+            this.btnModificarJornada.Size = new System.Drawing.Size(132, 36);
             this.btnModificarJornada.TabIndex = 34;
             this.btnModificarJornada.Text = "Modificar";
             this.btnModificarJornada.UseVisualStyleBackColor = true;
@@ -125,7 +126,7 @@
             this.btnEliminarJornada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarJornada.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarJornada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnEliminarJornada.Location = new System.Drawing.Point(362, 191);
+            this.btnEliminarJornada.Location = new System.Drawing.Point(223, 197);
             this.btnEliminarJornada.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarJornada.Name = "btnEliminarJornada";
             this.btnEliminarJornada.Size = new System.Drawing.Size(132, 31);
@@ -183,13 +184,13 @@
             // 
             this.btnRegistrarJornada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarJornada.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarJornada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnRegistrarJornada.Location = new System.Drawing.Point(56, 191);
+            this.btnRegistrarJornada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnRegistrarJornada.Location = new System.Drawing.Point(34, 181);
             this.btnRegistrarJornada.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegistrarJornada.Name = "btnRegistrarJornada";
-            this.btnRegistrarJornada.Size = new System.Drawing.Size(132, 31);
+            this.btnRegistrarJornada.Size = new System.Drawing.Size(132, 47);
             this.btnRegistrarJornada.TabIndex = 26;
-            this.btnRegistrarJornada.Text = "Registrar";
+            this.btnRegistrarJornada.Text = "Registrar Jornada";
             this.btnRegistrarJornada.UseVisualStyleBackColor = true;
             this.btnRegistrarJornada.Click += new System.EventHandler(this.btnRegistrarJornada_Click);
             // 
@@ -281,7 +282,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.bunifuDataGridView1);
             this.panel2.Controls.Add(this.dataGridJornadas);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 263);
@@ -294,21 +294,21 @@
             // 
             this.dataGridJornadas.AllowCustomTheming = false;
             this.dataGridJornadas.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.dataGridJornadas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            this.dataGridJornadas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridJornadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridJornadas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridJornadas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridJornadas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridJornadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridJornadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridJornadas.ColumnHeadersHeight = 40;
             this.dataGridJornadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
@@ -336,14 +336,14 @@
             this.dataGridJornadas.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dataGridJornadas.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.dataGridJornadas.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridJornadas.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridJornadas.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridJornadas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridJornadas.EnableHeadersVisualStyles = false;
             this.dataGridJornadas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
@@ -377,7 +377,7 @@
             // 
             // ColumnCupo
             // 
-            this.ColumnCupo.HeaderText = "Cupo";
+            this.ColumnCupo.HeaderText = "Inscriptos / Cupo";
             this.ColumnCupo.MinimumWidth = 6;
             this.ColumnCupo.Name = "ColumnCupo";
             // 
@@ -405,64 +405,34 @@
             this.ColumnAuditorio.MinimumWidth = 6;
             this.ColumnAuditorio.Name = "ColumnAuditorio";
             // 
-            // bunifuDataGridView1
+            // btnMostrarInactivas
             // 
-            this.bunifuDataGridView1.AllowCustomTheming = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.bunifuDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.bunifuDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.bunifuDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bunifuDataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.bunifuDataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.bunifuDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bunifuDataGridView1.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.bunifuDataGridView1.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.bunifuDataGridView1.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.bunifuDataGridView1.CurrentTheme.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.bunifuDataGridView1.CurrentTheme.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.bunifuDataGridView1.CurrentTheme.BackColor = System.Drawing.Color.White;
-            this.bunifuDataGridView1.CurrentTheme.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.bunifuDataGridView1.CurrentTheme.HeaderStyle.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuDataGridView1.CurrentTheme.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            this.bunifuDataGridView1.CurrentTheme.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.bunifuDataGridView1.CurrentTheme.HeaderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            this.bunifuDataGridView1.CurrentTheme.HeaderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.bunifuDataGridView1.CurrentTheme.Name = null;
-            this.bunifuDataGridView1.CurrentTheme.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.bunifuDataGridView1.CurrentTheme.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.bunifuDataGridView1.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.bunifuDataGridView1.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.bunifuDataGridView1.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bunifuDataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.bunifuDataGridView1.EnableHeadersVisualStyles = false;
-            this.bunifuDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.bunifuDataGridView1.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuDataGridView1.HeaderBgColor = System.Drawing.Color.Empty;
-            this.bunifuDataGridView1.HeaderForeColor = System.Drawing.Color.White;
-            this.bunifuDataGridView1.Location = new System.Drawing.Point(294, 41);
-            this.bunifuDataGridView1.Name = "bunifuDataGridView1";
-            this.bunifuDataGridView1.RowHeadersVisible = false;
-            this.bunifuDataGridView1.RowTemplate.Height = 40;
-            this.bunifuDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bunifuDataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.bunifuDataGridView1.TabIndex = 1;
-            this.bunifuDataGridView1.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.btnMostrarInactivas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarInactivas.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrarInactivas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnMostrarInactivas.Location = new System.Drawing.Point(398, 134);
+            this.btnMostrarInactivas.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMostrarInactivas.Name = "btnMostrarInactivas";
+            this.btnMostrarInactivas.Size = new System.Drawing.Size(132, 53);
+            this.btnMostrarInactivas.TabIndex = 36;
+            this.btnMostrarInactivas.Text = "Mostrar Inactivas";
+            this.btnMostrarInactivas.UseVisualStyleBackColor = true;
+            this.btnMostrarInactivas.Click += new System.EventHandler(this.btnMostrarInactivas_Click);
+            // 
+            // btnActivarJornada
+            // 
+            this.btnActivarJornada.Enabled = false;
+            this.btnActivarJornada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActivarJornada.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActivarJornada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnActivarJornada.Location = new System.Drawing.Point(397, 203);
+            this.btnActivarJornada.Margin = new System.Windows.Forms.Padding(2);
+            this.btnActivarJornada.Name = "btnActivarJornada";
+            this.btnActivarJornada.Size = new System.Drawing.Size(132, 44);
+            this.btnActivarJornada.TabIndex = 37;
+            this.btnActivarJornada.Text = "Reactivar Jornada";
+            this.btnActivarJornada.UseVisualStyleBackColor = true;
+            this.btnActivarJornada.Click += new System.EventHandler(this.btnActivarJornada_Click);
             // 
             // AgregarJornada
             // 
@@ -480,7 +450,6 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridJornadas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -490,13 +459,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private Bunifu.UI.WinForms.BunifuDataGridView dataGridJornadas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCupo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnJefeLab;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAuditorio;
         private System.Windows.Forms.DateTimePicker dateTimePickerFecha;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -513,6 +475,14 @@
         private System.Windows.Forms.Button btnModificarJornada;
         private System.Windows.Forms.Button btnEliminarJornada;
         private System.Windows.Forms.Label labelIdJornada;
-        private Bunifu.UI.WinForms.BunifuDataGridView bunifuDataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCupo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnJefeLab;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAuditorio;
+        private System.Windows.Forms.Button btnMostrarInactivas;
+        private System.Windows.Forms.Button btnActivarJornada;
     }
 }

@@ -34,5 +34,6 @@ namespace CapaPresentacion.CapaData.Model
         public virtual ICollection<Inscripto_jornada> Inscripto_jornada { get; set; }
         public virtual Jefe_laboratorio Jefe_laboratorio { get; set; }
         public virtual Salon_auditorio Salon_auditorio { get; set; }
+        public virtual Empleado Empleado { get; set; }
     }
 }

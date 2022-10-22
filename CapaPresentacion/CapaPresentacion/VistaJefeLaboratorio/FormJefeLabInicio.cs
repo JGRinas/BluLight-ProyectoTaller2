@@ -132,17 +132,6 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio
             esconderSubMenu();
         }
 
-        private void buttonEliminarCurso_Click(object sender, EventArgs e)
-        {
-            abrirFormHijo(new EliminarJornada());
-            esconderSubMenu();
-        }
-
-        private void buttonModificarCurso_Click(object sender, EventArgs e)
-        {
-            abrirFormHijo(new ModificarJornada());
-            esconderSubMenu();
-        }
         private void buttonServicio_Click(object sender, EventArgs e)
         {
             verSubMenu(panelServicios);
