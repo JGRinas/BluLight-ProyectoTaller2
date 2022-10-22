@@ -20,15 +20,17 @@ namespace CapaPresentacion.CapaData.Model
             this.Empleado = new HashSet<Empleado>();
             this.Inscripto_jornada = new HashSet<Inscripto_jornada>();
             this.Factura_servicio = new HashSet<Factura_servicio>();
+            this.Factura_producto = new HashSet<Factura_producto>();
         }
     
         public int idPersona { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
         public string email { get; set; }
-        public long telefono { get; set; }
+        public string telefono { get; set; }
         public int dni { get; set; }
         public Nullable<bool> activo { get; set; }
+        public string direccion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Empleado> Empleado { get; set; }
@@ -36,5 +38,7 @@ namespace CapaPresentacion.CapaData.Model
         public virtual ICollection<Inscripto_jornada> Inscripto_jornada { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura_servicio> Factura_servicio { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Factura_producto> Factura_producto { get; set; }
     }
 }

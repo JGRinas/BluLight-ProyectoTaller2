@@ -32,5 +32,6 @@ namespace CapaPresentacion.CapaData.Model
         public virtual ICollection<Detalle_factura_producto> Detalle_factura_producto { get; set; }
         public virtual Metodo_de_pago Metodo_de_pago { get; set; }
         public virtual Empleado Empleado { get; set; }
+        public virtual Persona Persona { get; set; }
     }
 }

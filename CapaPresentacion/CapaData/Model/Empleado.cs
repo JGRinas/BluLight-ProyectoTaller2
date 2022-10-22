@@ -21,6 +21,7 @@ namespace CapaPresentacion.CapaData.Model
             this.Usuario = new HashSet<Usuario>();
             this.Factura_producto = new HashSet<Factura_producto>();
             this.Factura_servicio = new HashSet<Factura_servicio>();
+            this.Detalle_factura_servicio = new HashSet<Detalle_factura_servicio>();
         }
     
         public int idEmpleado { get; set; }
@@ -40,5 +41,7 @@ namespace CapaPresentacion.CapaData.Model
         public virtual ICollection<Factura_producto> Factura_producto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura_servicio> Factura_servicio { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Detalle_factura_servicio> Detalle_factura_servicio { get; set; }
     }
 }

@@ -14,11 +14,19 @@ namespace CapaPresentacion.CapaData.Model
     
     public partial class Servicio_laboratorio
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Servicio_laboratorio()
+        {
+            this.Detalle_factura_servicio = new HashSet<Detalle_factura_servicio>();
+        }
+    
         public int idServicio { get; set; }
         public int idLab { get; set; }
         public bool activo { get; set; }
     
         public virtual Laboratorio Laboratorio { get; set; }
         public virtual Servicio Servicio { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Detalle_factura_servicio> Detalle_factura_servicio { get; set; }
     }
 }
