@@ -62,10 +62,12 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionServicios
         {
             var senderGrid = (DataGridView)sender;
 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+            if (senderGrid.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewButtonCell &&
                 e.RowIndex >= 0)
             {
-                int idServicio = Int32.Parse(senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString());               
+                
+                int idServicio = Int32.Parse(senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
+                
                 servicio.eliminarServicio(idServicio);
                 DataGridServicioDelLab.Rows.Clear();
                 servicio.rellenarDataGridServicioDelLab(DataGridServicioDelLab);

@@ -48,6 +48,7 @@
             this.ColumnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnActivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridServicioDelLab)).BeginInit();
@@ -201,7 +202,8 @@
             this.ColumnNombre,
             this.ColumnPrecio,
             this.ColumnCategoria,
-            this.ColumnActivo});
+            this.ColumnActivo,
+            this.columnAccion});
             this.DataGridServicioDelLab.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             this.DataGridServicioDelLab.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.DataGridServicioDelLab.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
@@ -290,6 +292,11 @@
             this.ColumnActivo.MinimumWidth = 6;
             this.ColumnActivo.Name = "ColumnActivo";
             // 
+            // columnAccion
+            // 
+            this.columnAccion.HeaderText = "Acción";
+            this.columnAccion.Name = "columnAccion";
+            // 
             // ServicioLaboratorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,5 +336,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnAccion;
     }
 }

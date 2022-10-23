@@ -44,29 +44,27 @@ namespace CapaLogica.Libreria
                             dataGrid.Rows[fila].Cells["ColumnPrecio"].Value = servicio.Servicio.precio;
                             dataGrid.Rows[fila].Cells["ColumnCategoria"].Value = servicio.Servicio.Categoria_servicio.categoria;
                             dataGrid.Rows[fila].Cells["ColumnActivo"].Value = activo;
-                            if (dataGrid.Columns.Count == 6)
-                            {
-                                dataGrid.Columns.RemoveAt(5);
-                            }
-                        
-                            DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
+
+                         
+                            DataGridViewButtonCell boton = new DataGridViewButtonCell();
+                            
 
                             if (servicio.activo)
                             {
-                                boton.Text = "Baja";
-                            //boton.Name = "btnAccion";
+                                boton.Value = "Baja";
+                                boton.Style.BackColor = Color.Red;
                             }
                             else
                             {
-                                boton.Text = "Alta";
+                                boton.Value = "Alta";
+                                boton.Style.BackColor = Color.Blue;
                              }
                             
-                            boton.HeaderText = "Alta / Baja";
-                            boton.FlatStyle = FlatStyle.Flat;
-                            boton.DefaultCellStyle.BackColor = Color.Red;
-                            boton.UseColumnTextForButtonValue = true;
-                            dataGrid.Columns.Add(boton);
                             
+                            boton.FlatStyle = FlatStyle.Flat;
+                            //boton.UseColumnTextForButtonValue = true;
+                            dataGrid.Rows[fila].Cells["ColumnAccion"] = boton;
+
                     }
                     }
                // }
@@ -173,6 +171,7 @@ namespace CapaLogica.Libreria
 
                 if(servicio.Count > 0)
                 {
+                    MessageBox.Show(idServicio + "", "BIEN");
                     if (servicio.First().activo == true)
                     {
                         servicio.First().activo = false;
@@ -180,7 +179,7 @@ namespace CapaLogica.Libreria
                     }
                     else
                     {
-                        servicio.First().activo = false;
+                        servicio.First().activo = true;
                         db.SaveChanges();
                     }
                     
