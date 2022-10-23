@@ -335,6 +335,7 @@
     <Compile Include="CapaLogica\Libreria\UploadImage.cs" />
     <Compile Include="CapaLogica\LJefeLab\LJornada.cs" />
     <Compile Include="CapaLogica\LJefeLab\LServicio.cs" />
+    <Compile Include="CapaLogica\LJefeLab\LSolicitud.cs" />
     <Compile Include="CapaLogica\LVendedor\LClient.cs" />
     <Compile Include="CapaLogica\LVendedor\LProductV.cs" />
     <Compile Include="CapaPresentacion\FormLogout.cs">
@@ -378,6 +379,12 @@
     </Compile>
     <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionServicioLaboratorio\ServicioLaboratorio.designer.cs">
       <DependentUpon>ServicioLaboratorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover.Designer.cs">
+      <DependentUpon>Promover.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -483,11 +490,11 @@
     <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionReportes\NuevoReporte.Designer.cs">
       <DependentUpon>NuevoReporte.cs</DependentUpon>
     </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesActivas.cs">
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesPendientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesActivas.Designer.cs">
-      <DependentUpon>SolicitudesActivas.cs</DependentUpon>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesPendientes.Designer.cs">
+      <DependentUpon>SolicitudesPendientes.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesFinalizadas.cs">
       <SubType>Form</SubType>
@@ -495,11 +502,11 @@
     <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesFinalizadas.Designer.cs">
       <DependentUpon>SolicitudesFinalizadas.cs</DependentUpon>
     </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesPendientes.cs">
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesActivas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesPendientes.Designer.cs">
-      <DependentUpon>SolicitudesPendientes.cs</DependentUpon>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesActivas.Designer.cs">
+      <DependentUpon>SolicitudesActivas.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientes.cs">
       <SubType>Form</SubType>
@@ -582,6 +589,9 @@
     <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionServicioLaboratorio\ServicioLaboratorio.resx">
       <DependentUpon>ServicioLaboratorio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover.resx">
+      <DependentUpon>Promover.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -644,14 +654,14 @@
     <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionReportes\NuevoReporte.resx">
       <DependentUpon>NuevoReporte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesActivas.resx">
-      <DependentUpon>SolicitudesActivas.cs</DependentUpon>
+    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesPendientes.resx">
+      <DependentUpon>SolicitudesPendientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesFinalizadas.resx">
       <DependentUpon>SolicitudesFinalizadas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesPendientes.resx">
-      <DependentUpon>SolicitudesPendientes.cs</DependentUpon>
+    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesActivas.resx">
+      <DependentUpon>SolicitudesActivas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientes.resx">
       <DependentUpon>GestionClientes.cs</DependentUpon>
