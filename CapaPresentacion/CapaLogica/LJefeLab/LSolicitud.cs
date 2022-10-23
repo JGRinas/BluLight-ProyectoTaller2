@@ -165,9 +165,8 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                     solicitud.First().idEmpleado = idEmpleado;
                     db.SaveChanges();
                 }
-
             }
-
         }
+
     }//fin clase
 }

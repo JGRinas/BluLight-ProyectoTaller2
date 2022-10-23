@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaLogica;
 using CapaLogica.Libreria;
+using CapaPresentacion.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes;
 
 namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionServicios
 {
@@ -55,6 +56,20 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionServicios
             servicio.agregarServicioLaboratorio(idServicio,idLaboratorio);
             DataGridServicioDelLab.Rows.Clear();
             servicio.rellenarDataGridServicioDelLab(DataGridServicioDelLab);
+        }
+
+        private void DataGridServicioDelLab_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                int idServicio = Int32.Parse(senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString());               
+                servicio.eliminarServicio(idServicio);
+                DataGridServicioDelLab.Rows.Clear();
+                servicio.rellenarDataGridServicioDelLab(DataGridServicioDelLab);
+            }
         }
     }
 }

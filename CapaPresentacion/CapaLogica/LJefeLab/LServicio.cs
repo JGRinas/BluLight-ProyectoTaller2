@@ -44,7 +44,30 @@ namespace CapaLogica.Libreria
                             dataGrid.Rows[fila].Cells["ColumnPrecio"].Value = servicio.Servicio.precio;
                             dataGrid.Rows[fila].Cells["ColumnCategoria"].Value = servicio.Servicio.Categoria_servicio.categoria;
                             dataGrid.Rows[fila].Cells["ColumnActivo"].Value = activo;
-                        }
+                            if (dataGrid.Columns.Count == 6)
+                            {
+                                dataGrid.Columns.RemoveAt(5);
+                            }
+                        
+                            DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
+
+                            if (servicio.activo)
+                            {
+                                boton.Text = "Baja";
+                            //boton.Name = "btnAccion";
+                            }
+                            else
+                            {
+                                boton.Text = "Alta";
+                             }
+                            
+                            boton.HeaderText = "Alta / Baja";
+                            boton.FlatStyle = FlatStyle.Flat;
+                            boton.DefaultCellStyle.BackColor = Color.Red;
+                            boton.UseColumnTextForButtonValue = true;
+                            dataGrid.Columns.Add(boton);
+                            
+                    }
                     }
                // }
             }
@@ -139,6 +162,31 @@ namespace CapaLogica.Libreria
                 }
                 else { MessageBox.Show("El servicio ya existe", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information); }
             }
+
+        public void eliminarServicio(int idServicio)
+        {
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                var servicio = db.Servicio_laboratorio.Where(
+                    e => e.idServicio == idServicio
+                    && e.idLab == MyGlobals.empleado.idLab).ToList();
+
+                if(servicio.Count > 0)
+                {
+                    if (servicio.First().activo == true)
+                    {
+                        servicio.First().activo = false;
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        servicio.First().activo = false;
+                        db.SaveChanges();
+                    }
+                    
+                }
+            }
+        }
 
     }
 }
