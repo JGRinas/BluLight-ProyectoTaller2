@@ -22,11 +22,13 @@ namespace CapaPresentacion.CapaData.Model
     
         public int idJornada { get; set; }
         public string nombre { get; set; }
-        public Nullable<int> cupo { get; set; }
+        public int cupo { get; set; }
         public System.DateTime fecha { get; set; }
         public System.TimeSpan hora { get; set; }
         public int idJefeLab { get; set; }
         public int idAuditorio { get; set; }
+        public bool activo { get; set; }
+        public Nullable<int> inscriptos { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inscripto_jornada> Inscripto_jornada { get; set; }

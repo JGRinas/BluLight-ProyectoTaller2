@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="bd_blulightModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="blulight_octModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categoria_producto">
           <Key>
             <PropertyRef Name="idCategoriaProd" />
@@ -38,14 +38,17 @@
         </EntityType>
         <EntityType Name="Detalle_factura_servicio">
           <Key>
-            <PropertyRef Name="idFacturaServ" />
             <PropertyRef Name="idServicio" />
+            <PropertyRef Name="idLab" />
+            <PropertyRef Name="idFacturaServ" />
           </Key>
-          <Property Name="idFacturaServ" Type="int" Nullable="false" />
           <Property Name="idServicio" Type="int" Nullable="false" />
           <Property Name="idEstado" Type="int" Nullable="false" />
           <Property Name="precio" Type="decimal" Precision="12" Scale="2" Nullable="false" />
           <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="idLab" Type="int" Nullable="false" />
+          <Property Name="idFacturaServ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEmpleado" Type="int" />
         </EntityType>
         <EntityType Name="Empleado">
           <Key>
@@ -56,6 +59,7 @@
           <Property Name="idLab" Type="int" />
           <Property Name="idPersona" Type="int" Nullable="false" />
           <Property Name="activo" Type="bit" Nullable="false" />
+          <Property Name="idTipoEmpleado" Type="int" />
         </EntityType>
         <EntityType Name="Estado_solicitud_servicio">
           <Key>
@@ -72,6 +76,9 @@
           <Property Name="idMetodoPago" Type="int" Nullable="false" />
           <Property Name="fecha" Type="date" Nullable="false" />
           <Property Name="hora" Type="time" Precision="3" Nullable="false" />
+          <Property Name="idPersona" Type="int" />
+          <Property Name="activo" Type="bit" />
+          <Property Name="idEmpleado" Type="int" />
         </EntityType>
         <EntityType Name="Factura_servicio">
           <Key>
@@ -83,6 +90,8 @@
           <Property Name="hora" Type="time" Precision="3" Nullable="false" />
           <Property Name="idPersona" Type="int" Nullable="false" />
           <Property Name="institucion" Type="varchar" MaxLength="50" />
+          <Property Name="activo" Type="bit" />
+          <Property Name="idEmpleado" Type="int" />
         </EntityType>
         <EntityType Name="Inscripto_jornada">
           <Key>
@@ -93,6 +102,7 @@
           <Property Name="idPersona" Type="int" Nullable="false" />
           <Property Name="fechaInscripcion" Type="date" Nullable="false" />
           <Property Name="horaInscripcion" Type="time" Precision="3" Nullable="false" />
+          <Property Name="activo" Type="bit" />
         </EntityType>
         <EntityType Name="Jefe_laboratorio">
           <Key>
@@ -107,12 +117,14 @@
             <PropertyRef Name="idJornada" />
           </Key>
           <Property Name="idJornada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="70" Nullable="false" />
-          <Property Name="cupo" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="151" Nullable="false" />
+          <Property Name="cupo" Type="int" Nullable="false" />
           <Property Name="fecha" Type="date" Nullable="false" />
           <Property Name="hora" Type="time" Precision="3" Nullable="false" />
           <Property Name="idJefeLab" Type="int" Nullable="false" />
           <Property Name="idAuditorio" Type="int" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+          <Property Name="inscriptos" Type="int" />
         </EntityType>
         <EntityType Name="Laboratorio">
           <Key>
@@ -120,6 +132,7 @@
           </Key>
           <Property Name="idLab" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="activo" Type="bit" />
         </EntityType>
         <EntityType Name="Metodo_de_pago">
           <Key>
@@ -143,10 +156,10 @@
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="dni" Type="int" Nullable="false" />
-          <Property Name="direccion" Type="varchar" MaxLength="50" />
-          <Property Name="activo" Type="bit" />
           <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="dni" Type="int" Nullable="false" />
+          <Property Name="activo" Type="bit" />
+          <Property Name="direccion" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -187,6 +200,23 @@
           <Property Name="idLab" Type="int" Nullable="false" />
           <Property Name="activo" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tipo_empleado">
+          <Key>
+            <PropertyRef Name="idTipoEmpleado" />
+          </Key>
+          <Property Name="idTipoEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="idUsuario" />
@@ -207,6 +237,18 @@
             </Principal>
             <Dependent Role="Producto">
               <PropertyRef Name="idColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Detalle_Estado">
+          <End Role="Estado_solicitud_servicio" Type="Self.Estado_solicitud_servicio" Multiplicity="1" />
+          <End Role="Detalle_factura_servicio" Type="Self.Detalle_factura_servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_solicitud_servicio">
+              <PropertyRef Name="idEstado" />
+            </Principal>
+            <Dependent Role="Detalle_factura_servicio">
+              <PropertyRef Name="idEstado" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -234,7 +276,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_detalle_factura_servicio-Factura">
+        <Association Name="FK_Detalle_factura_servicio_Servicio-laboratorio">
+          <End Role="Servicio-laboratorio" Type="Self.Servicio-laboratorio" Multiplicity="1" />
+          <End Role="Detalle_factura_servicio" Type="Self.Detalle_factura_servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio-laboratorio">
+              <PropertyRef Name="idServicio" />
+              <PropertyRef Name="idLab" />
+            </Principal>
+            <Dependent Role="Detalle_factura_servicio">
+              <PropertyRef Name="idServicio" />
+              <PropertyRef Name="idLab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleFacturaS_FacturaS">
           <End Role="Factura_servicio" Type="Self.Factura_servicio" Multiplicity="1" />
           <End Role="Detalle_factura_servicio" Type="Self.Detalle_factura_servicio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -243,6 +299,30 @@
             </Principal>
             <Dependent Role="Detalle_factura_servicio">
               <PropertyRef Name="idFacturaServ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleFacturaServicio_Empleado">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Detalle_factura_servicio" Type="Self.Detalle_factura_servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="Detalle_factura_servicio">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Empleado_tipoEmpleado">
+          <End Role="Tipo_empleado" Type="Self.Tipo_empleado" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_empleado">
+              <PropertyRef Name="idTipoEmpleado" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idTipoEmpleado" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -294,6 +374,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FacturaProducto_Empleado">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Factura_producto" Type="Self.Factura_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="Factura_producto">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturaProducto_Persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+          <End Role="Factura_producto" Type="Self.Factura_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Factura_producto">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturaServicio_Empleado">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Factura_servicio" Type="Self.Factura_servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="Factura_servicio">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturaServicio_Persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+          <End Role="Factura_servicio" Type="Self.Factura_servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Factura_servicio">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_inscripcion-jornada">
           <End Role="Jornada" Type="Self.Jornada" Multiplicity="1" />
           <End Role="Inscripto_jornada" Type="Self.Inscripto_jornada" Multiplicity="*" />
@@ -330,19 +458,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_jornada-jefelab">
-          <End Role="Jefe_laboratorio" Type="Self.Jefe_laboratorio" Multiplicity="1" />
-          <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Jefe_laboratorio">
-              <PropertyRef Name="idJefeLab" />
-            </Principal>
-            <Dependent Role="Jornada">
-              <PropertyRef Name="idJefeLab" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_jornada-salon">
+        <Association Name="fk_Jornada_auditorio">
           <End Role="Salon_auditorio" Type="Self.Salon_auditorio" Multiplicity="1" />
           <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
           <ReferentialConstraint>
@@ -351,6 +467,18 @@
             </Principal>
             <Dependent Role="Jornada">
               <PropertyRef Name="idAuditorio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jornada_JefeLab">
+          <End Role="Jefe_laboratorio" Type="Self.Jefe_laboratorio" Multiplicity="1" />
+          <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jefe_laboratorio">
+              <PropertyRef Name="idJefeLab" />
+            </Principal>
+            <Dependent Role="Jornada">
+              <PropertyRef Name="idJefeLab" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -426,7 +554,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="bd_blulightModelStoreContainer">
+        <EntityContainer Name="blulight_octModelStoreContainer">
           <EntitySet Name="Categoria_producto" EntityType="Self.Categoria_producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categoria_servicio" EntityType="Self.Categoria_servicio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Color_producto" EntityType="Self.Color_producto" Schema="dbo" store:Type="Tables" />
@@ -447,10 +575,16 @@
           <EntitySet Name="Salon_auditorio" EntityType="Self.Salon_auditorio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Servicio-laboratorio" EntityType="Self.Servicio-laboratorio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_empleado" EntityType="Self.Tipo_empleado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Color_producto" Association="Self.FK_Color_producto">
             <End Role="Color_producto" EntitySet="Color_producto" />
             <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Detalle_Estado" Association="Self.fk_Detalle_Estado">
+            <End Role="Estado_solicitud_servicio" EntitySet="Estado_solicitud_servicio" />
+            <End Role="Detalle_factura_servicio" EntitySet="Detalle_factura_servicio" />
           </AssociationSet>
           <AssociationSet Name="FK_detalle_factura_producto-Factura" Association="Self.FK_detalle_factura_producto-Factura">
             <End Role="Factura_producto" EntitySet="Factura_producto" />
@@ -460,9 +594,21 @@
             <End Role="Producto" EntitySet="Producto" />
             <End Role="Detalle_factura_producto" EntitySet="Detalle_factura_producto" />
           </AssociationSet>
-          <AssociationSet Name="FK_detalle_factura_servicio-Factura" Association="Self.FK_detalle_factura_servicio-Factura">
+          <AssociationSet Name="FK_Detalle_factura_servicio_Servicio-laboratorio" Association="Self.FK_Detalle_factura_servicio_Servicio-laboratorio">
+            <End Role="Servicio-laboratorio" EntitySet="Servicio-laboratorio" />
+            <End Role="Detalle_factura_servicio" EntitySet="Detalle_factura_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleFacturaS_FacturaS" Association="Self.FK_DetalleFacturaS_FacturaS">
             <End Role="Factura_servicio" EntitySet="Factura_servicio" />
             <End Role="Detalle_factura_servicio" EntitySet="Detalle_factura_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleFacturaServicio_Empleado" Association="Self.FK_DetalleFacturaServicio_Empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Detalle_factura_servicio" EntitySet="Detalle_factura_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Empleado_tipoEmpleado" Association="Self.fk_Empleado_tipoEmpleado">
+            <End Role="Tipo_empleado" EntitySet="Tipo_empleado" />
+            <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
           <AssociationSet Name="FK_empleado-laboratorio" Association="Self.FK_empleado-laboratorio">
             <End Role="Laboratorio" EntitySet="Laboratorio" />
@@ -480,6 +626,22 @@
             <End Role="Metodo_de_pago" EntitySet="Metodo_de_pago" />
             <End Role="Factura_servicio" EntitySet="Factura_servicio" />
           </AssociationSet>
+          <AssociationSet Name="FK_FacturaProducto_Empleado" Association="Self.FK_FacturaProducto_Empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Factura_producto" EntitySet="Factura_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturaProducto_Persona" Association="Self.FK_FacturaProducto_Persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Factura_producto" EntitySet="Factura_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturaServicio_Empleado" Association="Self.FK_FacturaServicio_Empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Factura_servicio" EntitySet="Factura_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturaServicio_Persona" Association="Self.FK_FacturaServicio_Persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Factura_servicio" EntitySet="Factura_servicio" />
+          </AssociationSet>
           <AssociationSet Name="FK_inscripcion-jornada" Association="Self.FK_inscripcion-jornada">
             <End Role="Jornada" EntitySet="Jornada" />
             <End Role="Inscripto_jornada" EntitySet="Inscripto_jornada" />
@@ -492,12 +654,12 @@
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Jefe_laboratorio" EntitySet="Jefe_laboratorio" />
           </AssociationSet>
-          <AssociationSet Name="FK_jornada-jefelab" Association="Self.FK_jornada-jefelab">
-            <End Role="Jefe_laboratorio" EntitySet="Jefe_laboratorio" />
+          <AssociationSet Name="fk_Jornada_auditorio" Association="Self.fk_Jornada_auditorio">
+            <End Role="Salon_auditorio" EntitySet="Salon_auditorio" />
             <End Role="Jornada" EntitySet="Jornada" />
           </AssociationSet>
-          <AssociationSet Name="FK_jornada-salon" Association="Self.FK_jornada-salon">
-            <End Role="Salon_auditorio" EntitySet="Salon_auditorio" />
+          <AssociationSet Name="FK_Jornada_JefeLab" Association="Self.FK_Jornada_JefeLab">
+            <End Role="Jefe_laboratorio" EntitySet="Jefe_laboratorio" />
             <End Role="Jornada" EntitySet="Jornada" />
           </AssociationSet>
           <AssociationSet Name="FK_productos_categoria-producto" Association="Self.FK_productos_categoria-producto">
@@ -525,10 +687,11 @@
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="bd_blulightModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="blulight_octModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Categoria_producto">
           <Key>
             <PropertyRef Name="idCategoriaProd" />
@@ -567,15 +730,21 @@
         </EntityType>
         <EntityType Name="Detalle_factura_servicio">
           <Key>
-            <PropertyRef Name="idFacturaServ" />
             <PropertyRef Name="idServicio" />
+            <PropertyRef Name="idLab" />
+            <PropertyRef Name="idFacturaServ" />
           </Key>
-          <Property Name="idFacturaServ" Type="Int32" Nullable="false" />
           <Property Name="idServicio" Type="Int32" Nullable="false" />
           <Property Name="idEstado" Type="Int32" Nullable="false" />
           <Property Name="precio" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
           <Property Name="cantidad" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Factura_servicio" Relationship="Self.FK_detalle_factura_servicio_Factura" FromRole="Detalle_factura_servicio" ToRole="Factura_servicio" />
+          <Property Name="idLab" Type="Int32" Nullable="false" />
+          <Property Name="idFacturaServ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idEmpleado" Type="Int32" />
+          <NavigationProperty Name="Estado_solicitud_servicio" Relationship="Self.fk_Detalle_Estado" FromRole="Detalle_factura_servicio" ToRole="Estado_solicitud_servicio" />
+          <NavigationProperty Name="Servicio_laboratorio" Relationship="Self.FK_Detalle_factura_servicio_Servicio_laboratorio" FromRole="Detalle_factura_servicio" ToRole="Servicio_laboratorio" />
+          <NavigationProperty Name="Factura_servicio" Relationship="Self.FK_DetalleFacturaS_FacturaS" FromRole="Detalle_factura_servicio" ToRole="Factura_servicio" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK_DetalleFacturaServicio_Empleado" FromRole="Detalle_factura_servicio" ToRole="Empleado" />
         </EntityType>
         <EntityType Name="Empleado">
           <Key>
@@ -586,8 +755,13 @@
           <Property Name="idLab" Type="Int32" />
           <Property Name="idPersona" Type="Int32" Nullable="false" />
           <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="idTipoEmpleado" Type="Int32" />
+          <NavigationProperty Name="Detalle_factura_servicio" Relationship="Self.FK_DetalleFacturaServicio_Empleado" FromRole="Empleado" ToRole="Detalle_factura_servicio" />
+          <NavigationProperty Name="Tipo_empleado" Relationship="Self.fk_Empleado_tipoEmpleado" FromRole="Empleado" ToRole="Tipo_empleado" />
           <NavigationProperty Name="Laboratorio" Relationship="Self.FK_empleado_laboratorio" FromRole="Empleado" ToRole="Laboratorio" />
           <NavigationProperty Name="Persona" Relationship="Self.FK_empleado_persona" FromRole="Empleado" ToRole="Persona" />
+          <NavigationProperty Name="Factura_producto" Relationship="Self.FK_FacturaProducto_Empleado" FromRole="Empleado" ToRole="Factura_producto" />
+          <NavigationProperty Name="Factura_servicio" Relationship="Self.FK_FacturaServicio_Empleado" FromRole="Empleado" ToRole="Factura_servicio" />
           <NavigationProperty Name="Jefe_laboratorio" Relationship="Self.FK_jefe_laboratorio_empleado" FromRole="Empleado" ToRole="Jefe_laboratorio" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK_usuario_empleado" FromRole="Empleado" ToRole="Usuario" />
         </EntityType>
@@ -597,6 +771,7 @@
           </Key>
           <Property Name="idEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Detalle_factura_servicio" Relationship="Self.fk_Detalle_Estado" FromRole="Estado_solicitud_servicio" ToRole="Detalle_factura_servicio" />
         </EntityType>
         <EntityType Name="Factura_producto">
           <Key>
@@ -606,8 +781,13 @@
           <Property Name="idMetodoPago" Type="Int32" Nullable="false" />
           <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="hora" Type="Time" Nullable="false" Precision="3" />
+          <Property Name="idPersona" Type="Int32" />
+          <Property Name="activo" Type="Boolean" />
+          <Property Name="idEmpleado" Type="Int32" />
           <NavigationProperty Name="Detalle_factura_producto" Relationship="Self.FK_detalle_factura_producto_Factura" FromRole="Factura_producto" ToRole="Detalle_factura_producto" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK_FacturaProducto_Empleado" FromRole="Factura_producto" ToRole="Empleado" />
           <NavigationProperty Name="Metodo_de_pago" Relationship="Self.FK_factura_producto_Metodo" FromRole="Factura_producto" ToRole="Metodo_de_pago" />
+          <NavigationProperty Name="Persona" Relationship="Self.FK_FacturaProducto_Persona" FromRole="Factura_producto" ToRole="Persona" />
         </EntityType>
         <EntityType Name="Factura_servicio">
           <Key>
@@ -619,8 +799,12 @@
           <Property Name="hora" Type="Time" Nullable="false" Precision="3" />
           <Property Name="idPersona" Type="Int32" Nullable="false" />
           <Property Name="institucion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Detalle_factura_servicio" Relationship="Self.FK_detalle_factura_servicio_Factura" FromRole="Factura_servicio" ToRole="Detalle_factura_servicio" />
+          <Property Name="activo" Type="Boolean" />
+          <Property Name="idEmpleado" Type="Int32" />
+          <NavigationProperty Name="Detalle_factura_servicio" Relationship="Self.FK_DetalleFacturaS_FacturaS" FromRole="Factura_servicio" ToRole="Detalle_factura_servicio" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK_FacturaServicio_Empleado" FromRole="Factura_servicio" ToRole="Empleado" />
           <NavigationProperty Name="Metodo_de_pago" Relationship="Self.FK_factura_servicio_metodo_de_pago" FromRole="Factura_servicio" ToRole="Metodo_de_pago" />
+          <NavigationProperty Name="Persona" Relationship="Self.FK_FacturaServicio_Persona" FromRole="Factura_servicio" ToRole="Persona" />
         </EntityType>
         <EntityType Name="Inscripto_jornada">
           <Key>
@@ -631,6 +815,7 @@
           <Property Name="idPersona" Type="Int32" Nullable="false" />
           <Property Name="fechaInscripcion" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="horaInscripcion" Type="Time" Nullable="false" Precision="3" />
+          <Property Name="activo" Type="Boolean" />
           <NavigationProperty Name="Jornada" Relationship="Self.FK_inscripcion_jornada" FromRole="Inscripto_jornada" ToRole="Jornada" />
           <NavigationProperty Name="Persona" Relationship="Self.FK_inscripcion_persona" FromRole="Inscripto_jornada" ToRole="Persona" />
         </EntityType>
@@ -642,22 +827,24 @@
           <Property Name="idEmpleado" Type="Int32" Nullable="false" />
           <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Empleado" Relationship="Self.FK_jefe_laboratorio_empleado" FromRole="Jefe_laboratorio" ToRole="Empleado" />
-          <NavigationProperty Name="Jornada" Relationship="Self.FK_jornada_jefelab" FromRole="Jefe_laboratorio" ToRole="Jornada" />
+          <NavigationProperty Name="Jornada" Relationship="Self.FK_Jornada_JefeLab" FromRole="Jefe_laboratorio" ToRole="Jornada" />
         </EntityType>
         <EntityType Name="Jornada">
           <Key>
             <PropertyRef Name="idJornada" />
           </Key>
           <Property Name="idJornada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cupo" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="151" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cupo" Type="Int32" Nullable="false" />
           <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="hora" Type="Time" Nullable="false" Precision="3" />
           <Property Name="idJefeLab" Type="Int32" Nullable="false" />
           <Property Name="idAuditorio" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="inscriptos" Type="Int32" />
           <NavigationProperty Name="Inscripto_jornada" Relationship="Self.FK_inscripcion_jornada" FromRole="Jornada" ToRole="Inscripto_jornada" />
-          <NavigationProperty Name="Jefe_laboratorio" Relationship="Self.FK_jornada_jefelab" FromRole="Jornada" ToRole="Jefe_laboratorio" />
-          <NavigationProperty Name="Salon_auditorio" Relationship="Self.FK_jornada_salon" FromRole="Jornada" ToRole="Salon_auditorio" />
+          <NavigationProperty Name="Jefe_laboratorio" Relationship="Self.FK_Jornada_JefeLab" FromRole="Jornada" ToRole="Jefe_laboratorio" />
+          <NavigationProperty Name="Salon_auditorio" Relationship="Self.fk_Jornada_auditorio" FromRole="Jornada" ToRole="Salon_auditorio" />
         </EntityType>
         <EntityType Name="Laboratorio">
           <Key>
@@ -665,6 +852,7 @@
           </Key>
           <Property Name="idLab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="activo" Type="Boolean" />
           <NavigationProperty Name="Empleado" Relationship="Self.FK_empleado_laboratorio" FromRole="Laboratorio" ToRole="Empleado" />
           <NavigationProperty Name="Servicio_laboratorio" Relationship="Self.FK_servicio_laboratorio_laboratorio" FromRole="Laboratorio" ToRole="Servicio_laboratorio" />
         </EntityType>
@@ -693,12 +881,14 @@
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="telefono" Type="String" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="dni" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK_empleado_persona" FromRole="Persona" ToRole="Empleado" />
-          <NavigationProperty Name="Inscripto_jornada" Relationship="Self.FK_inscripcion_persona" FromRole="Persona" ToRole="Inscripto_jornada" />
-          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="activo" Type="Boolean" />
+          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK_empleado_persona" FromRole="Persona" ToRole="Empleado" />
+          <NavigationProperty Name="Factura_producto" Relationship="Self.FK_FacturaProducto_Persona" FromRole="Persona" ToRole="Factura_producto" />
+          <NavigationProperty Name="Factura_servicio" Relationship="Self.FK_FacturaServicio_Persona" FromRole="Persona" ToRole="Factura_servicio" />
+          <NavigationProperty Name="Inscripto_jornada" Relationship="Self.FK_inscripcion_persona" FromRole="Persona" ToRole="Inscripto_jornada" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -722,7 +912,7 @@
           </Key>
           <Property Name="idAuditorio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Jornada" Relationship="Self.FK_jornada_salon" FromRole="Salon_auditorio" ToRole="Jornada" />
+          <NavigationProperty Name="Jornada" Relationship="Self.fk_Jornada_auditorio" FromRole="Salon_auditorio" ToRole="Jornada" />
         </EntityType>
         <EntityType Name="Servicio">
           <Key>
@@ -744,8 +934,27 @@
           <Property Name="idServicio" Type="Int32" Nullable="false" />
           <Property Name="idLab" Type="Int32" Nullable="false" />
           <Property Name="activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Detalle_factura_servicio" Relationship="Self.FK_Detalle_factura_servicio_Servicio_laboratorio" FromRole="Servicio_laboratorio" ToRole="Detalle_factura_servicio" />
           <NavigationProperty Name="Laboratorio" Relationship="Self.FK_servicio_laboratorio_laboratorio" FromRole="Servicio_laboratorio" ToRole="Laboratorio" />
           <NavigationProperty Name="Servicio" Relationship="Self.FK_servicio_laboratorio_servicio" FromRole="Servicio_laboratorio" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tipo_empleado">
+          <Key>
+            <PropertyRef Name="idTipoEmpleado" />
+          </Key>
+          <Property Name="idTipoEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Empleado" Relationship="Self.fk_Empleado_tipoEmpleado" FromRole="Tipo_empleado" ToRole="Empleado" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -820,7 +1029,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_detalle_factura_servicio_Factura">
+        <Association Name="fk_Detalle_Estado">
+          <End Role="Estado_solicitud_servicio" Type="Self.Estado_solicitud_servicio" Multiplicity="1" />
+          <End Role="Detalle_factura_servicio" Type="Self.Detalle_factura_servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_solicitud_servicio">
+              <PropertyRef Name="idEstado" />
+            </Principal>
+            <Dependent Role="Detalle_factura_servicio">
+              <PropertyRef Name="idEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detalle_factura_servicio_Servicio_laboratorio">
+          <End Role="Servicio_laboratorio" Type="Self.Servicio_laboratorio" Multiplicity="1" />
+          <End Role="Detalle_factura_servicio" Type="Self.Detalle_factura_servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio_laboratorio">
+              <PropertyRef Name="idServicio" />
+              <PropertyRef Name="idLab" />
+            </Principal>
+            <Dependent Role="Detalle_factura_servicio">
+              <PropertyRef Name="idServicio" />
+              <PropertyRef Name="idLab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleFacturaS_FacturaS">
           <End Role="Factura_servicio" Type="Self.Factura_servicio" Multiplicity="1" />
           <End Role="Detalle_factura_servicio" Type="Self.Detalle_factura_servicio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -829,6 +1064,30 @@
             </Principal>
             <Dependent Role="Detalle_factura_servicio">
               <PropertyRef Name="idFacturaServ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleFacturaServicio_Empleado">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Detalle_factura_servicio" Type="Self.Detalle_factura_servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="Detalle_factura_servicio">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Empleado_tipoEmpleado">
+          <End Role="Tipo_empleado" Type="Self.Tipo_empleado" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_empleado">
+              <PropertyRef Name="idTipoEmpleado" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idTipoEmpleado" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -853,6 +1112,30 @@
             </Principal>
             <Dependent Role="Empleado">
               <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturaProducto_Empleado">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Factura_producto" Type="Self.Factura_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="Factura_producto">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturaServicio_Empleado">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Factura_servicio" Type="Self.Factura_servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="Factura_servicio">
+              <PropertyRef Name="idEmpleado" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -892,6 +1175,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FacturaProducto_Persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+          <End Role="Factura_producto" Type="Self.Factura_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Factura_producto">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_factura_servicio_metodo_de_pago">
           <End Role="Metodo_de_pago" Type="Self.Metodo_de_pago" Multiplicity="1" />
           <End Role="Factura_servicio" Type="Self.Factura_servicio" Multiplicity="0..1" />
@@ -901,6 +1196,18 @@
             </Principal>
             <Dependent Role="Factura_servicio">
               <PropertyRef Name="idFacturaServ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturaServicio_Persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+          <End Role="Factura_servicio" Type="Self.Factura_servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Factura_servicio">
+              <PropertyRef Name="idPersona" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -928,7 +1235,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_jornada_jefelab">
+        <Association Name="FK_Jornada_JefeLab">
           <End Role="Jefe_laboratorio" Type="Self.Jefe_laboratorio" Multiplicity="1" />
           <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
           <ReferentialConstraint>
@@ -940,7 +1247,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_jornada_salon">
+        <Association Name="fk_Jornada_auditorio">
           <End Role="Salon_auditorio" Type="Self.Salon_auditorio" Multiplicity="1" />
           <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1009,6 +1316,8 @@
           <EntitySet Name="Salon_auditorio" EntityType="Self.Salon_auditorio" />
           <EntitySet Name="Servicio" EntityType="Self.Servicio" />
           <EntitySet Name="Servicio_laboratorio" EntityType="Self.Servicio_laboratorio" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tipo_empleado" EntityType="Self.Tipo_empleado" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
           <AssociationSet Name="FK_productos_categoria_producto" Association="Self.FK_productos_categoria_producto">
             <End Role="Categoria_producto" EntitySet="Categoria_producto" />
@@ -1030,9 +1339,25 @@
             <End Role="Producto" EntitySet="Producto" />
             <End Role="Detalle_factura_producto" EntitySet="Detalle_factura_producto" />
           </AssociationSet>
-          <AssociationSet Name="FK_detalle_factura_servicio_Factura" Association="Self.FK_detalle_factura_servicio_Factura">
+          <AssociationSet Name="fk_Detalle_Estado" Association="Self.fk_Detalle_Estado">
+            <End Role="Estado_solicitud_servicio" EntitySet="Estado_solicitud_servicio" />
+            <End Role="Detalle_factura_servicio" EntitySet="Detalle_factura_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detalle_factura_servicio_Servicio_laboratorio" Association="Self.FK_Detalle_factura_servicio_Servicio_laboratorio">
+            <End Role="Servicio_laboratorio" EntitySet="Servicio_laboratorio" />
+            <End Role="Detalle_factura_servicio" EntitySet="Detalle_factura_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleFacturaS_FacturaS" Association="Self.FK_DetalleFacturaS_FacturaS">
             <End Role="Factura_servicio" EntitySet="Factura_servicio" />
             <End Role="Detalle_factura_servicio" EntitySet="Detalle_factura_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleFacturaServicio_Empleado" Association="Self.FK_DetalleFacturaServicio_Empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Detalle_factura_servicio" EntitySet="Detalle_factura_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Empleado_tipoEmpleado" Association="Self.fk_Empleado_tipoEmpleado">
+            <End Role="Tipo_empleado" EntitySet="Tipo_empleado" />
+            <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
           <AssociationSet Name="FK_empleado_laboratorio" Association="Self.FK_empleado_laboratorio">
             <End Role="Laboratorio" EntitySet="Laboratorio" />
@@ -1041,6 +1366,14 @@
           <AssociationSet Name="FK_empleado_persona" Association="Self.FK_empleado_persona">
             <End Role="Persona" EntitySet="Persona" />
             <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturaProducto_Empleado" Association="Self.FK_FacturaProducto_Empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Factura_producto" EntitySet="Factura_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturaServicio_Empleado" Association="Self.FK_FacturaServicio_Empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Factura_servicio" EntitySet="Factura_servicio" />
           </AssociationSet>
           <AssociationSet Name="FK_jefe_laboratorio_empleado" Association="Self.FK_jefe_laboratorio_empleado">
             <End Role="Empleado" EntitySet="Empleado" />
@@ -1054,8 +1387,16 @@
             <End Role="Metodo_de_pago" EntitySet="Metodo_de_pago" />
             <End Role="Factura_producto" EntitySet="Factura_producto" />
           </AssociationSet>
+          <AssociationSet Name="FK_FacturaProducto_Persona" Association="Self.FK_FacturaProducto_Persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Factura_producto" EntitySet="Factura_producto" />
+          </AssociationSet>
           <AssociationSet Name="FK_factura_servicio_metodo_de_pago" Association="Self.FK_factura_servicio_metodo_de_pago">
             <End Role="Metodo_de_pago" EntitySet="Metodo_de_pago" />
+            <End Role="Factura_servicio" EntitySet="Factura_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturaServicio_Persona" Association="Self.FK_FacturaServicio_Persona">
+            <End Role="Persona" EntitySet="Persona" />
             <End Role="Factura_servicio" EntitySet="Factura_servicio" />
           </AssociationSet>
           <AssociationSet Name="FK_inscripcion_jornada" Association="Self.FK_inscripcion_jornada">
@@ -1066,11 +1407,11 @@
             <End Role="Persona" EntitySet="Persona" />
             <End Role="Inscripto_jornada" EntitySet="Inscripto_jornada" />
           </AssociationSet>
-          <AssociationSet Name="FK_jornada_jefelab" Association="Self.FK_jornada_jefelab">
+          <AssociationSet Name="FK_Jornada_JefeLab" Association="Self.FK_Jornada_JefeLab">
             <End Role="Jefe_laboratorio" EntitySet="Jefe_laboratorio" />
             <End Role="Jornada" EntitySet="Jornada" />
           </AssociationSet>
-          <AssociationSet Name="FK_jornada_salon" Association="Self.FK_jornada_salon">
+          <AssociationSet Name="fk_Jornada_auditorio" Association="Self.fk_Jornada_auditorio">
             <End Role="Salon_auditorio" EntitySet="Salon_auditorio" />
             <End Role="Jornada" EntitySet="Jornada" />
           </AssociationSet>
@@ -1092,9 +1433,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="bd_blulightModelStoreContainer" CdmEntityContainer="bd_blulightEntities">
+        <EntityContainerMapping StorageEntityContainer="blulight_octModelStoreContainer" CdmEntityContainer="bd_blulightEntities">
           <EntitySetMapping Name="Categoria_producto">
-            <EntityTypeMapping TypeName="bd_blulightModel.Categoria_producto">
+            <EntityTypeMapping TypeName="blulight_octModel.Categoria_producto">
               <MappingFragment StoreEntitySet="Categoria_producto">
                 <ScalarProperty Name="idCategoriaProd" ColumnName="idCategoriaProd" />
                 <ScalarProperty Name="categoria" ColumnName="categoria" />
@@ -1102,7 +1443,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categoria_servicio">
-            <EntityTypeMapping TypeName="bd_blulightModel.Categoria_servicio">
+            <EntityTypeMapping TypeName="blulight_octModel.Categoria_servicio">
               <MappingFragment StoreEntitySet="Categoria_servicio">
                 <ScalarProperty Name="idCategoriaServ" ColumnName="idCategoriaServ" />
                 <ScalarProperty Name="categoria" ColumnName="categoria" />
@@ -1110,7 +1451,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Color_producto">
-            <EntityTypeMapping TypeName="bd_blulightModel.Color_producto">
+            <EntityTypeMapping TypeName="blulight_octModel.Color_producto">
               <MappingFragment StoreEntitySet="Color_producto">
                 <ScalarProperty Name="idColor" ColumnName="idColor" />
                 <ScalarProperty Name="color" ColumnName="color" />
@@ -1118,7 +1459,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Detalle_factura_producto">
-            <EntityTypeMapping TypeName="bd_blulightModel.Detalle_factura_producto">
+            <EntityTypeMapping TypeName="blulight_octModel.Detalle_factura_producto">
               <MappingFragment StoreEntitySet="Detalle_factura_producto">
                 <ScalarProperty Name="idFacturaProd" ColumnName="idFacturaProd" />
                 <ScalarProperty Name="idProducto" ColumnName="idProducto" />
@@ -1128,29 +1469,32 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Detalle_factura_servicio">
-            <EntityTypeMapping TypeName="bd_blulightModel.Detalle_factura_servicio">
+            <EntityTypeMapping TypeName="blulight_octModel.Detalle_factura_servicio">
               <MappingFragment StoreEntitySet="Detalle_factura_servicio">
-                <ScalarProperty Name="idFacturaServ" ColumnName="idFacturaServ" />
                 <ScalarProperty Name="idServicio" ColumnName="idServicio" />
                 <ScalarProperty Name="idEstado" ColumnName="idEstado" />
                 <ScalarProperty Name="precio" ColumnName="precio" />
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="idLab" ColumnName="idLab" />
+                <ScalarProperty Name="idFacturaServ" ColumnName="idFacturaServ" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Empleado">
-            <EntityTypeMapping TypeName="bd_blulightModel.Empleado">
+            <EntityTypeMapping TypeName="blulight_octModel.Empleado">
               <MappingFragment StoreEntitySet="Empleado">
                 <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
                 <ScalarProperty Name="maxTitulo" ColumnName="maxTitulo" />
                 <ScalarProperty Name="idLab" ColumnName="idLab" />
                 <ScalarProperty Name="idPersona" ColumnName="idPersona" />
                 <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="idTipoEmpleado" ColumnName="idTipoEmpleado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Estado_solicitud_servicio">
-            <EntityTypeMapping TypeName="bd_blulightModel.Estado_solicitud_servicio">
+            <EntityTypeMapping TypeName="blulight_octModel.Estado_solicitud_servicio">
               <MappingFragment StoreEntitySet="Estado_solicitud_servicio">
                 <ScalarProperty Name="idEstado" ColumnName="idEstado" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
@@ -1158,17 +1502,20 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Factura_producto">
-            <EntityTypeMapping TypeName="bd_blulightModel.Factura_producto">
+            <EntityTypeMapping TypeName="blulight_octModel.Factura_producto">
               <MappingFragment StoreEntitySet="Factura_producto">
                 <ScalarProperty Name="idFacturaProd" ColumnName="idFacturaProd" />
                 <ScalarProperty Name="idMetodoPago" ColumnName="idMetodoPago" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Factura_servicio">
-            <EntityTypeMapping TypeName="bd_blulightModel.Factura_servicio">
+            <EntityTypeMapping TypeName="blulight_octModel.Factura_servicio">
               <MappingFragment StoreEntitySet="Factura_servicio">
                 <ScalarProperty Name="idFacturaServ" ColumnName="idFacturaServ" />
                 <ScalarProperty Name="idMetodoPago" ColumnName="idMetodoPago" />
@@ -1176,21 +1523,24 @@
                 <ScalarProperty Name="hora" ColumnName="hora" />
                 <ScalarProperty Name="idPersona" ColumnName="idPersona" />
                 <ScalarProperty Name="institucion" ColumnName="institucion" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Inscripto_jornada">
-            <EntityTypeMapping TypeName="bd_blulightModel.Inscripto_jornada">
+            <EntityTypeMapping TypeName="blulight_octModel.Inscripto_jornada">
               <MappingFragment StoreEntitySet="Inscripto_jornada">
                 <ScalarProperty Name="idJornada" ColumnName="idJornada" />
                 <ScalarProperty Name="idPersona" ColumnName="idPersona" />
                 <ScalarProperty Name="fechaInscripcion" ColumnName="fechaInscripcion" />
                 <ScalarProperty Name="horaInscripcion" ColumnName="horaInscripcion" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Jefe_laboratorio">
-            <EntityTypeMapping TypeName="bd_blulightModel.Jefe_laboratorio">
+            <EntityTypeMapping TypeName="blulight_octModel.Jefe_laboratorio">
               <MappingFragment StoreEntitySet="Jefe_laboratorio">
                 <ScalarProperty Name="idJefeLab" ColumnName="idJefeLab" />
                 <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
@@ -1199,7 +1549,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Jornada">
-            <EntityTypeMapping TypeName="bd_blulightModel.Jornada">
+            <EntityTypeMapping TypeName="blulight_octModel.Jornada">
               <MappingFragment StoreEntitySet="Jornada">
                 <ScalarProperty Name="idJornada" ColumnName="idJornada" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1208,19 +1558,22 @@
                 <ScalarProperty Name="hora" ColumnName="hora" />
                 <ScalarProperty Name="idJefeLab" ColumnName="idJefeLab" />
                 <ScalarProperty Name="idAuditorio" ColumnName="idAuditorio" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="inscriptos" ColumnName="inscriptos" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Laboratorio">
-            <EntityTypeMapping TypeName="bd_blulightModel.Laboratorio">
+            <EntityTypeMapping TypeName="blulight_octModel.Laboratorio">
               <MappingFragment StoreEntitySet="Laboratorio">
                 <ScalarProperty Name="idLab" ColumnName="idLab" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Metodo_de_pago">
-            <EntityTypeMapping TypeName="bd_blulightModel.Metodo_de_pago">
+            <EntityTypeMapping TypeName="blulight_octModel.Metodo_de_pago">
               <MappingFragment StoreEntitySet="Metodo_de_pago">
                 <ScalarProperty Name="idMetodoPago" ColumnName="idMetodoPago" />
                 <ScalarProperty Name="metodo" ColumnName="metodo" />
@@ -1228,7 +1581,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Perfil_de_usuario">
-            <EntityTypeMapping TypeName="bd_blulightModel.Perfil_de_usuario">
+            <EntityTypeMapping TypeName="blulight_octModel.Perfil_de_usuario">
               <MappingFragment StoreEntitySet="Perfil_de_usuario">
                 <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
                 <ScalarProperty Name="perfil" ColumnName="perfil" />
@@ -1236,21 +1589,21 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Persona">
-            <EntityTypeMapping TypeName="bd_blulightModel.Persona">
+            <EntityTypeMapping TypeName="blulight_octModel.Persona">
               <MappingFragment StoreEntitySet="Persona">
-                <ScalarProperty Name="activo" ColumnName="activo" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
                 <ScalarProperty Name="idPersona" ColumnName="idPersona" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="apellido" ColumnName="apellido" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="telefono" ColumnName="telefono" />
                 <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Producto">
-            <EntityTypeMapping TypeName="bd_blulightModel.Producto">
+            <EntityTypeMapping TypeName="blulight_octModel.Producto">
               <MappingFragment StoreEntitySet="Producto">
                 <ScalarProperty Name="idProducto" ColumnName="idProducto" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1264,7 +1617,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Salon_auditorio">
-            <EntityTypeMapping TypeName="bd_blulightModel.Salon_auditorio">
+            <EntityTypeMapping TypeName="blulight_octModel.Salon_auditorio">
               <MappingFragment StoreEntitySet="Salon_auditorio">
                 <ScalarProperty Name="idAuditorio" ColumnName="idAuditorio" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1272,7 +1625,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Servicio">
-            <EntityTypeMapping TypeName="bd_blulightModel.Servicio">
+            <EntityTypeMapping TypeName="blulight_octModel.Servicio">
               <MappingFragment StoreEntitySet="Servicio">
                 <ScalarProperty Name="idServicio" ColumnName="idServicio" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1283,7 +1636,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Servicio_laboratorio">
-            <EntityTypeMapping TypeName="bd_blulightModel.Servicio_laboratorio">
+            <EntityTypeMapping TypeName="blulight_octModel.Servicio_laboratorio">
               <MappingFragment StoreEntitySet="Servicio-laboratorio">
                 <ScalarProperty Name="idServicio" ColumnName="idServicio" />
                 <ScalarProperty Name="idLab" ColumnName="idLab" />
@@ -1291,8 +1644,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="blulight_octModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_empleado">
+            <EntityTypeMapping TypeName="blulight_octModel.Tipo_empleado">
+              <MappingFragment StoreEntitySet="Tipo_empleado">
+                <ScalarProperty Name="idTipoEmpleado" ColumnName="idTipoEmpleado" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="bd_blulightModel.Usuario">
+            <EntityTypeMapping TypeName="blulight_octModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
                 <ScalarProperty Name="usuario1" ColumnName="usuario" />

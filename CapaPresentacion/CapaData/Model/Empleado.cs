@@ -17,6 +17,9 @@ namespace CapaPresentacion.CapaData.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Empleado()
         {
+            this.Detalle_factura_servicio = new HashSet<Detalle_factura_servicio>();
+            this.Factura_producto = new HashSet<Factura_producto>();
+            this.Factura_servicio = new HashSet<Factura_servicio>();
             this.Jefe_laboratorio = new HashSet<Jefe_laboratorio>();
             this.Usuario = new HashSet<Usuario>();
         }
@@ -26,9 +29,17 @@ namespace CapaPresentacion.CapaData.Model
         public Nullable<int> idLab { get; set; }
         public int idPersona { get; set; }
         public bool activo { get; set; }
+        public Nullable<int> idTipoEmpleado { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Detalle_factura_servicio> Detalle_factura_servicio { get; set; }
+        public virtual Tipo_empleado Tipo_empleado { get; set; }
         public virtual Laboratorio Laboratorio { get; set; }
         public virtual Persona Persona { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Factura_producto> Factura_producto { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Factura_servicio> Factura_servicio { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Jefe_laboratorio> Jefe_laboratorio { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

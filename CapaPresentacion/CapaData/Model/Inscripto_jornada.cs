@@ -18,6 +18,7 @@ namespace CapaPresentacion.CapaData.Model
         public int idPersona { get; set; }
         public System.DateTime fechaInscripcion { get; set; }
         public System.TimeSpan horaInscripcion { get; set; }
+        public Nullable<bool> activo { get; set; }
     
         public virtual Jornada Jornada { get; set; }
         public virtual Persona Persona { get; set; }

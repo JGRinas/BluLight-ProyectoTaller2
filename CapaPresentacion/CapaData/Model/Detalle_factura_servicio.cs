@@ -14,12 +14,17 @@ namespace CapaPresentacion.CapaData.Model
     
     public partial class Detalle_factura_servicio
     {
-        public int idFacturaServ { get; set; }
         public int idServicio { get; set; }
         public int idEstado { get; set; }
         public decimal precio { get; set; }
         public int cantidad { get; set; }
+        public int idLab { get; set; }
+        public int idFacturaServ { get; set; }
+        public Nullable<int> idEmpleado { get; set; }
     
+        public virtual Estado_solicitud_servicio Estado_solicitud_servicio { get; set; }
+        public virtual Servicio_laboratorio Servicio_laboratorio { get; set; }
         public virtual Factura_servicio Factura_servicio { get; set; }
+        public virtual Empleado Empleado { get; set; }
     }
 }

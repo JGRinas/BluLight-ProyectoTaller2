@@ -28,22 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListadoProductos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonBuscarProductoCateYColor = new System.Windows.Forms.Button();
+            this.labelColor = new System.Windows.Forms.Label();
+            this.comboBoxColor = new System.Windows.Forms.ComboBox();
+            this.labelCategoria = new System.Windows.Forms.Label();
+            this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
+            this.textBoxNombreProducto = new System.Windows.Forms.TextBox();
+            this.buttonBuscarProductoNombre = new System.Windows.Forms.Button();
+            this.labelSearchProduct = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewProduct = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColumnTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCodProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnImagen = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColumnTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBoxCodProdS = new System.Windows.Forms.TextBox();
-            this.labelSearchProduct = new System.Windows.Forms.Label();
-            this.buttonSearchP = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.ColumnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
@@ -51,51 +57,143 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.buttonSearchP);
+            this.panel1.Controls.Add(this.buttonBuscarProductoCateYColor);
+            this.panel1.Controls.Add(this.labelColor);
+            this.panel1.Controls.Add(this.comboBoxColor);
+            this.panel1.Controls.Add(this.labelCategoria);
+            this.panel1.Controls.Add(this.comboBoxCategoria);
+            this.panel1.Controls.Add(this.textBoxNombreProducto);
+            this.panel1.Controls.Add(this.buttonBuscarProductoNombre);
             this.panel1.Controls.Add(this.labelSearchProduct);
-            this.panel1.Controls.Add(this.textBoxCodProdS);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(760, 146);
+            this.panel1.Size = new System.Drawing.Size(760, 258);
             this.panel1.TabIndex = 0;
+            // 
+            // buttonBuscarProductoCateYColor
+            // 
+            this.buttonBuscarProductoCateYColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBuscarProductoCateYColor.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuscarProductoCateYColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonBuscarProductoCateYColor.Location = new System.Drawing.Point(399, 142);
+            this.buttonBuscarProductoCateYColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonBuscarProductoCateYColor.Name = "buttonBuscarProductoCateYColor";
+            this.buttonBuscarProductoCateYColor.Size = new System.Drawing.Size(160, 38);
+            this.buttonBuscarProductoCateYColor.TabIndex = 41;
+            this.buttonBuscarProductoCateYColor.Text = "Filtrar";
+            this.buttonBuscarProductoCateYColor.UseVisualStyleBackColor = true;
+            this.buttonBuscarProductoCateYColor.Click += new System.EventHandler(this.buttonBuscarProductoCateYColor_Click);
+            // 
+            // labelColor
+            // 
+            this.labelColor.AutoSize = true;
+            this.labelColor.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelColor.ForeColor = System.Drawing.Color.White;
+            this.labelColor.Location = new System.Drawing.Point(555, 67);
+            this.labelColor.Name = "labelColor";
+            this.labelColor.Size = new System.Drawing.Size(65, 23);
+            this.labelColor.TabIndex = 40;
+            this.labelColor.Text = "Color";
+            // 
+            // comboBoxColor
+            // 
+            this.comboBoxColor.FormattingEnabled = true;
+            this.comboBoxColor.Location = new System.Drawing.Point(510, 93);
+            this.comboBoxColor.Name = "comboBoxColor";
+            this.comboBoxColor.Size = new System.Drawing.Size(159, 24);
+            this.comboBoxColor.TabIndex = 39;
+            // 
+            // labelCategoria
+            // 
+            this.labelCategoria.AutoSize = true;
+            this.labelCategoria.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCategoria.ForeColor = System.Drawing.Color.White;
+            this.labelCategoria.Location = new System.Drawing.Point(328, 67);
+            this.labelCategoria.Name = "labelCategoria";
+            this.labelCategoria.Size = new System.Drawing.Size(109, 23);
+            this.labelCategoria.TabIndex = 38;
+            this.labelCategoria.Text = "Categoría";
+            // 
+            // comboBoxCategoria
+            // 
+            this.comboBoxCategoria.FormattingEnabled = true;
+            this.comboBoxCategoria.Location = new System.Drawing.Point(310, 93);
+            this.comboBoxCategoria.Name = "comboBoxCategoria";
+            this.comboBoxCategoria.Size = new System.Drawing.Size(159, 24);
+            this.comboBoxCategoria.TabIndex = 37;
+            // 
+            // textBoxNombreProducto
+            // 
+            this.textBoxNombreProducto.Location = new System.Drawing.Point(47, 93);
+            this.textBoxNombreProducto.Multiline = true;
+            this.textBoxNombreProducto.Name = "textBoxNombreProducto";
+            this.textBoxNombreProducto.Size = new System.Drawing.Size(163, 29);
+            this.textBoxNombreProducto.TabIndex = 36;
+            // 
+            // buttonBuscarProductoNombre
+            // 
+            this.buttonBuscarProductoNombre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBuscarProductoNombre.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuscarProductoNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonBuscarProductoNombre.Location = new System.Drawing.Point(47, 142);
+            this.buttonBuscarProductoNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonBuscarProductoNombre.Name = "buttonBuscarProductoNombre";
+            this.buttonBuscarProductoNombre.Size = new System.Drawing.Size(160, 38);
+            this.buttonBuscarProductoNombre.TabIndex = 35;
+            this.buttonBuscarProductoNombre.Text = "Buscar";
+            this.buttonBuscarProductoNombre.UseVisualStyleBackColor = true;
+            this.buttonBuscarProductoNombre.Click += new System.EventHandler(this.buttonBuscarProductoNombre_Click);
+            // 
+            // labelSearchProduct
+            // 
+            this.labelSearchProduct.AutoSize = true;
+            this.labelSearchProduct.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSearchProduct.ForeColor = System.Drawing.Color.White;
+            this.labelSearchProduct.Location = new System.Drawing.Point(23, 67);
+            this.labelSearchProduct.Name = "labelSearchProduct";
+            this.labelSearchProduct.Size = new System.Drawing.Size(219, 23);
+            this.labelSearchProduct.TabIndex = 1;
+            this.labelSearchProduct.Text = "Nombre del producto";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dataGridViewProduct);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 146);
+            this.panel2.Location = new System.Drawing.Point(0, 258);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(760, 413);
+            this.panel2.Size = new System.Drawing.Size(760, 301);
             this.panel2.TabIndex = 1;
             // 
             // dataGridViewProduct
             // 
             this.dataGridViewProduct.AllowCustomTheming = false;
             this.dataGridViewProduct.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewProduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewProduct.ColumnHeadersHeight = 40;
             this.dataGridViewProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
-            this.ColumnImage,
-            this.ColumnTitle,
-            this.ColumnCodProd,
-            this.ColumnCategory,
-            this.ColumnStock});
+            this.ColumnImagen,
+            this.ColumnTitulo,
+            this.ColumnStock,
+            this.ColumnPrecio,
+            this.ColumnCategoria,
+            this.ColumnColor,
+            this.ColumnEstado});
             this.dataGridViewProduct.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             this.dataGridViewProduct.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.dataGridViewProduct.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
@@ -114,14 +212,14 @@
             this.dataGridViewProduct.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewProduct.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.dataGridViewProduct.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewProduct.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewProduct.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewProduct.EnableHeadersVisualStyles = false;
             this.dataGridViewProduct.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
@@ -129,44 +227,33 @@
             this.dataGridViewProduct.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataGridViewProduct.HeaderForeColor = System.Drawing.Color.White;
             this.dataGridViewProduct.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewProduct.Name = "dataGridViewProduct";
             this.dataGridViewProduct.RowHeadersVisible = false;
             this.dataGridViewProduct.RowHeadersWidth = 51;
             this.dataGridViewProduct.RowTemplate.Height = 40;
             this.dataGridViewProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewProduct.Size = new System.Drawing.Size(760, 413);
+            this.dataGridViewProduct.Size = new System.Drawing.Size(760, 301);
             this.dataGridViewProduct.TabIndex = 3;
             this.dataGridViewProduct.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             // 
             // ColumnId
             // 
-            this.ColumnId.HeaderText = "id";
+            this.ColumnId.HeaderText = "Codigo";
             this.ColumnId.MinimumWidth = 6;
             this.ColumnId.Name = "ColumnId";
             // 
-            // ColumnImage
+            // ColumnImagen
             // 
-            this.ColumnImage.HeaderText = "Imagen";
-            this.ColumnImage.MinimumWidth = 6;
-            this.ColumnImage.Name = "ColumnImage";
+            this.ColumnImagen.HeaderText = "Imagen";
+            this.ColumnImagen.MinimumWidth = 6;
+            this.ColumnImagen.Name = "ColumnImagen";
             // 
-            // ColumnTitle
+            // ColumnTitulo
             // 
-            this.ColumnTitle.HeaderText = "Titulo";
-            this.ColumnTitle.MinimumWidth = 6;
-            this.ColumnTitle.Name = "ColumnTitle";
-            // 
-            // ColumnCodProd
-            // 
-            this.ColumnCodProd.HeaderText = "Codigo";
-            this.ColumnCodProd.MinimumWidth = 6;
-            this.ColumnCodProd.Name = "ColumnCodProd";
-            // 
-            // ColumnCategory
-            // 
-            this.ColumnCategory.HeaderText = "Categoria";
-            this.ColumnCategory.MinimumWidth = 6;
-            this.ColumnCategory.Name = "ColumnCategory";
+            this.ColumnTitulo.HeaderText = "Titulo";
+            this.ColumnTitulo.MinimumWidth = 6;
+            this.ColumnTitulo.Name = "ColumnTitulo";
             // 
             // ColumnStock
             // 
@@ -174,49 +261,29 @@
             this.ColumnStock.MinimumWidth = 6;
             this.ColumnStock.Name = "ColumnStock";
             // 
-            // textBoxCodProdS
+            // ColumnPrecio
             // 
-            this.textBoxCodProdS.Location = new System.Drawing.Point(276, 53);
-            this.textBoxCodProdS.Multiline = true;
-            this.textBoxCodProdS.Name = "textBoxCodProdS";
-            this.textBoxCodProdS.Size = new System.Drawing.Size(208, 32);
-            this.textBoxCodProdS.TabIndex = 0;
+            this.ColumnPrecio.HeaderText = "Precio";
+            this.ColumnPrecio.MinimumWidth = 6;
+            this.ColumnPrecio.Name = "ColumnPrecio";
             // 
-            // labelSearchProduct
+            // ColumnCategoria
             // 
-            this.labelSearchProduct.AutoSize = true;
-            this.labelSearchProduct.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSearchProduct.ForeColor = System.Drawing.Color.White;
-            this.labelSearchProduct.Location = new System.Drawing.Point(276, 17);
-            this.labelSearchProduct.Name = "labelSearchProduct";
-            this.labelSearchProduct.Size = new System.Drawing.Size(208, 23);
-            this.labelSearchProduct.TabIndex = 1;
-            this.labelSearchProduct.Text = "Codigo de producto";
+            this.ColumnCategoria.HeaderText = "Categoria";
+            this.ColumnCategoria.MinimumWidth = 6;
+            this.ColumnCategoria.Name = "ColumnCategoria";
             // 
-            // buttonSearchP
+            // ColumnColor
             // 
-            this.buttonSearchP.ActiveBorderThickness = 1;
-            this.buttonSearchP.ActiveCornerRadius = 20;
-            this.buttonSearchP.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.buttonSearchP.ActiveForecolor = System.Drawing.Color.White;
-            this.buttonSearchP.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.buttonSearchP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.buttonSearchP.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSearchP.BackgroundImage")));
-            this.buttonSearchP.ButtonText = "Buscar";
-            this.buttonSearchP.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSearchP.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSearchP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.buttonSearchP.IdleBorderThickness = 1;
-            this.buttonSearchP.IdleCornerRadius = 20;
-            this.buttonSearchP.IdleFillColor = System.Drawing.Color.White;
-            this.buttonSearchP.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.buttonSearchP.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.buttonSearchP.Location = new System.Drawing.Point(276, 93);
-            this.buttonSearchP.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonSearchP.Name = "buttonSearchP";
-            this.buttonSearchP.Size = new System.Drawing.Size(208, 48);
-            this.buttonSearchP.TabIndex = 2;
-            this.buttonSearchP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ColumnColor.HeaderText = "Color";
+            this.ColumnColor.MinimumWidth = 6;
+            this.ColumnColor.Name = "ColumnColor";
+            // 
+            // ColumnEstado
+            // 
+            this.ColumnEstado.HeaderText = "Activo";
+            this.ColumnEstado.MinimumWidth = 6;
+            this.ColumnEstado.Name = "ColumnEstado";
             // 
             // ListadoProductos
             // 
@@ -242,14 +309,21 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label labelSearchProduct;
-        private System.Windows.Forms.TextBox textBoxCodProdS;
+        private System.Windows.Forms.Button buttonBuscarProductoNombre;
+        private System.Windows.Forms.Label labelCategoria;
+        private System.Windows.Forms.ComboBox comboBoxCategoria;
+        private System.Windows.Forms.TextBox textBoxNombreProducto;
         private Bunifu.UI.WinForms.BunifuDataGridView dataGridViewProduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
-        private System.Windows.Forms.DataGridViewImageColumn ColumnImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCategory;
+        private System.Windows.Forms.DataGridViewImageColumn ColumnImagen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTitulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStock;
-        private Bunifu.Framework.UI.BunifuThinButton2 buttonSearchP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEstado;
+        private System.Windows.Forms.Label labelColor;
+        private System.Windows.Forms.ComboBox comboBoxColor;
+        private System.Windows.Forms.Button buttonBuscarProductoCateYColor;
     }
 }

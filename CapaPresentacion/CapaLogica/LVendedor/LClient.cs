@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using Bunifu.UI.WinForms;
 
 namespace CapaLogica.LVendedor
 {
@@ -51,6 +52,8 @@ namespace CapaLogica.LVendedor
                 }
             }
         }
+
+
         public void registrarCliente(List<TextBox> textBoxes, List<Button> buttons)
         {
             bool validation = true;
