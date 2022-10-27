@@ -82,7 +82,7 @@
             this.panel2.Controls.Add(this.panelLogo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(180, 488);
             this.panel2.TabIndex = 2;
@@ -98,7 +98,7 @@
             this.buttonLogout.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogout.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonLogout.Location = new System.Drawing.Point(0, 457);
-            this.buttonLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonLogout.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(180, 31);
             this.buttonLogout.TabIndex = 19;
@@ -112,7 +112,7 @@
             this.panelServicios.Controls.Add(this.buttonNuevoServicio);
             this.panelServicios.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelServicios.Location = new System.Drawing.Point(0, 390);
-            this.panelServicios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelServicios.Margin = new System.Windows.Forms.Padding(2);
             this.panelServicios.Name = "panelServicios";
             this.panelServicios.Size = new System.Drawing.Size(180, 36);
             this.panelServicios.TabIndex = 18;
@@ -125,7 +125,7 @@
             this.buttonNuevoServicio.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNuevoServicio.ForeColor = System.Drawing.Color.LightGray;
             this.buttonNuevoServicio.Location = new System.Drawing.Point(0, 0);
-            this.buttonNuevoServicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonNuevoServicio.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNuevoServicio.Name = "buttonNuevoServicio";
             this.buttonNuevoServicio.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.buttonNuevoServicio.Size = new System.Drawing.Size(180, 24);
@@ -144,7 +144,7 @@
             this.buttonServicio.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonServicio.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonServicio.Location = new System.Drawing.Point(0, 365);
-            this.buttonServicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonServicio.Margin = new System.Windows.Forms.Padding(2);
             this.buttonServicio.Name = "buttonServicio";
             this.buttonServicio.Size = new System.Drawing.Size(180, 25);
             this.buttonServicio.TabIndex = 17;
@@ -159,7 +159,7 @@
             this.panelCursos.Controls.Add(this.buttonAgregarCurso);
             this.panelCursos.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCursos.Location = new System.Drawing.Point(0, 332);
-            this.panelCursos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelCursos.Margin = new System.Windows.Forms.Padding(2);
             this.panelCursos.Name = "panelCursos";
             this.panelCursos.Size = new System.Drawing.Size(180, 33);
             this.panelCursos.TabIndex = 16;
@@ -172,7 +172,7 @@
             this.buttonAgregarCurso.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAgregarCurso.ForeColor = System.Drawing.Color.LightGray;
             this.buttonAgregarCurso.Location = new System.Drawing.Point(0, 0);
-            this.buttonAgregarCurso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAgregarCurso.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAgregarCurso.Name = "buttonAgregarCurso";
             this.buttonAgregarCurso.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.buttonAgregarCurso.Size = new System.Drawing.Size(180, 25);
@@ -191,7 +191,7 @@
             this.buttonCurso.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCurso.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonCurso.Location = new System.Drawing.Point(0, 307);
-            this.buttonCurso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCurso.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCurso.Name = "buttonCurso";
             this.buttonCurso.Size = new System.Drawing.Size(180, 25);
             this.buttonCurso.TabIndex = 15;
@@ -207,7 +207,7 @@
             this.panelReportes.Controls.Add(this.buttonNuevoReporte);
             this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelReportes.Location = new System.Drawing.Point(0, 253);
-            this.panelReportes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelReportes.Margin = new System.Windows.Forms.Padding(2);
             this.panelReportes.Name = "panelReportes";
             this.panelReportes.Size = new System.Drawing.Size(180, 54);
             this.panelReportes.TabIndex = 14;
@@ -220,7 +220,7 @@
             this.buttonListaReportes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonListaReportes.ForeColor = System.Drawing.Color.LightGray;
             this.buttonListaReportes.Location = new System.Drawing.Point(0, 25);
-            this.buttonListaReportes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonListaReportes.Margin = new System.Windows.Forms.Padding(2);
             this.buttonListaReportes.Name = "buttonListaReportes";
             this.buttonListaReportes.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.buttonListaReportes.Size = new System.Drawing.Size(180, 25);
@@ -238,7 +238,7 @@
             this.buttonNuevoReporte.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNuevoReporte.ForeColor = System.Drawing.Color.LightGray;
             this.buttonNuevoReporte.Location = new System.Drawing.Point(0, 0);
-            this.buttonNuevoReporte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonNuevoReporte.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNuevoReporte.Name = "buttonNuevoReporte";
             this.buttonNuevoReporte.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.buttonNuevoReporte.Size = new System.Drawing.Size(180, 25);
@@ -257,7 +257,7 @@
             this.buttonReportes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonReportes.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonReportes.Location = new System.Drawing.Point(0, 228);
-            this.buttonReportes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonReportes.Margin = new System.Windows.Forms.Padding(2);
             this.buttonReportes.Name = "buttonReportes";
             this.buttonReportes.Size = new System.Drawing.Size(180, 25);
             this.buttonReportes.TabIndex = 13;
@@ -274,7 +274,7 @@
             this.panelSolicitudes.Controls.Add(this.buttonSolicitudesPendientes);
             this.panelSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSolicitudes.Location = new System.Drawing.Point(0, 147);
-            this.panelSolicitudes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelSolicitudes.Margin = new System.Windows.Forms.Padding(2);
             this.panelSolicitudes.Name = "panelSolicitudes";
             this.panelSolicitudes.Size = new System.Drawing.Size(180, 81);
             this.panelSolicitudes.TabIndex = 9;
@@ -287,12 +287,12 @@
             this.buttonSolicitudesFinalizadas.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSolicitudesFinalizadas.ForeColor = System.Drawing.Color.LightGray;
             this.buttonSolicitudesFinalizadas.Location = new System.Drawing.Point(0, 50);
-            this.buttonSolicitudesFinalizadas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSolicitudesFinalizadas.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSolicitudesFinalizadas.Name = "buttonSolicitudesFinalizadas";
             this.buttonSolicitudesFinalizadas.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.buttonSolicitudesFinalizadas.Size = new System.Drawing.Size(180, 25);
             this.buttonSolicitudesFinalizadas.TabIndex = 4;
-            this.buttonSolicitudesFinalizadas.Text = "Finalizadas";
+            this.buttonSolicitudesFinalizadas.Text = "Entregadas";
             this.buttonSolicitudesFinalizadas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSolicitudesFinalizadas.UseVisualStyleBackColor = true;
             this.buttonSolicitudesFinalizadas.Click += new System.EventHandler(this.buttonSolicitudesFinalizadas_Click);
@@ -305,12 +305,12 @@
             this.buttonSolicitudesActivas.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSolicitudesActivas.ForeColor = System.Drawing.Color.LightGray;
             this.buttonSolicitudesActivas.Location = new System.Drawing.Point(0, 25);
-            this.buttonSolicitudesActivas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSolicitudesActivas.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSolicitudesActivas.Name = "buttonSolicitudesActivas";
             this.buttonSolicitudesActivas.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.buttonSolicitudesActivas.Size = new System.Drawing.Size(180, 25);
             this.buttonSolicitudesActivas.TabIndex = 3;
-            this.buttonSolicitudesActivas.Text = "Activas";
+            this.buttonSolicitudesActivas.Text = "Finalizadas";
             this.buttonSolicitudesActivas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSolicitudesActivas.UseVisualStyleBackColor = true;
             this.buttonSolicitudesActivas.Click += new System.EventHandler(this.buttonSolicitudesActivas_Click);
@@ -323,7 +323,7 @@
             this.buttonSolicitudesPendientes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSolicitudesPendientes.ForeColor = System.Drawing.Color.LightGray;
             this.buttonSolicitudesPendientes.Location = new System.Drawing.Point(0, 0);
-            this.buttonSolicitudesPendientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSolicitudesPendientes.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSolicitudesPendientes.Name = "buttonSolicitudesPendientes";
             this.buttonSolicitudesPendientes.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.buttonSolicitudesPendientes.Size = new System.Drawing.Size(180, 25);
@@ -342,7 +342,7 @@
             this.buttonSolicitudes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSolicitudes.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonSolicitudes.Location = new System.Drawing.Point(0, 122);
-            this.buttonSolicitudes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSolicitudes.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSolicitudes.Name = "buttonSolicitudes";
             this.buttonSolicitudes.Size = new System.Drawing.Size(180, 25);
             this.buttonSolicitudes.TabIndex = 8;
@@ -358,7 +358,7 @@
             this.panelLogo.Controls.Add(this.label1);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(2);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(180, 122);
             this.panelLogo.TabIndex = 7;
@@ -406,7 +406,7 @@
             this.panel5.Controls.Add(this.bunifuImageButton1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(180, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(570, 32);
             this.panel5.TabIndex = 3;
@@ -433,7 +433,7 @@
             this.buttonMinimizar.ImageZoomSize = new System.Drawing.Size(34, 32);
             this.buttonMinimizar.InitialImage = ((System.Drawing.Image)(resources.GetObject("buttonMinimizar.InitialImage")));
             this.buttonMinimizar.Location = new System.Drawing.Point(468, 0);
-            this.buttonMinimizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonMinimizar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonMinimizar.Name = "buttonMinimizar";
             this.buttonMinimizar.Rotation = 0;
             this.buttonMinimizar.ShowActiveImage = true;
@@ -470,7 +470,7 @@
             this.buttonMaximizar.ImageZoomSize = new System.Drawing.Size(34, 32);
             this.buttonMaximizar.InitialImage = ((System.Drawing.Image)(resources.GetObject("buttonMaximizar.InitialImage")));
             this.buttonMaximizar.Location = new System.Drawing.Point(502, 0);
-            this.buttonMaximizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonMaximizar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonMaximizar.Name = "buttonMaximizar";
             this.buttonMaximizar.Rotation = 0;
             this.buttonMaximizar.ShowActiveImage = true;
@@ -507,7 +507,7 @@
             this.bunifuImageButton1.ImageZoomSize = new System.Drawing.Size(34, 32);
             this.bunifuImageButton1.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.InitialImage")));
             this.bunifuImageButton1.Location = new System.Drawing.Point(536, 0);
-            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuImageButton1.Name = "bunifuImageButton1";
             this.bunifuImageButton1.Rotation = 0;
             this.bunifuImageButton1.ShowActiveImage = true;
@@ -527,7 +527,7 @@
             this.panelHijoJ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.panelHijoJ.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelHijoJ.Location = new System.Drawing.Point(180, 32);
-            this.panelHijoJ.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelHijoJ.Margin = new System.Windows.Forms.Padding(2);
             this.panelHijoJ.Name = "panelHijoJ";
             this.panelHijoJ.Size = new System.Drawing.Size(570, 456);
             this.panelHijoJ.TabIndex = 4;
@@ -546,7 +546,7 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormJefeLabInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormJefeLabInicio";

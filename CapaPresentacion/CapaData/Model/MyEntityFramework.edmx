@@ -49,6 +49,8 @@
           <Property Name="idLab" Type="int" Nullable="false" />
           <Property Name="idFacturaServ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idEmpleado" Type="int" />
+          <Property Name="fechaFinalizacion" Type="datetime" />
+          <Property Name="fechaEntregado" Type="datetime" />
         </EntityType>
         <EntityType Name="Empleado">
           <Key>
@@ -709,6 +711,8 @@
           <Property Name="idEmpleado" Type="Int32" />
           <NavigationProperty Name="Servicio_laboratorio" Relationship="bd_blulightModel.FK_Detalle_factura_servicio_Servicio_laboratorio" FromRole="Detalle_factura_servicio" ToRole="Servicio_laboratorio" />
           <NavigationProperty Name="Empleado" Relationship="bd_blulightModel.FK_DetalleFacturaServicio_Empleado" FromRole="Detalle_factura_servicio" ToRole="Empleado" />
+          <Property Name="fechaFinalizacion" Type="DateTime" Precision="3" />
+          <Property Name="fechaEntregado" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Empleado">
           <Key>
@@ -1416,6 +1420,8 @@
           <EntitySetMapping Name="Detalle_factura_servicio">
             <EntityTypeMapping TypeName="bd_blulightModel.Detalle_factura_servicio">
               <MappingFragment StoreEntitySet="Detalle_factura_servicio">
+                <ScalarProperty Name="fechaEntregado" ColumnName="fechaEntregado" />
+                <ScalarProperty Name="fechaFinalizacion" ColumnName="fechaFinalizacion" />
                 <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
                 <ScalarProperty Name="idLab" ColumnName="idLab" />
                 <ScalarProperty Name="idFacturaServ" ColumnName="idFacturaServ" />

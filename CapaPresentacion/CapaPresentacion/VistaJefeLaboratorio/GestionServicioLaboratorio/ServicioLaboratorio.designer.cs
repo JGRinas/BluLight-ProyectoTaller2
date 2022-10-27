@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
             this.btnRegistrarServicio = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.DataGridServicioDelLab = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.label5 = new System.Windows.Forms.Label();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,10 +67,24 @@
             this.panel1.Controls.Add(this.btnRegistrarServicio);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(562, 244);
             this.panel1.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Location = new System.Drawing.Point(0, 229);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label5.Size = new System.Drawing.Size(268, 15);
+            this.label5.TabIndex = 55;
+            this.label5.Text = "Listado de servicios brindados por el laboratorio";
             // 
             // label4
             // 
@@ -90,7 +104,7 @@
             this.btnFiltrar.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnFiltrar.Location = new System.Drawing.Point(228, 70);
-            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(83, 31);
             this.btnFiltrar.TabIndex = 53;
@@ -127,7 +141,7 @@
             // 
             this.comboBoxServicios.FormattingEnabled = true;
             this.comboBoxServicios.Location = new System.Drawing.Point(169, 135);
-            this.comboBoxServicios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxServicios.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxServicios.Name = "comboBoxServicios";
             this.comboBoxServicios.Size = new System.Drawing.Size(206, 21);
             this.comboBoxServicios.TabIndex = 50;
@@ -148,7 +162,7 @@
             // 
             this.comboBoxCategoria.FormattingEnabled = true;
             this.comboBoxCategoria.Location = new System.Drawing.Point(203, 27);
-            this.comboBoxCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCategoria.Name = "comboBoxCategoria";
             this.comboBoxCategoria.Size = new System.Drawing.Size(138, 21);
             this.comboBoxCategoria.TabIndex = 48;
@@ -159,7 +173,7 @@
             this.btnRegistrarServicio.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnRegistrarServicio.Location = new System.Drawing.Point(204, 178);
-            this.btnRegistrarServicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRegistrarServicio.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegistrarServicio.Name = "btnRegistrarServicio";
             this.btnRegistrarServicio.Size = new System.Drawing.Size(132, 31);
             this.btnRegistrarServicio.TabIndex = 43;
@@ -172,7 +186,7 @@
             this.panel2.Controls.Add(this.DataGridServicioDelLab);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 244);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(562, 212);
             this.panel2.TabIndex = 1;
@@ -237,7 +251,7 @@
             this.DataGridServicioDelLab.HeaderBgColor = System.Drawing.Color.Empty;
             this.DataGridServicioDelLab.HeaderForeColor = System.Drawing.Color.White;
             this.DataGridServicioDelLab.Location = new System.Drawing.Point(0, 0);
-            this.DataGridServicioDelLab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DataGridServicioDelLab.Margin = new System.Windows.Forms.Padding(2);
             this.DataGridServicioDelLab.Name = "DataGridServicioDelLab";
             this.DataGridServicioDelLab.RowHeadersVisible = false;
             this.DataGridServicioDelLab.RowHeadersWidth = 51;
@@ -247,20 +261,6 @@
             this.DataGridServicioDelLab.TabIndex = 0;
             this.DataGridServicioDelLab.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.DataGridServicioDelLab.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridServicioDelLab_CellContentClick);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(0, 229);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label5.Size = new System.Drawing.Size(268, 15);
-            this.label5.TabIndex = 55;
-            this.label5.Text = "Listado de servicios brindados por el laboratorio";
             // 
             // ColumnId
             // 
@@ -306,7 +306,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ServicioLaboratorio";
             this.Text = "AgregarServicio";
             this.panel1.ResumeLayout(false);

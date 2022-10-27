@@ -502,11 +502,11 @@
     <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesFinalizadas.Designer.cs">
       <DependentUpon>SolicitudesFinalizadas.cs</DependentUpon>
     </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesActivas.cs">
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesEntregadas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesActivas.Designer.cs">
-      <DependentUpon>SolicitudesActivas.cs</DependentUpon>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesEntregadas.Designer.cs">
+      <DependentUpon>SolicitudesEntregadas.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientes.cs">
       <SubType>Form</SubType>
@@ -660,8 +660,8 @@
     <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesFinalizadas.resx">
       <DependentUpon>SolicitudesFinalizadas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesActivas.resx">
-      <DependentUpon>SolicitudesActivas.cs</DependentUpon>
+    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesEntregadas.resx">
+      <DependentUpon>SolicitudesEntregadas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientes.resx">
       <DependentUpon>GestionClientes.cs</DependentUpon>

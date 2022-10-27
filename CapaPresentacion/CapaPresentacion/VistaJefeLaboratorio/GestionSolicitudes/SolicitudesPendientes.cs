@@ -61,22 +61,29 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes
 
         private void btnBuscarId_Click(object sender, EventArgs e)
         {
-
+            solicitud1.filtrarIdEmpleado();
+            dataGridSolicitudes.Rows.Clear();
+            solicitud1.rellenarDataGridSolicitudes(dataGridSolicitudes);
         }
 
         private void btnBuscarDni_Click(object sender, EventArgs e)
         {
-
+            solicitud1.filtrarDni();
+            dataGridSolicitudes.Rows.Clear();
+            solicitud1.rellenarDataGridSolicitudes(dataGridSolicitudes);
         }
 
         private void btnFiltrarServicio_Click(object sender, EventArgs e)
         {
-
+            solicitud1.filtrarServicio();
+            dataGridSolicitudes.Rows.Clear();
+            solicitud1.rellenarDataGridSolicitudes(dataGridSolicitudes);
         }
 
         private void btnMostrarTodos_Click(object sender, EventArgs e)
         {
-
+            dataGridSolicitudes.Rows.Clear();
+            solicitud1.rellenarDataGridSolicitudes(dataGridSolicitudes);
         }
     }
 }

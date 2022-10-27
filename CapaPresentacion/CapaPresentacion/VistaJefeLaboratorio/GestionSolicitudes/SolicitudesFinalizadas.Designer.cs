@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuDataGridView1 = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.columnIdSolicitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +43,12 @@
             this.columnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnRegistrarJornada = new System.Windows.Forms.Button();
+            this.textBoxBuscarDni = new System.Windows.Forms.TextBox();
+            this.btnBuscarDni = new System.Windows.Forms.Button();
+            this.btnFiltrarServicio = new System.Windows.Forms.Button();
+            this.comboBoxServicios = new System.Windows.Forms.ComboBox();
+            this.textBoxBuscarId = new System.Windows.Forms.TextBox();
+            this.btnBuscarId = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,34 +65,6 @@
             this.button2.Text = "Mostrar todos";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.Location = new System.Drawing.Point(216, 85);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 46);
-            this.button1.TabIndex = 66;
-            this.button1.Text = "Filtrar por servicio";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(33, 99);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(162, 21);
-            this.comboBox2.TabIndex = 65;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(33, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(162, 20);
-            this.textBox1.TabIndex = 64;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -106,21 +80,21 @@
             // bunifuDataGridView1
             // 
             this.bunifuDataGridView1.AllowCustomTheming = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.bunifuDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.bunifuDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.bunifuDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.bunifuDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuDataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.bunifuDataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.bunifuDataGridView1.ColumnHeadersHeight = 40;
             this.bunifuDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnIdSolicitud,
@@ -149,14 +123,14 @@
             this.bunifuDataGridView1.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.bunifuDataGridView1.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.bunifuDataGridView1.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bunifuDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.bunifuDataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.bunifuDataGridView1.EnableHeadersVisualStyles = false;
             this.bunifuDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.bunifuDataGridView1.HeaderBackColor = System.Drawing.Color.DodgerBlue;
@@ -223,18 +197,68 @@
             this.label4.TabIndex = 61;
             this.label4.Text = "Listado de Jornadas del laboratorio";
             // 
-            // btnRegistrarJornada
+            // textBoxBuscarDni
             // 
-            this.btnRegistrarJornada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarJornada.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarJornada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnRegistrarJornada.Location = new System.Drawing.Point(216, 30);
-            this.btnRegistrarJornada.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRegistrarJornada.Name = "btnRegistrarJornada";
-            this.btnRegistrarJornada.Size = new System.Drawing.Size(132, 31);
-            this.btnRegistrarJornada.TabIndex = 60;
-            this.btnRegistrarJornada.Text = "Buscar por ID";
-            this.btnRegistrarJornada.UseVisualStyleBackColor = true;
+            this.textBoxBuscarDni.Location = new System.Drawing.Point(34, 70);
+            this.textBoxBuscarDni.Name = "textBoxBuscarDni";
+            this.textBoxBuscarDni.Size = new System.Drawing.Size(162, 20);
+            this.textBoxBuscarDni.TabIndex = 73;
+            // 
+            // btnBuscarDni
+            // 
+            this.btnBuscarDni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarDni.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnBuscarDni.Location = new System.Drawing.Point(217, 64);
+            this.btnBuscarDni.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBuscarDni.Name = "btnBuscarDni";
+            this.btnBuscarDni.Size = new System.Drawing.Size(132, 31);
+            this.btnBuscarDni.TabIndex = 72;
+            this.btnBuscarDni.Text = "Buscar por DNI";
+            this.btnBuscarDni.UseVisualStyleBackColor = true;
+            // 
+            // btnFiltrarServicio
+            // 
+            this.btnFiltrarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrarServicio.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrarServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnFiltrarServicio.Location = new System.Drawing.Point(217, 113);
+            this.btnFiltrarServicio.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFiltrarServicio.Name = "btnFiltrarServicio";
+            this.btnFiltrarServicio.Size = new System.Drawing.Size(132, 46);
+            this.btnFiltrarServicio.TabIndex = 71;
+            this.btnFiltrarServicio.Text = "Filtrar por servicio";
+            this.btnFiltrarServicio.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxServicios
+            // 
+            this.comboBoxServicios.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxServicios.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxServicios.FormattingEnabled = true;
+            this.comboBoxServicios.Location = new System.Drawing.Point(34, 125);
+            this.comboBoxServicios.Name = "comboBoxServicios";
+            this.comboBoxServicios.Size = new System.Drawing.Size(162, 21);
+            this.comboBoxServicios.TabIndex = 70;
+            // 
+            // textBoxBuscarId
+            // 
+            this.textBoxBuscarId.Location = new System.Drawing.Point(34, 25);
+            this.textBoxBuscarId.Name = "textBoxBuscarId";
+            this.textBoxBuscarId.Size = new System.Drawing.Size(162, 20);
+            this.textBoxBuscarId.TabIndex = 69;
+            // 
+            // btnBuscarId
+            // 
+            this.btnBuscarId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarId.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnBuscarId.Location = new System.Drawing.Point(217, 19);
+            this.btnBuscarId.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBuscarId.Name = "btnBuscarId";
+            this.btnBuscarId.Size = new System.Drawing.Size(132, 31);
+            this.btnBuscarId.TabIndex = 68;
+            this.btnBuscarId.Text = "Buscar por ID";
+            this.btnBuscarId.UseVisualStyleBackColor = true;
             // 
             // SolicitudesFinalizadas
             // 
@@ -242,16 +266,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(562, 456);
+            this.Controls.Add(this.textBoxBuscarDni);
+            this.Controls.Add(this.btnBuscarDni);
+            this.Controls.Add(this.btnFiltrarServicio);
+            this.Controls.Add(this.comboBoxServicios);
+            this.Controls.Add(this.textBoxBuscarId);
+            this.Controls.Add(this.btnBuscarId);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bunifuDataGridView1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnRegistrarJornada);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SolicitudesFinalizadas";
             this.Text = "SolicitudesFinalizadas";
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).EndInit();
@@ -263,9 +289,6 @@
         #endregion
 
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private Bunifu.UI.WinForms.BunifuDataGridView bunifuDataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnIdSolicitud;
@@ -277,6 +300,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnAccion;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnRegistrarJornada;
+        private System.Windows.Forms.TextBox textBoxBuscarDni;
+        private System.Windows.Forms.Button btnBuscarDni;
+        private System.Windows.Forms.Button btnFiltrarServicio;
+        private System.Windows.Forms.ComboBox comboBoxServicios;
+        private System.Windows.Forms.TextBox textBoxBuscarId;
+        private System.Windows.Forms.Button btnBuscarId;
     }
 }

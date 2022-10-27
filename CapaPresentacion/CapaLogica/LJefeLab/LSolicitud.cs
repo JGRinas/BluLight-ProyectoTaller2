@@ -87,7 +87,7 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                 }
             }
         }
-
+        //****método para obtener las id independientes a partir de una string con formato 1-1-1
         public List<String> filtrarIdSolicitud(string idSolicitud)
         {
             //int posicionBarra1 = 0;
@@ -128,6 +128,7 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
 
         }
 
+        //****método para obtener las id independientes a partir de una string con formato 1-1-1
         public string filtrarIdEmpleado(string textoEmpleado)
         {
             string idEmpleado = "";
@@ -163,7 +164,130 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                 {
                     solicitud.First().idEstado = 2;
                     solicitud.First().idEmpleado = idEmpleado;
+                    //solicitud.First().fechaFinalizacion = dsadasds;
                     db.SaveChanges();
+                }
+            }
+        }
+
+        public void filtrarId(BunifuDataGridView datagrid, string idSolicitud)
+        {
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                List<Detalle_factura_servicio> solicitudes = new List<Detalle_factura_servicio>();
+                //solicitudes = db.Detalle_factura_servicio.ToList();
+                solicitudes = db.Detalle_factura_servicio.Where(e => e.idLab == MyGlobals.empleado.idLab 
+                && e.idEstado == 1 
+                && e.idServicio == Int32.Parse(this.filtrarIdSolicitud(idSolicitud)[0]) 
+                && e.idFacturaServ == Int32.Parse(this.filtrarIdSolicitud(idSolicitud)[1])).ToList();
+
+                if (solicitudes.Count > 0)
+                {
+                    foreach (Detalle_factura_servicio solicitud in solicitudes)
+                    {
+                        int fila = datagrid.Rows.Add();
+                        datagrid.Rows[fila].DefaultCellStyle.BackColor = Color.White;
+
+                        datagrid.Rows[fila].Cells["columnIdSolicitud"].Value = solicitud.idFacturaServ + "-" + solicitud.idServicio + "-" + solicitud.idLab;
+                        datagrid.Rows[fila].Cells["columnNombreServicio"].Value = solicitud.Servicio_laboratorio.Servicio.nombre;
+                        datagrid.Rows[fila].Cells["columnCantidad"].Value = solicitud.cantidad;
+                        datagrid.Rows[fila].Cells["columnDniCliente"].Value = solicitud.Factura_servicio.Persona.dni;
+                        datagrid.Rows[fila].Cells["columnNombreCliente"].Value = solicitud.Factura_servicio.Persona.nombre + " " + solicitud.Factura_servicio.Persona.apellido;
+                        datagrid.Rows[fila].Cells["columnMailCliente"].Value = solicitud.Factura_servicio.Persona.email;
+                        datagrid.Rows[fila].Cells["columnTelefono"].Value = solicitud.Factura_servicio.Persona.telefono;
+
+                        DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
+
+                        boton.Text = "Promover";
+                        boton.Name = "btnAccion";
+                        boton.HeaderText = "Acción";
+                        boton.FlatStyle = FlatStyle.Flat;
+                        boton.DefaultCellStyle.BackColor = Color.Red;
+                        boton.UseColumnTextForButtonValue = true;
+                        datagrid.Columns.Add(boton);
+                        //dataGridSolicitudes.Rows[fila].Cells["columnAccion"].Value.;
+                    }
+                }
+            }
+        }
+
+        public void filtrarDni(BunifuDataGridView datagrid, int dni)
+        {
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                List<Detalle_factura_servicio> solicitudes = new List<Detalle_factura_servicio>();
+                //solicitudes = db.Detalle_factura_servicio.ToList();
+                solicitudes = db.Detalle_factura_servicio.Where(e => e.idLab == MyGlobals.empleado.idLab 
+                && e.Factura_servicio.Persona.dni == dni 
+                && e.idEstado == 1).ToList();
+
+                if (solicitudes.Count > 0)
+                {
+                    foreach (Detalle_factura_servicio solicitud in solicitudes)
+                    {
+                        int fila = datagrid.Rows.Add();
+                        datagrid.Rows[fila].DefaultCellStyle.BackColor = Color.White;
+                        datagrid.Rows[fila].Cells["columnIdSolicitud"].Value = solicitud.idFacturaServ + "-" + solicitud.idServicio + "-" + solicitud.idLab;
+                        datagrid.Rows[fila].Cells["columnNombreServicio"].Value = solicitud.Servicio_laboratorio.Servicio.nombre;
+                        datagrid.Rows[fila].Cells["columnCantidad"].Value = solicitud.cantidad;
+                        datagrid.Rows[fila].Cells["columnDniCliente"].Value = solicitud.Factura_servicio.Persona.dni;
+                        datagrid.Rows[fila].Cells["columnNombreCliente"].Value = solicitud.Factura_servicio.Persona.nombre + " " + solicitud.Factura_servicio.Persona.apellido;
+                        datagrid.Rows[fila].Cells["columnMailCliente"].Value = solicitud.Factura_servicio.Persona.email;
+                        datagrid.Rows[fila].Cells["columnTelefono"].Value = solicitud.Factura_servicio.Persona.telefono;
+
+                        DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
+
+                        boton.Text = "Promover";
+                        boton.Name = "btnAccion";
+                        boton.HeaderText = "Acción";
+                        boton.FlatStyle = FlatStyle.Flat;
+                        boton.DefaultCellStyle.BackColor = Color.Red;
+                        boton.UseColumnTextForButtonValue = true;
+                        datagrid.Columns.Add(boton);
+                        //dataGridSolicitudes.Rows[fila].Cells["columnAccion"].Value.;
+
+                    }
+                }
+            }
+        }
+
+        public void filtrarServicio(BunifuDataGridView datagrid, int idServicio)
+        {
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                List<Detalle_factura_servicio> solicitudes = new List<Detalle_factura_servicio>();
+                //solicitudes = db.Detalle_factura_servicio.ToList();
+                solicitudes = db.Detalle_factura_servicio.Where(e => e.idLab == MyGlobals.empleado.idLab 
+                && e.idServicio == idServicio
+                && e.idEstado == 1).ToList();
+
+                if (solicitudes.Count > 0)
+                {
+                    foreach (Detalle_factura_servicio solicitud in solicitudes)
+                    {
+                        int fila = datagrid.Rows.Add();
+                        datagrid.Rows[fila].DefaultCellStyle.BackColor = Color.White;
+
+                        datagrid.Rows[fila].Cells["columnIdSolicitud"].Value = solicitud.idFacturaServ + "-" + solicitud.idServicio + "-" + solicitud.idLab;
+                        datagrid.Rows[fila].Cells["columnNombreServicio"].Value = solicitud.Servicio_laboratorio.Servicio.nombre;
+                        datagrid.Rows[fila].Cells["columnCantidad"].Value = solicitud.cantidad;
+                        datagrid.Rows[fila].Cells["columnDniCliente"].Value = solicitud.Factura_servicio.Persona.dni;
+                        datagrid.Rows[fila].Cells["columnNombreCliente"].Value = solicitud.Factura_servicio.Persona.nombre + " " + solicitud.Factura_servicio.Persona.apellido;
+                        datagrid.Rows[fila].Cells["columnMailCliente"].Value = solicitud.Factura_servicio.Persona.email;
+                        datagrid.Rows[fila].Cells["columnTelefono"].Value = solicitud.Factura_servicio.Persona.telefono;
+
+                        DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
+
+                        boton.Text = "Promover";
+                        boton.Name = "btnAccion";
+                        boton.HeaderText = "Acción";
+                        boton.FlatStyle = FlatStyle.Flat;
+                        boton.DefaultCellStyle.BackColor = Color.Red;
+                        boton.UseColumnTextForButtonValue = true;
+                        datagrid.Columns.Add(boton);
+                        //dataGridSolicitudes.Rows[fila].Cells["columnAccion"].Value.;
+
+                    }
                 }
             }
         }

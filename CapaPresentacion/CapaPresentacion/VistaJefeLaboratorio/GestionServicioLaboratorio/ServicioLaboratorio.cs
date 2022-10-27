@@ -67,7 +67,6 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionServicios
             {
                 
                 int idServicio = Int32.Parse(senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                
                 servicio.eliminarServicio(idServicio);
                 DataGridServicioDelLab.Rows.Clear();
                 servicio.rellenarDataGridServicioDelLab(DataGridServicioDelLab);

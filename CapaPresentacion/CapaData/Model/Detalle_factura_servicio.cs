@@ -21,6 +21,8 @@ namespace CapaPresentacion.CapaData.Model
         public int cantidad { get; set; }
         public int idLab { get; set; }
         public Nullable<int> idEmpleado { get; set; }
+        public Nullable<System.DateTime> fechaFinalizacion { get; set; }
+        public Nullable<System.DateTime> fechaEntregado { get; set; }
     
         public virtual Factura_servicio Factura_servicio { get; set; }
         public virtual Estado_solicitud_servicio Estado_solicitud_servicio { get; set; }

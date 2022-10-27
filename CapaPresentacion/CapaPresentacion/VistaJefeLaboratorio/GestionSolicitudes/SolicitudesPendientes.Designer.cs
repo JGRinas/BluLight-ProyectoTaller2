@@ -28,18 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnBuscarId = new System.Windows.Forms.Button();
             this.dataGridSolicitudes = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxBuscarId = new System.Windows.Forms.TextBox();
-            this.comboBoxServicios = new System.Windows.Forms.ComboBox();
-            this.btnFiltrarServicio = new System.Windows.Forms.Button();
-            this.btnMostrarTodos = new System.Windows.Forms.Button();
-            this.btnBuscarDni = new System.Windows.Forms.Button();
-            this.textBoxBuscarDni = new System.Windows.Forms.TextBox();
             this.columnIdSolicitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnNombreServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +40,13 @@
             this.columnNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnMailCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxBuscarId = new System.Windows.Forms.TextBox();
+            this.comboBoxServicios = new System.Windows.Forms.ComboBox();
+            this.btnFiltrarServicio = new System.Windows.Forms.Button();
+            this.btnMostrarTodos = new System.Windows.Forms.Button();
+            this.btnBuscarDni = new System.Windows.Forms.Button();
+            this.textBoxBuscarDni = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSolicitudes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +55,7 @@
             this.btnBuscarId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarId.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnBuscarId.Location = new System.Drawing.Point(215, 11);
+            this.btnBuscarId.Location = new System.Drawing.Point(216, 13);
             this.btnBuscarId.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarId.Name = "btnBuscarId";
             this.btnBuscarId.Size = new System.Drawing.Size(132, 31);
@@ -67,21 +67,23 @@
             // dataGridSolicitudes
             // 
             this.dataGridSolicitudes.AllowCustomTheming = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dataGridSolicitudes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridSolicitudes.AllowUserToAddRows = false;
+            this.dataGridSolicitudes.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataGridSolicitudes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridSolicitudes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridSolicitudes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridSolicitudes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridSolicitudes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridSolicitudes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridSolicitudes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridSolicitudes.ColumnHeadersHeight = 40;
             this.dataGridSolicitudes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnIdSolicitud,
@@ -109,14 +111,14 @@
             this.dataGridSolicitudes.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dataGridSolicitudes.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.dataGridSolicitudes.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridSolicitudes.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridSolicitudes.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridSolicitudes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridSolicitudes.EnableHeadersVisualStyles = false;
             this.dataGridSolicitudes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
@@ -125,6 +127,7 @@
             this.dataGridSolicitudes.HeaderForeColor = System.Drawing.Color.White;
             this.dataGridSolicitudes.Location = new System.Drawing.Point(0, 190);
             this.dataGridSolicitudes.Name = "dataGridSolicitudes";
+            this.dataGridSolicitudes.ReadOnly = true;
             this.dataGridSolicitudes.RowHeadersVisible = false;
             this.dataGridSolicitudes.RowTemplate.Height = 40;
             this.dataGridSolicitudes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -132,6 +135,48 @@
             this.dataGridSolicitudes.TabIndex = 52;
             this.dataGridSolicitudes.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.dataGridSolicitudes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuDataGridView1_CellContentClick);
+            // 
+            // columnIdSolicitud
+            // 
+            this.columnIdSolicitud.HeaderText = "Id. Solicitud";
+            this.columnIdSolicitud.Name = "columnIdSolicitud";
+            this.columnIdSolicitud.ReadOnly = true;
+            // 
+            // columnNombreServicio
+            // 
+            this.columnNombreServicio.HeaderText = "Servicio";
+            this.columnNombreServicio.Name = "columnNombreServicio";
+            this.columnNombreServicio.ReadOnly = true;
+            // 
+            // columnCantidad
+            // 
+            this.columnCantidad.HeaderText = "Cant.";
+            this.columnCantidad.Name = "columnCantidad";
+            this.columnCantidad.ReadOnly = true;
+            // 
+            // columnDniCliente
+            // 
+            this.columnDniCliente.HeaderText = "DniCliente";
+            this.columnDniCliente.Name = "columnDniCliente";
+            this.columnDniCliente.ReadOnly = true;
+            // 
+            // columnNombreCliente
+            // 
+            this.columnNombreCliente.HeaderText = "Nombre Cliente";
+            this.columnNombreCliente.Name = "columnNombreCliente";
+            this.columnNombreCliente.ReadOnly = true;
+            // 
+            // columnMailCliente
+            // 
+            this.columnMailCliente.HeaderText = "Email";
+            this.columnMailCliente.Name = "columnMailCliente";
+            this.columnMailCliente.ReadOnly = true;
+            // 
+            // columnTelefono
+            // 
+            this.columnTelefono.HeaderText = "Telefono";
+            this.columnTelefono.Name = "columnTelefono";
+            this.columnTelefono.ReadOnly = true;
             // 
             // label1
             // 
@@ -148,7 +193,7 @@
             // 
             // textBoxBuscarId
             // 
-            this.textBoxBuscarId.Location = new System.Drawing.Point(32, 17);
+            this.textBoxBuscarId.Location = new System.Drawing.Point(33, 19);
             this.textBoxBuscarId.Name = "textBoxBuscarId";
             this.textBoxBuscarId.Size = new System.Drawing.Size(162, 20);
             this.textBoxBuscarId.TabIndex = 55;
@@ -159,7 +204,7 @@
             this.comboBoxServicios.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBoxServicios.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxServicios.FormattingEnabled = true;
-            this.comboBoxServicios.Location = new System.Drawing.Point(32, 117);
+            this.comboBoxServicios.Location = new System.Drawing.Point(33, 119);
             this.comboBoxServicios.Name = "comboBoxServicios";
             this.comboBoxServicios.Size = new System.Drawing.Size(162, 21);
             this.comboBoxServicios.TabIndex = 57;
@@ -169,7 +214,7 @@
             this.btnFiltrarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltrarServicio.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltrarServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnFiltrarServicio.Location = new System.Drawing.Point(215, 105);
+            this.btnFiltrarServicio.Location = new System.Drawing.Point(216, 107);
             this.btnFiltrarServicio.Margin = new System.Windows.Forms.Padding(2);
             this.btnFiltrarServicio.Name = "btnFiltrarServicio";
             this.btnFiltrarServicio.Size = new System.Drawing.Size(132, 46);
@@ -198,7 +243,7 @@
             this.btnBuscarDni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarDni.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnBuscarDni.Location = new System.Drawing.Point(215, 56);
+            this.btnBuscarDni.Location = new System.Drawing.Point(216, 58);
             this.btnBuscarDni.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarDni.Name = "btnBuscarDni";
             this.btnBuscarDni.Size = new System.Drawing.Size(132, 31);
@@ -209,46 +254,11 @@
             // 
             // textBoxBuscarDni
             // 
-            this.textBoxBuscarDni.Location = new System.Drawing.Point(32, 62);
+            this.textBoxBuscarDni.Location = new System.Drawing.Point(33, 64);
             this.textBoxBuscarDni.Name = "textBoxBuscarDni";
             this.textBoxBuscarDni.Size = new System.Drawing.Size(162, 20);
             this.textBoxBuscarDni.TabIndex = 61;
             this.textBoxBuscarDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBuscarDni_KeyPress);
-            // 
-            // columnIdSolicitud
-            // 
-            this.columnIdSolicitud.HeaderText = "Id. Solicitud";
-            this.columnIdSolicitud.Name = "columnIdSolicitud";
-            // 
-            // columnNombreServicio
-            // 
-            this.columnNombreServicio.HeaderText = "Servicio";
-            this.columnNombreServicio.Name = "columnNombreServicio";
-            // 
-            // columnCantidad
-            // 
-            this.columnCantidad.HeaderText = "Cant.";
-            this.columnCantidad.Name = "columnCantidad";
-            // 
-            // columnDniCliente
-            // 
-            this.columnDniCliente.HeaderText = "DniCliente";
-            this.columnDniCliente.Name = "columnDniCliente";
-            // 
-            // columnNombreCliente
-            // 
-            this.columnNombreCliente.HeaderText = "Nombre Cliente";
-            this.columnNombreCliente.Name = "columnNombreCliente";
-            // 
-            // columnMailCliente
-            // 
-            this.columnMailCliente.HeaderText = "Email";
-            this.columnMailCliente.Name = "columnMailCliente";
-            // 
-            // columnTelefono
-            // 
-            this.columnTelefono.HeaderText = "Telefono";
-            this.columnTelefono.Name = "columnTelefono";
             // 
             // SolicitudesPendientes
             // 
