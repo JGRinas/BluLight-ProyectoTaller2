@@ -30,9 +30,9 @@ namespace CapaPresentacion.CapaData.Model
         public bool activo { get; set; }
         public Nullable<int> inscriptos { get; set; }
     
+        public virtual Empleado Empleado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inscripto_jornada> Inscripto_jornada { get; set; }
-        public virtual Jefe_laboratorio Jefe_laboratorio { get; set; }
         public virtual Salon_auditorio Salon_auditorio { get; set; }
     }
 }

@@ -20,6 +20,7 @@ namespace CapaLogica
         public static List<Label> clienteLabels = new List<Label>();
 
         public static List<Producto> productoVentas = new List<Producto>();
+        public static List<int> cantidadProducto = new List<int>();
         public static DataGridView dataGridProductosVentas = new DataGridView();
     }
 }

@@ -96,6 +96,10 @@ namespace CapaPresentacion.CapaLogica.LVendedor
                 MyGlobals.clienteLabels[1].Text = persona.apellido.ToString();
                 MyGlobals.clienteLabels[2].Text = persona.dni.ToString();
                 MyGlobals.clienteLabels[3].Text = persona.email.ToString();
+
+                MyGlobals.productoVentas.Clear();
+                MyGlobals.cantidadProducto.Clear();
+
                 MessageBox.Show("Cliente agregado!", "Nueva venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -263,12 +267,25 @@ namespace CapaPresentacion.CapaLogica.LVendedor
 
                 if (productoV.ToList().Count > 0)
                 {
-                    Producto producto = new Producto();
-                    producto = productoV.FirstOrDefault();
-                    MyGlobals.productoVentas.Add(producto);
 
-                    MyGlobals.dataGridProductosVentas.Rows.Clear();
-                    rellenarDataGridCarritoProductos(MyGlobals.dataGridProductosVentas);
+                    Producto pro = MyGlobals.productoVentas.Where(p => p.idProducto.Equals(idP)).FirstOrDefault();
+                    var existe = MyGlobals.productoVentas.IndexOf(pro);
+                    if (existe != -1)
+                    {
+                        MyGlobals.cantidadProducto[existe]++;
+                       
+
+                    }
+                    else
+                    {
+                        Producto producto = new Producto();
+                        producto = productoV.FirstOrDefault();
+                        MyGlobals.productoVentas.Add(producto);
+                        MyGlobals.cantidadProducto.Add(1);
+                        MyGlobals.dataGridProductosVentas.Rows.Clear();
+                        rellenarDataGridCarritoProductos(MyGlobals.dataGridProductosVentas);
+                        
+                    }
                     MessageBox.Show("El producto fue agregado!", "Agregar producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -292,7 +309,7 @@ namespace CapaPresentacion.CapaLogica.LVendedor
                             dataGrid.Rows[fila].Cells["ColumnTitulo"].ReadOnly = true;
                             dataGrid.Rows[fila].Cells["ColumnTitulo"].Value = product.nombre;
                             dataGrid.Rows[fila].Cells["ColumnCantidad"].ValueType = typeof(int);
-                            dataGrid.Rows[fila].Cells["ColumnCantidad"].Value = 1;
+                            dataGrid.Rows[fila].Cells["ColumnCantidad"].Value = MyGlobals.cantidadProducto[fila];
                             dataGrid.Rows[fila].Cells["ColumnSubtotal"].ReadOnly = true;
                             dataGrid.Rows[fila].Cells["ColumnSubtotal"].Value = product.precio * Int32.Parse(dataGrid.Rows[fila].Cells["ColumnCantidad"].Value.ToString());
                             Image thumb = uploadImage.byteToImage(product.imagen).GetThumbnailImage(70, 70, null, IntPtr.Zero);
@@ -315,7 +332,7 @@ namespace CapaPresentacion.CapaLogica.LVendedor
                 MyGlobals.clienteLabels.Clear();
                 MyGlobals.clienteVentas.Clear();
                 MyGlobals.productoVentas.Clear();
-
+                MyGlobals.cantidadProducto.Clear();
                 foreach (Label label in labels)
                 {
                     label.Text = "";
@@ -335,9 +352,26 @@ namespace CapaPresentacion.CapaLogica.LVendedor
             {
                 int id = Int32.Parse(dataGrid.CurrentRow.Cells["ColumnId"].Value.ToString());
                 MyGlobals.productoVentas.RemoveAt(id);
+                MyGlobals.cantidadProducto.RemoveAt(id);
             }
             
         }
 
+        /*FINALIZAR COMPRA*/
+
+        public void rellenarComboBoxMetodoPago(ComboBox comboBox)
+        {
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                foreach (var item in db.Metodo_de_pago)
+                {
+                    comboBox.Items.Add(item.idMetodoPago + " - " + item.metodo);
+                }
+            }
+        }
+        public void finalizarCompra()
+        {
+            
+        }
     }
 }

@@ -14,18 +14,10 @@ namespace CapaPresentacion.CapaData.Model
     
     public partial class Jefe_laboratorio
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Jefe_laboratorio()
-        {
-            this.Jornada = new HashSet<Jornada>();
-        }
-    
         public int idJefeLab { get; set; }
         public int idEmpleado { get; set; }
         public bool activo { get; set; }
     
         public virtual Empleado Empleado { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Jornada> Jornada { get; set; }
     }
 }

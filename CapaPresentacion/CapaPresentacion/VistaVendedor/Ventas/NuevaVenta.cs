@@ -51,6 +51,8 @@ namespace CapaPresentacion.VistaVendedor.Ventas
             venta.refrescarClienteCarrito(labels);
             BuscarClienteVenta cliente = new BuscarClienteVenta();
             cliente.ShowDialog();
+            dataGridViewCarrito.Rows.Clear();
+            venta.rellenarDataGridCarritoProductos(dataGridViewCarrito);
             if (MyGlobals.clienteVentas.Count > 0)
             {
                 labelApellidoC.Text = MyGlobals.clienteVentas[0].apellido.ToString();
@@ -75,6 +77,14 @@ namespace CapaPresentacion.VistaVendedor.Ventas
                 dataGridViewCarrito.Rows.Clear();
                 venta.rellenarDataGridCarritoProductos(dataGridViewCarrito);
                 buttonFinalizarCompra.Enabled = true;
+
+                decimal total = 0;
+                for (int i = 0; i<MyGlobals.productoVentas.Count; i++)
+                {
+                    
+                        total = decimal.Parse(dataGridViewCarrito.Rows[i].Cells["ColumnSubtotal"].Value.ToString()) + total;
+                    labelTotal.Text = total.ToString();
+                }
             }
         }
 
@@ -83,10 +93,6 @@ namespace CapaPresentacion.VistaVendedor.Ventas
             e.Control.KeyPress -= new KeyPressEventHandler(dataGridViewCarrito_KeyPress);
             if (dataGridViewCarrito.CurrentCell.ColumnIndex == 2)
             {
-                if (Int32.Parse(dataGridViewCarrito.CurrentRow.Cells[2].Value.ToString()) > 500)
-                {
-                    dataGridViewCarrito.CurrentRow.Cells[2].Value = 500;
-                }
                 TextBox tb = e.Control as TextBox;
                 if (tb != null)
                 {
@@ -127,18 +133,30 @@ namespace CapaPresentacion.VistaVendedor.Ventas
             if (e.ColumnIndex == 5)
             {
                 venta.borrarProductoCarrito(dataGridViewCarrito);
+
                 
+
                 dataGridViewCarrito.Rows.Clear();
                 venta.rellenarDataGridCarritoProductos(dataGridViewCarrito);
+                decimal total = 0;
+                for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
+                {
+
+                    total = decimal.Parse(dataGridViewCarrito.Rows[i].Cells["ColumnSubtotal"].Value.ToString()) + total;
+                    labelTotal.Text = total.ToString();
+                }
             }
         }
 
         private void dataGridViewCarrito_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
-            if ()
-            {
+          
+        }
 
-            }
+        private void buttonFinalizarCompra_Click(object sender, EventArgs e)
+        {
+            FinalizarCompra finalizarCompra = new FinalizarCompra();
+            finalizarCompra.ShowDialog();
         }
     }
 }

@@ -50,18 +50,18 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dataGridViewCarrito = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.labelProductos = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.buttonCancelarCompra = new System.Windows.Forms.Button();
-            this.labelTotal = new System.Windows.Forms.Label();
-            this.labelT = new System.Windows.Forms.Label();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnImagen = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColumnTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAccion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.labelProductos = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.buttonCancelarCompra = new System.Windows.Forms.Button();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.labelT = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelCliente.SuspendLayout();
@@ -79,7 +79,7 @@
             this.panel3.Controls.Add(this.panelCliente);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(570, 217);
             this.panel3.TabIndex = 2;
@@ -104,12 +104,13 @@
             this.buttonFinalizarCompra.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFinalizarCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.buttonFinalizarCompra.Location = new System.Drawing.Point(27, 156);
-            this.buttonFinalizarCompra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonFinalizarCompra.Margin = new System.Windows.Forms.Padding(2);
             this.buttonFinalizarCompra.Name = "buttonFinalizarCompra";
             this.buttonFinalizarCompra.Size = new System.Drawing.Size(218, 31);
             this.buttonFinalizarCompra.TabIndex = 41;
             this.buttonFinalizarCompra.Text = "Finalizar compra";
             this.buttonFinalizarCompra.UseVisualStyleBackColor = true;
+            this.buttonFinalizarCompra.Click += new System.EventHandler(this.buttonFinalizarCompra_Click);
             // 
             // buttonBuscarProducto
             // 
@@ -119,7 +120,7 @@
             this.buttonBuscarProducto.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBuscarProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.buttonBuscarProducto.Location = new System.Drawing.Point(27, 93);
-            this.buttonBuscarProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBuscarProducto.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBuscarProducto.Name = "buttonBuscarProducto";
             this.buttonBuscarProducto.Size = new System.Drawing.Size(218, 31);
             this.buttonBuscarProducto.TabIndex = 40;
@@ -134,7 +135,7 @@
             this.buttonBuscarCliente.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBuscarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.buttonBuscarCliente.Location = new System.Drawing.Point(27, 28);
-            this.buttonBuscarCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBuscarCliente.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBuscarCliente.Name = "buttonBuscarCliente";
             this.buttonBuscarCliente.Size = new System.Drawing.Size(218, 31);
             this.buttonBuscarCliente.TabIndex = 39;
@@ -282,7 +283,7 @@
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 217);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(570, 238);
             this.panel2.TabIndex = 3;
@@ -292,7 +293,7 @@
             this.panel7.Controls.Add(this.dataGridViewCarrito);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 24);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(570, 184);
             this.panel7.TabIndex = 2;
@@ -371,82 +372,6 @@
             this.dataGridViewCarrito.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewCarrito_EditingControlShowing);
             this.dataGridViewCarrito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewCarrito_KeyPress);
             // 
-            // panel6
-            // 
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.labelProductos);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(570, 24);
-            this.panel6.TabIndex = 1;
-            // 
-            // labelProductos
-            // 
-            this.labelProductos.AutoSize = true;
-            this.labelProductos.Dock = System.Windows.Forms.DockStyle.Left;
-            this.labelProductos.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProductos.ForeColor = System.Drawing.Color.White;
-            this.labelProductos.Location = new System.Drawing.Point(0, 0);
-            this.labelProductos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelProductos.Name = "labelProductos";
-            this.labelProductos.Size = new System.Drawing.Size(90, 19);
-            this.labelProductos.TabIndex = 8;
-            this.labelProductos.Text = "Productos";
-            // 
-            // panel5
-            // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.buttonCancelarCompra);
-            this.panel5.Controls.Add(this.labelTotal);
-            this.panel5.Controls.Add(this.labelT);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 208);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(570, 30);
-            this.panel5.TabIndex = 0;
-            // 
-            // buttonCancelarCompra
-            // 
-            this.buttonCancelarCompra.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonCancelarCompra.Enabled = false;
-            this.buttonCancelarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancelarCompra.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelarCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.buttonCancelarCompra.Location = new System.Drawing.Point(400, 0);
-            this.buttonCancelarCompra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonCancelarCompra.Name = "buttonCancelarCompra";
-            this.buttonCancelarCompra.Size = new System.Drawing.Size(168, 28);
-            this.buttonCancelarCompra.TabIndex = 42;
-            this.buttonCancelarCompra.Text = "Cancelar Compra";
-            this.buttonCancelarCompra.UseVisualStyleBackColor = true;
-            this.buttonCancelarCompra.Click += new System.EventHandler(this.buttonCancelarCompra_Click);
-            // 
-            // labelTotal
-            // 
-            this.labelTotal.AutoSize = true;
-            this.labelTotal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.ForeColor = System.Drawing.Color.White;
-            this.labelTotal.Location = new System.Drawing.Point(60, 3);
-            this.labelTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(0, 19);
-            this.labelTotal.TabIndex = 13;
-            // 
-            // labelT
-            // 
-            this.labelT.AutoSize = true;
-            this.labelT.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelT.ForeColor = System.Drawing.Color.White;
-            this.labelT.Location = new System.Drawing.Point(3, 3);
-            this.labelT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelT.Name = "labelT";
-            this.labelT.Size = new System.Drawing.Size(63, 19);
-            this.labelT.TabIndex = 9;
-            this.labelT.Text = "Total:";
-            // 
             // ColumnId
             // 
             this.ColumnId.HeaderText = "Id";
@@ -484,6 +409,82 @@
             this.ColumnAccion.HeaderText = "Accion";
             this.ColumnAccion.MinimumWidth = 6;
             this.ColumnAccion.Name = "ColumnAccion";
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.labelProductos);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(570, 24);
+            this.panel6.TabIndex = 1;
+            // 
+            // labelProductos
+            // 
+            this.labelProductos.AutoSize = true;
+            this.labelProductos.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelProductos.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProductos.ForeColor = System.Drawing.Color.White;
+            this.labelProductos.Location = new System.Drawing.Point(0, 0);
+            this.labelProductos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelProductos.Name = "labelProductos";
+            this.labelProductos.Size = new System.Drawing.Size(90, 19);
+            this.labelProductos.TabIndex = 8;
+            this.labelProductos.Text = "Productos";
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.buttonCancelarCompra);
+            this.panel5.Controls.Add(this.labelTotal);
+            this.panel5.Controls.Add(this.labelT);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 208);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(570, 30);
+            this.panel5.TabIndex = 0;
+            // 
+            // buttonCancelarCompra
+            // 
+            this.buttonCancelarCompra.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonCancelarCompra.Enabled = false;
+            this.buttonCancelarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancelarCompra.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelarCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonCancelarCompra.Location = new System.Drawing.Point(400, 0);
+            this.buttonCancelarCompra.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonCancelarCompra.Name = "buttonCancelarCompra";
+            this.buttonCancelarCompra.Size = new System.Drawing.Size(168, 28);
+            this.buttonCancelarCompra.TabIndex = 42;
+            this.buttonCancelarCompra.Text = "Cancelar Compra";
+            this.buttonCancelarCompra.UseVisualStyleBackColor = true;
+            this.buttonCancelarCompra.Click += new System.EventHandler(this.buttonCancelarCompra_Click);
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.ForeColor = System.Drawing.Color.White;
+            this.labelTotal.Location = new System.Drawing.Point(60, 3);
+            this.labelTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(0, 19);
+            this.labelTotal.TabIndex = 13;
+            // 
+            // labelT
+            // 
+            this.labelT.AutoSize = true;
+            this.labelT.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelT.ForeColor = System.Drawing.Color.White;
+            this.labelT.Location = new System.Drawing.Point(3, 3);
+            this.labelT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelT.Name = "labelT";
+            this.labelT.Size = new System.Drawing.Size(63, 19);
+            this.labelT.TabIndex = 9;
+            this.labelT.Text = "Total:";
             // 
             // NuevaVenta
             // 

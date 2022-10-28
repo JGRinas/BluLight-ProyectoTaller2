@@ -45,7 +45,6 @@ namespace CapaPresentacion.CapaData.Model
         public virtual DbSet<Salon_auditorio> Salon_auditorio { get; set; }
         public virtual DbSet<Servicio> Servicio { get; set; }
         public virtual DbSet<Servicio_laboratorio> Servicio_laboratorio { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tipo_empleado> Tipo_empleado { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
     }

@@ -200,16 +200,6 @@
           <Property Name="idLab" Type="int" Nullable="false" />
           <Property Name="activo" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="Tipo_empleado">
           <Key>
             <PropertyRef Name="idTipoEmpleado" />
@@ -471,11 +461,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Jornada_JefeLab">
-          <End Role="Jefe_laboratorio" Type="Self.Jefe_laboratorio" Multiplicity="1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
           <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Jefe_laboratorio">
-              <PropertyRef Name="idJefeLab" />
+            <Principal Role="Empleado">
+              <PropertyRef Name="idEmpleado" />
             </Principal>
             <Dependent Role="Jornada">
               <PropertyRef Name="idJefeLab" />
@@ -575,7 +565,6 @@
           <EntitySet Name="Salon_auditorio" EntityType="Self.Salon_auditorio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Servicio-laboratorio" EntityType="Self.Servicio-laboratorio" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_empleado" EntityType="Self.Tipo_empleado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Color_producto" Association="Self.FK_Color_producto">
@@ -659,7 +648,7 @@
             <End Role="Jornada" EntitySet="Jornada" />
           </AssociationSet>
           <AssociationSet Name="FK_Jornada_JefeLab" Association="Self.FK_Jornada_JefeLab">
-            <End Role="Jefe_laboratorio" EntitySet="Jefe_laboratorio" />
+            <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Jornada" EntitySet="Jornada" />
           </AssociationSet>
           <AssociationSet Name="FK_productos_categoria-producto" Association="Self.FK_productos_categoria-producto">
@@ -763,6 +752,7 @@
           <NavigationProperty Name="Factura_producto" Relationship="Self.FK_FacturaProducto_Empleado" FromRole="Empleado" ToRole="Factura_producto" />
           <NavigationProperty Name="Factura_servicio" Relationship="Self.FK_FacturaServicio_Empleado" FromRole="Empleado" ToRole="Factura_servicio" />
           <NavigationProperty Name="Jefe_laboratorio" Relationship="Self.FK_jefe_laboratorio_empleado" FromRole="Empleado" ToRole="Jefe_laboratorio" />
+          <NavigationProperty Name="Jornada" Relationship="Self.FK_Jornada_JefeLab" FromRole="Empleado" ToRole="Jornada" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK_usuario_empleado" FromRole="Empleado" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="Estado_solicitud_servicio">
@@ -827,7 +817,6 @@
           <Property Name="idEmpleado" Type="Int32" Nullable="false" />
           <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Empleado" Relationship="Self.FK_jefe_laboratorio_empleado" FromRole="Jefe_laboratorio" ToRole="Empleado" />
-          <NavigationProperty Name="Jornada" Relationship="Self.FK_Jornada_JefeLab" FromRole="Jefe_laboratorio" ToRole="Jornada" />
         </EntityType>
         <EntityType Name="Jornada">
           <Key>
@@ -842,8 +831,8 @@
           <Property Name="idAuditorio" Type="Int32" Nullable="false" />
           <Property Name="activo" Type="Boolean" Nullable="false" />
           <Property Name="inscriptos" Type="Int32" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK_Jornada_JefeLab" FromRole="Jornada" ToRole="Empleado" />
           <NavigationProperty Name="Inscripto_jornada" Relationship="Self.FK_inscripcion_jornada" FromRole="Jornada" ToRole="Inscripto_jornada" />
-          <NavigationProperty Name="Jefe_laboratorio" Relationship="Self.FK_Jornada_JefeLab" FromRole="Jornada" ToRole="Jefe_laboratorio" />
           <NavigationProperty Name="Salon_auditorio" Relationship="Self.fk_Jornada_auditorio" FromRole="Jornada" ToRole="Salon_auditorio" />
         </EntityType>
         <EntityType Name="Laboratorio">
@@ -937,16 +926,6 @@
           <NavigationProperty Name="Detalle_factura_servicio" Relationship="Self.FK_Detalle_factura_servicio_Servicio_laboratorio" FromRole="Servicio_laboratorio" ToRole="Detalle_factura_servicio" />
           <NavigationProperty Name="Laboratorio" Relationship="Self.FK_servicio_laboratorio_laboratorio" FromRole="Servicio_laboratorio" ToRole="Laboratorio" />
           <NavigationProperty Name="Servicio" Relationship="Self.FK_servicio_laboratorio_servicio" FromRole="Servicio_laboratorio" ToRole="Servicio" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Tipo_empleado">
           <Key>
@@ -1151,6 +1130,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Jornada_JefeLab">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+          <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="Jornada">
+              <PropertyRef Name="idJefeLab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_usuario_empleado">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
@@ -1235,18 +1226,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Jornada_JefeLab">
-          <End Role="Jefe_laboratorio" Type="Self.Jefe_laboratorio" Multiplicity="1" />
-          <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Jefe_laboratorio">
-              <PropertyRef Name="idJefeLab" />
-            </Principal>
-            <Dependent Role="Jornada">
-              <PropertyRef Name="idJefeLab" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_Jornada_auditorio">
           <End Role="Salon_auditorio" Type="Self.Salon_auditorio" Multiplicity="1" />
           <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
@@ -1316,7 +1295,6 @@
           <EntitySet Name="Salon_auditorio" EntityType="Self.Salon_auditorio" />
           <EntitySet Name="Servicio" EntityType="Self.Servicio" />
           <EntitySet Name="Servicio_laboratorio" EntityType="Self.Servicio_laboratorio" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Tipo_empleado" EntityType="Self.Tipo_empleado" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
           <AssociationSet Name="FK_productos_categoria_producto" Association="Self.FK_productos_categoria_producto">
@@ -1379,6 +1357,10 @@
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Jefe_laboratorio" EntitySet="Jefe_laboratorio" />
           </AssociationSet>
+          <AssociationSet Name="FK_Jornada_JefeLab" Association="Self.FK_Jornada_JefeLab">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Jornada" EntitySet="Jornada" />
+          </AssociationSet>
           <AssociationSet Name="FK_usuario_empleado" Association="Self.FK_usuario_empleado">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Usuario" EntitySet="Usuario" />
@@ -1406,10 +1388,6 @@
           <AssociationSet Name="FK_inscripcion_persona" Association="Self.FK_inscripcion_persona">
             <End Role="Persona" EntitySet="Persona" />
             <End Role="Inscripto_jornada" EntitySet="Inscripto_jornada" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Jornada_JefeLab" Association="Self.FK_Jornada_JefeLab">
-            <End Role="Jefe_laboratorio" EntitySet="Jefe_laboratorio" />
-            <End Role="Jornada" EntitySet="Jornada" />
           </AssociationSet>
           <AssociationSet Name="fk_Jornada_auditorio" Association="Self.fk_Jornada_auditorio">
             <End Role="Salon_auditorio" EntitySet="Salon_auditorio" />
@@ -1641,17 +1619,6 @@
                 <ScalarProperty Name="idServicio" ColumnName="idServicio" />
                 <ScalarProperty Name="idLab" ColumnName="idLab" />
                 <ScalarProperty Name="activo" ColumnName="activo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="blulight_octModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
