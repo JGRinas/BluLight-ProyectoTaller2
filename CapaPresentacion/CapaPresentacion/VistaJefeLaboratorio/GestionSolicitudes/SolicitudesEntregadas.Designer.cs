@@ -28,20 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuDataGridView1 = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.columnIdSolicitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnNombreServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mailCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxBuscarDni = new System.Windows.Forms.TextBox();
             this.btnBuscarDni = new System.Windows.Forms.Button();
@@ -49,6 +41,14 @@
             this.comboBoxServicios = new System.Windows.Forms.ComboBox();
             this.textBoxBuscarId = new System.Windows.Forms.TextBox();
             this.btnBuscarId = new System.Windows.Forms.Button();
+            this.columnIdSolicitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNombreServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mailCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnAccion = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,21 +81,21 @@
             // bunifuDataGridView1
             // 
             this.bunifuDataGridView1.AllowCustomTheming = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.bunifuDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.bunifuDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.bunifuDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.bunifuDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuDataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.bunifuDataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.bunifuDataGridView1.ColumnHeadersHeight = 40;
             this.bunifuDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnIdSolicitud,
@@ -124,14 +124,14 @@
             this.bunifuDataGridView1.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.bunifuDataGridView1.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.bunifuDataGridView1.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bunifuDataGridView1.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.bunifuDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.bunifuDataGridView1.EnableHeadersVisualStyles = false;
             this.bunifuDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.bunifuDataGridView1.HeaderBackColor = System.Drawing.Color.DodgerBlue;
@@ -145,46 +145,6 @@
             this.bunifuDataGridView1.Size = new System.Drawing.Size(565, 233);
             this.bunifuDataGridView1.TabIndex = 62;
             this.bunifuDataGridView1.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
-            // 
-            // columnIdSolicitud
-            // 
-            this.columnIdSolicitud.HeaderText = "Id. Solicitud";
-            this.columnIdSolicitud.Name = "columnIdSolicitud";
-            // 
-            // columnNombreServicio
-            // 
-            this.columnNombreServicio.HeaderText = "Servicio";
-            this.columnNombreServicio.Name = "columnNombreServicio";
-            // 
-            // columnCantidad
-            // 
-            this.columnCantidad.HeaderText = "Cant.";
-            this.columnCantidad.Name = "columnCantidad";
-            // 
-            // columnDniCliente
-            // 
-            this.columnDniCliente.HeaderText = "DniCliente";
-            this.columnDniCliente.Name = "columnDniCliente";
-            // 
-            // columnNombreCliente
-            // 
-            this.columnNombreCliente.HeaderText = "Nombre Cliente";
-            this.columnNombreCliente.Name = "columnNombreCliente";
-            // 
-            // mailCliente
-            // 
-            this.mailCliente.HeaderText = "Email";
-            this.mailCliente.Name = "mailCliente";
-            // 
-            // columnTelefono
-            // 
-            this.columnTelefono.HeaderText = "Telefono";
-            this.columnTelefono.Name = "columnTelefono";
-            // 
-            // columnAccion
-            // 
-            this.columnAccion.HeaderText = "Acción";
-            this.columnAccion.Name = "columnAccion";
             // 
             // label4
             // 
@@ -261,7 +221,49 @@
             this.btnBuscarId.Text = "Buscar por ID";
             this.btnBuscarId.UseVisualStyleBackColor = true;
             // 
-            // SolicitudesActivas
+            // columnIdSolicitud
+            // 
+            this.columnIdSolicitud.HeaderText = "Id. Solicitud";
+            this.columnIdSolicitud.Name = "columnIdSolicitud";
+            // 
+            // columnNombreServicio
+            // 
+            this.columnNombreServicio.HeaderText = "Servicio";
+            this.columnNombreServicio.Name = "columnNombreServicio";
+            // 
+            // columnCantidad
+            // 
+            this.columnCantidad.HeaderText = "Cant.";
+            this.columnCantidad.Name = "columnCantidad";
+            // 
+            // columnDniCliente
+            // 
+            this.columnDniCliente.HeaderText = "DniCliente";
+            this.columnDniCliente.Name = "columnDniCliente";
+            // 
+            // columnNombreCliente
+            // 
+            this.columnNombreCliente.HeaderText = "Nombre Cliente";
+            this.columnNombreCliente.Name = "columnNombreCliente";
+            // 
+            // mailCliente
+            // 
+            this.mailCliente.HeaderText = "Email";
+            this.mailCliente.Name = "mailCliente";
+            // 
+            // columnTelefono
+            // 
+            this.columnTelefono.HeaderText = "Telefono";
+            this.columnTelefono.Name = "columnTelefono";
+            // 
+            // columnAccion
+            // 
+            this.columnAccion.HeaderText = "Acción";
+            this.columnAccion.Name = "columnAccion";
+            this.columnAccion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.columnAccion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // SolicitudesEntregadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -279,7 +281,7 @@
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "SolicitudesActivas";
+            this.Name = "SolicitudesEntregadas";
             this.Text = "SolicitudesPendientes";
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -292,14 +294,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private Bunifu.UI.WinForms.BunifuDataGridView bunifuDataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnIdSolicitud;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnNombreServicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnDniCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnNombreCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mailCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnAccion;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxBuscarDni;
         private System.Windows.Forms.Button btnBuscarDni;
@@ -307,5 +301,13 @@
         private System.Windows.Forms.ComboBox comboBoxServicios;
         private System.Windows.Forms.TextBox textBoxBuscarId;
         private System.Windows.Forms.Button btnBuscarId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnIdSolicitud;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnNombreServicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnDniCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnNombreCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mailCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnTelefono;
+        private System.Windows.Forms.DataGridViewButtonColumn columnAccion;
     }
 }

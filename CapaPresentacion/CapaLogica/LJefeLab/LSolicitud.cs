@@ -11,6 +11,8 @@ using CapaPresentacion.CapaData.Model;
 using Bunifu.UI.WinForms;
 using Bunifu.UI.WinForms.BunifuButton;
 using System.Data;
+using CapaPresentacion.VistaRecepcionista.Servicios;
+using System.Text.RegularExpressions;
 
 namespace CapaPresentacion.CapaLogica.LJefeLab
 {
@@ -69,16 +71,17 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                         dataGridSolicitudes.Rows[fila].Cells["columnNombreCliente"].Value = solicitud.Factura_servicio.Persona.nombre + " " + solicitud.Factura_servicio.Persona.apellido;
                         dataGridSolicitudes.Rows[fila].Cells["columnMailCliente"].Value = solicitud.Factura_servicio.Persona.email;
                         dataGridSolicitudes.Rows[fila].Cells["columnTelefono"].Value = solicitud.Factura_servicio.Persona.telefono;
+                        dataGridSolicitudes.Rows[fila].Cells["columnAccion"].Value = "Promover";
 
-                        DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
+                        //DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
 
-                        boton.Text = "Promover";
-                        boton.Name = "btnAccion";
-                        boton.HeaderText = "Acción";
-                        boton.FlatStyle = FlatStyle.Flat;
-                        boton.DefaultCellStyle.BackColor = Color.Red;
-                        boton.UseColumnTextForButtonValue = true;
-                        dataGridSolicitudes.Columns.Add(boton);
+                        //boton.Text = "Promover";
+                        //boton.Name = "btnAccion";
+                        //boton.HeaderText = "Acción";
+                        //boton.FlatStyle = FlatStyle.Flat;
+                        //boton.DefaultCellStyle.BackColor = Color.Red;
+                        //boton.UseColumnTextForButtonValue = true;
+                        //dataGridSolicitudes.Columns.Add(boton);
                         //dataGridSolicitudes.Rows[fila].Cells["columnAccion"].Value.;
 
 
@@ -163,6 +166,7 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                 if(solicitud.Count > 0)
                 {
                     solicitud.First().idEstado = 2;
+                    solicitud.First().fechaFinalizacion = DateTime.Today;
                     solicitud.First().idEmpleado = idEmpleado;
                     //solicitud.First().fechaFinalizacion = dsadasds;
                     db.SaveChanges();
@@ -170,16 +174,52 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
             }
         }
 
+        public bool formatoIdSolicitud(string idSolicitud) {
+            int numGuiones = 0;
+            int i = 0;
+            bool val1 = false;
+            bool val2 = false;
+
+            for(i=0;i<idSolicitud.Length;i++)
+            {
+                if (idSolicitud[i].ToString().Equals("-"))
+                {
+                    numGuiones++;
+                    bool val = false;
+
+                    val = Char.IsDigit(idSolicitud[i+1]);         
+
+                    if (val && numGuiones == 1){
+                        val1 = true;
+                    }else if(val && numGuiones == 2)
+                    {
+                        val2 = true;
+                    }
+                }   
+            }
+            
+
+            if (val1 & val2 && numGuiones == 2) {
+
+                return true;
+            
+            } else { return false; }
+        }
+
         public void filtrarId(BunifuDataGridView datagrid, string idSolicitud)
         {
+
+            int idFacturaServ = Int32.Parse(filtrarIdSolicitud(idSolicitud)[0]);
+            int idServicio = Int32.Parse(filtrarIdSolicitud(idSolicitud)[1]);
+
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
                 List<Detalle_factura_servicio> solicitudes = new List<Detalle_factura_servicio>();
                 //solicitudes = db.Detalle_factura_servicio.ToList();
                 solicitudes = db.Detalle_factura_servicio.Where(e => e.idLab == MyGlobals.empleado.idLab 
                 && e.idEstado == 1 
-                && e.idServicio == Int32.Parse(this.filtrarIdSolicitud(idSolicitud)[0]) 
-                && e.idFacturaServ == Int32.Parse(this.filtrarIdSolicitud(idSolicitud)[1])).ToList();
+                && e.idServicio == idServicio 
+                && e.idFacturaServ == idFacturaServ).ToList();
 
                 if (solicitudes.Count > 0)
                 {
@@ -196,17 +236,21 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                         datagrid.Rows[fila].Cells["columnMailCliente"].Value = solicitud.Factura_servicio.Persona.email;
                         datagrid.Rows[fila].Cells["columnTelefono"].Value = solicitud.Factura_servicio.Persona.telefono;
 
-                        DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
+                        //DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
 
-                        boton.Text = "Promover";
-                        boton.Name = "btnAccion";
-                        boton.HeaderText = "Acción";
-                        boton.FlatStyle = FlatStyle.Flat;
-                        boton.DefaultCellStyle.BackColor = Color.Red;
-                        boton.UseColumnTextForButtonValue = true;
-                        datagrid.Columns.Add(boton);
+                        //boton.Text = "Promover";
+                        //boton.Name = "btnAccion";
+                        //boton.HeaderText = "Acción";
+                        //boton.FlatStyle = FlatStyle.Flat;
+                        //boton.DefaultCellStyle.BackColor = Color.Red;
+                        //boton.UseColumnTextForButtonValue = true;
+                        //datagrid.Columns.Add(boton);
                         //dataGridSolicitudes.Rows[fila].Cells["columnAccion"].Value.;
                     }
+                }
+                else
+                {
+                    MessageBox.Show("No se ha encontrado la solicitud", "Solicitud no encontrada", MessageBoxButtons.OK);
                 }
             }
         }
@@ -235,19 +279,21 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                         datagrid.Rows[fila].Cells["columnMailCliente"].Value = solicitud.Factura_servicio.Persona.email;
                         datagrid.Rows[fila].Cells["columnTelefono"].Value = solicitud.Factura_servicio.Persona.telefono;
 
-                        DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
+                        //DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
 
-                        boton.Text = "Promover";
-                        boton.Name = "btnAccion";
-                        boton.HeaderText = "Acción";
-                        boton.FlatStyle = FlatStyle.Flat;
-                        boton.DefaultCellStyle.BackColor = Color.Red;
-                        boton.UseColumnTextForButtonValue = true;
-                        datagrid.Columns.Add(boton);
+                        //boton.Text = "Promover";
+                        //boton.Name = "btnAccion";
+                        //boton.HeaderText = "Acción";
+                        //boton.FlatStyle = FlatStyle.Flat;
+                        //boton.DefaultCellStyle.BackColor = Color.Red;
+                        //boton.UseColumnTextForButtonValue = true;
+                        //datagrid.Columns.Add(boton);
                         //dataGridSolicitudes.Rows[fila].Cells["columnAccion"].Value.;
 
                     }
                 }
+                else {
+                    MessageBox.Show("No se ha encontrado la solicitud", "Solicitud no encontrada", MessageBoxButtons.OK); }
             }
         }
 
@@ -276,18 +322,22 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                         datagrid.Rows[fila].Cells["columnMailCliente"].Value = solicitud.Factura_servicio.Persona.email;
                         datagrid.Rows[fila].Cells["columnTelefono"].Value = solicitud.Factura_servicio.Persona.telefono;
 
-                        DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
+                        //DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
 
-                        boton.Text = "Promover";
-                        boton.Name = "btnAccion";
-                        boton.HeaderText = "Acción";
-                        boton.FlatStyle = FlatStyle.Flat;
-                        boton.DefaultCellStyle.BackColor = Color.Red;
-                        boton.UseColumnTextForButtonValue = true;
-                        datagrid.Columns.Add(boton);
+                        //boton.Text = "Promover";
+                        //boton.Name = "btnAccion";
+                        //boton.HeaderText = "Acción";
+                        //boton.FlatStyle = FlatStyle.Flat;
+                        //boton.DefaultCellStyle.BackColor = Color.Red;
+                        //boton.UseColumnTextForButtonValue = true;
+                        //datagrid.Columns.Add(boton);
                         //dataGridSolicitudes.Rows[fila].Cells["columnAccion"].Value.;
 
                     }
+                }
+                else
+                {
+                    MessageBox.Show("No se ha encontraron solicitudes para esa categoría", "Solicitudes no encontradas", MessageBoxButtons.OK);
                 }
             }
         }

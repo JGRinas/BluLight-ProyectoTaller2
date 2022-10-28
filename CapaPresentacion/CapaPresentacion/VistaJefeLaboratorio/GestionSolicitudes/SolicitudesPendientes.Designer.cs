@@ -33,13 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnBuscarId = new System.Windows.Forms.Button();
             this.dataGridSolicitudes = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.columnIdSolicitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnNombreServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnMailCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxBuscarId = new System.Windows.Forms.TextBox();
             this.comboBoxServicios = new System.Windows.Forms.ComboBox();
@@ -47,6 +40,14 @@
             this.btnMostrarTodos = new System.Windows.Forms.Button();
             this.btnBuscarDni = new System.Windows.Forms.Button();
             this.textBoxBuscarDni = new System.Windows.Forms.TextBox();
+            this.columnIdSolicitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNombreServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnMailCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnAccion = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSolicitudes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +93,8 @@
             this.columnDniCliente,
             this.columnNombreCliente,
             this.columnMailCliente,
-            this.columnTelefono});
+            this.columnTelefono,
+            this.columnAccion});
             this.dataGridSolicitudes.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             this.dataGridSolicitudes.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.dataGridSolicitudes.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
@@ -135,48 +137,6 @@
             this.dataGridSolicitudes.TabIndex = 52;
             this.dataGridSolicitudes.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.dataGridSolicitudes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuDataGridView1_CellContentClick);
-            // 
-            // columnIdSolicitud
-            // 
-            this.columnIdSolicitud.HeaderText = "Id. Solicitud";
-            this.columnIdSolicitud.Name = "columnIdSolicitud";
-            this.columnIdSolicitud.ReadOnly = true;
-            // 
-            // columnNombreServicio
-            // 
-            this.columnNombreServicio.HeaderText = "Servicio";
-            this.columnNombreServicio.Name = "columnNombreServicio";
-            this.columnNombreServicio.ReadOnly = true;
-            // 
-            // columnCantidad
-            // 
-            this.columnCantidad.HeaderText = "Cant.";
-            this.columnCantidad.Name = "columnCantidad";
-            this.columnCantidad.ReadOnly = true;
-            // 
-            // columnDniCliente
-            // 
-            this.columnDniCliente.HeaderText = "DniCliente";
-            this.columnDniCliente.Name = "columnDniCliente";
-            this.columnDniCliente.ReadOnly = true;
-            // 
-            // columnNombreCliente
-            // 
-            this.columnNombreCliente.HeaderText = "Nombre Cliente";
-            this.columnNombreCliente.Name = "columnNombreCliente";
-            this.columnNombreCliente.ReadOnly = true;
-            // 
-            // columnMailCliente
-            // 
-            this.columnMailCliente.HeaderText = "Email";
-            this.columnMailCliente.Name = "columnMailCliente";
-            this.columnMailCliente.ReadOnly = true;
-            // 
-            // columnTelefono
-            // 
-            this.columnTelefono.HeaderText = "Telefono";
-            this.columnTelefono.Name = "columnTelefono";
-            this.columnTelefono.ReadOnly = true;
             // 
             // label1
             // 
@@ -260,6 +220,54 @@
             this.textBoxBuscarDni.TabIndex = 61;
             this.textBoxBuscarDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBuscarDni_KeyPress);
             // 
+            // columnIdSolicitud
+            // 
+            this.columnIdSolicitud.HeaderText = "Id. Solicitud";
+            this.columnIdSolicitud.Name = "columnIdSolicitud";
+            this.columnIdSolicitud.ReadOnly = true;
+            // 
+            // columnNombreServicio
+            // 
+            this.columnNombreServicio.HeaderText = "Servicio";
+            this.columnNombreServicio.Name = "columnNombreServicio";
+            this.columnNombreServicio.ReadOnly = true;
+            // 
+            // columnCantidad
+            // 
+            this.columnCantidad.HeaderText = "Cant.";
+            this.columnCantidad.Name = "columnCantidad";
+            this.columnCantidad.ReadOnly = true;
+            // 
+            // columnDniCliente
+            // 
+            this.columnDniCliente.HeaderText = "DniCliente";
+            this.columnDniCliente.Name = "columnDniCliente";
+            this.columnDniCliente.ReadOnly = true;
+            // 
+            // columnNombreCliente
+            // 
+            this.columnNombreCliente.HeaderText = "Nombre Cliente";
+            this.columnNombreCliente.Name = "columnNombreCliente";
+            this.columnNombreCliente.ReadOnly = true;
+            // 
+            // columnMailCliente
+            // 
+            this.columnMailCliente.HeaderText = "Email";
+            this.columnMailCliente.Name = "columnMailCliente";
+            this.columnMailCliente.ReadOnly = true;
+            // 
+            // columnTelefono
+            // 
+            this.columnTelefono.HeaderText = "Telefono";
+            this.columnTelefono.Name = "columnTelefono";
+            this.columnTelefono.ReadOnly = true;
+            // 
+            // columnAccion
+            // 
+            this.columnAccion.HeaderText = "Acción";
+            this.columnAccion.Name = "columnAccion";
+            this.columnAccion.ReadOnly = true;
+            // 
             // SolicitudesPendientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,5 +311,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnNombreCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnMailCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnTelefono;
+        private System.Windows.Forms.DataGridViewButtonColumn columnAccion;
     }
 }

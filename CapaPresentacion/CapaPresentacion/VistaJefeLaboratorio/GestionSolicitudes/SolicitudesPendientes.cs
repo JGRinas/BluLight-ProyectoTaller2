@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Bunifu.UI.WinForms.Helpers.Transitions;
+using CapaPresentacion.CapaData.Model;
 using CapaPresentacion.CapaLogica.LJefeLab;
 using CapaPresentacion.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes;
 
@@ -16,7 +17,6 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes
     public partial class SolicitudesPendientes : Form
     {
         LSolicitud solicitud1;
-
 
         //constructor
         public SolicitudesPendientes()
@@ -51,7 +51,7 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes
 
         private void textBoxBuscarId_KeyPress(object sender, KeyPressEventArgs e)
         {
-            solicitud1.textBoxEvent.numberKeyPress(e);
+            //solicitud1.textBoxEvent.numberKeyPress(e);
         }
 
         private void textBoxBuscarDni_KeyPress(object sender, KeyPressEventArgs e)
@@ -61,23 +61,33 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes
 
         private void btnBuscarId_Click(object sender, EventArgs e)
         {
-            solicitud1.filtrarIdEmpleado();
-            dataGridSolicitudes.Rows.Clear();
-            solicitud1.rellenarDataGridSolicitudes(dataGridSolicitudes);
+            if (solicitud1.formatoIdSolicitud(textBoxBuscarId.Text)) //validación del formato
+            {
+                solicitud1.filtrarId(dataGridSolicitudes, textBoxBuscarId.Text);
+                dataGridSolicitudes.Rows.Clear();
+                solicitud1.rellenarDataGridSolicitudes(dataGridSolicitudes);
+            }
+            else
+            {
+                MessageBox.Show("El formato ingresado es incorrecto", "Formato incorrecto", MessageBoxButtons.OK);
+            }
+            
         }
 
         private void btnBuscarDni_Click(object sender, EventArgs e)
         {
-            solicitud1.filtrarDni();
+            
+            solicitud1.filtrarDni(dataGridSolicitudes, Int32.Parse(textBoxBuscarDni.Text));
             dataGridSolicitudes.Rows.Clear();
-            solicitud1.rellenarDataGridSolicitudes(dataGridSolicitudes);
         }
 
         private void btnFiltrarServicio_Click(object sender, EventArgs e)
         {
-            solicitud1.filtrarServicio();
+            int idServicio = comboBoxServicios.SelectedIndex - 1;
             dataGridSolicitudes.Rows.Clear();
-            solicitud1.rellenarDataGridSolicitudes(dataGridSolicitudes);
+            solicitud1.filtrarServicio(dataGridSolicitudes, idServicio);
+     
+            
         }
 
         private void btnMostrarTodos_Click(object sender, EventArgs e)
