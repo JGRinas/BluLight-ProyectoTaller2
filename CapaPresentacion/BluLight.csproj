@@ -380,6 +380,12 @@
     <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionServicioLaboratorio\ServicioLaboratorio.designer.cs">
       <DependentUpon>ServicioLaboratorio.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Activar_Desact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Activar_Desact.Designer.cs">
+      <DependentUpon>Activar_Desact.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -600,6 +606,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionServicioLaboratorio\ServicioLaboratorio.resx">
       <DependentUpon>ServicioLaboratorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Activar_Desact.resx">
+      <DependentUpon>Activar_Desact.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover.resx">
       <DependentUpon>Promover.cs</DependentUpon>

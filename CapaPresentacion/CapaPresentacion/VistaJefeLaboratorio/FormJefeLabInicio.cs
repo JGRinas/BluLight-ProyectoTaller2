@@ -1,5 +1,6 @@
 ﻿using CapaLogica;
 using CapaPresentacion;
+using CapaPresentacion.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes;
 using Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionCursos;
 using Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionReportes;
 using Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionServicios;
@@ -172,6 +173,12 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio
                 formLogout.Show();
                 this.Close();
             }
+        }
+
+        private void btnBajas_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new Activar_Desact());
+            esconderSubMenu();
         }
     }
 }
