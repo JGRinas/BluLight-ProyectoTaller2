@@ -63,9 +63,8 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes
         {
             if (solicitud1.formatoIdSolicitud(textBoxBuscarId.Text)) //validación del formato
             {
-                solicitud1.filtrarId(dataGridSolicitudes, textBoxBuscarId.Text);
+                solicitud1.filtrarId(dataGridSolicitudes, textBoxBuscarId.Text, btnMostrarTodos);
                 dataGridSolicitudes.Rows.Clear();
-                solicitud1.rellenarDataGridSolicitudes(dataGridSolicitudes);
             }
             else
             {
@@ -77,23 +76,30 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes
         private void btnBuscarDni_Click(object sender, EventArgs e)
         {
             
-            solicitud1.filtrarDni(dataGridSolicitudes, Int32.Parse(textBoxBuscarDni.Text));
+            solicitud1.filtrarDni(dataGridSolicitudes, Int32.Parse(textBoxBuscarDni.Text), btnMostrarTodos);
             dataGridSolicitudes.Rows.Clear();
         }
 
         private void btnFiltrarServicio_Click(object sender, EventArgs e)
         {
-            int idServicio = comboBoxServicios.SelectedIndex - 1;
-            dataGridSolicitudes.Rows.Clear();
-            solicitud1.filtrarServicio(dataGridSolicitudes, idServicio);
-     
-            
+            if (comboBoxServicios.SelectedIndex > -1) {
+                string nombreServicio = comboBoxServicios.SelectedItem.ToString();
+                dataGridSolicitudes.Rows.Clear();
+                solicitud1.filtrarServicio(dataGridSolicitudes, nombreServicio, btnMostrarTodos);
+            }   
         }
 
         private void btnMostrarTodos_Click(object sender, EventArgs e)
         {
             dataGridSolicitudes.Rows.Clear();
             solicitud1.rellenarDataGridSolicitudes(dataGridSolicitudes);
+            btnMostrarTodos.Enabled = false;
         }
-    }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("La id de solicitud a ingresar debe respetar el formato 1-1-1, esto es: tres números, con un guión medio entre ellos, sin espacios.", "Información de formato", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+    }//finclase
 }

@@ -31,10 +31,6 @@ namespace CapaPresentacion.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitu
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnPromover_Click(object sender, EventArgs e)
         {
@@ -50,7 +46,15 @@ namespace CapaPresentacion.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitu
             if (comboBoxEmpleados.SelectedIndex != -1)
             {
                 btnPromover.Enabled = true;
+                btnEntregado.Enabled = true;
             }
         }
+
+        private void btnEntregado_Click(object sender, EventArgs e)
+        {
+            string textoEmpleado = comboBoxEmpleados.Text;
+            solicitud1.estadoEntregado(this.idSolicitud, textoEmpleado);
+        }
+
     }
 }

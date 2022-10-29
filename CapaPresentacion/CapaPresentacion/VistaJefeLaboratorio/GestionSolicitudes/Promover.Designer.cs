@@ -30,10 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Promover));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.comboBoxEmpleados = new System.Windows.Forms.ComboBox();
-            this.btnPromover = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnEntregado = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.btnPromover = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.SuspendLayout();
             // 
             // comboBoxEmpleados
@@ -44,6 +46,123 @@
             this.comboBoxEmpleados.Size = new System.Drawing.Size(262, 21);
             this.comboBoxEmpleados.TabIndex = 0;
             this.comboBoxEmpleados.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmpleados_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(105, 54);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 19);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Empleado";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(26, 104);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(230, 13);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "(Seleccione el empleado que realizó el servicio)";
+            // 
+            // btnEntregado
+            // 
+            this.btnEntregado.AllowAnimations = true;
+            this.btnEntregado.AllowMouseEffects = true;
+            this.btnEntregado.AllowToggling = false;
+            this.btnEntregado.AnimationSpeed = 200;
+            this.btnEntregado.AutoGenerateColors = false;
+            this.btnEntregado.AutoRoundBorders = false;
+            this.btnEntregado.AutoSizeLeftIcon = true;
+            this.btnEntregado.AutoSizeRightIcon = true;
+            this.btnEntregado.BackColor = System.Drawing.Color.Transparent;
+            this.btnEntregado.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.btnEntregado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEntregado.BackgroundImage")));
+            this.btnEntregado.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnEntregado.ButtonText = "Marcar como \"Entregada\"";
+            this.btnEntregado.ButtonTextMarginLeft = 0;
+            this.btnEntregado.ColorContrastOnClick = 45;
+            this.btnEntregado.ColorContrastOnHover = 45;
+            this.btnEntregado.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.btnEntregado.CustomizableEdges = borderEdges1;
+            this.btnEntregado.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnEntregado.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnEntregado.DisabledFillColor = System.Drawing.Color.Empty;
+            this.btnEntregado.DisabledForecolor = System.Drawing.Color.Empty;
+            this.btnEntregado.Enabled = false;
+            this.btnEntregado.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.btnEntregado.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEntregado.ForeColor = System.Drawing.Color.White;
+            this.btnEntregado.IconLeft = null;
+            this.btnEntregado.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEntregado.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnEntregado.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.btnEntregado.IconMarginLeft = 11;
+            this.btnEntregado.IconPadding = 10;
+            this.btnEntregado.IconRight = null;
+            this.btnEntregado.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEntregado.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnEntregado.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.btnEntregado.IconSize = 25;
+            this.btnEntregado.IdleBorderColor = System.Drawing.Color.Empty;
+            this.btnEntregado.IdleBorderRadius = 0;
+            this.btnEntregado.IdleBorderThickness = 0;
+            this.btnEntregado.IdleFillColor = System.Drawing.Color.Empty;
+            this.btnEntregado.IdleIconLeftImage = null;
+            this.btnEntregado.IdleIconRightImage = null;
+            this.btnEntregado.IndicateFocus = false;
+            this.btnEntregado.Location = new System.Drawing.Point(290, 133);
+            this.btnEntregado.Name = "btnEntregado";
+            this.btnEntregado.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnEntregado.OnDisabledState.BorderRadius = 1;
+            this.btnEntregado.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnEntregado.OnDisabledState.BorderThickness = 1;
+            this.btnEntregado.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnEntregado.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnEntregado.OnDisabledState.IconLeftImage = null;
+            this.btnEntregado.OnDisabledState.IconRightImage = null;
+            this.btnEntregado.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.btnEntregado.onHoverState.BorderRadius = 1;
+            this.btnEntregado.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnEntregado.onHoverState.BorderThickness = 1;
+            this.btnEntregado.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.btnEntregado.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.btnEntregado.onHoverState.IconLeftImage = null;
+            this.btnEntregado.onHoverState.IconRightImage = null;
+            this.btnEntregado.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnEntregado.OnIdleState.BorderRadius = 1;
+            this.btnEntregado.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnEntregado.OnIdleState.BorderThickness = 1;
+            this.btnEntregado.OnIdleState.FillColor = System.Drawing.Color.DarkBlue;
+            this.btnEntregado.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.btnEntregado.OnIdleState.IconLeftImage = null;
+            this.btnEntregado.OnIdleState.IconRightImage = null;
+            this.btnEntregado.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.btnEntregado.OnPressedState.BorderRadius = 1;
+            this.btnEntregado.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnEntregado.OnPressedState.BorderThickness = 1;
+            this.btnEntregado.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.btnEntregado.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.btnEntregado.OnPressedState.IconLeftImage = null;
+            this.btnEntregado.OnPressedState.IconRightImage = null;
+            this.btnEntregado.Size = new System.Drawing.Size(199, 39);
+            this.btnEntregado.TabIndex = 57;
+            this.btnEntregado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEntregado.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnEntregado.TextMarginLeft = 0;
+            this.btnEntregado.TextPadding = new System.Windows.Forms.Padding(0);
+            this.btnEntregado.UseDefaultRadiusAndThickness = true;
+            this.btnEntregado.Click += new System.EventHandler(this.btnEntregado_Click);
             // 
             // btnPromover
             // 
@@ -59,16 +178,16 @@
             this.btnPromover.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.btnPromover.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPromover.BackgroundImage")));
             this.btnPromover.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnPromover.ButtonText = "Marcar como \"Realizado\"";
+            this.btnPromover.ButtonText = "Marcar como \"Realizada\"";
             this.btnPromover.ButtonTextMarginLeft = 0;
             this.btnPromover.ColorContrastOnClick = 45;
             this.btnPromover.ColorContrastOnHover = 45;
             this.btnPromover.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.btnPromover.CustomizableEdges = borderEdges1;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.btnPromover.CustomizableEdges = borderEdges2;
             this.btnPromover.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnPromover.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnPromover.DisabledFillColor = System.Drawing.Color.Empty;
@@ -138,36 +257,13 @@
             this.btnPromover.UseDefaultRadiusAndThickness = true;
             this.btnPromover.Click += new System.EventHandler(this.btnPromover_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(105, 54);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 19);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Empleado";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(26, 104);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 13);
-            this.label1.TabIndex = 55;
-            this.label1.Text = "(Seleccione el empleado que realizó el servicio)";
-            // 
             // Promover
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(515, 218);
+            this.Controls.Add(this.btnEntregado);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnPromover);
@@ -186,5 +282,6 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnPromover;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnEntregado;
     }
 }

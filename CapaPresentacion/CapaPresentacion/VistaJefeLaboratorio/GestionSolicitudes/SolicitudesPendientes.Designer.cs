@@ -33,13 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnBuscarId = new System.Windows.Forms.Button();
             this.dataGridSolicitudes = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxBuscarId = new System.Windows.Forms.TextBox();
-            this.comboBoxServicios = new System.Windows.Forms.ComboBox();
-            this.btnFiltrarServicio = new System.Windows.Forms.Button();
-            this.btnMostrarTodos = new System.Windows.Forms.Button();
-            this.btnBuscarDni = new System.Windows.Forms.Button();
-            this.textBoxBuscarDni = new System.Windows.Forms.TextBox();
             this.columnIdSolicitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnNombreServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +41,15 @@
             this.columnMailCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnAccion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxBuscarId = new System.Windows.Forms.TextBox();
+            this.comboBoxServicios = new System.Windows.Forms.ComboBox();
+            this.btnFiltrarServicio = new System.Windows.Forms.Button();
+            this.btnMostrarTodos = new System.Windows.Forms.Button();
+            this.btnBuscarDni = new System.Windows.Forms.Button();
+            this.textBoxBuscarDni = new System.Windows.Forms.TextBox();
+            this.labelIdJornada = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSolicitudes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +58,7 @@
             this.btnBuscarId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarId.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnBuscarId.Location = new System.Drawing.Point(216, 13);
+            this.btnBuscarId.Location = new System.Drawing.Point(216, 40);
             this.btnBuscarId.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarId.Name = "btnBuscarId";
             this.btnBuscarId.Size = new System.Drawing.Size(132, 31);
@@ -127,98 +129,16 @@
             this.dataGridSolicitudes.HeaderBackColor = System.Drawing.Color.DodgerBlue;
             this.dataGridSolicitudes.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataGridSolicitudes.HeaderForeColor = System.Drawing.Color.White;
-            this.dataGridSolicitudes.Location = new System.Drawing.Point(0, 190);
+            this.dataGridSolicitudes.Location = new System.Drawing.Point(0, 210);
             this.dataGridSolicitudes.Name = "dataGridSolicitudes";
             this.dataGridSolicitudes.ReadOnly = true;
             this.dataGridSolicitudes.RowHeadersVisible = false;
             this.dataGridSolicitudes.RowTemplate.Height = 40;
             this.dataGridSolicitudes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridSolicitudes.Size = new System.Drawing.Size(562, 266);
+            this.dataGridSolicitudes.Size = new System.Drawing.Size(562, 246);
             this.dataGridSolicitudes.TabIndex = 52;
             this.dataGridSolicitudes.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.dataGridSolicitudes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuDataGridView1_CellContentClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(0, 177);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 13);
-            this.label1.TabIndex = 54;
-            this.label1.Text = "Listado de solicitudes de servicio activas";
-            // 
-            // textBoxBuscarId
-            // 
-            this.textBoxBuscarId.Location = new System.Drawing.Point(33, 19);
-            this.textBoxBuscarId.Name = "textBoxBuscarId";
-            this.textBoxBuscarId.Size = new System.Drawing.Size(162, 20);
-            this.textBoxBuscarId.TabIndex = 55;
-            this.textBoxBuscarId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBuscarId_KeyPress);
-            // 
-            // comboBoxServicios
-            // 
-            this.comboBoxServicios.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxServicios.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBoxServicios.FormattingEnabled = true;
-            this.comboBoxServicios.Location = new System.Drawing.Point(33, 119);
-            this.comboBoxServicios.Name = "comboBoxServicios";
-            this.comboBoxServicios.Size = new System.Drawing.Size(162, 21);
-            this.comboBoxServicios.TabIndex = 57;
-            // 
-            // btnFiltrarServicio
-            // 
-            this.btnFiltrarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFiltrarServicio.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrarServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnFiltrarServicio.Location = new System.Drawing.Point(216, 107);
-            this.btnFiltrarServicio.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFiltrarServicio.Name = "btnFiltrarServicio";
-            this.btnFiltrarServicio.Size = new System.Drawing.Size(132, 46);
-            this.btnFiltrarServicio.TabIndex = 58;
-            this.btnFiltrarServicio.Text = "Filtrar por servicio";
-            this.btnFiltrarServicio.UseVisualStyleBackColor = true;
-            this.btnFiltrarServicio.Click += new System.EventHandler(this.btnFiltrarServicio_Click);
-            // 
-            // btnMostrarTodos
-            // 
-            this.btnMostrarTodos.Enabled = false;
-            this.btnMostrarTodos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMostrarTodos.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMostrarTodos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnMostrarTodos.Location = new System.Drawing.Point(391, 51);
-            this.btnMostrarTodos.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMostrarTodos.Name = "btnMostrarTodos";
-            this.btnMostrarTodos.Size = new System.Drawing.Size(132, 36);
-            this.btnMostrarTodos.TabIndex = 59;
-            this.btnMostrarTodos.Text = "Mostrar todos";
-            this.btnMostrarTodos.UseVisualStyleBackColor = true;
-            this.btnMostrarTodos.Click += new System.EventHandler(this.btnMostrarTodos_Click);
-            // 
-            // btnBuscarDni
-            // 
-            this.btnBuscarDni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarDni.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnBuscarDni.Location = new System.Drawing.Point(216, 58);
-            this.btnBuscarDni.Margin = new System.Windows.Forms.Padding(2);
-            this.btnBuscarDni.Name = "btnBuscarDni";
-            this.btnBuscarDni.Size = new System.Drawing.Size(132, 31);
-            this.btnBuscarDni.TabIndex = 60;
-            this.btnBuscarDni.Text = "Buscar por DNI";
-            this.btnBuscarDni.UseVisualStyleBackColor = true;
-            this.btnBuscarDni.Click += new System.EventHandler(this.btnBuscarDni_Click);
-            // 
-            // textBoxBuscarDni
-            // 
-            this.textBoxBuscarDni.Location = new System.Drawing.Point(33, 64);
-            this.textBoxBuscarDni.Name = "textBoxBuscarDni";
-            this.textBoxBuscarDni.Size = new System.Drawing.Size(162, 20);
-            this.textBoxBuscarDni.TabIndex = 61;
-            this.textBoxBuscarDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBuscarDni_KeyPress);
             // 
             // columnIdSolicitud
             // 
@@ -268,12 +188,122 @@
             this.columnAccion.Name = "columnAccion";
             this.columnAccion.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(0, 197);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(199, 13);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "Listado de solicitudes de servicio activas";
+            // 
+            // textBoxBuscarId
+            // 
+            this.textBoxBuscarId.Location = new System.Drawing.Point(33, 46);
+            this.textBoxBuscarId.Name = "textBoxBuscarId";
+            this.textBoxBuscarId.Size = new System.Drawing.Size(162, 20);
+            this.textBoxBuscarId.TabIndex = 55;
+            this.textBoxBuscarId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBuscarId_KeyPress);
+            // 
+            // comboBoxServicios
+            // 
+            this.comboBoxServicios.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxServicios.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxServicios.FormattingEnabled = true;
+            this.comboBoxServicios.Location = new System.Drawing.Point(33, 146);
+            this.comboBoxServicios.Name = "comboBoxServicios";
+            this.comboBoxServicios.Size = new System.Drawing.Size(162, 21);
+            this.comboBoxServicios.TabIndex = 57;
+            // 
+            // btnFiltrarServicio
+            // 
+            this.btnFiltrarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrarServicio.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrarServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnFiltrarServicio.Location = new System.Drawing.Point(216, 134);
+            this.btnFiltrarServicio.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFiltrarServicio.Name = "btnFiltrarServicio";
+            this.btnFiltrarServicio.Size = new System.Drawing.Size(132, 46);
+            this.btnFiltrarServicio.TabIndex = 58;
+            this.btnFiltrarServicio.Text = "Filtrar por servicio";
+            this.btnFiltrarServicio.UseVisualStyleBackColor = true;
+            this.btnFiltrarServicio.Click += new System.EventHandler(this.btnFiltrarServicio_Click);
+            // 
+            // btnMostrarTodos
+            // 
+            this.btnMostrarTodos.Enabled = false;
+            this.btnMostrarTodos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarTodos.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrarTodos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnMostrarTodos.Location = new System.Drawing.Point(391, 78);
+            this.btnMostrarTodos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMostrarTodos.Name = "btnMostrarTodos";
+            this.btnMostrarTodos.Size = new System.Drawing.Size(132, 36);
+            this.btnMostrarTodos.TabIndex = 59;
+            this.btnMostrarTodos.Text = "Mostrar todas";
+            this.btnMostrarTodos.UseVisualStyleBackColor = true;
+            this.btnMostrarTodos.Click += new System.EventHandler(this.btnMostrarTodos_Click);
+            // 
+            // btnBuscarDni
+            // 
+            this.btnBuscarDni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarDni.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnBuscarDni.Location = new System.Drawing.Point(216, 88);
+            this.btnBuscarDni.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBuscarDni.Name = "btnBuscarDni";
+            this.btnBuscarDni.Size = new System.Drawing.Size(132, 31);
+            this.btnBuscarDni.TabIndex = 60;
+            this.btnBuscarDni.Text = "Buscar por DNI";
+            this.btnBuscarDni.UseVisualStyleBackColor = true;
+            this.btnBuscarDni.Click += new System.EventHandler(this.btnBuscarDni_Click);
+            // 
+            // textBoxBuscarDni
+            // 
+            this.textBoxBuscarDni.Location = new System.Drawing.Point(33, 94);
+            this.textBoxBuscarDni.Name = "textBoxBuscarDni";
+            this.textBoxBuscarDni.Size = new System.Drawing.Size(162, 20);
+            this.textBoxBuscarDni.TabIndex = 61;
+            this.textBoxBuscarDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBuscarDni_KeyPress);
+            // 
+            // labelIdJornada
+            // 
+            this.labelIdJornada.AutoSize = true;
+            this.labelIdJornada.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIdJornada.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelIdJornada.Location = new System.Drawing.Point(177, 9);
+            this.labelIdJornada.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelIdJornada.Name = "labelIdJornada";
+            this.labelIdJornada.Size = new System.Drawing.Size(207, 19);
+            this.labelIdJornada.TabIndex = 62;
+            this.labelIdJornada.Text = "Solicitudes Pendientes";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Help;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.3F);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(53, 67);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 13);
+            this.label2.TabIndex = 63;
+            this.label2.Text = "ingresar formato 1-1-1";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // SolicitudesPendientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(562, 456);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelIdJornada);
             this.Controls.Add(this.textBoxBuscarDni);
             this.Controls.Add(this.btnBuscarDni);
             this.Controls.Add(this.btnMostrarTodos);
@@ -312,5 +342,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnMailCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnTelefono;
         private System.Windows.Forms.DataGridViewButtonColumn columnAccion;
+        private System.Windows.Forms.Label labelIdJornada;
+        private System.Windows.Forms.Label label2;
     }
 }

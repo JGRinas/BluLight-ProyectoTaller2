@@ -97,13 +97,13 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio
 
         private void buttonSolicitudesActivas_Click(object sender, EventArgs e)
         {
-            abrirFormHijo(new SolicitudesEntregadas());
+            abrirFormHijo(new SolicitudesFinalizadas());
             esconderSubMenu();
         }
 
         private void buttonSolicitudesFinalizadas_Click(object sender, EventArgs e)
         {
-            abrirFormHijo(new SolicitudesFinalizadas());
+            abrirFormHijo(new SolicitudesEntregadas());
             esconderSubMenu();
         }
 
