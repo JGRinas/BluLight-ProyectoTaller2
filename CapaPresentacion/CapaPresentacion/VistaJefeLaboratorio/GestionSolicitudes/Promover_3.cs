@@ -20,8 +20,30 @@ namespace CapaPresentacion.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitu
         {
             InitializeComponent();
             idSolicitud = pidSolicitud;
+            solicitud1 = new LSolicitud();
             solicitud1.rellenarComboBoxEmpSeleccionado(comboBoxEmpleados, idSolicitud);
-            InitializeComponent();
+        }
+
+
+        private void btnRevertirPendiente_Click(object sender, EventArgs e)
+        {
+            solicitud1.revertirPendiente(this.idSolicitud);
+        }
+
+        private void btnRevertirFinalizado_Click(object sender, EventArgs e)
+        {
+            int idEmpleado = Int32.Parse(solicitud1.filtrarIdEmpleado(comboBoxEmpleados.SelectedItem.ToString()));
+            solicitud1.revertirFinalizado(this.idSolicitud, idEmpleado);
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            comboBoxEmpleados.Items.Clear();
+            solicitud1.rellenarComboBoxEmpleados(comboBoxEmpleados);
+            comboBoxEmpleados.SelectedIndex = 0;
+            comboBoxEmpleados.SelectedItem = 0;
+            comboBoxEmpleados.Enabled = true;
+            bunifuButton1.Enabled = false;
         }
     }
 }

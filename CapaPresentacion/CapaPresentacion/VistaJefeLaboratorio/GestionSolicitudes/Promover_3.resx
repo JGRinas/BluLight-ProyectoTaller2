@@ -118,23 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnPromover.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnRevertirPendiente.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAOsAAAAZCAYAAADQUNnHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB4SURBVHhe7dMxEYAwAMBAlNQy+EMGewsCENDc/fBT5hzj
-        mve41gJ2Nu9v1r8A7MasEGFWiDArRJgVIswKEWaFCLNChFkhwqwQYVaIMCtEmBUizAoRZoUIs0KEWSHC
-        rBBhVogwK0SYFSLMChFmhYhjnPP5C8BGzvm8b0hUcj2LX00AAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACHSURBVHhe7dNBDcJAAADBKqHBFhLQQhqMoQAZ/dK0OVTc
+        JvOYZA3scn/9vrf3eQLzGp8uI56PDzCx8alZIcCsEGFWiDArRJgVIswKEWaFCLNChFkhwqwQYVaIMCtE
+        mBUizAoRZoUIs0KEWSHCrBBhVogwK0SYFSLMChH/Wdft2EcA81q3Y78AvscKKFvp95EAAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="btnRevertirFinalizado.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAOsAAAAZCAYAAADQUNnHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACHSURBVHhe7dNBDcJAAADBKqHBFhLQQhqMoQAZ/dK0OVTc
+        JvOYZA3scn/9vrf3eQLzGp8uI56PDzCx8alZIcCsEGFWiDArRJgVIswKEWaFCLNChFkhwqwQYVaIMCtE
+        mBUizAoRZoUIs0KEWSHCrBBhVogwK0SYFSLMChH/Wdft2EcA81q3Y78AvscKKFvp95EAAAAASUVORK5C
+        YII=
 </value>
   </data>
   <data name="bunifuButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAOsAAAAZCAYAAADQUNnHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB4SURBVHhe7dMxEYAwAMBAlNQy+EMGewsCENDc/fBT5hzj
-        mve41gJ2Nu9v1r8A7MasEGFWiDArRJgVIswKEWaFCLNChFkhwqwQYVaIMCtEmBUizAoRZoUIs0KEWSHC
-        rBBhVogwK0SYFSLMChFmhYhjnPP5C8BGzvm8b0hUcj2LX00AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="bunifuButton2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMUAAAAZCAYAAACBxOqkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB5SURBVHhe7dPBCcJAAADBVKKV5G9vgWB/lpFXIHDm8CNb

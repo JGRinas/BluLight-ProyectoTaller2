@@ -152,7 +152,7 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                         dataGridSolicitudes.Rows[fila].Cells["columnNombreCliente"].Value = solicitud.Factura_servicio.Persona.nombre + " " + solicitud.Factura_servicio.Persona.apellido;
                         dataGridSolicitudes.Rows[fila].Cells["columnMailCliente"].Value = solicitud.Factura_servicio.Persona.email;
                         dataGridSolicitudes.Rows[fila].Cells["columnTelefono"].Value = solicitud.Factura_servicio.Persona.telefono;
-                        dataGridSolicitudes.Rows[fila].Cells["columnAccion"].Value = "Promover";
+                        dataGridSolicitudes.Rows[fila].Cells["columnAccion"].Value = "Revertir";
 
                     }
                 }
@@ -308,7 +308,7 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
             } else { return false; }
         }
 
-        public void filtrarId(BunifuDataGridView datagrid, string idSolicitud, Button boton)
+        public void filtrarId(BunifuDataGridView datagrid, string idSolicitud, Button boton, int param)
         {
 
             int idFacturaServ = Int32.Parse(filtrarIdSolicitud(idSolicitud)[0]);
@@ -317,9 +317,9 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
                 List<Detalle_factura_servicio> solicitudes = new List<Detalle_factura_servicio>();
-                //solicitudes = db.Detalle_factura_servicio.ToList();
-                solicitudes = db.Detalle_factura_servicio.Where(e => e.idLab == MyGlobals.empleado.idLab 
-                && e.idEstado == 1 
+                solicitudes = db.Detalle_factura_servicio.Where(e => 
+                e.idLab == MyGlobals.empleado.idLab 
+                && e.idEstado == param
                 && e.idServicio == idServicio 
                 && e.idFacturaServ == idFacturaServ).ToList();
 
@@ -337,19 +337,25 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                         datagrid.Rows[fila].Cells["columnNombreCliente"].Value = solicitud.Factura_servicio.Persona.nombre + " " + solicitud.Factura_servicio.Persona.apellido;
                         datagrid.Rows[fila].Cells["columnMailCliente"].Value = solicitud.Factura_servicio.Persona.email;
                         datagrid.Rows[fila].Cells["columnTelefono"].Value = solicitud.Factura_servicio.Persona.telefono;
-                        datagrid.Rows[fila].Cells["columnAccion"].Value = "Promover";
-
-                        boton.Enabled = true; //habilita el botón "Mostrar todos"
+                        if (param == 3)
+                        {
+                            datagrid.Rows[fila].Cells["columnAccion"].Value = "Revertir";
+                        }
+                        else
+                        {
+                            datagrid.Rows[fila].Cells["columnAccion"].Value = "Promover";
+                        }
                     }
                 }
                 else
                 {
                     MessageBox.Show("No se ha encontrado la solicitud", "Solicitud no encontrada", MessageBoxButtons.OK);
                 }
+                boton.Enabled = true; //habilita el botón "Mostrar todos"
             }
         }
 
-        public void filtrarDni(BunifuDataGridView datagrid, int dni, Button boton)
+        public void filtrarDni(BunifuDataGridView datagrid, int dni, Button boton, int param)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
@@ -357,7 +363,7 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                 //solicitudes = db.Detalle_factura_servicio.ToList();
                 solicitudes = db.Detalle_factura_servicio.Where(e => e.idLab == MyGlobals.empleado.idLab 
                 && e.Factura_servicio.Persona.dni == dni 
-                && e.idEstado == 1).ToList();
+                && e.idEstado == param).ToList();
 
                 if (solicitudes.Count > 0)
                 {
@@ -372,29 +378,24 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                         datagrid.Rows[fila].Cells["columnNombreCliente"].Value = solicitud.Factura_servicio.Persona.nombre + " " + solicitud.Factura_servicio.Persona.apellido;
                         datagrid.Rows[fila].Cells["columnMailCliente"].Value = solicitud.Factura_servicio.Persona.email;
                         datagrid.Rows[fila].Cells["columnTelefono"].Value = solicitud.Factura_servicio.Persona.telefono;
-                        datagrid.Rows[fila].Cells["columnAccion"].Value = "Promover";
-
-                        boton.Enabled = true; //habilita el botón "Mostrar todas"
-
-                        //DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
-
-                        //boton.Text = "Promover";
-                        //boton.Name = "btnAccion";
-                        //boton.HeaderText = "Acción";
-                        //boton.FlatStyle = FlatStyle.Flat;
-                        //boton.DefaultCellStyle.BackColor = Color.Red;
-                        //boton.UseColumnTextForButtonValue = true;
-                        //datagrid.Columns.Add(boton);
-                        //dataGridSolicitudes.Rows[fila].Cells["columnAccion"].Value.;
+                        if(param == 3)
+                        {
+                            datagrid.Rows[fila].Cells["columnAccion"].Value = "Revertir";
+                        }
+                        else
+                        {
+                            datagrid.Rows[fila].Cells["columnAccion"].Value = "Promover";
+                        }
 
                     }
                 }
                 else {
                     MessageBox.Show("No se ha encontrado la solicitud", "Solicitud no encontrada", MessageBoxButtons.OK); }
             }
+            boton.Enabled = true; //habilita el botón "Mostrar todas"
         }
 
-        public void filtrarServicio(BunifuDataGridView datagrid, string nombreServicio, Button boton)
+        public void filtrarServicio(BunifuDataGridView datagrid, string nombreServicio, Button boton, int param)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
@@ -402,7 +403,7 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                 //solicitudes = db.Detalle_factura_servicio.ToList();
                 solicitudes = db.Detalle_factura_servicio.Where(e => e.idLab == MyGlobals.empleado.idLab 
                 && e.Servicio_laboratorio.Servicio.nombre == nombreServicio.Trim()
-                && e.idEstado == 1).ToList();
+                && e.idEstado == param).ToList();
 
                 if (solicitudes.Count > 0)
                 {
@@ -418,20 +419,14 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                         datagrid.Rows[fila].Cells["columnNombreCliente"].Value = solicitud.Factura_servicio.Persona.nombre + " " + solicitud.Factura_servicio.Persona.apellido;
                         datagrid.Rows[fila].Cells["columnMailCliente"].Value = solicitud.Factura_servicio.Persona.email;
                         datagrid.Rows[fila].Cells["columnTelefono"].Value = solicitud.Factura_servicio.Persona.telefono;
-                        datagrid.Rows[fila].Cells["columnAccion"].Value = "Promover";
-
-                        boton.Enabled = true; //habilita el botón "Mostrar todas"
-
-                        //DataGridViewButtonColumn boton = new DataGridViewButtonColumn();
-
-                        //boton.Text = "Promover";
-                        //boton.Name = "btnAccion";
-                        //boton.HeaderText = "Acción";
-                        //boton.FlatStyle = FlatStyle.Flat;
-                        //boton.DefaultCellStyle.BackColor = Color.Red;
-                        //boton.UseColumnTextForButtonValue = true;
-                        //datagrid.Columns.Add(boton);
-                        //dataGridSolicitudes.Rows[fila].Cells["columnAccion"].Value.;
+                        if (param == 3)
+                        {
+                            datagrid.Rows[fila].Cells["columnAccion"].Value = "Revertir";
+                        }
+                        else
+                        {
+                            datagrid.Rows[fila].Cells["columnAccion"].Value = "Promover";
+                        }
 
                     }
                 }
@@ -439,6 +434,7 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                 {
                     MessageBox.Show("No se ha encontraron solicitudes para esa categoría", "Solicitudes no encontradas", MessageBoxButtons.OK);
                 }
+                boton.Enabled = true; //habilita el botón "Mostrar todas"
             }
         }
 
@@ -465,6 +461,34 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                         solicitud.First().fechaEntregado = null;
                         db.SaveChanges();
                         MessageBox.Show("El estado de solicitud se ha revertido a PENDIENTE", "Estado de solicitud revertido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+        }
+
+        public void revertirFinalizado(string idSolicitud, int idEmpleado)
+        {
+            if (MessageBox.Show("¿Está seguro que desea revertir el estado de la solicitud a FINALIZADO?", "Revertir estado de solicitud", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                int idFacturaServ = Int32.Parse(filtrarIdSolicitud(idSolicitud)[0]);
+                int idServicio = Int32.Parse(filtrarIdSolicitud(idSolicitud)[1]);
+                int idLab = Int32.Parse(filtrarIdSolicitud(idSolicitud)[2]);
+
+                using (bd_blulightEntities db = new bd_blulightEntities())
+                {
+                    var solicitud = db.Detalle_factura_servicio.Where(
+                    e => e.idFacturaServ == idFacturaServ
+                    && e.idServicio == idServicio
+                    && e.idLab == idLab).ToList();
+
+                    if (solicitud.Count > 0)
+                    {
+                        solicitud.First().idEstado = 2;
+                        solicitud.First().fechaFinalizacion = DateTime.Today;
+                        solicitud.First().idEmpleado = idEmpleado;
+                        solicitud.First().fechaEntregado = null;
+                        db.SaveChanges();
+                        MessageBox.Show("El estado de solicitud se ha revertido a FINALIZADO", "Estado de solicitud revertido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }

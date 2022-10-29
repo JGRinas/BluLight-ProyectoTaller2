@@ -86,6 +86,7 @@
             this.textBoxBuscarDni.Name = "textBoxBuscarDni";
             this.textBoxBuscarDni.Size = new System.Drawing.Size(162, 20);
             this.textBoxBuscarDni.TabIndex = 73;
+            this.textBoxBuscarDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBuscarDni_KeyPress);
             // 
             // btnBuscarDni
             // 
@@ -131,6 +132,7 @@
             this.textBoxBuscarId.Name = "textBoxBuscarId";
             this.textBoxBuscarId.Size = new System.Drawing.Size(162, 20);
             this.textBoxBuscarId.TabIndex = 69;
+            this.textBoxBuscarId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxBuscarId_KeyPress);
             // 
             // btnBuscarId
             // 
@@ -229,6 +231,7 @@
             this.dataGridSolicitudes.Size = new System.Drawing.Size(562, 246);
             this.dataGridSolicitudes.TabIndex = 75;
             this.dataGridSolicitudes.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.dataGridSolicitudes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSolicitudes_CellContentClick);
             // 
             // columnIdSolicitud
             // 

@@ -63,8 +63,8 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes
         {
             if (solicitud1.formatoIdSolicitud(textBoxBuscarId.Text)) //validación del formato
             {
-                solicitud1.filtrarId(dataGridSolicitudes, textBoxBuscarId.Text, btnMostrarTodos);
                 dataGridSolicitudes.Rows.Clear();
+                solicitud1.filtrarId(dataGridSolicitudes, textBoxBuscarId.Text, btnMostrarTodos, 1);
             }
             else
             {
@@ -75,9 +75,8 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes
 
         private void btnBuscarDni_Click(object sender, EventArgs e)
         {
-            
-            solicitud1.filtrarDni(dataGridSolicitudes, Int32.Parse(textBoxBuscarDni.Text), btnMostrarTodos);
             dataGridSolicitudes.Rows.Clear();
+            solicitud1.filtrarDni(dataGridSolicitudes, Int32.Parse(textBoxBuscarDni.Text), btnMostrarTodos, 1);
         }
 
         private void btnFiltrarServicio_Click(object sender, EventArgs e)
@@ -85,7 +84,7 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes
             if (comboBoxServicios.SelectedIndex > -1) {
                 string nombreServicio = comboBoxServicios.SelectedItem.ToString();
                 dataGridSolicitudes.Rows.Clear();
-                solicitud1.filtrarServicio(dataGridSolicitudes, nombreServicio, btnMostrarTodos);
+                solicitud1.filtrarServicio(dataGridSolicitudes, nombreServicio, btnMostrarTodos, 1);
             }   
         }
 
