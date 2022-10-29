@@ -11,6 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+//textsharp
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Text.RegularExpressions;
+
 namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubForms
 {
     public partial class FinalizarCompra : Form
@@ -35,7 +42,7 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubFo
                 textBoxProductos.Text += productos[i].nombre + " x" + cantidad[i]+". ";
             }
             labelCliente.Text = MyGlobals.clienteVentas[0].nombre + " " + MyGlobals.clienteVentas[0].apellido;
-            //labelVendedor.Text = MyGlobals.persona.nombre + " " + MyGlobals.persona.apellido;
+            labelVendedor.Text = MyGlobals.persona.nombre + " " + MyGlobals.persona.apellido;
         }
 
         private void buttonMinimizar_Click(object sender, EventArgs e)
@@ -64,6 +71,24 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubFo
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void buttonFinalizarCompra_Click(object sender, EventArgs e)
+        {
+            List<Button> buttons = new List<Button>();
+            List<Label> labels = new List<Label>();
+            if (comboBox1.SelectedIndex != -1)
+            {
+                if (DialogResult.Yes == MessageBox.Show("Finalizar venta?", "Nueva venta", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                {
+                    venta.generarComprobante();
+                    venta.finalizarCompra(comboBox1);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese el método de pago", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

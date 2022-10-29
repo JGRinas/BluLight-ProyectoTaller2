@@ -2,6 +2,7 @@
 using CapaPresentacion.CapaData.Model;
 using CapaPresentacion.CapaLogica.LVendedor;
 using CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubForms;
+using iTextSharp.text.pdf.parser;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,6 +44,7 @@ namespace CapaPresentacion.VistaVendedor.Ventas
 
         private void buttonBuscarCliente_Click(object sender, EventArgs e)
         {
+            
             List<Label> labels = new List<Label>();
             labels.Add(labelNombreC);
             labels.Add(labelApellidoC);
@@ -91,7 +93,7 @@ namespace CapaPresentacion.VistaVendedor.Ventas
         private void dataGridViewCarrito_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress -= new KeyPressEventHandler(dataGridViewCarrito_KeyPress);
-            if (dataGridViewCarrito.CurrentCell.ColumnIndex == 2)
+            if (dataGridViewCarrito.CurrentCell.ColumnIndex == 3)
             {
                 TextBox tb = e.Control as TextBox;
                 if (tb != null)
@@ -109,6 +111,15 @@ namespace CapaPresentacion.VistaVendedor.Ventas
                 }
         }
 
+        private void dataGridViewCarrito_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            
+        }
+
+        private void dataGridViewCarrito_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
         private void buttonCancelarCompra_Click(object sender, EventArgs e)
         {
             List<Button> buttons = new List<Button>();
@@ -122,10 +133,13 @@ namespace CapaPresentacion.VistaVendedor.Ventas
             labels.Add(labelEmailC);
             labels.Add(labelNombreC);
             labels.Add(labelTotal);
-            venta.cancelarVenta(buttons, labels);
 
-            dataGridViewCarrito.Rows.Clear();
-           
+            if (DialogResult.Yes == MessageBox.Show("Está seguro de cancelar la venta?", "Cancelar venta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+            {
+                venta.cancelarVenta(buttons, labels);
+
+                dataGridViewCarrito.Rows.Clear();
+            }
         }
 
         private void dataGridViewCarrito_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -134,29 +148,45 @@ namespace CapaPresentacion.VistaVendedor.Ventas
             {
                 venta.borrarProductoCarrito(dataGridViewCarrito);
 
-                
-
                 dataGridViewCarrito.Rows.Clear();
                 venta.rellenarDataGridCarritoProductos(dataGridViewCarrito);
                 decimal total = 0;
                 for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
                 {
-
-                    total = decimal.Parse(dataGridViewCarrito.Rows[i].Cells["ColumnSubtotal"].Value.ToString()) + total;
+                    total = MyGlobals.productoVentas[i].stock * MyGlobals.cantidadProducto[i];
                     labelTotal.Text = total.ToString();
                 }
             }
-        }
+            if (e.ColumnIndex == 6)
+            {
 
-        private void dataGridViewCarrito_CellLeave(object sender, DataGridViewCellEventArgs e)
-        {
-          
+            }
         }
 
         private void buttonFinalizarCompra_Click(object sender, EventArgs e)
         {
             FinalizarCompra finalizarCompra = new FinalizarCompra();
             finalizarCompra.ShowDialog();
+            if (MyGlobals.productoVentas.Count == 0)
+            {
+                List<Button> buttons = new List<Button>();
+                buttons.Add(buttonBuscarProducto);
+                buttons.Add(buttonFinalizarCompra);
+                buttons.Add(buttonCancelarCompra);
+
+                List<Label> labels = new List<Label>();
+                labels.Add(labelApellidoC);
+                labels.Add(labelDniC);
+                labels.Add(labelEmailC);
+                labels.Add(labelNombreC);
+                labels.Add(labelTotal);
+
+                venta.cancelarVenta(buttons, labels);
+                dataGridViewCarrito.Rows.Clear();
+                venta.rellenarDataGridCarritoProductos(dataGridViewCarrito);
+            }
         }
+
+ 
     }
 }

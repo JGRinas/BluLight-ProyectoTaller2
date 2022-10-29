@@ -33,6 +33,7 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubFo
             product.rellenarComboBoxCategoría(comboBoxCategoria);
             product.rellenarComboBoxColor(comboBoxColor);
             textBoxNombreProducto.MaxLength = 49;
+            textBoxCantidad.MaxLength = 9;
             venta.rellenarDataGridProductos(dataGridViewProductos);
         }
 
@@ -72,7 +73,7 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubFo
             List<ComboBox> comboBoxes = new List<ComboBox>();
             comboBoxes.Add(comboBoxColor);
             comboBoxes.Add(comboBoxCategoria);
-
+            textBoxCantidad.Enabled = true;
             venta.obtenerProductoDelDataGrid(labels, comboBoxes, textBoxNombreProducto, buttonAgregarProducto,pictureBoxProduct,dataGridViewProductos);
         }
 
@@ -81,7 +82,7 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubFo
             List<Label> labels = new List<Label>();
             labels.Add(labelNombreP);
             labels.Add(labelCodigoP);
-
+            textBoxCantidad.Enabled = true;
             venta.buscarProducto(labels, textBoxNombreProducto, buttonAgregarProducto, pictureBoxProduct);
         }
 
@@ -104,7 +105,23 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubFo
         private void buttonAgregarProducto_Click(object sender, EventArgs e)
         {
             int idP = Int32.Parse(labelCodigoP.Text);
-            venta.agregarProductoCarrito(idP);
+
+            venta.agregarProductoCarrito(idP, textBoxCantidad);
+        }
+
+        private void textBoxCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            venta.textBoxEvent.numberKeyPress(e);
+        }
+
+        private void textBoxNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            venta.textBoxEvent.textKeyPress(e);
+        }
+
+        private void textBoxCantidad_TextChanged(object sender, EventArgs e)
+        {
+ 
         }
     }
 }

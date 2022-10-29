@@ -34,16 +34,16 @@
             this.buttonMaximizar = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuImageButton1 = new Bunifu.UI.WinForms.BunifuImageButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonFinalizarCompra = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.labelCliente = new System.Windows.Forms.Label();
-            this.labelVendedor = new System.Windows.Forms.Label();
             this.textBoxProductos = new System.Windows.Forms.TextBox();
+            this.labelVendedor = new System.Windows.Forms.Label();
+            this.labelCliente = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonFinalizarCompra = new System.Windows.Forms.Button();
             this.panelBarra.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -57,8 +57,9 @@
             this.panelBarra.Controls.Add(this.bunifuImageButton1);
             this.panelBarra.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBarra.Location = new System.Drawing.Point(0, 0);
+            this.panelBarra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelBarra.Name = "panelBarra";
-            this.panelBarra.Size = new System.Drawing.Size(400, 34);
+            this.panelBarra.Size = new System.Drawing.Size(533, 41);
             this.panelBarra.TabIndex = 1;
             this.panelBarra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBarra_MouseDown);
             // 
@@ -80,18 +81,18 @@
             this.buttonMinimizar.ImageActive = null;
             this.buttonMinimizar.ImageLocation = null;
             this.buttonMinimizar.ImageMargin = 20;
-            this.buttonMinimizar.ImageSize = new System.Drawing.Size(14, 10);
-            this.buttonMinimizar.ImageZoomSize = new System.Drawing.Size(34, 30);
+            this.buttonMinimizar.ImageSize = new System.Drawing.Size(25, 17);
+            this.buttonMinimizar.ImageZoomSize = new System.Drawing.Size(45, 37);
             this.buttonMinimizar.InitialImage = ((System.Drawing.Image)(resources.GetObject("buttonMinimizar.InitialImage")));
-            this.buttonMinimizar.Location = new System.Drawing.Point(294, 0);
-            this.buttonMinimizar.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonMinimizar.Location = new System.Drawing.Point(394, 0);
+            this.buttonMinimizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonMinimizar.Name = "buttonMinimizar";
             this.buttonMinimizar.Rotation = 0;
             this.buttonMinimizar.ShowActiveImage = true;
             this.buttonMinimizar.ShowCursorChanges = true;
             this.buttonMinimizar.ShowImageBorders = true;
             this.buttonMinimizar.ShowSizeMarkers = false;
-            this.buttonMinimizar.Size = new System.Drawing.Size(34, 30);
+            this.buttonMinimizar.Size = new System.Drawing.Size(45, 37);
             this.buttonMinimizar.TabIndex = 15;
             this.buttonMinimizar.ToolTipText = "";
             this.buttonMinimizar.WaitOnLoad = false;
@@ -117,18 +118,18 @@
             this.buttonMaximizar.ImageActive = null;
             this.buttonMaximizar.ImageLocation = null;
             this.buttonMaximizar.ImageMargin = 20;
-            this.buttonMaximizar.ImageSize = new System.Drawing.Size(14, 10);
-            this.buttonMaximizar.ImageZoomSize = new System.Drawing.Size(34, 30);
+            this.buttonMaximizar.ImageSize = new System.Drawing.Size(25, 17);
+            this.buttonMaximizar.ImageZoomSize = new System.Drawing.Size(45, 37);
             this.buttonMaximizar.InitialImage = ((System.Drawing.Image)(resources.GetObject("buttonMaximizar.InitialImage")));
-            this.buttonMaximizar.Location = new System.Drawing.Point(328, 0);
-            this.buttonMaximizar.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonMaximizar.Location = new System.Drawing.Point(439, 0);
+            this.buttonMaximizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonMaximizar.Name = "buttonMaximizar";
             this.buttonMaximizar.Rotation = 0;
             this.buttonMaximizar.ShowActiveImage = true;
             this.buttonMaximizar.ShowCursorChanges = true;
             this.buttonMaximizar.ShowImageBorders = true;
             this.buttonMaximizar.ShowSizeMarkers = false;
-            this.buttonMaximizar.Size = new System.Drawing.Size(34, 30);
+            this.buttonMaximizar.Size = new System.Drawing.Size(45, 37);
             this.buttonMaximizar.TabIndex = 14;
             this.buttonMaximizar.ToolTipText = "";
             this.buttonMaximizar.WaitOnLoad = false;
@@ -154,18 +155,18 @@
             this.bunifuImageButton1.ImageActive = null;
             this.bunifuImageButton1.ImageLocation = null;
             this.bunifuImageButton1.ImageMargin = 20;
-            this.bunifuImageButton1.ImageSize = new System.Drawing.Size(14, 10);
-            this.bunifuImageButton1.ImageZoomSize = new System.Drawing.Size(34, 30);
+            this.bunifuImageButton1.ImageSize = new System.Drawing.Size(25, 17);
+            this.bunifuImageButton1.ImageZoomSize = new System.Drawing.Size(45, 37);
             this.bunifuImageButton1.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.InitialImage")));
-            this.bunifuImageButton1.Location = new System.Drawing.Point(362, 0);
-            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.bunifuImageButton1.Location = new System.Drawing.Point(484, 0);
+            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bunifuImageButton1.Name = "bunifuImageButton1";
             this.bunifuImageButton1.Rotation = 0;
             this.bunifuImageButton1.ShowActiveImage = true;
             this.bunifuImageButton1.ShowCursorChanges = true;
             this.bunifuImageButton1.ShowImageBorders = true;
             this.bunifuImageButton1.ShowSizeMarkers = false;
-            this.bunifuImageButton1.Size = new System.Drawing.Size(34, 30);
+            this.bunifuImageButton1.Size = new System.Drawing.Size(45, 37);
             this.bunifuImageButton1.TabIndex = 13;
             this.bunifuImageButton1.ToolTipText = "";
             this.bunifuImageButton1.WaitOnLoad = false;
@@ -185,108 +186,11 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 34);
+            this.panel1.Location = new System.Drawing.Point(0, 41);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 369);
+            this.panel1.Size = new System.Drawing.Size(533, 453);
             this.panel1.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.buttonFinalizarCompra);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 403);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(400, 47);
-            this.panel2.TabIndex = 3;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(10, 301);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(168, 21);
-            this.comboBox1.TabIndex = 45;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(10, 279);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 19);
-            this.label1.TabIndex = 46;
-            this.label1.Text = "Método de pago";
-            // 
-            // buttonFinalizarCompra
-            // 
-            this.buttonFinalizarCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonFinalizarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFinalizarCompra.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFinalizarCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.buttonFinalizarCompra.Location = new System.Drawing.Point(121, 6);
-            this.buttonFinalizarCompra.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonFinalizarCompra.Name = "buttonFinalizarCompra";
-            this.buttonFinalizarCompra.Size = new System.Drawing.Size(154, 31);
-            this.buttonFinalizarCompra.TabIndex = 45;
-            this.buttonFinalizarCompra.Text = "Finalizar Compra";
-            this.buttonFinalizarCompra.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(10, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 19);
-            this.label2.TabIndex = 47;
-            this.label2.Text = "Productos:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(10, 174);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 19);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "Cliente:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(10, 223);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 19);
-            this.label4.TabIndex = 49;
-            this.label4.Text = "Vendedor:";
-            // 
-            // labelCliente
-            // 
-            this.labelCliente.AutoSize = true;
-            this.labelCliente.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCliente.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelCliente.Location = new System.Drawing.Point(97, 174);
-            this.labelCliente.Name = "labelCliente";
-            this.labelCliente.Size = new System.Drawing.Size(18, 19);
-            this.labelCliente.TabIndex = 50;
-            this.labelCliente.Text = "C";
-            // 
-            // labelVendedor
-            // 
-            this.labelVendedor.AutoSize = true;
-            this.labelVendedor.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVendedor.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelVendedor.Location = new System.Drawing.Point(97, 223);
-            this.labelVendedor.Name = "labelVendedor";
-            this.labelVendedor.Size = new System.Drawing.Size(18, 19);
-            this.labelVendedor.TabIndex = 51;
-            this.labelVendedor.Text = "V";
             // 
             // textBoxProductos
             // 
@@ -294,22 +198,131 @@
             this.textBoxProductos.Enabled = false;
             this.textBoxProductos.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxProductos.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBoxProductos.Location = new System.Drawing.Point(15, 44);
+            this.textBoxProductos.Location = new System.Drawing.Point(20, 54);
+            this.textBoxProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxProductos.Multiline = true;
             this.textBoxProductos.Name = "textBoxProductos";
-            this.textBoxProductos.Size = new System.Drawing.Size(371, 118);
+            this.textBoxProductos.Size = new System.Drawing.Size(493, 144);
             this.textBoxProductos.TabIndex = 52;
+            // 
+            // labelVendedor
+            // 
+            this.labelVendedor.AutoSize = true;
+            this.labelVendedor.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVendedor.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelVendedor.Location = new System.Drawing.Point(129, 274);
+            this.labelVendedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelVendedor.Name = "labelVendedor";
+            this.labelVendedor.Size = new System.Drawing.Size(21, 23);
+            this.labelVendedor.TabIndex = 51;
+            this.labelVendedor.Text = "V";
+            // 
+            // labelCliente
+            // 
+            this.labelCliente.AutoSize = true;
+            this.labelCliente.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCliente.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelCliente.Location = new System.Drawing.Point(129, 214);
+            this.labelCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCliente.Name = "labelCliente";
+            this.labelCliente.Size = new System.Drawing.Size(21, 23);
+            this.labelCliente.TabIndex = 50;
+            this.labelCliente.Text = "C";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.Location = new System.Drawing.Point(13, 274);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 23);
+            this.label4.TabIndex = 49;
+            this.label4.Text = "Vendedor:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Location = new System.Drawing.Point(13, 214);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 23);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "Cliente:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(13, 27);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 23);
+            this.label2.TabIndex = 47;
+            this.label2.Text = "Productos:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Location = new System.Drawing.Point(13, 343);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(164, 23);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Método de pago";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(13, 370);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(223, 24);
+            this.comboBox1.TabIndex = 45;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.buttonFinalizarCompra);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 494);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(533, 60);
+            this.panel2.TabIndex = 3;
+            // 
+            // buttonFinalizarCompra
+            // 
+            this.buttonFinalizarCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonFinalizarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFinalizarCompra.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFinalizarCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonFinalizarCompra.Location = new System.Drawing.Point(161, 9);
+            this.buttonFinalizarCompra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonFinalizarCompra.Name = "buttonFinalizarCompra";
+            this.buttonFinalizarCompra.Size = new System.Drawing.Size(206, 38);
+            this.buttonFinalizarCompra.TabIndex = 45;
+            this.buttonFinalizarCompra.Text = "Finalizar Compra";
+            this.buttonFinalizarCompra.UseVisualStyleBackColor = true;
+            this.buttonFinalizarCompra.Click += new System.EventHandler(this.buttonFinalizarCompra_Click);
             // 
             // FinalizarCompra
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(400, 450);
+            this.ClientSize = new System.Drawing.Size(533, 554);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelBarra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FinalizarCompra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FinalizarCompra";

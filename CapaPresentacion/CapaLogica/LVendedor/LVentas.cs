@@ -2,14 +2,19 @@
 using CapaLogica;
 using CapaLogica.Libreria;
 using CapaPresentacion.CapaData.Model;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheArtOfDev.HtmlRenderer.Adapters.Entities;
+using Image = System.Drawing.Image;
 
 namespace CapaPresentacion.CapaLogica.LVendedor
 {
@@ -121,6 +126,7 @@ namespace CapaPresentacion.CapaLogica.LVendedor
                     {
                         if (product.activo && product.stock > 0)
                         {
+                           
                             int fila = dataGrid.Rows.Add();
 
                             dataGrid.Rows[fila].Cells["ColumnId"].Value = product.idProducto;
@@ -259,34 +265,45 @@ namespace CapaPresentacion.CapaLogica.LVendedor
             button.Enabled = true;
         }
 
-        public void agregarProductoCarrito(int idP)
+        public void agregarProductoCarrito(int idP, TextBox cantidadP)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
                 var productoV = db.Producto.Where(p => p.idProducto.Equals(idP));
-
+                int cantidad = Int32.Parse(cantidadP.Text);
                 if (productoV.ToList().Count > 0)
                 {
-
+                    Producto product = db.Producto.Where(p => p.idProducto.Equals(idP)).FirstOrDefault();
                     Producto pro = MyGlobals.productoVentas.Where(p => p.idProducto.Equals(idP)).FirstOrDefault();
                     var existe = MyGlobals.productoVentas.IndexOf(pro);
-                    if (existe != -1)
-                    {
-                        MyGlobals.cantidadProducto[existe]++;
-                       
+                   
+                        if (existe != -1)
+                        {
+                            if (cantidad <= pro.stock - MyGlobals.cantidadProducto[existe])
+                            {
+                            MyGlobals.cantidadProducto[existe] += cantidad;
+                            MessageBox.Show("El producto fue agregado!", "Agregar producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            
+                        else MessageBox.Show("Cantidad ingresada mayor al stock del producto", "Agregar producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    }
-                    else
-                    {
-                        Producto producto = new Producto();
-                        producto = productoV.FirstOrDefault();
-                        MyGlobals.productoVentas.Add(producto);
-                        MyGlobals.cantidadProducto.Add(1);
-                        MyGlobals.dataGridProductosVentas.Rows.Clear();
-                        rellenarDataGridCarritoProductos(MyGlobals.dataGridProductosVentas);
-                        
-                    }
-                    MessageBox.Show("El producto fue agregado!", "Agregar producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                         }
+                        else
+                        {
+                             if (cantidad <= Int32.Parse(product.stock.ToString()))
+                            {
+                            Producto producto = new Producto();
+                            producto = productoV.FirstOrDefault();
+                            MyGlobals.productoVentas.Add(producto);
+                            MyGlobals.cantidadProducto.Add(cantidad);
+                            MyGlobals.dataGridProductosVentas.Rows.Clear();
+                            rellenarDataGridCarritoProductos(MyGlobals.dataGridProductosVentas);
+                            MessageBox.Show("El producto fue agregado!", "Agregar producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                              MessageBox.Show("Cantidad ingresada mayor al stock del producto", "Agregar producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
                 }
             }
         }
@@ -304,20 +321,15 @@ namespace CapaPresentacion.CapaLogica.LVendedor
                         if (product.activo && product.stock > 0)
                         {
                             int fila = dataGrid.Rows.Add();
-                            dataGrid.Rows[fila].Cells["ColumnId"].ReadOnly = true;
                             dataGrid.Rows[fila].Cells["ColumnId"].Value = fila.ToString();
-                            dataGrid.Rows[fila].Cells["ColumnTitulo"].ReadOnly = true;
                             dataGrid.Rows[fila].Cells["ColumnTitulo"].Value = product.nombre;
-                            dataGrid.Rows[fila].Cells["ColumnCantidad"].ValueType = typeof(int);
                             dataGrid.Rows[fila].Cells["ColumnCantidad"].Value = MyGlobals.cantidadProducto[fila];
-                            dataGrid.Rows[fila].Cells["ColumnSubtotal"].ReadOnly = true;
                             dataGrid.Rows[fila].Cells["ColumnSubtotal"].Value = product.precio * Int32.Parse(dataGrid.Rows[fila].Cells["ColumnCantidad"].Value.ToString());
                             Image thumb = uploadImage.byteToImage(product.imagen).GetThumbnailImage(70, 70, null, IntPtr.Zero);
                             dataGrid.Rows[fila].Height = 70;
-                            dataGrid.Rows[fila].Cells["ColumnImagen"].ReadOnly = true;
-                            dataGrid.Rows[fila].Cells["ColumnImagen"].Value = thumb;
-                            dataGrid.Rows[fila].Cells["ColumnAccion"].ReadOnly = true;
+                            dataGrid.Rows[fila].Cells["ColumnImagen"].Value = thumb;          
                             dataGrid.Rows[fila].Cells["ColumnAccion"].Value = "Eliminar";
+                            dataGrid.Rows[fila].Cells["ColumnEditar"].Value = "Editar";
                         }
                     }
                 }
@@ -326,8 +338,7 @@ namespace CapaPresentacion.CapaLogica.LVendedor
 
         public void cancelarVenta(List<Button> buttons, List<Label> labels)
         {
-            if (DialogResult.Yes == MessageBox.Show("Está seguro de cancelar la venta?","Cancelar venta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)) 
-            {
+ 
 
                 MyGlobals.clienteLabels.Clear();
                 MyGlobals.clienteVentas.Clear();
@@ -342,7 +353,7 @@ namespace CapaPresentacion.CapaLogica.LVendedor
                 {
                     button.Enabled = false;
                 }
-            }
+            
             
         }
 
@@ -369,9 +380,149 @@ namespace CapaPresentacion.CapaLogica.LVendedor
                 }
             }
         }
-        public void finalizarCompra()
+
+        public void generarComprobante()
         {
-            
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string date = Regex.Replace(System.DateTime.Now.ToString(), @"\s", "");
+            date = Regex.Replace(date, @"/", "");
+            date = Regex.Replace(date, @":", "");
+
+            //MessageBox.Show(path + @"\venta" + date + ".pdf");
+            FileStream fs = new FileStream(@"" + path + @"\venta" + date + ".pdf", FileMode.Create);
+
+            Document doc = new Document(PageSize.LETTER, 5, 5, 7, 7);
+            PdfWriter pw = PdfWriter.GetInstance(doc, fs);
+
+            doc.Open();
+
+            //titulo y autor
+            doc.AddAuthor("BluLight");
+            doc.AddTitle("PDF Generado");
+
+            //Tipo de fuente
+            iTextSharp.text.Font standarFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+
+            //encabezado
+            doc.Add(new Paragraph("Comprobante de venta " + date));
+            //SALTO DE LINEA
+            doc.Add(Chunk.NEWLINE);
+
+
+            doc.Add(new Paragraph("Punto de venta: BluLight"));
+            doc.Add(Chunk.NEWLINE);
+
+            doc.Add(new Paragraph("Vendor: " + MyGlobals.persona.nombre + " " + MyGlobals.persona.apellido));
+            doc.Add(Chunk.NEWLINE);
+
+            doc.Add(new Paragraph("Cliente: " + MyGlobals.clienteVentas[0].nombre + " " + MyGlobals.clienteVentas[0].apellido));
+            doc.Add(Chunk.NEWLINE);
+
+
+            //Encabezado de columna
+            PdfPTable tbl = new PdfPTable(4);
+            tbl.WidthPercentage = 100;
+            //configuracion del titulo de las columnas
+            PdfPCell clNombre = new PdfPCell(new Phrase("Nombre", standarFont));
+            clNombre.BorderWidth = 0;
+            clNombre.BorderWidthBottom = 0.75f;
+
+            PdfPCell clCantidad = new PdfPCell(new Phrase("Cantidad", standarFont));
+            clCantidad.BorderWidth = 0;
+            clCantidad.BorderWidthBottom = 0.75f;
+
+            PdfPCell clPrecio = new PdfPCell(new Phrase("Precio c/u", standarFont));
+            clPrecio.BorderWidth = 0;
+            clPrecio.BorderWidthBottom = 0.75f;
+
+            PdfPCell clSubtotal = new PdfPCell(new Phrase("Subtotal", standarFont));
+            clSubtotal.BorderWidth = 0;
+            clSubtotal.BorderWidthBottom = 0.75f;
+
+            tbl.AddCell(clNombre);
+            tbl.AddCell(clCantidad);
+            tbl.AddCell(clPrecio);
+            tbl.AddCell(clSubtotal);
+            //agregar datos
+            float total = 0;
+            for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
+            {
+                clNombre = new PdfPCell(new Phrase(MyGlobals.productoVentas[i].nombre, standarFont));
+                clNombre.BorderWidth = 0;
+
+                clPrecio = new PdfPCell(new Phrase(MyGlobals.productoVentas[i].precio.ToString(), standarFont));
+                clPrecio.BorderWidth = 0;
+
+                clCantidad = new PdfPCell(new Phrase(MyGlobals.cantidadProducto[i].ToString(), standarFont));
+                clCantidad.BorderWidth = 0;
+
+                decimal subtotal = MyGlobals.cantidadProducto[i] * MyGlobals.productoVentas[i].precio;
+
+                clSubtotal = new PdfPCell(new Phrase(subtotal.ToString(), standarFont));
+                clSubtotal.BorderWidth = 0;
+
+                total += float.Parse(MyGlobals.cantidadProducto[i].ToString()) * float.Parse(MyGlobals.productoVentas[i].precio.ToString());
+
+                tbl.AddCell(clNombre);
+                tbl.AddCell(clPrecio);
+                tbl.AddCell(clCantidad);
+                tbl.AddCell(clSubtotal);
+                
+            }
+
+            doc.Add(tbl);
+
+            doc.Add(Chunk.NEWLINE);
+            doc.Add(Chunk.NEWLINE);
+            doc.Add(Chunk.NEWLINE);
+
+            doc.Add(new Paragraph("Total: " + total.ToString()));
+            doc.Add(Chunk.NEWLINE);
+
+            doc.Close();
+            pw.Close();
+
+            MessageBox.Show("Comprobante generado", "Finalizar venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        public void finalizarCompra(ComboBox metodoPago)
+        {
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                for (int i=0; i<MyGlobals.productoVentas.Count; i++)
+                {
+                    int idP = MyGlobals.productoVentas[i].idProducto;
+                    var producto = db.Producto.Where(p => p.idProducto.Equals(idP)).FirstOrDefault();
+
+                    producto.stock -= MyGlobals.cantidadProducto[i];
+                    db.SaveChanges();
+                }
+
+                Factura_producto facturaProducto = new Factura_producto();
+                facturaProducto.activo = true;
+                facturaProducto.idMetodoPago = metodoPago.SelectedIndex+1;
+                facturaProducto.idPersona = MyGlobals.clienteVentas[0].idPersona;
+                facturaProducto.idEmpleado = MyGlobals.empleado.idEmpleado;
+
+                db.Factura_producto.Add(facturaProducto);
+                db.SaveChanges();
+
+                for (int i = 0; i<MyGlobals.productoVentas.Count; i++)
+                {
+                    Detalle_factura_producto detalleFactura = new Detalle_factura_producto();
+                    detalleFactura.idFacturaProd = facturaProducto.idFacturaProd;
+                    detalleFactura.idProducto = MyGlobals.productoVentas[i].idProducto;
+                    detalleFactura.cantidad = MyGlobals.cantidadProducto[i];
+                    detalleFactura.precio = MyGlobals.productoVentas[i].precio;
+                    db.Detalle_factura_producto.Add(detalleFactura);
+                }
+
+                db.SaveChanges();
+
+                MyGlobals.clienteLabels.Clear();
+                MyGlobals.clienteVentas.Clear();
+                MyGlobals.productoVentas.Clear();
+                MyGlobals.cantidadProducto.Clear();
+            }
         }
     }
 }
