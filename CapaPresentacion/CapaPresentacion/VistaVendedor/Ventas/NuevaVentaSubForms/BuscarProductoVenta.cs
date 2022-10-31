@@ -34,6 +34,7 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubFo
             product.rellenarComboBoxColor(comboBoxColor);
             textBoxNombreProducto.MaxLength = 49;
             textBoxCantidad.MaxLength = 9;
+            dataGridViewProductos.Rows.Clear();
             venta.rellenarDataGridProductos(dataGridViewProductos);
         }
 
@@ -107,6 +108,9 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubFo
             int idP = Int32.Parse(labelCodigoP.Text);
 
             venta.agregarProductoCarrito(idP, textBoxCantidad);
+
+            dataGridViewProductos.Rows.Clear();
+            venta.rellenarDataGridProductos(dataGridViewProductos);
         }
 
         private void textBoxCantidad_KeyPress(object sender, KeyPressEventArgs e)

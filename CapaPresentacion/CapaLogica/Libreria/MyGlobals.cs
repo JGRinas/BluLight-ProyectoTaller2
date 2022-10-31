@@ -22,5 +22,8 @@ namespace CapaLogica
         public static List<Producto> productoVentas = new List<Producto>();
         public static List<int> cantidadProducto = new List<int>();
         public static DataGridView dataGridProductosVentas = new DataGridView();
+
+        public static Producto productoSeleccionado = new Producto();
+        public static int indexProducto = new int();
     }
 }

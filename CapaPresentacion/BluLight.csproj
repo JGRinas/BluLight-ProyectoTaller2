@@ -346,6 +346,7 @@
     <Compile Include="CapaLogica\LVendedor\LClient.cs" />
     <Compile Include="CapaLogica\LVendedor\LProductV.cs" />
     <Compile Include="CapaLogica\LVendedor\LVentas.cs" />
+    <Compile Include="CapaLogica\LVendedor\LVentasRealizadas.cs" />
     <Compile Include="CapaPresentacion\FormLogout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -411,6 +412,12 @@
     </Compile>
     <Compile Include="CapaPresentacion\VistaVendedor\Ventas\NuevaVentaSubForms\FinalizarCompra.Designer.cs">
       <DependentUpon>FinalizarCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaVendedor\Ventas\VentasRealizadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaVendedor\Ventas\VentasRealizadas.Designer.cs">
+      <DependentUpon>VentasRealizadas.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -638,6 +645,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaVendedor\Ventas\NuevaVentaSubForms\FinalizarCompra.resx">
       <DependentUpon>FinalizarCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaVendedor\Ventas\VentasRealizadas.resx">
+      <DependentUpon>VentasRealizadas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

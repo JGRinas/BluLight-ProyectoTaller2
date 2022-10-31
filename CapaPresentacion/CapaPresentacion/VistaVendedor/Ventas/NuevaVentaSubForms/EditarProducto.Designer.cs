@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditarProducto));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonMinimizar = new Bunifu.UI.WinForms.BunifuImageButton();
             this.buttonMaximizar = new Bunifu.UI.WinForms.BunifuImageButton();
@@ -42,7 +42,7 @@
             this.textBoxCantidad = new System.Windows.Forms.TextBox();
             this.labelCodigoP = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonAgregarProducto = new System.Windows.Forms.Button();
+            this.buttonEditarProducto = new System.Windows.Forms.Button();
             this.pictureBoxProduct = new System.Windows.Forms.PictureBox();
             this.labelNombreP = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -87,6 +87,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(659, 40);
             this.panel1.TabIndex = 1;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // buttonMinimizar
             // 
@@ -123,6 +124,7 @@
             this.buttonMinimizar.WaitOnLoad = false;
             this.buttonMinimizar.Zoom = 20;
             this.buttonMinimizar.ZoomSpeed = 10;
+            this.buttonMinimizar.Click += new System.EventHandler(this.buttonMinimizar_Click);
             // 
             // buttonMaximizar
             // 
@@ -159,6 +161,7 @@
             this.buttonMaximizar.WaitOnLoad = false;
             this.buttonMaximizar.Zoom = 20;
             this.buttonMaximizar.ZoomSpeed = 10;
+            this.buttonMaximizar.Click += new System.EventHandler(this.buttonMaximizar_Click);
             // 
             // bunifuImageButton1
             // 
@@ -195,6 +198,7 @@
             this.bunifuImageButton1.WaitOnLoad = false;
             this.bunifuImageButton1.Zoom = 20;
             this.bunifuImageButton1.ZoomSpeed = 10;
+            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
             // 
             // panel2
             // 
@@ -213,7 +217,7 @@
             this.panel5.Controls.Add(this.textBoxCantidad);
             this.panel5.Controls.Add(this.labelCodigoP);
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.buttonAgregarProducto);
+            this.panel5.Controls.Add(this.buttonEditarProducto);
             this.panel5.Controls.Add(this.pictureBoxProduct);
             this.panel5.Controls.Add(this.labelNombreP);
             this.panel5.Controls.Add(this.label1);
@@ -237,12 +241,12 @@
             // 
             // textBoxCantidad
             // 
-            this.textBoxCantidad.Enabled = false;
             this.textBoxCantidad.Location = new System.Drawing.Point(157, 156);
             this.textBoxCantidad.Name = "textBoxCantidad";
             this.textBoxCantidad.Size = new System.Drawing.Size(100, 22);
             this.textBoxCantidad.TabIndex = 52;
             this.textBoxCantidad.Text = "1";
+            this.textBoxCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCantidad_KeyPress);
             // 
             // labelCodigoP
             // 
@@ -265,19 +269,19 @@
             this.label2.TabIndex = 50;
             this.label2.Text = "Código:";
             // 
-            // buttonAgregarProducto
+            // buttonEditarProducto
             // 
-            this.buttonAgregarProducto.Enabled = false;
-            this.buttonAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAgregarProducto.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAgregarProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.buttonAgregarProducto.Location = new System.Drawing.Point(45, 196);
-            this.buttonAgregarProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonAgregarProducto.Name = "buttonAgregarProducto";
-            this.buttonAgregarProducto.Size = new System.Drawing.Size(196, 34);
-            this.buttonAgregarProducto.TabIndex = 49;
-            this.buttonAgregarProducto.Text = "Agregar producto";
-            this.buttonAgregarProducto.UseVisualStyleBackColor = true;
+            this.buttonEditarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditarProducto.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditarProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonEditarProducto.Location = new System.Drawing.Point(45, 196);
+            this.buttonEditarProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonEditarProducto.Name = "buttonEditarProducto";
+            this.buttonEditarProducto.Size = new System.Drawing.Size(196, 34);
+            this.buttonEditarProducto.TabIndex = 49;
+            this.buttonEditarProducto.Text = "Editar";
+            this.buttonEditarProducto.UseVisualStyleBackColor = true;
+            this.buttonEditarProducto.Click += new System.EventHandler(this.buttonEditarProducto_Click);
             // 
             // pictureBoxProduct
             // 
@@ -354,6 +358,7 @@
             this.button1.TabIndex = 47;
             this.button1.Text = "Todo";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonFiltro
             // 
@@ -367,6 +372,7 @@
             this.buttonFiltro.TabIndex = 46;
             this.buttonFiltro.Text = "Filtrar";
             this.buttonFiltro.UseVisualStyleBackColor = true;
+            this.buttonFiltro.Click += new System.EventHandler(this.buttonFiltro_Click);
             // 
             // labelColor
             // 
@@ -416,6 +422,7 @@
             this.textBoxNombreProducto.Name = "textBoxNombreProducto";
             this.textBoxNombreProducto.Size = new System.Drawing.Size(161, 29);
             this.textBoxNombreProducto.TabIndex = 39;
+            this.textBoxNombreProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNombreProducto_KeyPress);
             // 
             // buttonBuscarProductoNombre
             // 
@@ -429,6 +436,7 @@
             this.buttonBuscarProductoNombre.TabIndex = 38;
             this.buttonBuscarProductoNombre.Text = "Buscar";
             this.buttonBuscarProductoNombre.UseVisualStyleBackColor = true;
+            this.buttonBuscarProductoNombre.Click += new System.EventHandler(this.buttonBuscarProductoNombre_Click);
             // 
             // labelBuscarProducto
             // 
@@ -455,22 +463,22 @@
             this.dataGridViewProductos.AllowCustomTheming = false;
             this.dataGridViewProductos.AllowUserToAddRows = false;
             this.dataGridViewProductos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewProductos.BackgroundColor = System.Drawing.SystemColors.HotTrack;
             this.dataGridViewProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewProductos.ColumnHeadersHeight = 40;
             this.dataGridViewProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
@@ -498,14 +506,14 @@
             this.dataGridViewProductos.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewProductos.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.dataGridViewProductos.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewProductos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewProductos.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewProductos.EnableHeadersVisualStyles = false;
             this.dataGridViewProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
@@ -523,6 +531,7 @@
             this.dataGridViewProductos.Size = new System.Drawing.Size(659, 260);
             this.dataGridViewProductos.TabIndex = 2;
             this.dataGridViewProductos.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.dataGridViewProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProductos_CellClick);
             // 
             // ColumnId
             // 
@@ -586,6 +595,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditarProducto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditarProducto";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -612,7 +622,7 @@
         private System.Windows.Forms.TextBox textBoxCantidad;
         private System.Windows.Forms.Label labelCodigoP;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button buttonAgregarProducto;
+        private System.Windows.Forms.Button buttonEditarProducto;
         private System.Windows.Forms.PictureBox pictureBoxProduct;
         private System.Windows.Forms.Label labelNombreP;
         private System.Windows.Forms.Label label1;

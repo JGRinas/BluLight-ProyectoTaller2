@@ -38,6 +38,12 @@ namespace CapaPresentacion.VistaVendedor.Ventas
                     dataGridViewCarrito.Rows.Clear();
                     venta.rellenarDataGridCarritoProductos(dataGridViewCarrito);
                     buttonFinalizarCompra.Enabled = true;
+                    decimal total = 0;
+                    for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
+                    {
+                        total = MyGlobals.productoVentas[i].precio * MyGlobals.cantidadProducto[i];
+                        labelTotal.Text = total.ToString();
+                    }
                 }
             }
         }
@@ -81,45 +87,15 @@ namespace CapaPresentacion.VistaVendedor.Ventas
                 buttonFinalizarCompra.Enabled = true;
 
                 decimal total = 0;
-                for (int i = 0; i<MyGlobals.productoVentas.Count; i++)
+                for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
                 {
-                    
-                        total = decimal.Parse(dataGridViewCarrito.Rows[i].Cells["ColumnSubtotal"].Value.ToString()) + total;
+                    total = MyGlobals.productoVentas[i].precio * MyGlobals.cantidadProducto[i];
                     labelTotal.Text = total.ToString();
                 }
             }
         }
 
-        private void dataGridViewCarrito_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            e.Control.KeyPress -= new KeyPressEventHandler(dataGridViewCarrito_KeyPress);
-            if (dataGridViewCarrito.CurrentCell.ColumnIndex == 3)
-            {
-                TextBox tb = e.Control as TextBox;
-                if (tb != null)
-                {
-                    tb.KeyPress += new KeyPressEventHandler(dataGridViewCarrito_KeyPress);
-                }
-            }
-        }
 
-        private void dataGridViewCarrito_KeyPress(object sender, KeyPressEventArgs e)
-        {
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = true;
-                }
-        }
-
-        private void dataGridViewCarrito_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-            
-        }
-
-        private void dataGridViewCarrito_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         private void buttonCancelarCompra_Click(object sender, EventArgs e)
         {
             List<Button> buttons = new List<Button>();
@@ -159,8 +135,21 @@ namespace CapaPresentacion.VistaVendedor.Ventas
             }
             if (e.ColumnIndex == 6)
             {
+               MyGlobals.productoSeleccionado = MyGlobals.productoVentas[e.RowIndex];
+               MyGlobals.indexProducto = e.RowIndex;
 
+               EditarProducto editarProducto = new EditarProducto();
+                editarProducto.ShowDialog();
+                dataGridViewCarrito.Rows.Clear();
+                venta.rellenarDataGridCarritoProductos(dataGridViewCarrito);
+                decimal total = 0;
+                for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
+                {
+                    total = MyGlobals.productoVentas[i].precio * MyGlobals.cantidadProducto[i];
+                    labelTotal.Text = total.ToString();
+                }
             }
+
         }
 
         private void buttonFinalizarCompra_Click(object sender, EventArgs e)
@@ -178,7 +167,7 @@ namespace CapaPresentacion.VistaVendedor.Ventas
                 labels.Add(labelApellidoC);
                 labels.Add(labelDniC);
                 labels.Add(labelEmailC);
-                labels.Add(labelNombreC);
+                labels.Add(labelNombreC); 
                 labels.Add(labelTotal);
 
                 venta.cancelarVenta(buttons, labels);

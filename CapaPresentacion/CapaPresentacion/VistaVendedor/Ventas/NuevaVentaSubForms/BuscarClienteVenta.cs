@@ -88,6 +88,15 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubFo
             venta.agregarClienteCarrito(labelDniC);
         }
 
-      
+        private void buttonConsumidorFinal_Click(object sender, EventArgs e)
+        {
+            List<Label> labels = new List<Label>();
+
+            labels.Add(labelNombreC);
+            labels.Add(labelApellidoC);
+            labels.Add(labelDniC);
+            textBoxClienteBuscar.Text = '0'.ToString();
+            venta.buscarClienteEnVentas(textBoxClienteBuscar, labels, buttonAgregarCliente);
+        }
     }
 }

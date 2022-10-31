@@ -28,7 +28,7 @@ namespace CapaLogica.LVendedor
                     int dni = persona.dni;
                     var empleado = db.Empleado.Where(e => e.Persona.dni.Equals(dni));
 
-                    if (empleado.ToList().Count == 0)
+                    if (empleado.ToList().Count == 0 && persona.dni != 0)
                     {
                      
                         int fila = dataGrid.Rows.Add();
@@ -146,9 +146,9 @@ namespace CapaLogica.LVendedor
                 int dni = Int32.Parse(textBoxes[6].Text);
                 var cliente = db.Persona.Where(p => p.dni.Equals(dni)).ToList();
                 var empleado = db.Empleado.Where(p => p.Persona.dni.Equals(dni)).ToList();
-                if (cliente.Count > 0 && empleado.Count == 0)
+                if (cliente.Count > 0 && empleado.Count == 0 && cliente[0].dni != 0)
                 {
-
+                    
                     textBoxes[0].Text = cliente[0].nombre;
                     textBoxes[1].Text = cliente[0].apellido;
                     textBoxes[2].Text = cliente[0].dni.ToString();

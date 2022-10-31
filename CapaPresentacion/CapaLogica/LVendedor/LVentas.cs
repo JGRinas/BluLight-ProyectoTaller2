@@ -33,7 +33,7 @@ namespace CapaPresentacion.CapaLogica.LVendedor
                     int dni = persona.dni;
                     var empleado = db.Empleado.Where(e => e.Persona.dni.Equals(dni));
 
-                    if (empleado.ToList().Count == 0 && (bool)persona.activo)
+                    if (empleado.ToList().Count == 0 && (bool)persona.activo && persona.dni != 0)
                     {
 
                         int fila = dataGrid.Rows.Add();
@@ -93,8 +93,9 @@ namespace CapaPresentacion.CapaLogica.LVendedor
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
-                MyGlobals.clienteVentas.Clear();
                 int dni = Int32.Parse(label.Text);
+                MyGlobals.clienteVentas.Clear();
+               
                 Persona persona = db.Persona.Where(p => p.dni.Equals(dni)).FirstOrDefault();
                 MyGlobals.clienteVentas.Add(persona);
                 MyGlobals.clienteLabels[0].Text = persona.nombre.ToString();
@@ -126,6 +127,15 @@ namespace CapaPresentacion.CapaLogica.LVendedor
                     {
                         if (product.activo && product.stock > 0)
                         {
+
+                            
+                            Producto pro = MyGlobals.productoVentas.Where(p => p.idProducto.Equals(product.idProducto)).FirstOrDefault();
+                            var existe = MyGlobals.productoVentas.IndexOf(pro);
+                            int cantidad = 0;
+                            if (existe != -1)
+                            {   
+                                cantidad = MyGlobals.cantidadProducto[existe];
+                            }
                            
                             int fila = dataGrid.Rows.Add();
 
@@ -133,7 +143,7 @@ namespace CapaPresentacion.CapaLogica.LVendedor
                             dataGrid.Rows[fila].Cells["ColumnTitulo"].Value = product.nombre;
                             dataGrid.Rows[fila].Cells["ColumnCategoria"].Value = product.Categoria_producto.categoria;
                             dataGrid.Rows[fila].Cells["ColumnColor"].Value = product.Color_producto.color;
-                            dataGrid.Rows[fila].Cells["ColumnStock"].Value = product.stock;
+                            dataGrid.Rows[fila].Cells["ColumnStock"].Value = product.stock - cantidad;
                             dataGrid.Rows[fila].Cells["ColumnPrecio"].Value = product.precio;
 
                             Image thumb = uploadImage.byteToImage(product.imagen).GetThumbnailImage(70, 70, null, IntPtr.Zero);
@@ -381,6 +391,7 @@ namespace CapaPresentacion.CapaLogica.LVendedor
             }
         }
 
+        
         public void generarComprobante()
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -523,6 +534,66 @@ namespace CapaPresentacion.CapaLogica.LVendedor
                 MyGlobals.productoVentas.Clear();
                 MyGlobals.cantidadProducto.Clear();
             }
+        }
+
+        public void editarProducto(TextBox cantidadP)
+        {
+            int cantidad = Int32.Parse(cantidadP.Text);
+            if (MyGlobals.productoSeleccionado.stock >= cantidad)
+            {
+                MyGlobals.cantidadProducto[MyGlobals.indexProducto] = cantidad;
+
+                MessageBox.Show("Producto editado", "Editar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("La cantidad es más alta que el stock del producto", "Editar Producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void cambiarProducto(int idP, TextBox cantidadP)
+        {
+            int cantidad = Int32.Parse(cantidadP.Text);
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                var producto = db.Producto.Where(p => p.idProducto.Equals(idP));
+                if (producto.ToList().Count > 0)
+                {
+                    Producto pro = MyGlobals.productoVentas.Where(p => p.idProducto.Equals(idP)).FirstOrDefault();
+                    var existe = MyGlobals.productoVentas.IndexOf(pro);
+                    if (existe != -1)
+                    {
+                        if (MyGlobals.cantidadProducto[existe]+cantidad <= MyGlobals.productoVentas[existe].stock)
+                        {
+                            MyGlobals.cantidadProducto[existe] += cantidad;
+                            MyGlobals.cantidadProducto.RemoveAt(MyGlobals.indexProducto);
+                            MyGlobals.productoVentas.RemoveAt(MyGlobals.indexProducto);
+                           
+                            MessageBox.Show("Producto cambiado", "Cambiar producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                            MessageBox.Show("La cantidad ingresada, más la cantidad en el carrito es más alta que el stock del producto", "Cambiar Producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+                    else
+                    {
+                        if (producto.FirstOrDefault().stock >= cantidad)
+                        {
+                            MyGlobals.cantidadProducto[MyGlobals.indexProducto] = cantidad;
+                            MyGlobals.productoVentas[MyGlobals.indexProducto] = producto.FirstOrDefault();
+
+                            MessageBox.Show("Producto editado", "Editar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                            MessageBox.Show("La cantidad es más alta que el stock del producto", "Editar Producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("El producto no existe", "Editar Producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+            }
+                
         }
     }
 }

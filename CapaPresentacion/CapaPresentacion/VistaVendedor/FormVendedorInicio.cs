@@ -1,5 +1,6 @@
 ﻿using CapaLogica;
 using CapaPresentacion;
+using CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas;
 using CapaPresentacion.VistaVendedor;
 using CapaPresentacion.VistaVendedor.Gestionar_Clientes;
 using CapaPresentacion.VistaVendedor.Ventas;
@@ -74,15 +75,10 @@ namespace Proyecto2022.CapaPresentacion.VistaVendedor
             formHijo.Show();
         }
 
-        private void buttonListProductos_Click(object sender, EventArgs e)
-        {
-            verSubMenu(panelVentas);
-        }
-
-        private void buttonNuevaVenta_Click(object sender, EventArgs e)
+        private void buttonVentas_Click(object sender, EventArgs e)
         {
             abrirFormHijo(new NuevaVenta());
-            esconderSubMenu();
+            verSubMenu(panelVentas);
         }
 
         private void buttonListaProductos_Click(object sender, EventArgs e)
@@ -138,6 +134,10 @@ namespace Proyecto2022.CapaPresentacion.VistaVendedor
             }
         }
 
-        
+        private void buttonVentasRealizadas_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new VentasRealizadas());
+            esconderSubMenu();
+        }
     }
 }
