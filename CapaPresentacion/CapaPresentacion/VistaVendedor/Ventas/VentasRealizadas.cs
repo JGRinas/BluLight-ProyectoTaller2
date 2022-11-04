@@ -24,6 +24,14 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas
             ventasR = new LVentasRealizadas();
             ventasR.rellenarDataGridClientesAtendidos(dataGridViewClientesAtendidos);
             labelTotalVentas.Text = ventasR.calcularTotalVentas().ToString();
+            ventasR.inicializarChart(chartDesempeno);
+        }
+
+        public void inicializarChartVendedor()
+        {
+
+
+            //chartDesempeno.Series["Ventas"].Points.Add;
         }
     }
 }

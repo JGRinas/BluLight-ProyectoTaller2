@@ -510,6 +510,7 @@ namespace CapaPresentacion.CapaLogica.LVendedor
 
                 Factura_producto facturaProducto = new Factura_producto();
                 facturaProducto.activo = true;
+                facturaProducto.fecha = DateTime.Now;
                 facturaProducto.idMetodoPago = metodoPago.SelectedIndex+1;
                 facturaProducto.idPersona = MyGlobals.clienteVentas[0].idPersona;
                 facturaProducto.idEmpleado = MyGlobals.empleado.idEmpleado;

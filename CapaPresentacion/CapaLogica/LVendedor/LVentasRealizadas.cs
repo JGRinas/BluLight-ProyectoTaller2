@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace CapaPresentacion.CapaLogica.LVendedor
 {
@@ -70,6 +71,62 @@ namespace CapaPresentacion.CapaLogica.LVendedor
                 }
             }
 
+        }
+
+        public void inicializarChart(Chart chartVentas)
+        {
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                int idVendedor = Int32.Parse(MyGlobals.empleado.idEmpleado.ToString());
+
+             
+
+                var facturas = db.Factura_producto.Where(f => f.Empleado.idEmpleado.Equals(idVendedor)).ToList();
+
+                if (facturas.Count > 0)
+                {
+
+                    List<int> diaDelMes = new List<int>();
+                    List<int> cantClientes = new List<int>();
+                    
+                    int mes;
+                    for(int i = 0; i < facturas.Count; i++)
+                    {
+                        int cant = 0;
+                        mes = Int32.Parse(facturas[i].fecha.Month.ToString());
+                        if (mes == Int32.Parse(DateTime.Now.Month.ToString()))
+                        {
+                            if (diaDelMes.Count == 0)
+                            {
+                                diaDelMes.Add(Int32.Parse(facturas[i].fecha.Day.ToString()));
+                                cant++;
+                            }
+                            else
+                            {
+                                int diaE = diaDelMes.Where(d => d.Equals(Int32.Parse(facturas[i].fecha.Day.ToString()))).FirstOrDefault();
+                                var existe = diaDelMes.IndexOf(diaE);
+                                if (existe == -1)
+                                {
+                                    diaDelMes.Add(Int32.Parse(facturas[i].fecha.Day.ToString()));
+                                    
+                                }
+                                else
+                                {
+                                  
+                                }
+                                    
+                            }
+        
+                        }
+                    }
+                    foreach(int dia in diaDelMes)
+                    {
+                        chartVentas.Series["Ventas"].Points.AddXY(dia, 1);
+                       
+                    }
+                    
+                }
+            }
         }
 
 
