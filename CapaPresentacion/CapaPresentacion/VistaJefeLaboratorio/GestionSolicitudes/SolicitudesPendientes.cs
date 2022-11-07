@@ -38,10 +38,12 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes
             {
                 Form promover = new Promover(senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
                 //promover.FormBorderStyle = FormBorderStyle.None;
-                promover.BringToFront();
-                promover.Show();
+               // promover.BringToFront();
+                promover.ShowDialog();
                 //promover.Parent = this;
             }
+            dataGridSolicitudes.Rows.Clear();
+            solicitud1.rellenarDataGridSolicitudes(dataGridSolicitudes);
         }
 
         private void SolicitudesActivas_Load(object sender, EventArgs e)

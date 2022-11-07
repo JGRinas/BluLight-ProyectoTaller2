@@ -71,7 +71,47 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
             }
         }
 
-    
+
+
+        public void rellenarDataGridSolicitudesFull(BunifuDataGridView dataGridSolicitudes)
+        {
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                List<Detalle_factura_servicio> solicitudes = new List<Detalle_factura_servicio>();
+                //solicitudes = db.Detalle_factura_servicio.ToList();
+                solicitudes = db.Detalle_factura_servicio.Where(e => e.idLab == MyGlobals.empleado.idLab).ToList();
+
+                if (solicitudes.Count > 0)
+                {
+                    foreach (Detalle_factura_servicio solicitud in solicitudes)
+                    {
+
+                        int fila = dataGridSolicitudes.Rows.Add();
+                        
+
+                        if (solicitud.activo == true)
+                        {
+                            dataGridSolicitudes.Rows[fila].Cells["columnActivo"].Value = "Si";
+                            dataGridSolicitudes.Rows[fila].DefaultCellStyle.BackColor = Color.White;
+                            dataGridSolicitudes.Rows[fila].Cells["columnAltaBaja"].Value = "Baja";
+                        }
+                        else {
+                            dataGridSolicitudes.Rows[fila].Cells["columnActivo"].Value = "No";
+                            dataGridSolicitudes.Rows[fila].DefaultCellStyle.BackColor = Color.Gray;
+                            dataGridSolicitudes.Rows[fila].Cells["columnAltaBaja"].Value = "Alta";
+                        }
+
+                        dataGridSolicitudes.Rows[fila].Cells["columnIdSolicitud"].Value = solicitud.idFacturaServ + "-" + solicitud.idServicio + "-" + solicitud.idLab;
+                        dataGridSolicitudes.Rows[fila].Cells["columnNombreServicio"].Value = solicitud.Servicio_laboratorio.Servicio.nombre;
+                        dataGridSolicitudes.Rows[fila].Cells["columnCantidad"].Value = solicitud.cantidad;
+                        dataGridSolicitudes.Rows[fila].Cells["columnDniCliente"].Value = solicitud.Factura_servicio.Persona.dni;
+                        dataGridSolicitudes.Rows[fila].Cells["columnNombreCliente"].Value = solicitud.Factura_servicio.Persona.nombre + " " + solicitud.Factura_servicio.Persona.apellido;
+                        
+                        
+                    }
+                }
+            }
+        }
 
         public void rellenarDataGridSolicitudes(BunifuDataGridView dataGridSolicitudes)
         {
@@ -79,7 +119,7 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
             {
                 List<Detalle_factura_servicio> solicitudes = new List<Detalle_factura_servicio>();
                 //solicitudes = db.Detalle_factura_servicio.ToList();
-                solicitudes = db.Detalle_factura_servicio.Where(e => e.idLab == MyGlobals.empleado.idLab && e.idEstado == 1).ToList();
+                solicitudes = db.Detalle_factura_servicio.Where(e => e.idLab == MyGlobals.empleado.idLab && e.idEstado == 1 && e.activo == true).ToList();
 
                 if (solicitudes.Count > 0)
                 {
@@ -107,7 +147,7 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
             {
                 List<Detalle_factura_servicio> solicitudes = new List<Detalle_factura_servicio>();
                 //solicitudes = db.Detalle_factura_servicio.ToList();
-                solicitudes = db.Detalle_factura_servicio.Where(e => e.idLab == MyGlobals.empleado.idLab && e.idEstado == 2).ToList();
+                solicitudes = db.Detalle_factura_servicio.Where(e => e.idLab == MyGlobals.empleado.idLab && e.idEstado == 2 && e.activo == true).ToList();
 
                 if (solicitudes.Count > 0)
                 {
@@ -136,7 +176,7 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
             {
                 List<Detalle_factura_servicio> solicitudes = new List<Detalle_factura_servicio>();
                 //solicitudes = db.Detalle_factura_servicio.ToList();
-                solicitudes = db.Detalle_factura_servicio.Where(e => e.idLab == MyGlobals.empleado.idLab && e.idEstado == 3).ToList();
+                solicitudes = db.Detalle_factura_servicio.Where(e => e.idLab == MyGlobals.empleado.idLab && e.idEstado == 3 && e.activo == true).ToList();
 
                 if (solicitudes.Count > 0)
                 {
@@ -490,6 +530,36 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                         db.SaveChanges();
                         MessageBox.Show("El estado de solicitud se ha revertido a FINALIZADO", "Estado de solicitud revertido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                }
+            }
+        }
+
+        public void altaBaja(BunifuDataGridView datagrid, int idFactura, int idServicio)
+        {
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                var solicitud = db.Detalle_factura_servicio.Where(
+                e => e.idFacturaServ == idFactura
+                && e.idServicio == idServicio
+                && e.idLab == MyGlobals.empleado.idLab).ToList();
+
+                if (solicitud.Count > 0)
+                {
+                    if (solicitud.First().activo == true)
+                    {
+                        solicitud.First().activo = false;
+                        db.SaveChanges();
+                        MessageBox.Show("La solicitud ha sido dada de BAJA.", "Baja de solicitud", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        solicitud.First().activo = true;
+                        db.SaveChanges();
+                        MessageBox.Show("La solicitud se ha vuelto a dar de ALTA.", "Alta de solicitud", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
+
+
                 }
             }
         }

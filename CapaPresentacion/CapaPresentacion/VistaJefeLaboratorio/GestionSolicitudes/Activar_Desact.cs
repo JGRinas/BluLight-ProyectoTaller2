@@ -22,7 +22,7 @@ namespace CapaPresentacion.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitu
             textBoxBuscarId.MaxLength = 100000;
             textBoxBuscarDni.MaxLength = 8;
             solicitud1.rellenarComboBoxServicios(comboBoxServicios);
-            solicitud1.rellenarDataGridSolicitudes(dataGridSolicitudes);
+            solicitud1.rellenarDataGridSolicitudesFull(dataGridSolicitudes);
         }
 
         private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -32,11 +32,26 @@ namespace CapaPresentacion.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitu
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                Form promover = new Promover(senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                //promover.FormBorderStyle = FormBorderStyle.None;
-                promover.BringToFront();
-                promover.Show();
-                //promover.Parent = this;
+                int idFactura = Int32.Parse(solicitud1.filtrarIdSolicitud(senderGrid.Rows[e.RowIndex].Cells["columnIdSolicitud"].Value.ToString())[0]);
+                int idServicio = Int32.Parse(solicitud1.filtrarIdSolicitud(senderGrid.Rows[e.RowIndex].Cells["columnIdSolicitud"].Value.ToString())[1]);
+                if (senderGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Baja") {
+                    if (MessageBox.Show("¿Está seguro que desea dar de BAJA la solicitud?", "Baja de solicitud", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    { 
+                        solicitud1.altaBaja(dataGridSolicitudes, idFactura, idServicio);
+                        dataGridSolicitudes.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "Alta";
+                    }
+                }
+                else
+                {
+                    if (MessageBox.Show("¿Está seguro que desea dar de ALTA la solicitud?", "Alta de solicitud", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    { 
+                        dataGridSolicitudes.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "Baja";
+                        solicitud1.altaBaja(dataGridSolicitudes, idFactura, idServicio);
+                    }
+                }
+                dataGridSolicitudes.Rows.Clear();
+                solicitud1.rellenarDataGridSolicitudesFull(dataGridSolicitudes);
+
             }
         }
 
@@ -92,10 +107,9 @@ namespace CapaPresentacion.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitu
             btnMostrarTodos.Enabled = false;
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void label2_Click_1(object sender, EventArgs e)
         {
             MessageBox.Show("La id de solicitud a ingresar debe respetar el formato 1-1-1, esto es: tres números, con un guión medio entre ellos, sin espacios.", "Información de formato", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
     }
 }

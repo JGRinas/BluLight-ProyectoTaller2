@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.labelIdJornada = new System.Windows.Forms.Label();
             this.textBoxBuscarDni = new System.Windows.Forms.TextBox();
@@ -46,9 +46,8 @@
             this.columnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnDniCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnMailCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnAccion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.columnActivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnAltaBaja = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSolicitudes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +63,7 @@
             this.label2.Size = new System.Drawing.Size(109, 13);
             this.label2.TabIndex = 72;
             this.label2.Text = "ingresar formato 1-1-1";
+            this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // labelIdJornada
             // 
@@ -96,6 +96,7 @@
             this.btnBuscarDni.TabIndex = 69;
             this.btnBuscarDni.Text = "Buscar por DNI";
             this.btnBuscarDni.UseVisualStyleBackColor = true;
+            this.btnBuscarDni.Click += new System.EventHandler(this.btnBuscarDni_Click);
             // 
             // btnMostrarTodos
             // 
@@ -110,6 +111,7 @@
             this.btnMostrarTodos.TabIndex = 68;
             this.btnMostrarTodos.Text = "Mostrar todas";
             this.btnMostrarTodos.UseVisualStyleBackColor = true;
+            this.btnMostrarTodos.Click += new System.EventHandler(this.btnMostrarTodos_Click);
             // 
             // btnFiltrarServicio
             // 
@@ -123,6 +125,7 @@
             this.btnFiltrarServicio.TabIndex = 67;
             this.btnFiltrarServicio.Text = "Filtrar por servicio";
             this.btnFiltrarServicio.UseVisualStyleBackColor = true;
+            this.btnFiltrarServicio.Click += new System.EventHandler(this.btnFiltrarServicio_Click);
             // 
             // comboBoxServicios
             // 
@@ -153,27 +156,28 @@
             this.btnBuscarId.TabIndex = 64;
             this.btnBuscarId.Text = "Buscar por ID";
             this.btnBuscarId.UseVisualStyleBackColor = true;
+            this.btnBuscarId.Click += new System.EventHandler(this.btnBuscarId_Click);
             // 
             // dataGridSolicitudes
             // 
             this.dataGridSolicitudes.AllowCustomTheming = false;
             this.dataGridSolicitudes.AllowUserToAddRows = false;
             this.dataGridSolicitudes.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.dataGridSolicitudes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dataGridSolicitudes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridSolicitudes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridSolicitudes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridSolicitudes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridSolicitudes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridSolicitudes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridSolicitudes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridSolicitudes.ColumnHeadersHeight = 40;
             this.dataGridSolicitudes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnIdSolicitud,
@@ -181,9 +185,8 @@
             this.columnCantidad,
             this.columnDniCliente,
             this.columnNombreCliente,
-            this.columnMailCliente,
-            this.columnTelefono,
-            this.columnAccion});
+            this.columnActivo,
+            this.columnAltaBaja});
             this.dataGridSolicitudes.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             this.dataGridSolicitudes.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.dataGridSolicitudes.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
@@ -202,14 +205,14 @@
             this.dataGridSolicitudes.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dataGridSolicitudes.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.dataGridSolicitudes.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridSolicitudes.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridSolicitudes.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridSolicitudes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridSolicitudes.EnableHeadersVisualStyles = false;
             this.dataGridSolicitudes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
@@ -225,6 +228,7 @@
             this.dataGridSolicitudes.Size = new System.Drawing.Size(546, 216);
             this.dataGridSolicitudes.TabIndex = 73;
             this.dataGridSolicitudes.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.dataGridSolicitudes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuDataGridView1_CellContentClick);
             // 
             // columnIdSolicitud
             // 
@@ -256,23 +260,17 @@
             this.columnNombreCliente.Name = "columnNombreCliente";
             this.columnNombreCliente.ReadOnly = true;
             // 
-            // columnMailCliente
+            // columnActivo
             // 
-            this.columnMailCliente.HeaderText = "Email";
-            this.columnMailCliente.Name = "columnMailCliente";
-            this.columnMailCliente.ReadOnly = true;
+            this.columnActivo.HeaderText = "Activo";
+            this.columnActivo.Name = "columnActivo";
+            this.columnActivo.ReadOnly = true;
             // 
-            // columnTelefono
+            // columnAltaBaja
             // 
-            this.columnTelefono.HeaderText = "Telefono";
-            this.columnTelefono.Name = "columnTelefono";
-            this.columnTelefono.ReadOnly = true;
-            // 
-            // columnAccion
-            // 
-            this.columnAccion.HeaderText = "Acción";
-            this.columnAccion.Name = "columnAccion";
-            this.columnAccion.ReadOnly = true;
+            this.columnAltaBaja.HeaderText = "Alta/Baja";
+            this.columnAltaBaja.Name = "columnAltaBaja";
+            this.columnAltaBaja.ReadOnly = true;
             // 
             // Activar_Desact
             // 
@@ -315,8 +313,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnDniCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnNombreCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnMailCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnTelefono;
-        private System.Windows.Forms.DataGridViewButtonColumn columnAccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnActivo;
+        private System.Windows.Forms.DataGridViewButtonColumn columnAltaBaja;
     }
 }

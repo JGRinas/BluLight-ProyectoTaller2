@@ -40,9 +40,11 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes
             {
                 Form promover_2 = new Promover_2(senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                promover_2.BringToFront();
-                promover_2.Show();
+                //promover_2.BringToFront();
+                promover_2.ShowDialog();
             }
+            dataGridSolicitudes.Rows.Clear();
+            solicitud1.rellenarDataGridSolicitudesFinalizadas(dataGridSolicitudes);
         }
         private void textBoxBuscarId_KeyPress(object sender, KeyPressEventArgs e)
         {
