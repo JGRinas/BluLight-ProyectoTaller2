@@ -32,14 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.bunifuDataGridViewAdd = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonBuscarCliente = new System.Windows.Forms.Button();
             this.textBoxDniBuscar = new System.Windows.Forms.TextBox();
             this.labelDniBuscar = new System.Windows.Forms.Label();
@@ -58,9 +50,19 @@
             this.labelSurname = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridViewClientes = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnActivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridViewAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -85,126 +87,10 @@
             this.panel1.Controls.Add(this.labelName);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(587, 253);
             this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.bunifuDataGridViewAdd);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 253);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(587, 202);
-            this.panel2.TabIndex = 1;
-            // 
-            // bunifuDataGridViewAdd
-            // 
-            this.bunifuDataGridViewAdd.AllowCustomTheming = false;
-            this.bunifuDataGridViewAdd.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.bunifuDataGridViewAdd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.bunifuDataGridViewAdd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.bunifuDataGridViewAdd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bunifuDataGridViewAdd.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.bunifuDataGridViewAdd.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuDataGridViewAdd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.bunifuDataGridViewAdd.ColumnHeadersHeight = 40;
-            this.bunifuDataGridViewAdd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnId,
-            this.ColumnName,
-            this.ColumnSurname,
-            this.ColumnDni,
-            this.ColumnAddress,
-            this.ColumnPhone});
-            this.bunifuDataGridViewAdd.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.bunifuDataGridViewAdd.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.bunifuDataGridViewAdd.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.bunifuDataGridViewAdd.CurrentTheme.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.bunifuDataGridViewAdd.CurrentTheme.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.bunifuDataGridViewAdd.CurrentTheme.BackColor = System.Drawing.Color.White;
-            this.bunifuDataGridViewAdd.CurrentTheme.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.bunifuDataGridViewAdd.CurrentTheme.HeaderStyle.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuDataGridViewAdd.CurrentTheme.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            this.bunifuDataGridViewAdd.CurrentTheme.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.bunifuDataGridViewAdd.CurrentTheme.HeaderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            this.bunifuDataGridViewAdd.CurrentTheme.HeaderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.bunifuDataGridViewAdd.CurrentTheme.Name = null;
-            this.bunifuDataGridViewAdd.CurrentTheme.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.bunifuDataGridViewAdd.CurrentTheme.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.bunifuDataGridViewAdd.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.bunifuDataGridViewAdd.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.bunifuDataGridViewAdd.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bunifuDataGridViewAdd.DefaultCellStyle = dataGridViewCellStyle3;
-            this.bunifuDataGridViewAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuDataGridViewAdd.EnableHeadersVisualStyles = false;
-            this.bunifuDataGridViewAdd.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.bunifuDataGridViewAdd.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.bunifuDataGridViewAdd.HeaderBgColor = System.Drawing.Color.Empty;
-            this.bunifuDataGridViewAdd.HeaderForeColor = System.Drawing.Color.White;
-            this.bunifuDataGridViewAdd.Location = new System.Drawing.Point(0, 0);
-            this.bunifuDataGridViewAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.bunifuDataGridViewAdd.Name = "bunifuDataGridViewAdd";
-            this.bunifuDataGridViewAdd.RowHeadersVisible = false;
-            this.bunifuDataGridViewAdd.RowHeadersWidth = 51;
-            this.bunifuDataGridViewAdd.RowTemplate.Height = 40;
-            this.bunifuDataGridViewAdd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bunifuDataGridViewAdd.Size = new System.Drawing.Size(587, 202);
-            this.bunifuDataGridViewAdd.TabIndex = 1;
-            this.bunifuDataGridViewAdd.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
-            // 
-            // ColumnId
-            // 
-            this.ColumnId.HeaderText = "id";
-            this.ColumnId.MinimumWidth = 6;
-            this.ColumnId.Name = "ColumnId";
-            // 
-            // ColumnName
-            // 
-            this.ColumnName.HeaderText = "Nombre";
-            this.ColumnName.MinimumWidth = 6;
-            this.ColumnName.Name = "ColumnName";
-            // 
-            // ColumnSurname
-            // 
-            this.ColumnSurname.HeaderText = "Apellido";
-            this.ColumnSurname.MinimumWidth = 6;
-            this.ColumnSurname.Name = "ColumnSurname";
-            // 
-            // ColumnDni
-            // 
-            this.ColumnDni.HeaderText = "DNI";
-            this.ColumnDni.MinimumWidth = 6;
-            this.ColumnDni.Name = "ColumnDni";
-            // 
-            // ColumnAddress
-            // 
-            this.ColumnAddress.HeaderText = "Dirección";
-            this.ColumnAddress.MinimumWidth = 6;
-            this.ColumnAddress.Name = "ColumnAddress";
-            // 
-            // ColumnPhone
-            // 
-            this.ColumnPhone.HeaderText = "Teléfono";
-            this.ColumnPhone.MinimumWidth = 6;
-            this.ColumnPhone.Name = "ColumnPhone";
             // 
             // buttonBuscarCliente
             // 
@@ -407,6 +293,134 @@
             this.labelName.TabIndex = 35;
             this.labelName.Text = "Nombre";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dataGridViewClientes);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 253);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(587, 202);
+            this.panel2.TabIndex = 1;
+            // 
+            // dataGridViewClientes
+            // 
+            this.dataGridViewClientes.AllowCustomTheming = false;
+            this.dataGridViewClientes.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridViewClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewClientes.ColumnHeadersHeight = 40;
+            this.dataGridViewClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnId,
+            this.ColumnNombre,
+            this.ColumnApellido,
+            this.ColumnDni,
+            this.ColumnEmail,
+            this.ColumnDireccion,
+            this.ColumnTelefono,
+            this.ColumnActivo});
+            this.dataGridViewClientes.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.dataGridViewClientes.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dataGridViewClientes.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewClientes.CurrentTheme.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.dataGridViewClientes.CurrentTheme.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewClientes.CurrentTheme.BackColor = System.Drawing.Color.White;
+            this.dataGridViewClientes.CurrentTheme.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.dataGridViewClientes.CurrentTheme.HeaderStyle.BackColor = System.Drawing.Color.DodgerBlue;
+            this.dataGridViewClientes.CurrentTheme.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            this.dataGridViewClientes.CurrentTheme.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dataGridViewClientes.CurrentTheme.HeaderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            this.dataGridViewClientes.CurrentTheme.HeaderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewClientes.CurrentTheme.Name = null;
+            this.dataGridViewClientes.CurrentTheme.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dataGridViewClientes.CurrentTheme.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dataGridViewClientes.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewClientes.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.dataGridViewClientes.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewClientes.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewClientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewClientes.EnableHeadersVisualStyles = false;
+            this.dataGridViewClientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.dataGridViewClientes.HeaderBackColor = System.Drawing.Color.DodgerBlue;
+            this.dataGridViewClientes.HeaderBgColor = System.Drawing.Color.Empty;
+            this.dataGridViewClientes.HeaderForeColor = System.Drawing.Color.White;
+            this.dataGridViewClientes.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewClientes.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewClientes.Name = "dataGridViewClientes";
+            this.dataGridViewClientes.RowHeadersVisible = false;
+            this.dataGridViewClientes.RowHeadersWidth = 51;
+            this.dataGridViewClientes.RowTemplate.Height = 40;
+            this.dataGridViewClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewClientes.Size = new System.Drawing.Size(587, 202);
+            this.dataGridViewClientes.TabIndex = 1;
+            this.dataGridViewClientes.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "id";
+            this.ColumnId.MinimumWidth = 6;
+            this.ColumnId.Name = "ColumnId";
+            // 
+            // ColumnNombre
+            // 
+            this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.MinimumWidth = 6;
+            this.ColumnNombre.Name = "ColumnNombre";
+            // 
+            // ColumnApellido
+            // 
+            this.ColumnApellido.HeaderText = "Apellido";
+            this.ColumnApellido.MinimumWidth = 6;
+            this.ColumnApellido.Name = "ColumnApellido";
+            // 
+            // ColumnDni
+            // 
+            this.ColumnDni.HeaderText = "DNI";
+            this.ColumnDni.MinimumWidth = 6;
+            this.ColumnDni.Name = "ColumnDni";
+            // 
+            // ColumnEmail
+            // 
+            this.ColumnEmail.HeaderText = "Email";
+            this.ColumnEmail.Name = "ColumnEmail";
+            // 
+            // ColumnDireccion
+            // 
+            this.ColumnDireccion.HeaderText = "Dirección";
+            this.ColumnDireccion.MinimumWidth = 6;
+            this.ColumnDireccion.Name = "ColumnDireccion";
+            // 
+            // ColumnTelefono
+            // 
+            this.ColumnTelefono.HeaderText = "Teléfono";
+            this.ColumnTelefono.MinimumWidth = 6;
+            this.ColumnTelefono.Name = "ColumnTelefono";
+            // 
+            // ColumnActivo
+            // 
+            this.ColumnActivo.HeaderText = "Activo";
+            this.ColumnActivo.Name = "ColumnActivo";
+            // 
             // GestionClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,13 +430,13 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GestionClientes";
             this.Text = "GestionClientes";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridViewAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -431,13 +445,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private Bunifu.UI.WinForms.BunifuDataGridView bunifuDataGridViewAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSurname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDni;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPhone;
+        private Bunifu.UI.WinForms.BunifuDataGridView dataGridViewClientes;
         private System.Windows.Forms.Button buttonBuscarCliente;
         private System.Windows.Forms.TextBox textBoxDniBuscar;
         private System.Windows.Forms.Label labelDniBuscar;
@@ -456,5 +464,13 @@
         private System.Windows.Forms.Label labelSurname;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnApellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDireccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActivo;
     }
 }
