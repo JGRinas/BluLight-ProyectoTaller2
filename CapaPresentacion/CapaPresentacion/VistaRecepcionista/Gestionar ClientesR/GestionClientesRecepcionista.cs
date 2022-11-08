@@ -1,5 +1,5 @@
-﻿using CapaLogica.LVendedor;
-using System;
+﻿using System;
+using CapaLogica.LVendedor;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,12 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CapaPresentacion.VistaRecepcionista.Gestionar_ClientesR
+namespace CapaPresentacion.VistaVendedor.Gestionar_Clientes
 {
-    public partial class GestionClientes : Form
+    public partial class GestionClientesRecepcionista : Form
     {
         LClient client;
-        public GestionClientes()
+        public GestionClientesRecepcionista()
         {
             InitializeComponent();
 

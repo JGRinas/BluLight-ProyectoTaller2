@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using Bunifu.UI.WinForms;
 
 namespace CapaLogica.LVendedor
 {
@@ -27,13 +28,13 @@ namespace CapaLogica.LVendedor
                     int dni = persona.dni;
                     var empleado = db.Empleado.Where(e => e.Persona.dni.Equals(dni));
 
-                    if (empleado.ToList().Count == 0)
+                    if (empleado.ToList().Count == 0 && persona.dni != 0)
                     {
 
                         int fila = dataGrid.Rows.Add();
                         var activo = "No";
                         dataGrid.Rows[fila].DefaultCellStyle.BackColor = Color.Gray;
-                        if (persona.activo == true)
+                        if ((bool)persona.activo)
                         {
                             activo = "Si";
                             dataGrid.Rows[fila].DefaultCellStyle.BackColor = Color.White;
@@ -51,6 +52,8 @@ namespace CapaLogica.LVendedor
                 }
             }
         }
+
+
         public void registrarCliente(List<TextBox> textBoxes, List<Button> buttons)
         {
             bool validation = true;
@@ -143,7 +146,7 @@ namespace CapaLogica.LVendedor
                 int dni = Int32.Parse(textBoxes[6].Text);
                 var cliente = db.Persona.Where(p => p.dni.Equals(dni)).ToList();
                 var empleado = db.Empleado.Where(p => p.Persona.dni.Equals(dni)).ToList();
-                if (cliente.Count > 0 && empleado.Count == 0)
+                if (cliente.Count > 0 && empleado.Count == 0 && cliente[0].dni != 0)
                 {
 
                     textBoxes[0].Text = cliente[0].nombre;
@@ -268,3 +271,4 @@ namespace CapaLogica.LVendedor
         }
     }
 }
+

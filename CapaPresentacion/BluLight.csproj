@@ -336,8 +336,11 @@
     <Compile Include="CapaLogica\LJefeLab\LJornada.cs" />
     <Compile Include="CapaLogica\LJefeLab\LServicio.cs" />
     <Compile Include="CapaLogica\LJefeLab\LSolicitud.cs" />
+    <Compile Include="CapaLogica\LRecepcionistaok\LServiciosR.cs" />
+    <Compile Include="CapaLogica\LRecepcionistaok\LVentasServicio.cs" />
     <Compile Include="CapaLogica\LVendedor\LClient.cs" />
     <Compile Include="CapaLogica\LVendedor\LProductV.cs" />
+    <Compile Include="CapaLogica\LVendedor\LVentas.cs" />
     <Compile Include="CapaPresentacion\FormLogout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -403,6 +406,24 @@
     </Compile>
     <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover_3.Designer.cs">
       <DependentUpon>Promover_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\BuscarClienteVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\BuscarClienteVenta.Designer.cs">
+      <DependentUpon>BuscarClienteVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\BuscarServicioVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\BuscarServicioVenta.Designer.cs">
+      <DependentUpon>BuscarServicioVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\FinalizarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\FinalizarCompra.Designer.cs">
+      <DependentUpon>FinalizarCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -526,11 +547,11 @@
     <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesEntregadas.Designer.cs">
       <DependentUpon>SolicitudesEntregadas.cs</DependentUpon>
     </Compile>
-    <Compile Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientes.cs">
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientesRecepcionista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientes.Designer.cs">
-      <DependentUpon>GestionClientes.cs</DependentUpon>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientesRecepcionista.Designer.cs">
+      <DependentUpon>GestionClientesRecepcionista.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\VistaRecepcionista\Jornadas\Bajas.cs">
       <SubType>Form</SubType>
@@ -619,6 +640,15 @@
     <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover_3.resx">
       <DependentUpon>Promover_3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\BuscarClienteVenta.resx">
+      <DependentUpon>BuscarClienteVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\BuscarServicioVenta.resx">
+      <DependentUpon>BuscarServicioVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\FinalizarCompra.resx">
+      <DependentUpon>FinalizarCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -690,8 +720,8 @@
     <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesEntregadas.resx">
       <DependentUpon>SolicitudesEntregadas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientes.resx">
-      <DependentUpon>GestionClientes.cs</DependentUpon>
+    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientesRecepcionista.resx">
+      <DependentUpon>GestionClientesRecepcionista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Jornadas\Bajas.resx">
       <DependentUpon>Bajas.cs</DependentUpon>
@@ -804,9 +834,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CapaLogica\LRecepcionista\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="CapaData\Model\MyEntityFramework.Context.tt">

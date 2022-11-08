@@ -1,6 +1,6 @@
-﻿namespace CapaPresentacion.VistaRecepcionista.Gestionar_ClientesR
+﻿namespace CapaPresentacion.VistaVendedor.Gestionar_Clientes
 {
-    partial class GestionClientes
+    partial class GestionClientesRecepcionista
     {
         /// <summary>
         /// Required designer variable.
