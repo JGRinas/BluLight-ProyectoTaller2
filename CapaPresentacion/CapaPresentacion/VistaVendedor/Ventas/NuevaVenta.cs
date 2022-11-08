@@ -129,7 +129,7 @@ namespace CapaPresentacion.VistaVendedor.Ventas
                 decimal total = 0;
                 for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
                 {
-                    total = MyGlobals.productoVentas[i].stock * MyGlobals.cantidadProducto[i];
+                    total = MyGlobals.productoVentas[i].precio * MyGlobals.cantidadProducto[i];
                     labelTotal.Text = total.ToString();
                 }
             }

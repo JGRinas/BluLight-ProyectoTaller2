@@ -75,13 +75,12 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubFo
 
         private void buttonFinalizarCompra_Click(object sender, EventArgs e)
         {
-            List<Button> buttons = new List<Button>();
-            List<Label> labels = new List<Label>();
+
             if (comboBox1.SelectedIndex != -1)
             {
                 if (DialogResult.Yes == MessageBox.Show("Finalizar venta?", "Nueva venta", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
                 {
-                    venta.generarComprobante();
+                    venta.generarComprobante(comboBox1);
                     venta.finalizarCompra(comboBox1);
                 }
             }

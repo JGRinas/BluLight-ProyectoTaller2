@@ -18,20 +18,37 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas
         public VentasRealizadas()
         {
             InitializeComponent();
+            dateTimePickerFiltro.Value = DateTime.Now;
             labelNombre.Text = MyGlobals.persona.nombre;
             labelApellido.Text = MyGlobals.persona.apellido;
             labelDni.Text = MyGlobals.persona.dni.ToString();
             ventasR = new LVentasRealizadas();
-            ventasR.rellenarDataGridClientesAtendidos(dataGridViewClientesAtendidos);
+            ventasR.rellenarDataGridClientesAtendidos(dataGridViewClientesAtendidos, dateTimePickerFiltro, labelClientesAtendidosEn);
             labelTotalVentas.Text = ventasR.calcularTotalVentas().ToString();
-            ventasR.inicializarChart(chartDesempeno);
         }
 
-        public void inicializarChartVendedor()
+        private void dataGridViewClientesAtendidos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int nroVenta = Int32.Parse(dataGridViewClientesAtendidos.CurrentRow.Cells["ColumnId"].Value.ToString());
+            List<Label> labels = new List<Label>();
+            labels.Add(labelTotalVenta);
+            labels.Add(labelCliente);
+            labels.Add(labelDniCliente);
+            labels.Add(labelCorreoCliente);
+            labels.Add(labelFormaDePago);
+            
+            ventasR.buscarVentaDataGrid(nroVenta, labels, textBoxProductos);
+        }
+
+        private void dateTimePickerFiltro_ValueChanged(object sender, EventArgs e)
         {
 
+        }
 
-            //chartDesempeno.Series["Ventas"].Points.Add;
+        private void buttonBuscarProducto_Click(object sender, EventArgs e)
+        {
+            dataGridViewClientesAtendidos.Rows.Clear();
+            ventasR.rellenarDataGridClientesAtendidos(dataGridViewClientesAtendidos, dateTimePickerFiltro, labelClientesAtendidosEn);
         }
     }
 }

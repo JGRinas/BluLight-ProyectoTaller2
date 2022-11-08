@@ -392,7 +392,7 @@ namespace CapaPresentacion.CapaLogica.LVendedor
         }
 
         
-        public void generarComprobante()
+        public void generarComprobante(ComboBox comboBox)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string date = Regex.Replace(System.DateTime.Now.ToString(), @"\s", "");
@@ -406,7 +406,8 @@ namespace CapaPresentacion.CapaLogica.LVendedor
             PdfWriter pw = PdfWriter.GetInstance(doc, fs);
 
             doc.Open();
-
+            //Dibujar lineas
+            Chunk linea = new Chunk(new iTextSharp.text.pdf.draw.LineSeparator());
             //titulo y autor
             doc.AddAuthor("BluLight");
             doc.AddTitle("PDF Generado");
@@ -414,22 +415,40 @@ namespace CapaPresentacion.CapaLogica.LVendedor
             //Tipo de fuente
             iTextSharp.text.Font standarFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
-            //encabezado
-            doc.Add(new Paragraph("Comprobante de venta " + date));
+
             //SALTO DE LINEA
+            doc.Add(new Paragraph("Comprobante de venta: " + date));
+            doc.Add(linea);
             doc.Add(Chunk.NEWLINE);
 
-
-            doc.Add(new Paragraph("Punto de venta: BluLight"));
+            //insertar imagen
+            var pathLogo = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Resources\logo.png");
+            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(pathLogo);
+            doc.Add(logo);
+            doc.Add(new Paragraph("Empresa: BluLight"));
             doc.Add(Chunk.NEWLINE);
-
-            doc.Add(new Paragraph("Vendor: " + MyGlobals.persona.nombre + " " + MyGlobals.persona.apellido));
+            doc.Add(new Paragraph("Dirección: Caseros 3.039, piso 2°, de la Ciudad Autónoma de Buenos Aires."));
             doc.Add(Chunk.NEWLINE);
+            doc.Add(new Paragraph("CUIT: 30-70308853-4"));
+          
+            doc.Add(linea);
+            doc.Add(Chunk.NEWLINE);
+            //encabezado
+       
 
+            doc.Add(new Paragraph("Vendedor: " + MyGlobals.persona.nombre + " " + MyGlobals.persona.apellido));
+           
+            doc.Add(new Paragraph("DNI: " + MyGlobals.persona.dni));
+            doc.Add(Chunk.NEWLINE);
             doc.Add(new Paragraph("Cliente: " + MyGlobals.clienteVentas[0].nombre + " " + MyGlobals.clienteVentas[0].apellido));
+           
+            doc.Add(new Paragraph("DNI: " + MyGlobals.clienteVentas[0].dni));
             doc.Add(Chunk.NEWLINE);
-
-
+            doc.Add(linea);
+            doc.Add(new Paragraph("Detalle de la venta:"));
+            doc.Add(linea);
+            doc.Add(Chunk.NEWLINE);
+            
             //Encabezado de columna
             PdfPTable tbl = new PdfPTable(4);
             tbl.WidthPercentage = 100;
@@ -451,8 +470,8 @@ namespace CapaPresentacion.CapaLogica.LVendedor
             clSubtotal.BorderWidthBottom = 0.75f;
 
             tbl.AddCell(clNombre);
-            tbl.AddCell(clCantidad);
             tbl.AddCell(clPrecio);
+            tbl.AddCell(clCantidad);
             tbl.AddCell(clSubtotal);
             //agregar datos
             float total = 0;
@@ -480,14 +499,17 @@ namespace CapaPresentacion.CapaLogica.LVendedor
                 tbl.AddCell(clSubtotal);
                 
             }
-
+           
+           
             doc.Add(tbl);
 
             doc.Add(Chunk.NEWLINE);
             doc.Add(Chunk.NEWLINE);
             doc.Add(Chunk.NEWLINE);
-
-            doc.Add(new Paragraph("Total: " + total.ToString()));
+            doc.Add(new Paragraph("Forma de pago: " + comboBox.Text));
+            doc.Add(linea);
+            //doc.Add(Chunk.NEWLINE);
+            doc.Add(new Paragraph("Total: $" + total.ToString()));
             doc.Add(Chunk.NEWLINE);
 
             doc.Close();
@@ -511,6 +533,7 @@ namespace CapaPresentacion.CapaLogica.LVendedor
                 Factura_producto facturaProducto = new Factura_producto();
                 facturaProducto.activo = true;
                 facturaProducto.fecha = DateTime.Now;
+                facturaProducto.hora = DateTime.Now.TimeOfDay;
                 facturaProducto.idMetodoPago = metodoPago.SelectedIndex+1;
                 facturaProducto.idPersona = MyGlobals.clienteVentas[0].idPersona;
                 facturaProducto.idEmpleado = MyGlobals.empleado.idEmpleado;

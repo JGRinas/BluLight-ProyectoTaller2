@@ -57,7 +57,7 @@
             this.panelBarra.Controls.Add(this.bunifuImageButton1);
             this.panelBarra.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBarra.Location = new System.Drawing.Point(0, 0);
-            this.panelBarra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBarra.Margin = new System.Windows.Forms.Padding(4);
             this.panelBarra.Name = "panelBarra";
             this.panelBarra.Size = new System.Drawing.Size(533, 41);
             this.panelBarra.TabIndex = 1;
@@ -187,7 +187,7 @@
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 41);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(533, 453);
             this.panel1.TabIndex = 2;
@@ -199,7 +199,7 @@
             this.textBoxProductos.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxProductos.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.textBoxProductos.Location = new System.Drawing.Point(20, 54);
-            this.textBoxProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxProductos.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxProductos.Multiline = true;
             this.textBoxProductos.Name = "textBoxProductos";
             this.textBoxProductos.Size = new System.Drawing.Size(493, 144);
@@ -281,7 +281,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(13, 370);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(223, 24);
             this.comboBox1.TabIndex = 45;
@@ -292,7 +292,7 @@
             this.panel2.Controls.Add(this.buttonFinalizarCompra);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 494);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(533, 60);
             this.panel2.TabIndex = 3;
@@ -322,7 +322,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelBarra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FinalizarCompra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FinalizarCompra";
