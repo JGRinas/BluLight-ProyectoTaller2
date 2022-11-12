@@ -42,5 +42,15 @@ namespace CapaPresentacion.VistaRecepcionista.Jornadas
 
             persona1.obtenerClienteEnButton(LabelsPersona, textBoxBuscarDni);
         }
+
+        private void btnBuscarJornada_Click(object sender, EventArgs e)
+        {
+            jornada1.buscarJornadaNombre(textBoxJornada, labelJornada);
+        }
+
+        private void btnBajaJornada_Click(object sender, EventArgs e)
+        {
+            jornada1.bajaJornada(labelDni, labelJornada);
+        }
     }
 }

@@ -28,11 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.labelNombre = new System.Windows.Forms.Label();
+            this.labelDni = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelJornada = new System.Windows.Forms.Label();
+            this.btnBuscarJornada = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxJornada = new System.Windows.Forms.TextBox();
+            this.btnBajaJornada = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonRegistrarAuditorio = new System.Windows.Forms.Button();
@@ -47,13 +54,6 @@
             this.ColumnHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnJefeLab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAuditorio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxJornada = new System.Windows.Forms.TextBox();
-            this.labelJornada = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.labelDni = new System.Windows.Forms.Label();
-            this.labelNombre = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridJornadas)).BeginInit();
@@ -65,10 +65,10 @@
             this.panel1.Controls.Add(this.labelDni);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.labelJornada);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnBuscarJornada);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.textBoxJornada);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnBajaJornada);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.buttonRegistrarAuditorio);
@@ -76,24 +76,110 @@
             this.panel1.Controls.Add(this.textBoxBuscarDni);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(587, 224);
             this.panel1.TabIndex = 0;
             // 
-            // button1
+            // labelNombre
             // 
-            this.button1.Enabled = false;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Tomato;
-            this.button1.Location = new System.Drawing.Point(319, 147);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 31);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Dar de baja";
-            this.button1.UseVisualStyleBackColor = true;
+            this.labelNombre.AutoSize = true;
+            this.labelNombre.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelNombre.Location = new System.Drawing.Point(168, 108);
+            this.labelNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(18, 19);
+            this.labelNombre.TabIndex = 37;
+            this.labelNombre.Text = "N";
+            this.labelNombre.Visible = false;
+            // 
+            // labelDni
+            // 
+            this.labelDni.AutoSize = true;
+            this.labelDni.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDni.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelDni.Location = new System.Drawing.Point(60, 148);
+            this.labelDni.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelDni.Name = "labelDni";
+            this.labelDni.Size = new System.Drawing.Size(18, 19);
+            this.labelDni.TabIndex = 36;
+            this.labelDni.Text = "D";
+            this.labelDni.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(11, 148);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 19);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "DNI: ";
+            // 
+            // labelJornada
+            // 
+            this.labelJornada.AutoSize = true;
+            this.labelJornada.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelJornada.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelJornada.Location = new System.Drawing.Point(96, 169);
+            this.labelJornada.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelJornada.Name = "labelJornada";
+            this.labelJornada.Size = new System.Drawing.Size(18, 19);
+            this.labelJornada.TabIndex = 34;
+            this.labelJornada.Text = "J";
+            this.labelJornada.Visible = false;
+            // 
+            // btnBuscarJornada
+            // 
+            this.btnBuscarJornada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarJornada.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarJornada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnBuscarJornada.Location = new System.Drawing.Point(319, 87);
+            this.btnBuscarJornada.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBuscarJornada.Name = "btnBuscarJornada";
+            this.btnBuscarJornada.Size = new System.Drawing.Size(132, 31);
+            this.btnBuscarJornada.TabIndex = 33;
+            this.btnBuscarJornada.Text = "Buscar";
+            this.btnBuscarJornada.UseVisualStyleBackColor = true;
+            this.btnBuscarJornada.Click += new System.EventHandler(this.btnBuscarJornada_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(309, 5);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(162, 19);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Nombre de jornada";
+            // 
+            // textBoxJornada
+            // 
+            this.textBoxJornada.Location = new System.Drawing.Point(279, 26);
+            this.textBoxJornada.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxJornada.Multiline = true;
+            this.textBoxJornada.Name = "textBoxJornada";
+            this.textBoxJornada.Size = new System.Drawing.Size(214, 57);
+            this.textBoxJornada.TabIndex = 31;
+            // 
+            // btnBajaJornada
+            // 
+            this.btnBajaJornada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBajaJornada.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBajaJornada.ForeColor = System.Drawing.Color.Tomato;
+            this.btnBajaJornada.Location = new System.Drawing.Point(319, 147);
+            this.btnBajaJornada.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBajaJornada.Name = "btnBajaJornada";
+            this.btnBajaJornada.Size = new System.Drawing.Size(132, 31);
+            this.btnBajaJornada.TabIndex = 30;
+            this.btnBajaJornada.Text = "Dar de baja";
+            this.btnBajaJornada.UseVisualStyleBackColor = true;
+            this.btnBajaJornada.Click += new System.EventHandler(this.btnBajaJornada_Click);
             // 
             // label3
             // 
@@ -125,7 +211,7 @@
             this.buttonRegistrarAuditorio.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegistrarAuditorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.buttonRegistrarAuditorio.Location = new System.Drawing.Point(83, 52);
-            this.buttonRegistrarAuditorio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonRegistrarAuditorio.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRegistrarAuditorio.Name = "buttonRegistrarAuditorio";
             this.buttonRegistrarAuditorio.Size = new System.Drawing.Size(132, 31);
             this.buttonRegistrarAuditorio.TabIndex = 27;
@@ -148,7 +234,7 @@
             // textBoxBuscarDni
             // 
             this.textBoxBuscarDni.Location = new System.Drawing.Point(83, 26);
-            this.textBoxBuscarDni.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBuscarDni.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBuscarDni.Multiline = true;
             this.textBoxBuscarDni.Name = "textBoxBuscarDni";
             this.textBoxBuscarDni.Size = new System.Drawing.Size(134, 22);
@@ -159,7 +245,7 @@
             this.panel2.Controls.Add(this.datagridJornadas);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 224);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(587, 231);
             this.panel2.TabIndex = 1;
@@ -168,21 +254,21 @@
             // 
             this.datagridJornadas.AllowCustomTheming = false;
             this.datagridJornadas.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.datagridJornadas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.datagridJornadas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.datagridJornadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagridJornadas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datagridJornadas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.datagridJornadas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridJornadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridJornadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.datagridJornadas.ColumnHeadersHeight = 40;
             this.datagridJornadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
@@ -210,14 +296,14 @@
             this.datagridJornadas.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.datagridJornadas.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.datagridJornadas.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datagridJornadas.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datagridJornadas.DefaultCellStyle = dataGridViewCellStyle3;
             this.datagridJornadas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datagridJornadas.EnableHeadersVisualStyles = false;
             this.datagridJornadas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
@@ -225,7 +311,7 @@
             this.datagridJornadas.HeaderBgColor = System.Drawing.Color.Empty;
             this.datagridJornadas.HeaderForeColor = System.Drawing.Color.White;
             this.datagridJornadas.Location = new System.Drawing.Point(0, 0);
-            this.datagridJornadas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.datagridJornadas.Margin = new System.Windows.Forms.Padding(2);
             this.datagridJornadas.Name = "datagridJornadas";
             this.datagridJornadas.RowHeadersVisible = false;
             this.datagridJornadas.RowHeadersWidth = 51;
@@ -234,6 +320,8 @@
             this.datagridJornadas.Size = new System.Drawing.Size(587, 231);
             this.datagridJornadas.TabIndex = 1;
             this.datagridJornadas.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.datagridJornadas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridJornadas_CellClick);
+            this.datagridJornadas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridJornadas_CellClick);
             // 
             // ColumnId
             // 
@@ -277,91 +365,6 @@
             this.ColumnAuditorio.MinimumWidth = 6;
             this.ColumnAuditorio.Name = "ColumnAuditorio";
             // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button2.Location = new System.Drawing.Point(319, 87);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 31);
-            this.button2.TabIndex = 33;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(309, 5);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 19);
-            this.label4.TabIndex = 32;
-            this.label4.Text = "Nombre de jornada";
-            // 
-            // textBoxJornada
-            // 
-            this.textBoxJornada.Location = new System.Drawing.Point(279, 26);
-            this.textBoxJornada.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxJornada.Multiline = true;
-            this.textBoxJornada.Name = "textBoxJornada";
-            this.textBoxJornada.Size = new System.Drawing.Size(214, 57);
-            this.textBoxJornada.TabIndex = 31;
-            // 
-            // labelJornada
-            // 
-            this.labelJornada.AutoSize = true;
-            this.labelJornada.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelJornada.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelJornada.Location = new System.Drawing.Point(96, 169);
-            this.labelJornada.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelJornada.Name = "labelJornada";
-            this.labelJornada.Size = new System.Drawing.Size(18, 19);
-            this.labelJornada.TabIndex = 34;
-            this.labelJornada.Text = "J";
-            this.labelJornada.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(11, 148);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 19);
-            this.label5.TabIndex = 35;
-            this.label5.Text = "DNI: ";
-            // 
-            // labelDni
-            // 
-            this.labelDni.AutoSize = true;
-            this.labelDni.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDni.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelDni.Location = new System.Drawing.Point(60, 148);
-            this.labelDni.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelDni.Name = "labelDni";
-            this.labelDni.Size = new System.Drawing.Size(18, 19);
-            this.labelDni.TabIndex = 36;
-            this.labelDni.Text = "D";
-            this.labelDni.Visible = false;
-            // 
-            // labelNombre
-            // 
-            this.labelNombre.AutoSize = true;
-            this.labelNombre.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelNombre.Location = new System.Drawing.Point(168, 108);
-            this.labelNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(18, 19);
-            this.labelNombre.TabIndex = 37;
-            this.labelNombre.Text = "N";
-            this.labelNombre.Visible = false;
-            // 
             // Bajas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -395,11 +398,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAuditorio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxBuscarDni;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBajaJornada;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonRegistrarAuditorio;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnBuscarJornada;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxJornada;
         private System.Windows.Forms.Label labelJornada;

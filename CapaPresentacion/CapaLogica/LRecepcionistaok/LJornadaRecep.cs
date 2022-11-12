@@ -112,5 +112,30 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
             }
         }
 
-    }
+        public void bajaJornada(Label LabelDni, Label labelNombreJornada) {
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                int dni = Int32.Parse(LabelDni.Text);
+                var persona = db.Persona.Where(p => p.dni == dni).FirstOrDefault();
+                var jornada = db.Jornada.Where(j => j.nombre.Equals(labelNombreJornada.Text)).FirstOrDefault();
+                var inscripcion = db.Inscripto_jornada.Where(ins => ins.idPersona == persona.idPersona
+                    && ins.idJornada == jornada.idJornada).FirstOrDefault();
+
+                if (persona != null && jornada != null && inscripcion != null)
+                {
+                    jornada.inscriptos -= 1;
+                    inscripcion.activo = false;
+                    db.SaveChanges();
+                    
+                }
+                else {
+                    MessageBox.Show("Error al dar de baja. La persona o la jornada indicadas no se " +
+                        "encuentra/n en la base de datos. Por favor, intente nuevamente.",
+                        "Error al dar debaja", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+    }//fin clase
 }
