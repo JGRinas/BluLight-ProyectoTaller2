@@ -34,7 +34,7 @@ namespace CapaLogica.LVendedor
                         int fila = dataGrid.Rows.Add();
                         var activo = "No";
                         dataGrid.Rows[fila].DefaultCellStyle.BackColor = Color.Gray;
-                        if ((bool)persona.activo)
+                        if (persona.activo == true)
                         {
                             activo = "Si";
                             dataGrid.Rows[fila].DefaultCellStyle.BackColor = Color.White;
@@ -161,7 +161,9 @@ namespace CapaLogica.LVendedor
                     buttons[1].Enabled = true;
                     buttons[2].Enabled = true;
                     buttons[2].Text = "Eliminar";
-                    if ((bool)!cliente[0].activo) buttons[2].Text = "Restaurar";
+                    
+                    if (!(cliente[0].activo == true)){ buttons[2].Text = "Restaurar"; }
+
                 }
                 else
                 {

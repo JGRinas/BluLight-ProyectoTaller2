@@ -47,11 +47,11 @@
           <Property Name="precio" Type="decimal" Precision="12" Scale="2" Nullable="false" />
           <Property Name="cantidad" Type="int" Nullable="false" />
           <Property Name="idLab" Type="int" Nullable="false" />
-          <Property Name="idFacturaServ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idEmpleado" Type="int" />
           <Property Name="fechaFinalizacion" Type="datetime" />
           <Property Name="fechaEntregado" Type="datetime" />
           <Property Name="activo" Type="bit" />
+          <Property Name="idFacturaServ" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Empleado">
           <Key>
@@ -276,7 +276,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DetalleFacturaS_FacturaS">
+        <Association Name="FK_DetalleFactServ_FacturaServ">
           <End Role="Factura_servicio" Type="Self.Factura_servicio" Multiplicity="1" />
           <End Role="Detalle_factura_servicio" Type="Self.Detalle_factura_servicio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -333,18 +333,6 @@
             </Principal>
             <Dependent Role="Factura_producto">
               <PropertyRef Name="idMetodoPago" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_factura_servicio_metodo_de_pago">
-          <End Role="Metodo_de_pago" Type="Self.Metodo_de_pago" Multiplicity="1" />
-          <End Role="Factura_servicio" Type="Self.Factura_servicio" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Metodo_de_pago">
-              <PropertyRef Name="idMetodoPago" />
-            </Principal>
-            <Dependent Role="Factura_servicio">
-              <PropertyRef Name="idFacturaServ" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -570,7 +558,7 @@
             <End Role="Servicio-laboratorio" EntitySet="Servicio-laboratorio" />
             <End Role="Detalle_factura_servicio" EntitySet="Detalle_factura_servicio" />
           </AssociationSet>
-          <AssociationSet Name="FK_DetalleFacturaS_FacturaS" Association="Self.FK_DetalleFacturaS_FacturaS">
+          <AssociationSet Name="FK_DetalleFactServ_FacturaServ" Association="Self.FK_DetalleFactServ_FacturaServ">
             <End Role="Factura_servicio" EntitySet="Factura_servicio" />
             <End Role="Detalle_factura_servicio" EntitySet="Detalle_factura_servicio" />
           </AssociationSet>
@@ -589,10 +577,6 @@
           <AssociationSet Name="FK_factura_producto-Metodo" Association="Self.FK_factura_producto-Metodo">
             <End Role="Metodo_de_pago" EntitySet="Metodo_de_pago" />
             <End Role="Factura_producto" EntitySet="Factura_producto" />
-          </AssociationSet>
-          <AssociationSet Name="FK_factura_servicio_metodo_de_pago" Association="Self.FK_factura_servicio_metodo_de_pago">
-            <End Role="Metodo_de_pago" EntitySet="Metodo_de_pago" />
-            <End Role="Factura_servicio" EntitySet="Factura_servicio" />
           </AssociationSet>
           <AssociationSet Name="FK_FacturaProducto_Empleado" Association="Self.FK_FacturaProducto_Empleado">
             <End Role="Empleado" EntitySet="Empleado" />
@@ -770,7 +754,6 @@
           <Property Name="idPersona" Type="Int32" Nullable="false" />
           <Property Name="institucion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Detalle_factura_servicio" Relationship="Self.FK_detalle_factura_servicio_Factura" FromRole="Factura_servicio" ToRole="Detalle_factura_servicio" />
-          <NavigationProperty Name="Metodo_de_pago" Relationship="Self.FK_factura_servicio_metodo_de_pago" FromRole="Factura_servicio" ToRole="Metodo_de_pago" />
           <Property Name="activo" Type="Boolean" />
           <Property Name="idEmpleado" Type="Int32" />
           <NavigationProperty Name="Empleado" Relationship="bd_blulightModel.fk_FacturaServicio_Empleado" FromRole="Factura_servicio" ToRole="Empleado" />
@@ -834,7 +817,6 @@
           <Property Name="idMetodoPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="metodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Factura_producto" Relationship="Self.FK_factura_producto_Metodo" FromRole="Metodo_de_pago" ToRole="Factura_producto" />
-          <NavigationProperty Name="Factura_servicio" Relationship="Self.FK_factura_servicio_metodo_de_pago" FromRole="Metodo_de_pago" ToRole="Factura_servicio" />
         </EntityType>
         <EntityType Name="Perfil_de_usuario">
           <Key>
@@ -1054,18 +1036,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_factura_servicio_metodo_de_pago">
-          <End Role="Metodo_de_pago" Type="Self.Metodo_de_pago" Multiplicity="1" />
-          <End Role="Factura_servicio" Type="Self.Factura_servicio" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Metodo_de_pago">
-              <PropertyRef Name="idMetodoPago" />
-            </Principal>
-            <Dependent Role="Factura_servicio">
-              <PropertyRef Name="idFacturaServ" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_inscripcion_jornada">
           <End Role="Jornada" Type="Self.Jornada" Multiplicity="1" />
           <End Role="Inscripto_jornada" Type="Self.Inscripto_jornada" Multiplicity="*" />
@@ -1215,10 +1185,6 @@
           <AssociationSet Name="FK_factura_producto_Metodo" Association="Self.FK_factura_producto_Metodo">
             <End Role="Metodo_de_pago" EntitySet="Metodo_de_pago" />
             <End Role="Factura_producto" EntitySet="Factura_producto" />
-          </AssociationSet>
-          <AssociationSet Name="FK_factura_servicio_metodo_de_pago" Association="Self.FK_factura_servicio_metodo_de_pago">
-            <End Role="Metodo_de_pago" EntitySet="Metodo_de_pago" />
-            <End Role="Factura_servicio" EntitySet="Factura_servicio" />
           </AssociationSet>
           <AssociationSet Name="FK_inscripcion_jornada" Association="Self.FK_inscripcion_jornada">
             <End Role="Jornada" EntitySet="Jornada" />

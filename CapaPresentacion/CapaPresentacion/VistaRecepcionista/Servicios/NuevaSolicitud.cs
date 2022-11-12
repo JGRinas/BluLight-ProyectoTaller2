@@ -37,7 +37,7 @@ namespace CapaPresentacion.VistaRecepcionista.Servicios
                 if (MyGlobals.servicioVentas.Count > 0)
                 {
                     datagridCarrito.Rows.Clear();
-                    venta.rellenarDataGridCarritoProductos(datagridCarrito);
+                    venta.rellenarDataGridCarritoServicios(datagridCarrito);
                     btnFinalizarCompra.Enabled = true;
                     decimal total = 0;
                     for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
@@ -64,9 +64,13 @@ namespace CapaPresentacion.VistaRecepcionista.Servicios
             if (MyGlobals.clienteVentas.Count > 0)
             {
                 labelApellidoC.Text = MyGlobals.clienteVentas[0].apellido.ToString();
+                labelApellidoC.Visible = true;
                 labelDniC.Text = MyGlobals.clienteVentas[0].dni.ToString();
+                labelDniC.Visible = true;
                 labelNombreC.Text = MyGlobals.clienteVentas[0].nombre.ToString();
+                labelNombreC.Visible = true;
                 labelEmailC.Text = MyGlobals.clienteVentas[0].email.ToString();
+                labelEmailC.Visible = true;
                 btnBuscarServicio.Enabled = true;
                 //btnCancelarCompra.Enabled = true;
             }
@@ -75,8 +79,8 @@ namespace CapaPresentacion.VistaRecepcionista.Servicios
         private void btnBuscarServicio_Click(object sender, EventArgs e)
         {
             MyGlobals.dataGridServiciosVentas = datagridCarrito;
-            BuscarServicioVenta producto = new BuscarServicioVenta();
-            producto.ShowDialog();
+            BuscarServicioVenta servicio = new BuscarServicioVenta();
+            servicio.ShowDialog();
 
             if (MyGlobals.servicioVentas.Count > 0)
             {
@@ -87,7 +91,7 @@ namespace CapaPresentacion.VistaRecepcionista.Servicios
                 decimal total = 0;
                 for (int i = 0; i < MyGlobals.servicioVentas.Count; i++)
                 {
-                    total = MyGlobals.servicioVentas[i].Servicio.precio * MyGlobals.cantidadServicio[i];
+                    total = MyGlobals.servicioVentas2[i].precio * MyGlobals.cantidadServicio[i];
                     labelTotal.Text = "Total: $" + total.ToString();
                 }
             }
@@ -113,7 +117,7 @@ namespace CapaPresentacion.VistaRecepcionista.Servicios
 
                 venta.cancelarVenta(buttons, labels);
                 datagridCarrito.Rows.Clear();
-                venta.rellenarDataGridCarritoProductos(datagridCarrito);
+                venta.rellenarDataGridCarritoServicios(datagridCarrito);
             }
         }
 
@@ -124,7 +128,7 @@ namespace CapaPresentacion.VistaRecepcionista.Servicios
                 venta.borrarProductoCarrito(datagridCarrito);
 
                 datagridCarrito.Rows.Clear();
-                venta.rellenarDataGridCarritoProductos(datagridCarrito);
+                venta.rellenarDataGridCarritoServicios(datagridCarrito);
                 decimal total = 0;
                 for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
                 {

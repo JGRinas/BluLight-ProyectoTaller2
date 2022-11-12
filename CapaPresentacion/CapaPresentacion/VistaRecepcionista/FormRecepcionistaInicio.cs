@@ -1,7 +1,7 @@
 ﻿using CapaLogica;
-using CapaPresentacion.VistaRecepcionista.Gestionar_ClientesR;
 using CapaPresentacion.VistaRecepcionista.Jornadas;
 using CapaPresentacion.VistaRecepcionista.Servicios;
+using CapaPresentacion.VistaVendedor.Gestionar_Clientes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -117,7 +117,7 @@ namespace CapaPresentacion.VistaRecepcionista
         }
         private void buttonGestionarClientes_Click(object sender, EventArgs e)
         {
-            abrirFormHijo(new GestionClientes());
+            abrirFormHijo(new GestionClientesRecepcionista());
             esconderSubMenu();
         }
   

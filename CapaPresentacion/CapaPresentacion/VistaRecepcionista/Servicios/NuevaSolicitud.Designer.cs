@@ -28,16 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelTotal = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnFinalizarCompra = new System.Windows.Forms.Button();
             this.btnBuscarServicio = new System.Windows.Forms.Button();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.labelEmailC = new System.Windows.Forms.Label();
+            this.labelDniC = new System.Windows.Forms.Label();
+            this.labelApellidoC = new System.Windows.Forms.Label();
+            this.labelNombreC = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,11 +56,6 @@
             this.ColumnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnActivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelNombreC = new System.Windows.Forms.Label();
-            this.labelApellidoC = new System.Windows.Forms.Label();
-            this.labelDniC = new System.Windows.Forms.Label();
-            this.labelEmailC = new System.Windows.Forms.Label();
-            this.labelTotal = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -77,6 +77,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(587, 195);
             this.panel1.TabIndex = 0;
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelTotal.Location = new System.Drawing.Point(383, 168);
+            this.labelTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(72, 19);
+            this.labelTotal.TabIndex = 44;
+            this.labelTotal.Text = "Total: ";
             // 
             // label6
             // 
@@ -118,7 +130,6 @@
             // 
             // btnBuscarServicio
             // 
-            this.btnBuscarServicio.Enabled = false;
             this.btnBuscarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarServicio.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -133,7 +144,6 @@
             // 
             // btnBuscarCliente
             // 
-            this.btnBuscarCliente.Enabled = false;
             this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarCliente.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -161,6 +171,58 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(292, 121);
             this.panel4.TabIndex = 47;
+            // 
+            // labelEmailC
+            // 
+            this.labelEmailC.AutoSize = true;
+            this.labelEmailC.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmailC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelEmailC.Location = new System.Drawing.Point(72, 85);
+            this.labelEmailC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmailC.Name = "labelEmailC";
+            this.labelEmailC.Size = new System.Drawing.Size(18, 19);
+            this.labelEmailC.TabIndex = 47;
+            this.labelEmailC.Text = "E";
+            this.labelEmailC.Visible = false;
+            // 
+            // labelDniC
+            // 
+            this.labelDniC.AutoSize = true;
+            this.labelDniC.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDniC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelDniC.Location = new System.Drawing.Point(52, 60);
+            this.labelDniC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelDniC.Name = "labelDniC";
+            this.labelDniC.Size = new System.Drawing.Size(18, 19);
+            this.labelDniC.TabIndex = 46;
+            this.labelDniC.Text = "D";
+            this.labelDniC.Visible = false;
+            // 
+            // labelApellidoC
+            // 
+            this.labelApellidoC.AutoSize = true;
+            this.labelApellidoC.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelApellidoC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelApellidoC.Location = new System.Drawing.Point(98, 33);
+            this.labelApellidoC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelApellidoC.Name = "labelApellidoC";
+            this.labelApellidoC.Size = new System.Drawing.Size(18, 19);
+            this.labelApellidoC.TabIndex = 45;
+            this.labelApellidoC.Text = "A";
+            this.labelApellidoC.Visible = false;
+            // 
+            // labelNombreC
+            // 
+            this.labelNombreC.AutoSize = true;
+            this.labelNombreC.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombreC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelNombreC.Location = new System.Drawing.Point(73, 5);
+            this.labelNombreC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelNombreC.Name = "labelNombreC";
+            this.labelNombreC.Size = new System.Drawing.Size(18, 19);
+            this.labelNombreC.TabIndex = 42;
+            this.labelNombreC.Text = "N";
+            this.labelNombreC.Visible = false;
             // 
             // label4
             // 
@@ -245,21 +307,21 @@
             // 
             this.datagridCarrito.AllowCustomTheming = false;
             this.datagridCarrito.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.datagridCarrito.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.datagridCarrito.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.datagridCarrito.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagridCarrito.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datagridCarrito.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.datagridCarrito.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridCarrito.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridCarrito.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.datagridCarrito.ColumnHeadersHeight = 40;
             this.datagridCarrito.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
@@ -285,14 +347,14 @@
             this.datagridCarrito.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.datagridCarrito.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.datagridCarrito.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datagridCarrito.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datagridCarrito.DefaultCellStyle = dataGridViewCellStyle3;
             this.datagridCarrito.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datagridCarrito.EnableHeadersVisualStyles = false;
             this.datagridCarrito.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
@@ -339,70 +401,6 @@
             this.ColumnActivo.HeaderText = "Activo";
             this.ColumnActivo.MinimumWidth = 6;
             this.ColumnActivo.Name = "ColumnActivo";
-            // 
-            // labelNombreC
-            // 
-            this.labelNombreC.AutoSize = true;
-            this.labelNombreC.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelNombreC.Location = new System.Drawing.Point(73, 5);
-            this.labelNombreC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelNombreC.Name = "labelNombreC";
-            this.labelNombreC.Size = new System.Drawing.Size(18, 19);
-            this.labelNombreC.TabIndex = 42;
-            this.labelNombreC.Text = "N";
-            this.labelNombreC.Visible = false;
-            // 
-            // labelApellidoC
-            // 
-            this.labelApellidoC.AutoSize = true;
-            this.labelApellidoC.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelApellidoC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelApellidoC.Location = new System.Drawing.Point(98, 33);
-            this.labelApellidoC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelApellidoC.Name = "labelApellidoC";
-            this.labelApellidoC.Size = new System.Drawing.Size(18, 19);
-            this.labelApellidoC.TabIndex = 45;
-            this.labelApellidoC.Text = "A";
-            this.labelApellidoC.Visible = false;
-            // 
-            // labelDniC
-            // 
-            this.labelDniC.AutoSize = true;
-            this.labelDniC.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDniC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelDniC.Location = new System.Drawing.Point(52, 60);
-            this.labelDniC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelDniC.Name = "labelDniC";
-            this.labelDniC.Size = new System.Drawing.Size(18, 19);
-            this.labelDniC.TabIndex = 46;
-            this.labelDniC.Text = "D";
-            this.labelDniC.Visible = false;
-            // 
-            // labelEmailC
-            // 
-            this.labelEmailC.AutoSize = true;
-            this.labelEmailC.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmailC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelEmailC.Location = new System.Drawing.Point(72, 85);
-            this.labelEmailC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelEmailC.Name = "labelEmailC";
-            this.labelEmailC.Size = new System.Drawing.Size(18, 19);
-            this.labelEmailC.TabIndex = 47;
-            this.labelEmailC.Text = "E";
-            this.labelEmailC.Visible = false;
-            // 
-            // labelTotal
-            // 
-            this.labelTotal.AutoSize = true;
-            this.labelTotal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelTotal.Location = new System.Drawing.Point(383, 168);
-            this.labelTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(72, 19);
-            this.labelTotal.TabIndex = 44;
-            this.labelTotal.Text = "Total: ";
             // 
             // NuevaSolicitud
             // 

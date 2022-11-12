@@ -2,8 +2,8 @@
 using CapaLogica;
 using CapaLogica.Libreria;
 using CapaPresentacion.CapaData.Model;
-//using iTextSharp.text.pdf;
-//using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -81,14 +81,17 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
         public void buscarClienteEnVentasDataGrid(TextBox dniC, List<Label> labels, Button button, DataGridView dataGrid)
         {
             labels[0].Text = dataGrid.CurrentRow.Cells[1].Value.ToString();
+            labels[0].Visible = true;
             labels[1].Text = dataGrid.CurrentRow.Cells[2].Value.ToString();
+            labels[1].Visible = true;
             labels[2].Text = dataGrid.CurrentRow.Cells[0].Value.ToString();
+            labels[2].Visible = true;
             dniC.Text = dataGrid.CurrentRow.Cells[0].Value.ToString();
             button.Enabled = true;
         }
 
 
-        public void refrescarClienteCarrito(List<Label> labels)
+        public void refrescarClienteCarritoServ(List<Label> labels)
         {
             MyGlobals.clienteLabels = labels;
         }
@@ -116,71 +119,67 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
 
         //AGREGAR PRODUCTO
 
-        public void rellenarDataGridProductos(DataGridView dataGrid)
+        public void rellenarDataGridServicios(DataGridView dataGrid)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
-                List<Producto> Products = new List<Producto>();
+                List<Servicio_laboratorio> Servicios = new List<Servicio_laboratorio>();
 
-                Products = db.Producto.ToList();
+                Servicios = db.Servicio_laboratorio.ToList();
 
-                if (Products.Count > 0)
+                if (Servicios.Count > 0)
                 {
-                    foreach (Producto product in Products)
+                    foreach (Servicio_laboratorio servicio in Servicios)
                     {
-                        if (product.activo && product.stock > 0)
+                        if (servicio.activo)
                         {
 
 
-                            Producto pro = MyGlobals.productoVentas.Where(p => p.idProducto.Equals(product.idProducto)).FirstOrDefault();
-                            var existe = MyGlobals.productoVentas.IndexOf(pro);
+                            Servicio_laboratorio serv = MyGlobals.servicioVentas.Where(p => p.idServicio.Equals(servicio.idServicio)).FirstOrDefault();
+                            var existe = MyGlobals.servicioVentas.IndexOf(serv);
                             int cantidad = 0;
                             if (existe != -1)
                             {
-                                cantidad = MyGlobals.cantidadProducto[existe];
+                                cantidad = MyGlobals.cantidadServicio[existe];
                             }
 
                             int fila = dataGrid.Rows.Add();
 
-                            dataGrid.Rows[fila].Cells["ColumnId"].Value = product.idProducto;
-                            dataGrid.Rows[fila].Cells["ColumnTitulo"].Value = product.nombre;
-                            dataGrid.Rows[fila].Cells["ColumnCategoria"].Value = product.Categoria_producto.categoria;
-                            dataGrid.Rows[fila].Cells["ColumnColor"].Value = product.Color_producto.color;
-                            dataGrid.Rows[fila].Cells["ColumnStock"].Value = product.stock - cantidad;
-                            dataGrid.Rows[fila].Cells["ColumnPrecio"].Value = product.precio;
+                            dataGrid.Rows[fila].Cells["ColumnId"].Value = servicio.idServicio + " - " + servicio.idLab;
+                            dataGrid.Rows[fila].Cells["ColumnNombre"].Value = servicio.Servicio.nombre;
+                            dataGrid.Rows[fila].Cells["ColumnLab"].Value = servicio.Laboratorio.nombre;
+                            dataGrid.Rows[fila].Cells["ColumnPrecio"].Value = servicio.Servicio.precio;
+                            dataGrid.Rows[fila].Cells["ColumnCategoria"].Value = servicio.Servicio.Categoria_servicio.categoria;
 
-                            Image thumb = uploadImage.byteToImage(product.imagen).GetThumbnailImage(70, 70, null, IntPtr.Zero);
-                            dataGrid.Rows[fila].Height = 70;
-                            dataGrid.Rows[fila].Cells["ColumnImagen"].Value = thumb;
                         }
                     }
                 }
             }
         }
 
-        public void buscarProducto(List<Label> labels, TextBox textBox, Button button, PictureBox imagen)
+        public void buscarServicio(List<Label> labels, TextBox textBox, Button button)
         {
             if (textBox.Text.Equals(""))
             {
-                MessageBox.Show("Ingrese el nombre del producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese el nombre del servicio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
                 using (bd_blulightEntities db = new bd_blulightEntities())
                 {
-                    var product = db.Producto.Where(p => p.nombre.Equals(textBox.Text));
-                    if (product.ToList().Count > 0 && product.FirstOrDefault().activo && product.FirstOrDefault().stock > 0)
+                    var servicio = db.Servicio_laboratorio.Where(s => s.Servicio.nombre.Contains(textBox.Text));
+                    if (servicio.ToList().Count > 0 && servicio.FirstOrDefault().activo)
                     {
-                        labels[0].Text = product.FirstOrDefault().nombre;
-                        labels[1].Text = product.FirstOrDefault().idProducto.ToString();
-
-                        imagen.Image = uploadImage.byteToImage(product.FirstOrDefault().imagen);
+                        labels[0].Text = servicio.FirstOrDefault().Servicio.nombre;
+                        labels[1].Text = servicio.FirstOrDefault().idServicio.ToString();
+                        MyGlobals.idServSelecc = servicio.FirstOrDefault().idServicio;
+                        MyGlobals.idLabSelecc = servicio.FirstOrDefault().idLab;
 
                         button.Enabled = true;
                     }
                     else
                     {
-                        MessageBox.Show("El producto no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("El servicio no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
             }
@@ -255,7 +254,7 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
             }
         }
 
-        public void obtenerProductoDelDataGrid(List<Label> labels, List<ComboBox> comboBoxes, TextBox textBox, Button button, PictureBox imagen, DataGridView dataGrid)
+        public void obtenerServicioDelDataGrid(List<Label> labels, List<ComboBox> comboBoxes, TextBox textBox, Button button, DataGridView dataGrid)
         {
             textBox.Text = dataGrid.CurrentRow.Cells[1].Value.ToString();
             labels[0].Text = dataGrid.CurrentRow.Cells[1].Value.ToString();
@@ -273,54 +272,46 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
                 comboBoxes[1].SelectedIndex = categoria.idCategoriaProd - 1;
             }
 
-            imagen.Image = (Image)dataGrid.CurrentRow.Cells[2].Value;
 
             button.Enabled = true;
         }
 
-        public void agregarProductoCarrito(int idP, TextBox cantidadP)
+        public void agregarServicioCarrito(int idS, TextBox cantidadS, int idLab)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
-                var productoV = db.Producto.Where(p => p.idProducto.Equals(idP));
-                int cantidad = Int32.Parse(cantidadP.Text);
-                if (productoV.ToList().Count > 0)
+                var servicioV = db.Servicio_laboratorio.Where(s => s.idServicio.Equals(idS) && s.idLab.Equals(idLab));
+                int cantidad = Int32.Parse(cantidadS.Text);
+                if (servicioV.ToList().Count > 0)
                 {
-                    Producto product = db.Producto.Where(p => p.idProducto.Equals(idP)).FirstOrDefault();
-                    Producto pro = MyGlobals.productoVentas.Where(p => p.idProducto.Equals(idP)).FirstOrDefault();
-                    var existe = MyGlobals.productoVentas.IndexOf(pro);
+                    //    Servicio_laboratorio servicio = db.Servicio_laboratorio.Where(s => s.idServicio.Equals(idS) && s.idLab.Equals(idLab)).FirstOrDefault();
+                    //    Servicio_laboratorio serv = MyGlobals.servicioVentas.Where(s => s.idServicio.Equals(idS) && s.idLab.Equals(idLab)).FirstOrDefault();
+                    //    var existe = MyGlobals.servicioVentas.IndexOf(serv);
 
-                    if (existe != -1)
-                    {
-                        if (cantidad <= pro.stock - MyGlobals.cantidadProducto[existe])
-                        {
-                            MyGlobals.cantidadProducto[existe] += cantidad;
-                            MessageBox.Show("El producto fue agregado!", "Agregar producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                    //    if (existe != -1)
+                    //    {
+                    //           MyGlobals.cantidadProducto[existe] += cantidad;
+                    //           MessageBox.Show("El servicio fue agregado!", "Agregar servicio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    }
+                    //    }
+                    //    else
+                    //{
+                    Servicio_laboratorio servicio = new Servicio_laboratorio();
+                    servicio = servicioV.FirstOrDefault();
+                    MyGlobals.servicioVentas.Add(servicio);
+                    MyGlobals.servicioVentas2.Add(servicio.Servicio);
+                    MyGlobals.cantidadServicio.Add(cantidad);
+                    MyGlobals.dataGridServiciosVentas.Rows.Clear();
+                    rellenarDataGridCarritoServicios(MyGlobals.dataGridProductosVentas);
+                    MessageBox.Show("El Servicio fue agregado!", "Agregar servicio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //}
 
-                        else MessageBox.Show("Cantidad ingresada mayor al stock del producto", "Agregar producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
-                    else
-                    {
-                        if (cantidad <= Int32.Parse(product.stock.ToString()))
-                        {
-                            Producto producto = new Producto();
-                            producto = productoV.FirstOrDefault();
-                            MyGlobals.productoVentas.Add(producto);
-                            MyGlobals.cantidadProducto.Add(cantidad);
-                            MyGlobals.dataGridProductosVentas.Rows.Clear();
-                            rellenarDataGridCarritoProductos(MyGlobals.dataGridProductosVentas);
-                            MessageBox.Show("El producto fue agregado!", "Agregar producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                            MessageBox.Show("Cantidad ingresada mayor al stock del producto", "Agregar producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
                 }
             }
         }
-        public void rellenarDataGridCarritoProductos(DataGridView dataGrid)
+            
+        
+        public void rellenarDataGridCarritoServicios(DataGridView dataGrid)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
@@ -395,149 +386,157 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
         }
 
 
-        //public void generarComprobante()
-        //{
-        //    string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        //    string date = Regex.Replace(System.DateTime.Now.ToString(), @"\s", "");
-        //    date = Regex.Replace(date, @"/", "");
-        //    date = Regex.Replace(date, @":", "");
+        public void generarComprobante()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string date = Regex.Replace(System.DateTime.Now.ToString(), @"\s", "");
+            date = Regex.Replace(date, @"/", "");
+            date = Regex.Replace(date, @":", "");
 
-        //    //MessageBox.Show(path + @"\venta" + date + ".pdf");
-        //    FileStream fs = new FileStream(@"" + path + @"\venta" + date + ".pdf", FileMode.Create);
+            //MessageBox.Show(path + @"\venta" + date + ".pdf");
+            FileStream fs = new FileStream(@"" + path + @"\venta" + date + ".pdf", FileMode.Create);
 
-        //    Document doc = new Document(PageSize.LETTER, 5, 5, 7, 7);
-        //    PdfWriter pw = PdfWriter.GetInstance(doc, fs);
+            Document doc = new Document(PageSize.LETTER, 5, 5, 7, 7);
+            PdfWriter pw = PdfWriter.GetInstance(doc, fs);
 
-        //    doc.Open();
+            doc.Open();
 
-        //    //titulo y autor
-        //    doc.AddAuthor("BluLight");
-        //    doc.AddTitle("PDF Generado");
+            //titulo y autor
+            doc.AddAuthor("BluLight");
+            doc.AddTitle("PDF Generado");
 
-        //    //Tipo de fuente
-        //    iTextSharp.text.Font standarFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+            //Tipo de fuente
+            iTextSharp.text.Font standarFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
-        //    //encabezado
-        //    doc.Add(new Paragraph("Comprobante de venta " + date));
-        //    //SALTO DE LINEA
-        //    doc.Add(Chunk.NEWLINE);
-
-
-        //    doc.Add(new Paragraph("Punto de venta: BluLight"));
-        //    doc.Add(Chunk.NEWLINE);
-
-        //    doc.Add(new Paragraph("Vendor: " + MyGlobals.persona.nombre + " " + MyGlobals.persona.apellido));
-        //    doc.Add(Chunk.NEWLINE);
-
-        //    doc.Add(new Paragraph("Cliente: " + MyGlobals.clienteVentas[0].nombre + " " + MyGlobals.clienteVentas[0].apellido));
-        //    doc.Add(Chunk.NEWLINE);
+            //encabezado
+            doc.Add(new Paragraph("Comprobante de venta " + date));
+            //SALTO DE LINEA
+            doc.Add(iTextSharp.text.Chunk.NEWLINE);
 
 
-        //    //Encabezado de columna
-        //    PdfPTable tbl = new PdfPTable(4);
-        //    tbl.WidthPercentage = 100;
-        //    //configuracion del titulo de las columnas
-        //    PdfPCell clNombre = new PdfPCell(new Phrase("Nombre", standarFont));
-        //    clNombre.BorderWidth = 0;
-        //    clNombre.BorderWidthBottom = 0.75f;
+            doc.Add(new Paragraph("Punto de venta: BluLight"));
+            doc.Add(iTextSharp.text.Chunk.NEWLINE);
 
-        //    PdfPCell clCantidad = new PdfPCell(new Phrase("Cantidad", standarFont));
-        //    clCantidad.BorderWidth = 0;
-        //    clCantidad.BorderWidthBottom = 0.75f;
+            doc.Add(new Paragraph("Vendor: " + MyGlobals.persona.nombre + " " + MyGlobals.persona.apellido));
+            doc.Add(iTextSharp.text.Chunk.NEWLINE);
 
-        //    PdfPCell clPrecio = new PdfPCell(new Phrase("Precio c/u", standarFont));
-        //    clPrecio.BorderWidth = 0;
-        //    clPrecio.BorderWidthBottom = 0.75f;
+            doc.Add(new Paragraph("Cliente: " + MyGlobals.clienteVentas[0].nombre + " " + MyGlobals.clienteVentas[0].apellido));
+            doc.Add(iTextSharp.text.Chunk.NEWLINE);
 
-        //    PdfPCell clSubtotal = new PdfPCell(new Phrase("Subtotal", standarFont));
-        //    clSubtotal.BorderWidth = 0;
-        //    clSubtotal.BorderWidthBottom = 0.75f;
 
-        //    tbl.AddCell(clNombre);
-        //    tbl.AddCell(clCantidad);
-        //    tbl.AddCell(clPrecio);
-        //    tbl.AddCell(clSubtotal);
-        //    //agregar datos
-        //    float total = 0;
-        //    for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
-        //    {
-        //        clNombre = new PdfPCell(new Phrase(MyGlobals.productoVentas[i].nombre, standarFont));
-        //        clNombre.BorderWidth = 0;
+            //Encabezado de columna
+            PdfPTable tbl = new PdfPTable(4);
+            tbl.WidthPercentage = 100;
+            //configuracion del titulo de las columnas
+            PdfPCell clNombre = new PdfPCell(new Phrase("Nombre", standarFont));
+            clNombre.BorderWidth = 0;
+            clNombre.BorderWidthBottom = 0.75f;
 
-        //        clPrecio = new PdfPCell(new Phrase(MyGlobals.productoVentas[i].precio.ToString(), standarFont));
-        //        clPrecio.BorderWidth = 0;
+            PdfPCell clCantidad = new PdfPCell(new Phrase("Cantidad", standarFont));
+            clCantidad.BorderWidth = 0;
+            clCantidad.BorderWidthBottom = 0.75f;
 
-        //        clCantidad = new PdfPCell(new Phrase(MyGlobals.cantidadProducto[i].ToString(), standarFont));
-        //        clCantidad.BorderWidth = 0;
+            PdfPCell clPrecio = new PdfPCell(new Phrase("Precio c/u", standarFont));
+            clPrecio.BorderWidth = 0;
+            clPrecio.BorderWidthBottom = 0.75f;
 
-        //        decimal subtotal = MyGlobals.cantidadProducto[i] * MyGlobals.productoVentas[i].precio;
+            PdfPCell clSubtotal = new PdfPCell(new Phrase("Subtotal", standarFont));
+            clSubtotal.BorderWidth = 0;
+            clSubtotal.BorderWidthBottom = 0.75f;
 
-        //        clSubtotal = new PdfPCell(new Phrase(subtotal.ToString(), standarFont));
-        //        clSubtotal.BorderWidth = 0;
+            tbl.AddCell(clNombre);
+            tbl.AddCell(clCantidad);
+            tbl.AddCell(clPrecio);
+            tbl.AddCell(clSubtotal);
+            //agregar datos
+            float total = 0;
+            for (int i = 0; i < MyGlobals.servicioVentas2.Count; i++)
+            {
+                clNombre = new PdfPCell(new Phrase(MyGlobals.servicioVentas2[i].nombre, standarFont));
+                clNombre.BorderWidth = 0;
 
-        //        total += float.Parse(MyGlobals.cantidadProducto[i].ToString()) * float.Parse(MyGlobals.productoVentas[i].precio.ToString());
+                clPrecio = new PdfPCell(new Phrase(MyGlobals.servicioVentas2[i].precio.ToString(), standarFont));
+                clPrecio.BorderWidth = 0;
 
-        //        tbl.AddCell(clNombre);
-        //        tbl.AddCell(clPrecio);
-        //        tbl.AddCell(clCantidad);
-        //        tbl.AddCell(clSubtotal);
+                clCantidad = new PdfPCell(new Phrase(MyGlobals.cantidadServicio[i].ToString(), standarFont));
+                clCantidad.BorderWidth = 0;
 
-        //    }
+                decimal subtotal = MyGlobals.cantidadServicio[i] * MyGlobals.servicioVentas2[i].precio;
 
-        //    doc.Add(tbl);
+                clSubtotal = new PdfPCell(new Phrase(subtotal.ToString(), standarFont));
+                clSubtotal.BorderWidth = 0;
 
-        //    doc.Add(Chunk.NEWLINE);
-        //    doc.Add(Chunk.NEWLINE);
-        //    doc.Add(Chunk.NEWLINE);
+                total += float.Parse(MyGlobals.cantidadServicio[i].ToString()) * float.Parse(MyGlobals.servicioVentas2[i].precio.ToString());
 
-        //    doc.Add(new Paragraph("Total: " + total.ToString()));
-        //    doc.Add(Chunk.NEWLINE);
+                tbl.AddCell(clNombre);
+                tbl.AddCell(clPrecio);
+                tbl.AddCell(clCantidad);
+                tbl.AddCell(clSubtotal);
 
-        //    doc.Close();
-        //    pw.Close();
+            }
 
-        //    MessageBox.Show("Comprobante generado", "Finalizar venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //}
+            doc.Add(tbl);
+
+            doc.Add(iTextSharp.text.Chunk.NEWLINE);
+            doc.Add(iTextSharp.text.Chunk.NEWLINE);
+            doc.Add(iTextSharp.text.Chunk.NEWLINE);
+
+            doc.Add(new Paragraph("Total: " + total.ToString()));
+            doc.Add(iTextSharp.text.Chunk.NEWLINE);
+
+            doc.Close();
+            pw.Close();
+
+            MessageBox.Show("Comprobante generado", "Finalizar venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
         public void finalizarCompra(ComboBox metodoPago)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
-                for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
-                {
-                    int idP = MyGlobals.productoVentas[i].idProducto;
-                    var producto = db.Producto.Where(p => p.idProducto.Equals(idP)).FirstOrDefault();
+                //for (int i = 0; i < MyGlobals.servicioVentas.Count; i++)
+                //{
+                //    int idServicio = MyGlobals.servicioVentas[i].Servicio.idServicio;
+                //    var servicio = db.Servicio.Where(s => s.idServicio.Equals(idServicio) && s.activo == true).FirstOrDefault();
 
-                    producto.stock -= MyGlobals.cantidadProducto[i];
-                    db.SaveChanges();
-                }
+                //    producto.stock -= MyGlobals.cantidadProducto[i];
+                //    db.SaveChanges();
+                //}
 
-                Factura_producto facturaProducto = new Factura_producto();
-                facturaProducto.activo = true;
-                facturaProducto.fecha = DateTime.Now;
-                facturaProducto.idMetodoPago = metodoPago.SelectedIndex + 1;
-                facturaProducto.idPersona = MyGlobals.clienteVentas[0].idPersona;
-                facturaProducto.idEmpleado = MyGlobals.empleado.idEmpleado;
+                Factura_servicio facturaServ = new Factura_servicio();
+                facturaServ.activo = true;
+                facturaServ.fecha = DateTime.Now.Date;
+                facturaServ.hora = DateTime.Now.TimeOfDay;
+                facturaServ.idMetodoPago = metodoPago.SelectedIndex + 1;
+                facturaServ.idPersona = MyGlobals.clienteVentas[0].idPersona;
+                facturaServ.idEmpleado = MyGlobals.empleado.idEmpleado;
 
-                db.Factura_producto.Add(facturaProducto);
+                db.Factura_servicio.Add(facturaServ);
                 db.SaveChanges();
 
-                for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
+                for (int i = 0; i < MyGlobals.servicioVentas.Count; i++)
                 {
-                    Detalle_factura_producto detalleFactura = new Detalle_factura_producto();
-                    detalleFactura.idFacturaProd = facturaProducto.idFacturaProd;
-                    detalleFactura.idProducto = MyGlobals.productoVentas[i].idProducto;
-                    detalleFactura.cantidad = MyGlobals.cantidadProducto[i];
-                    detalleFactura.precio = MyGlobals.productoVentas[i].precio;
-                    db.Detalle_factura_producto.Add(detalleFactura);
+                    Detalle_factura_servicio detalleFactura = new Detalle_factura_servicio();
+                    detalleFactura.idFacturaServ = facturaServ.idFacturaServ;
+                    detalleFactura.idServicio = MyGlobals.servicioVentas[i].idServicio;
+                    detalleFactura.idLab = MyGlobals.servicioVentas[i].idLab;
+                    detalleFactura.cantidad = MyGlobals.cantidadServicio[i];
+                    detalleFactura.precio = MyGlobals.servicioVentas2[i].precio;
+                    detalleFactura.idEstado = 1;
+                    detalleFactura.activo = true;
+                    //el idEmpleado no se especifica en esta instancia, dado que dicho campo se refiere
+                    // al empleado que realizó el servicio, no a aquel que realizó la venta. Dicho campo se 
+                    // va especificar en una instancia posterior.
+                    // El empleado que realizó la venta va en la tabla Factura.
+                    db.Detalle_factura_servicio.Add(detalleFactura);
                 }
 
                 db.SaveChanges();
 
                 MyGlobals.clienteLabels.Clear();
                 MyGlobals.clienteVentas.Clear();
-                MyGlobals.productoVentas.Clear();
-                MyGlobals.cantidadProducto.Clear();
+                MyGlobals.servicioVentas.Clear();
+                MyGlobals.cantidadServicio.Clear();
             }
         }
 

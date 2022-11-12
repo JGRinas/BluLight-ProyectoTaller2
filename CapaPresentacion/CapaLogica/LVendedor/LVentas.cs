@@ -2,8 +2,8 @@
 using CapaLogica;
 using CapaLogica.Libreria;
 using CapaPresentacion.CapaData.Model;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
+//using iTextSharp.text.pdf;
+//using iTextSharp.text;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -395,109 +395,109 @@ namespace CapaPresentacion.CapaLogica.LVendedor
         }
 
 
-        public void generarComprobante()
-        {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string date = Regex.Replace(System.DateTime.Now.ToString(), @"\s", "");
-            date = Regex.Replace(date, @"/", "");
-            date = Regex.Replace(date, @":", "");
+        //public void generarComprobante()
+        //{
+        //    string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        //    string date = Regex.Replace(System.DateTime.Now.ToString(), @"\s", "");
+        //    date = Regex.Replace(date, @"/", "");
+        //    date = Regex.Replace(date, @":", "");
 
-            //MessageBox.Show(path + @"\venta" + date + ".pdf");
-            FileStream fs = new FileStream(@"" + path + @"\venta" + date + ".pdf", FileMode.Create);
+        //    //MessageBox.Show(path + @"\venta" + date + ".pdf");
+        //    FileStream fs = new FileStream(@"" + path + @"\venta" + date + ".pdf", FileMode.Create);
 
-            Document doc = new Document(PageSize.LETTER, 5, 5, 7, 7);
-            PdfWriter pw = PdfWriter.GetInstance(doc, fs);
+        //    Document doc = new Document(PageSize.LETTER, 5, 5, 7, 7);
+        //    PdfWriter pw = PdfWriter.GetInstance(doc, fs);
 
-            doc.Open();
+        //    doc.Open();
 
-            //titulo y autor
-            doc.AddAuthor("BluLight");
-            doc.AddTitle("PDF Generado");
+        //    //titulo y autor
+        //    doc.AddAuthor("BluLight");
+        //    doc.AddTitle("PDF Generado");
 
-            //Tipo de fuente
-            iTextSharp.text.Font standarFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+        //    //Tipo de fuente
+        //    iTextSharp.text.Font standarFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
-            //encabezado
-            doc.Add(new Paragraph("Comprobante de venta " + date));
-            //SALTO DE LINEA
-            doc.Add(Chunk.NEWLINE);
-
-
-            doc.Add(new Paragraph("Punto de venta: BluLight"));
-            doc.Add(Chunk.NEWLINE);
-
-            doc.Add(new Paragraph("Vendor: " + MyGlobals.persona.nombre + " " + MyGlobals.persona.apellido));
-            doc.Add(Chunk.NEWLINE);
-
-            doc.Add(new Paragraph("Cliente: " + MyGlobals.clienteVentas[0].nombre + " " + MyGlobals.clienteVentas[0].apellido));
-            doc.Add(Chunk.NEWLINE);
+        //    //encabezado
+        //    doc.Add(new Paragraph("Comprobante de venta " + date));
+        //    //SALTO DE LINEA
+        //    doc.Add(Chunk.NEWLINE);
 
 
-            //Encabezado de columna
-            PdfPTable tbl = new PdfPTable(4);
-            tbl.WidthPercentage = 100;
-            //configuracion del titulo de las columnas
-            PdfPCell clNombre = new PdfPCell(new Phrase("Nombre", standarFont));
-            clNombre.BorderWidth = 0;
-            clNombre.BorderWidthBottom = 0.75f;
+        //    doc.Add(new Paragraph("Punto de venta: BluLight"));
+        //    doc.Add(Chunk.NEWLINE);
 
-            PdfPCell clCantidad = new PdfPCell(new Phrase("Cantidad", standarFont));
-            clCantidad.BorderWidth = 0;
-            clCantidad.BorderWidthBottom = 0.75f;
+        //    doc.Add(new Paragraph("Vendor: " + MyGlobals.persona.nombre + " " + MyGlobals.persona.apellido));
+        //    doc.Add(Chunk.NEWLINE);
 
-            PdfPCell clPrecio = new PdfPCell(new Phrase("Precio c/u", standarFont));
-            clPrecio.BorderWidth = 0;
-            clPrecio.BorderWidthBottom = 0.75f;
+        //    doc.Add(new Paragraph("Cliente: " + MyGlobals.clienteVentas[0].nombre + " " + MyGlobals.clienteVentas[0].apellido));
+        //    doc.Add(Chunk.NEWLINE);
 
-            PdfPCell clSubtotal = new PdfPCell(new Phrase("Subtotal", standarFont));
-            clSubtotal.BorderWidth = 0;
-            clSubtotal.BorderWidthBottom = 0.75f;
 
-            tbl.AddCell(clNombre);
-            tbl.AddCell(clCantidad);
-            tbl.AddCell(clPrecio);
-            tbl.AddCell(clSubtotal);
-            //agregar datos
-            float total = 0;
-            for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
-            {
-                clNombre = new PdfPCell(new Phrase(MyGlobals.productoVentas[i].nombre, standarFont));
-                clNombre.BorderWidth = 0;
+        //    //Encabezado de columna
+        //    PdfPTable tbl = new PdfPTable(4);
+        //    tbl.WidthPercentage = 100;
+        //    //configuracion del titulo de las columnas
+        //    PdfPCell clNombre = new PdfPCell(new Phrase("Nombre", standarFont));
+        //    clNombre.BorderWidth = 0;
+        //    clNombre.BorderWidthBottom = 0.75f;
 
-                clPrecio = new PdfPCell(new Phrase(MyGlobals.productoVentas[i].precio.ToString(), standarFont));
-                clPrecio.BorderWidth = 0;
+        //    PdfPCell clCantidad = new PdfPCell(new Phrase("Cantidad", standarFont));
+        //    clCantidad.BorderWidth = 0;
+        //    clCantidad.BorderWidthBottom = 0.75f;
 
-                clCantidad = new PdfPCell(new Phrase(MyGlobals.cantidadProducto[i].ToString(), standarFont));
-                clCantidad.BorderWidth = 0;
+        //    PdfPCell clPrecio = new PdfPCell(new Phrase("Precio c/u", standarFont));
+        //    clPrecio.BorderWidth = 0;
+        //    clPrecio.BorderWidthBottom = 0.75f;
 
-                decimal subtotal = MyGlobals.cantidadProducto[i] * MyGlobals.productoVentas[i].precio;
+        //    PdfPCell clSubtotal = new PdfPCell(new Phrase("Subtotal", standarFont));
+        //    clSubtotal.BorderWidth = 0;
+        //    clSubtotal.BorderWidthBottom = 0.75f;
 
-                clSubtotal = new PdfPCell(new Phrase(subtotal.ToString(), standarFont));
-                clSubtotal.BorderWidth = 0;
+        //    tbl.AddCell(clNombre);
+        //    tbl.AddCell(clCantidad);
+        //    tbl.AddCell(clPrecio);
+        //    tbl.AddCell(clSubtotal);
+        //    //agregar datos
+        //    float total = 0;
+        //    for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
+        //    {
+        //        clNombre = new PdfPCell(new Phrase(MyGlobals.productoVentas[i].nombre, standarFont));
+        //        clNombre.BorderWidth = 0;
 
-                total += float.Parse(MyGlobals.cantidadProducto[i].ToString()) * float.Parse(MyGlobals.productoVentas[i].precio.ToString());
+        //        clPrecio = new PdfPCell(new Phrase(MyGlobals.productoVentas[i].precio.ToString(), standarFont));
+        //        clPrecio.BorderWidth = 0;
 
-                tbl.AddCell(clNombre);
-                tbl.AddCell(clPrecio);
-                tbl.AddCell(clCantidad);
-                tbl.AddCell(clSubtotal);
+        //        clCantidad = new PdfPCell(new Phrase(MyGlobals.cantidadProducto[i].ToString(), standarFont));
+        //        clCantidad.BorderWidth = 0;
 
-            }
+        //        decimal subtotal = MyGlobals.cantidadProducto[i] * MyGlobals.productoVentas[i].precio;
 
-            doc.Add(tbl);
+        //        clSubtotal = new PdfPCell(new Phrase(subtotal.ToString(), standarFont));
+        //        clSubtotal.BorderWidth = 0;
 
-            doc.Add(Chunk.NEWLINE);
-            doc.Add(Chunk.NEWLINE);
-            doc.Add(Chunk.NEWLINE);
+        //        total += float.Parse(MyGlobals.cantidadProducto[i].ToString()) * float.Parse(MyGlobals.productoVentas[i].precio.ToString());
 
-            doc.Add(new Paragraph("Total: " + total.ToString()));
-            doc.Add(Chunk.NEWLINE);
+        //        tbl.AddCell(clNombre);
+        //        tbl.AddCell(clPrecio);
+        //        tbl.AddCell(clCantidad);
+        //        tbl.AddCell(clSubtotal);
 
-            doc.Close();
-            pw.Close();
+        //    }
 
-            MessageBox.Show("Comprobante generado", "Finalizar venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        //    doc.Add(tbl);
+
+        //    doc.Add(Chunk.NEWLINE);
+        //    doc.Add(Chunk.NEWLINE);
+        //    doc.Add(Chunk.NEWLINE);
+
+        //    doc.Add(new Paragraph("Total: " + total.ToString()));
+        //    doc.Add(Chunk.NEWLINE);
+
+        //    doc.Close();
+        //    pw.Close();
+
+        //    MessageBox.Show("Comprobante generado", "Finalizar venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //}
         public void finalizarCompra(ComboBox metodoPago)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())

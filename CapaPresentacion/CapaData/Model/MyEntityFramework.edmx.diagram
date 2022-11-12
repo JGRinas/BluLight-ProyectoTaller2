@@ -37,7 +37,6 @@
         <AssociationConnector Association="bd_blulightModel.FK_jefe_laboratorio_empleado" ManuallyRouted="false" />
         <AssociationConnector Association="bd_blulightModel.FK_usuario_empleado" ManuallyRouted="false" />
         <AssociationConnector Association="bd_blulightModel.FK_factura_producto_Metodo" ManuallyRouted="false" />
-        <AssociationConnector Association="bd_blulightModel.FK_factura_servicio_metodo_de_pago" ManuallyRouted="false" />
         <AssociationConnector Association="bd_blulightModel.FK_inscripcion_jornada" ManuallyRouted="false" />
         <AssociationConnector Association="bd_blulightModel.FK_inscripcion_persona" ManuallyRouted="false" />
         <AssociationConnector Association="bd_blulightModel.FK_jornada_jefelab" ManuallyRouted="false" />

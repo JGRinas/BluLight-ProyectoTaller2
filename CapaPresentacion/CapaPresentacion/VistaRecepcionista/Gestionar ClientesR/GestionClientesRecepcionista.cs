@@ -166,6 +166,11 @@ namespace CapaPresentacion.VistaVendedor.Gestionar_Clientes
         {
             client.textBoxEvent.textKeyPress(e);
         }
+
+        private void btnRestaurarCliente_Click(object sender, EventArgs e)
+        {
+            client.restaurarCliente();
+        }
     }
 }
 

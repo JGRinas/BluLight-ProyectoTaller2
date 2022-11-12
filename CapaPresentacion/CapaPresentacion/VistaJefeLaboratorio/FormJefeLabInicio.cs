@@ -129,7 +129,7 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio
         }
         private void buttonAgregarCurso_Click(object sender, EventArgs e)
         {
-            abrirFormHijo(new AgregarJornada());
+            abrirFormHijo(new GestionJornadas());
             esconderSubMenu();
         }
 

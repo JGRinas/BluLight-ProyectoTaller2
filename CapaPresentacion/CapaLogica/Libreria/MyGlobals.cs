@@ -26,8 +26,11 @@ namespace CapaLogica
         public static int indexProducto = new int();
 
         public static List<Servicio_laboratorio> servicioVentas = new List<Servicio_laboratorio>(); //servicios del carrito
+        public static List<Servicio> servicioVentas2 = new List<Servicio>();
         public static DataGridView dataGridServiciosVentas = new DataGridView();
         public static List<int> cantidadServicio = new List<int>(); //cantidad
+        public static int idServSelecc; //id servicio del servicio seleccionado
+        public static int idLabSelecc; //lab del servicio seleccionado
 
     }
 }

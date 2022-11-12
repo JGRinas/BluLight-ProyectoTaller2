@@ -46,10 +46,10 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
                 {
                     foreach (Servicio_laboratorio servicio in servicios)
                     {
-                        int fila = dataGrid.Rows.Add();
+                        
                         if (servicio.activo)
                         {
-                          
+                        int fila = dataGrid.Rows.Add();
                         dataGrid.Rows[fila].Cells["ColumnId"].Value = servicio.idServicio + "-" + servicio.idLab;
                         dataGrid.Rows[fila].Cells["ColumnNombre"].Value = servicio.Servicio.nombre;
                         dataGrid.Rows[fila].Cells["ColumnLab"].Value = servicio.Laboratorio.nombre;

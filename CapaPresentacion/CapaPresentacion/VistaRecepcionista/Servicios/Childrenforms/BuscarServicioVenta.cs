@@ -36,7 +36,7 @@ namespace CapaPresentacion.CapaPresentacion.VistaRecepcionista.Servicios.Childre
             textBoxNombreServicio.MaxLength = 49;
             textBoxCantidad.MaxLength = 9;
             datagridServicios.Rows.Clear();
-            venta.rellenarDataGridProductos(datagridServicios);
+            venta.rellenarDataGridServicios(datagridServicios);
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -76,7 +76,7 @@ namespace CapaPresentacion.CapaPresentacion.VistaRecepcionista.Servicios.Childre
             comboBoxes.Add(comboBoxLab);
             comboBoxes.Add(comboBoxCategoria);
             textBoxCantidad.Enabled = true;
-            venta.obtenerServicioDelDataGrid(labels, comboBoxes, textBoxNombreServicio, btnAgregarServicio, pictureBoxProduct, datagridServicios);
+            venta.obtenerServicioDelDataGrid(labels, comboBoxes, textBoxNombreServicio, btnAgregarServicio, datagridServicios);
         }
 
         private void buttonBuscarServicioNombre_Click(object sender, EventArgs e)
@@ -85,7 +85,7 @@ namespace CapaPresentacion.CapaPresentacion.VistaRecepcionista.Servicios.Childre
             labels.Add(labelNombreServ);
             labels.Add(labelIdServicio);
             textBoxCantidad.Enabled = true;
-            venta.buscarProducto(labels, textBoxNombreServicio, btnAgregarServicio, pictureBoxProduct);
+            venta.buscarServicio(labels, textBoxNombreServicio, btnAgregarServicio);
         }
 
         private void btnFiltro_Click(object sender, EventArgs e)
@@ -106,9 +106,9 @@ namespace CapaPresentacion.CapaPresentacion.VistaRecepcionista.Servicios.Childre
 
         private void buttonAgregarServicio_Click(object sender, EventArgs e)
         {
-            int idP = Int32.Parse(labelIdServicio.Text);
+            //int idP = Int32.Parse(labelIdServicio.Text);
 
-            venta.agregarServicioCarrito(idP, textBoxCantidad);
+            venta.agregarServicioCarrito(MyGlobals.idServSelecc, textBoxCantidad, MyGlobals.idLabSelecc);
 
             datagridServicios.Rows.Clear();
             venta.rellenarDataGridServicios(datagridServicios);
@@ -122,11 +122,6 @@ namespace CapaPresentacion.CapaPresentacion.VistaRecepcionista.Servicios.Childre
         private void textBoxNombreServicio_KeyPress(object sender, KeyPressEventArgs e)
         {
             venta.textBoxEvent.textKeyPress(e);
-        }
-
-        private void textBoxCantidad_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
