@@ -142,16 +142,14 @@ namespace CapaPresentacion.CapaPresentacion.VistaAdmin.GestionEmpleado
             textBoxes.Add(textBoxDni);
             textBoxes.Add(textBoxTelefono);
             textBoxes.Add(textBoxTitulo);
-
-            //textBoxes.Add(textBoxDniBuscar);
-
-            emp.modificarEmpleado(textBoxes, comboBoxLaboratorio);
-
             List<Button> buttons = new List<Button>();
             buttons.Add(buttonModificar);
             buttons.Add(buttonEliminar);
             buttons.Add(buttonRegistrarUsuario);
-            emp.restaurarCampos(textBoxes, comboBoxLaboratorio, buttons);
+           
+
+            emp.modificarEmpleado(textBoxes, comboBoxLaboratorio, buttons);
+
             dataGridViewEmpleados.Rows.Clear();
             emp.searchEmp(dataGridViewEmpleados);
         }

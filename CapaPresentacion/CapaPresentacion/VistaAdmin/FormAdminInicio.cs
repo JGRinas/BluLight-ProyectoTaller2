@@ -3,6 +3,7 @@ using CapaLogica.LAdmin;
 using CapaPresentacion;
 using CapaPresentacion.CapaPresentacion.VistaAdmin.GestionEmpleado;
 using CapaPresentacion.CapaPresentacion.VistaAdmin.GestionServicioA;
+using CapaPresentacion.CapaPresentacion.VistaAdmin.Seguridad;
 using CapaPresentacion.VistaAdmin.GestionUsuarios;
 using Proyecto2022.CapaPresentacion.VistaAdmin;
 using Proyecto2022.CapaPresentacion.VistaAdmin.GestionarProductos;
@@ -46,6 +47,7 @@ namespace Proyecto2022.CapaPresentacion
             panelLaboratorio.Visible = false;
             panelUsuariosE.Visible = false;
             panelServicios.Visible = false;
+            panelSeguridad.Visible = false;
         }
 
         private void esconderSubMenu()
@@ -64,6 +66,9 @@ namespace Proyecto2022.CapaPresentacion
 
             if (panelServicios.Visible == true)
                 panelServicios.Visible = false;
+
+            if (panelSeguridad.Visible == true)
+                panelSeguridad.Visible = false;
         }
 
         private void verSubMenu(Panel subMenu)
@@ -180,12 +185,6 @@ namespace Proyecto2022.CapaPresentacion
             esconderSubMenu();
         }
 
-        private void buttonEliminarUsuario_Click_1(object sender, EventArgs e)
-        {
-            abrirFormHijo(new EliminarUsuario());
-            esconderSubMenu();
-        }
-
         private void buttonServicios_Click(object sender, EventArgs e)
         {
             verSubMenu(panelServicios);
@@ -197,6 +196,34 @@ namespace Proyecto2022.CapaPresentacion
             esconderSubMenu();
         }
 
-        
+        private void buttonSeguridad_Click(object sender, EventArgs e)
+        {
+            verSubMenu(panelSeguridad);
+        }
+
+        private void buttonBackup_Click(object sender, EventArgs e)
+        {
+            FormContrasena confirmar = new FormContrasena();
+            confirmar.ShowDialog();
+
+            if (MyGlobals.confirmacionContrasena)
+            {
+                FormBackup backup = new FormBackup();
+                backup.ShowDialog();
+            }
+        }
+
+        private void buttonRestore_Click(object sender, EventArgs e)
+        {
+            FormContrasena confirmar = new FormContrasena();
+            confirmar.ShowDialog();
+
+            if (MyGlobals.confirmacionContrasena)
+            {
+                FormRestore restore = new FormRestore();
+                restore.ShowDialog();
+            }
+
+        }
     }
 }

@@ -34,6 +34,8 @@ namespace Proyecto2022.CapaPresentacion.VistaAdmin.GestionLaboratorios
                 textBoxNombreLaboratorio.Text = "";
                 buttonRegistrarLaboratorio.Text = "Registrar";
                 buttonModificarLaboratorio.Enabled = false;
+                buttonEliminar.Enabled = false;
+                buttonEliminar.Text = "Eliminar";
             }
 
                 dataGridLaboratorio.Rows.Clear();
@@ -43,13 +45,36 @@ namespace Proyecto2022.CapaPresentacion.VistaAdmin.GestionLaboratorios
         private void dataGridLaboratorio_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             lab.obtenerLaboratorio(textBoxNombreLaboratorio, dataGridLaboratorio);
-            buttonRegistrarLaboratorio.Text = "Restaurar";
+            buttonRegistrarLaboratorio.Text = "Restablecer";
             buttonModificarLaboratorio.Enabled = true;
+            buttonEliminar.Enabled = true;
+            if (dataGridLaboratorio.CurrentRow.Cells["columnActivo"].Value.ToString().Equals("No"))
+            {
+                buttonEliminar.Text = "Restaurar";
+            }
+            else
+            {
+                buttonEliminar.Text = "Eliminar";
+            }
         }
 
         private void buttonModificarLaboratorio_Click(object sender, EventArgs e)
         {
             lab.modificarLaboratorio(textBoxNombreLaboratorio);
+            dataGridLaboratorio.Rows.Clear();
+            lab.rellenarDataGridLab(dataGridLaboratorio);
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            if (buttonEliminar.Text.Equals("Restaurar"))
+            {
+                lab.restaurarLaboratorio();
+            }
+            else
+            {
+                lab.eliminarLaboratorio();
+            }
             dataGridLaboratorio.Rows.Clear();
             lab.rellenarDataGridLab(dataGridLaboratorio);
         }

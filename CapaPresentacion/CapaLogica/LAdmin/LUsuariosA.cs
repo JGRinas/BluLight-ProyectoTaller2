@@ -83,19 +83,10 @@ namespace CapaLogica.LAdmin
 
 
         private int dniNuevoUsuario;
-        public void buscarEmpleado(List<Label> listLabels, int dni, Button buttonRegistrarUsuario, List<TextBox> textboxes, ComboBox comboBox)
+        public void buscarEmpleado(List<Label> listLabels, int dni, List<Button> buttons, List<TextBox> textboxes, ComboBox comboBox)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
-                foreach (Label list in listLabels)
-                {
-                    list.Text = "";
-                }
-
-                foreach (TextBox textBox in textboxes)
-                {
-                    textBox.Text = "";
-                }
 
                 Empleado empleados = new Empleado();
 
@@ -120,18 +111,24 @@ namespace CapaLogica.LAdmin
                     listLabels[5].Text = empleados.Persona.email;
 
 
+                    buttons[0].Enabled = true;
                     var usuario = db.Usuario.Where(u => u.Empleado.Persona.dni.Equals(dni));
                     if (usuario.ToArray().Length > 0)
                     {
-                        buttonRegistrarUsuario.Text = "Modificar";
+                        buttons[0].Text = "Restablecer";
+                        buttons[1].Enabled = true;
+                        buttons[2].Enabled = true;
+                        buttons[2].Text = "Restaurar";
+                        if (usuario.First().activo) buttons[2].Text = "Eliminar";
                         textboxes[0].Text = usuario.First().usuario1;
                         comboBox.SelectedIndex = usuario.First().idPerfil - 1;
                     }
                     else
                     {
-                        buttonRegistrarUsuario.Text = "Registrar";
+                        buttons[1].Enabled = false;
+                        buttons[2].Enabled = false;
                     }
-                    buttonRegistrarUsuario.Enabled = true;
+                    
 
                 }
                 else
@@ -209,7 +206,7 @@ namespace CapaLogica.LAdmin
 
         }
 
-        public void modificarUsuario(List<TextBox> textBoxes, ComboBox comboBoxPerfiles, List<Label> listLabels, Button buttonRegistrar)
+        public void modificarUsuario(List<TextBox> textBoxes, ComboBox comboBoxPerfiles, List<Label> listLabels)
         {
             bool validate = true;
 
@@ -249,19 +246,6 @@ namespace CapaLogica.LAdmin
                         db.SaveChanges();
 
                         MessageBox.Show("Usuario modificado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        foreach (TextBox textBox in textBoxes)
-                        {
-                            textBox.Text = "";
-                        }
-
-                        foreach (Label label in listLabels)
-                        {
-                            label.Text = "";
-                        }
-
-                        comboBoxPerfiles.SelectedIndex = -1;
-                        buttonRegistrar.Enabled = false;
                         
                     }
                     else
@@ -280,81 +264,8 @@ namespace CapaLogica.LAdmin
          * ELIMINAR O RESTAURAR USUARIOS
          */
 
-        public void rellenarDataGridEmpleadoEliminar(DataGridView dataGrid)
-        {
-            using (bd_blulightEntities db = new bd_blulightEntities())
-            {
-                List<Usuario> usuarios = new List<Usuario>();
 
-                usuarios = db.Usuario.ToList();
-
-                if (usuarios.Count > 0)
-                {
-                    foreach (Usuario usuario in usuarios)
-                    {
-                        var activo = "";
-                        int fila = dataGrid.Rows.Add();
-                        if (usuario.activo)
-                        {
-                            activo = "Si";
-                            dataGrid.Rows[fila].DefaultCellStyle.BackColor = Color.White;
-                        }
-                        else
-                        {
-                            activo = "No";
-                            dataGrid.Rows[fila].DefaultCellStyle.BackColor = Color.Gray;
-                        }
-
-                        dataGrid.Rows[fila].Cells["ColumnActivo"].Value = activo;
-                        dataGrid.Rows[fila].Cells["ColumnName"].Value = usuario.Empleado.Persona.nombre;
-                        dataGrid.Rows[fila].Cells["ColumnSurname"].Value = usuario.Empleado.Persona.apellido;
-                        dataGrid.Rows[fila].Cells["ColumnDNIU"].Value = usuario.Empleado.Persona.dni.ToString();
-                        dataGrid.Rows[fila].Cells["ColumnNombreUsuario"].Value = usuario.usuario1;
-                        dataGrid.Rows[fila].Cells["ColumnTipoDePerfil"].Value = usuario.Perfil_de_usuario.perfil;
-                    }
-                }
-            }
-        }
-
-        public void buscarUsuario(List<Label> listLabels, int dni, Button buttonEliminarUsuario)
-        {
-            using (bd_blulightEntities db = new bd_blulightEntities())
-            {
-                foreach (Label list in listLabels)
-                {
-                    list.Text = "";
-                }
-                
-                var usuario = db.Usuario.Where(b => b.Empleado.Persona.dni.Equals(dni)).ToList();
-
-                if (usuario.Count > 0)
-                {
-
-                    listLabels[0].Text = usuario[0].Empleado.Persona.nombre + " " + usuario[0].Empleado.Persona.apellido;
-                    listLabels[1].Text = usuario[0].Empleado.Persona.dni.ToString();
-                    listLabels[2].Text = usuario[0].usuario1;
-                    listLabels[3].Text = usuario[0].Perfil_de_usuario.perfil;
-
-                    if (usuario[0].activo)
-                    {
-                        buttonEliminarUsuario.Text = "Eliminar";
-                    }
-                    else
-                    {
-                        buttonEliminarUsuario.Text = "Restaurar";
-                    }
-
-                    buttonEliminarUsuario.Enabled = true;
-
-                }
-                else
-                {
-                    MessageBox.Show("Empleado inexistente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        public void eliminarUsuario(int dni, List<Label> listLabels)
+        public void eliminarUsuario(int dni)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
@@ -369,11 +280,6 @@ namespace CapaLogica.LAdmin
                         MessageBox.Show("Usuario eliminado", "Eliminar Usuario", MessageBoxButtons.OK);
 
                         db.SaveChanges();
-
-                        foreach (Label label in listLabels)
-                        {
-                            label.Text = "";
-                        }
                     }
                     else
                     {
@@ -383,7 +289,7 @@ namespace CapaLogica.LAdmin
             }
         }
 
-        public void restaurarUsuario(int dni, List<Label> listLabels)
+        public void restaurarUsuario(int dni)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
@@ -399,10 +305,6 @@ namespace CapaLogica.LAdmin
 
                         db.SaveChanges();
 
-                        foreach (Label label in listLabels)
-                        {
-                            label.Text = "";
-                        }
                     }
                     else
                     {
@@ -410,6 +312,27 @@ namespace CapaLogica.LAdmin
                     }
                 }
             }
+        }
+
+        public void restablecerCampos(List<TextBox> textBoxes, List<Label> labels, List<Button> buttons, ComboBox comboBox)
+        {
+            foreach(TextBox textBox in textBoxes)
+            {
+                textBox.Text = "";
+            }
+
+            foreach(Label label in labels)
+            {
+                label.Text = "";
+            }
+
+            buttons[0].Text = "Registrar";
+            buttons[0].Enabled = false;
+            buttons[1].Enabled = false;
+            buttons[2].Text = "Eliminar";
+            buttons[2].Enabled = false;
+
+            comboBox.SelectedIndex = -1;
         }
     }
 }

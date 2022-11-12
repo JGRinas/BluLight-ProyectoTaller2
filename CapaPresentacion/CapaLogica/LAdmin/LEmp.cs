@@ -15,6 +15,7 @@ namespace CapaLogica.LAdmin
     public class LEmp : Librerias
     {
         private int dniEmpleadoBuscar;
+        private string emailEmpleadoBuscar;
         public void comboBoxLaboratorio(ComboBox comboBox)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
@@ -46,13 +47,11 @@ namespace CapaLogica.LAdmin
                 {
 
                     int dni = Int32.Parse(listTextBoxes[2].Text.ToString());
+                    string email = listTextBoxes[3].Text;
                     var dniValidate = from p in db.Empleado where p.Persona.dni == dni select p;
+                    var emailValidate = from p in db.Empleado where p.Persona.email == email select p;
 
-                    if (dniValidate.ToArray().Length > 0)
-                    {
-                        MessageBox.Show("DNI ya registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
+                    if (dniValidate.ToArray().Length == 0 && emailValidate.ToArray().Length == 0)
                     {
                         Persona persona = new Persona();
                         persona.nombre = listTextBoxes[0].Text.ToString();
@@ -78,19 +77,30 @@ namespace CapaLogica.LAdmin
                         db.SaveChanges();
 
                         MessageBox.Show("Empleado " + listTextBoxes[0].Text + " " + listTextBoxes[1].Text + " agregado!", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                       
+
                         for (int i = 0; i < listTextBoxes.Count; i++)
                         {
                             listTextBoxes[i].Text = "";
                         }
                         comboBoxLaboratorio.SelectedIndex = -1;
                     }
+                    else
+                    {
+                        if (dniValidate.ToArray().Length > 0)
+                        {
+                            MessageBox.Show("DNI ya registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        if (emailValidate.ToArray().Length > 0)
+                        {
+                            MessageBox.Show("Email ya registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
             else
             {
                 if (!validation) MessageBox.Show("Ingrese todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                if (!valEmail) MessageBox.Show("Email inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (!valEmail && !listTextBoxes[3].Text.Equals("")) MessageBox.Show("Email inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
@@ -111,7 +121,7 @@ namespace CapaLogica.LAdmin
 
             buttons[2].Text = "Registrar";
         }
-        public void modificarEmpleado(List<TextBox> listTextBox, ComboBox comboBoxLaboratorio)
+        public void modificarEmpleado(List<TextBox> listTextBox, ComboBox comboBoxLaboratorio, List<Button> buttons)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
@@ -130,8 +140,12 @@ namespace CapaLogica.LAdmin
                 if (validation && valEmail) 
                 {
                     int dniIngresado = Int32.Parse(listTextBox[3].Text);
+                    string emailIngresado = listTextBox[2].Text;
+
                     var dniValidate = from p in db.Empleado where p.Persona.dni == dniIngresado select p;
-                    if (dniEmpleadoBuscar == dniIngresado || dniValidate.ToArray().Length <= 0)
+                    var emailValidate = from p in db.Empleado where p.Persona.email == emailIngresado select p;
+
+                    if ((dniEmpleadoBuscar == dniIngresado || dniValidate.ToArray().Length == 0) && (emailEmpleadoBuscar.Equals(emailIngresado) || emailValidate.ToArray().Length == 0))
                     {
                         var empleado = db.Empleado.SingleOrDefault(e => e.Persona.dni.Equals(dniEmpleadoBuscar));
 
@@ -147,23 +161,23 @@ namespace CapaLogica.LAdmin
                         db.SaveChanges();
                         MessageBox.Show("Empleado modificado", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        for (int i = 0; i < listTextBox.Count; i++)
-                        {
-                            listTextBox[i].Text = "";
-                        }
-                        comboBoxLaboratorio.SelectedIndex = -1;
+                        restaurarCampos(listTextBox, comboBoxLaboratorio, buttons);
                         
                     }
-                    else if(dniValidate.ToArray().Length > 0)
+                    else 
                     {
-                        MessageBox.Show("Dni ya registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (dniValidate.ToArray().Length > 0 && dniEmpleadoBuscar != dniIngresado)
+                            MessageBox.Show("Dni ya registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        if (emailValidate.ToArray().Length > 0 && !emailEmpleadoBuscar.Equals(emailIngresado))
+                            MessageBox.Show("Email ya registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
                 else
                 {
                     if(!validation) MessageBox.Show("Ingrese todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    if(!valEmail) MessageBox.Show("Email inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    if(!valEmail && !listTextBox[2].Text.Equals("")) MessageBox.Show("Email inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 }
 
@@ -239,6 +253,7 @@ namespace CapaLogica.LAdmin
             }
 
             dniEmpleadoBuscar = Int32.Parse(dataGridView.CurrentRow.Cells[3].Value.ToString());
+            emailEmpleadoBuscar = textBoxes[4].Text;
 
             buttons[0].Enabled = true;
             buttons[1].Enabled = true;
@@ -265,13 +280,15 @@ namespace CapaLogica.LAdmin
                         empleados = db.Empleado.Where(b => b.Persona.dni.Equals(dniB)).FirstOrDefault();
                         var lab = 0;
                         if (empleados.idLab != null) lab = empleados.Laboratorio.idLab;
-                        dniEmpleadoBuscar = dniB;
+                        
                         textBoxes[0].Text = empleados.Persona.nombre;
                         textBoxes[1].Text = empleados.Persona.apellido;
                         textBoxes[2].Text = empleados.Persona.email;
                         textBoxes[3].Text = empleados.Persona.dni.ToString(); 
                         textBoxes[4].Text = empleados.Persona.telefono.ToString();
                         textBoxes[5].Text = empleados.maxTitulo;
+                        dniEmpleadoBuscar = dniB;
+                        emailEmpleadoBuscar = textBoxes[2].Text;
 
                         comboBox.SelectedIndex = lab;
 

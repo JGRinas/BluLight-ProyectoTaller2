@@ -24,9 +24,11 @@ namespace CapaPresentacion.CapaLogica.LAdmin
                     foreach (Laboratorio laboratorio in laboratorios)
                     {
                         int fila = dataGrid.Rows.Add();
-
+                        string activoLab = "No";
+                        if ((bool)laboratorio.activo) activoLab = "Si";
                         dataGrid.Rows[fila].Cells["ColumnId"].Value = laboratorio.idLab;
                         dataGrid.Rows[fila].Cells["ColumnNombre"].Value = laboratorio.nombre;
+                        dataGrid.Rows[fila].Cells["ColumnActivo"].Value = activoLab;
 
                     }
                 }
@@ -114,5 +116,55 @@ namespace CapaPresentacion.CapaLogica.LAdmin
                 MessageBox.Show("Ingrese el nombre del laboratorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        public void eliminarLaboratorio()
+        {
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                if (MessageBox.Show("Estas seguro de que desea eliminar el laboratorio?", "Eliminar laboratorio", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (db.Laboratorio.Where(e => e.idLab.Equals(idLabo)).ToList().Count > 0)
+                    {
+                        var activo = db.Laboratorio.SingleOrDefault(e => e.idLab.Equals(idLabo));
+
+                        activo.activo = false;
+                        MessageBox.Show("Laboratorio eliminado", "Restaurar laboratorio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        db.SaveChanges();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("El laboratorio No Existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+        }
+
+        public void restaurarLaboratorio()
+        {
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                if (MessageBox.Show("Estas seguro de que desea restaurar al laboratorio?", "Resaturar laboratorio", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    
+                    if (db.Laboratorio.Where(e => e.idLab.Equals(idLabo)).ToList().Count > 0)
+                    {
+                        var activo = db.Laboratorio.SingleOrDefault(e => e.idLab.Equals(idLabo));
+
+                        activo.activo = true;
+                        MessageBox.Show("Laboratorio restaurado", "Restaurar laboratorio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        db.SaveChanges();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("El laboratorio No Existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+        }
+
     }
 }

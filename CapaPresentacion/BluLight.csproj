@@ -334,6 +334,7 @@
     <Compile Include="CapaLogica\LAdmin\LEmp.cs" />
     <Compile Include="CapaLogica\LAdmin\LLaboratorioA.cs" />
     <Compile Include="CapaLogica\LAdmin\LProduct.cs" />
+    <Compile Include="CapaLogica\LAdmin\LSeguridad.cs" />
     <Compile Include="CapaLogica\LAdmin\LServicioA.cs" />
     <Compile Include="CapaLogica\LAdmin\LUsuariosA.cs" />
     <Compile Include="CapaLogica\Libreria\Encrypt.cs" />
@@ -383,6 +384,24 @@
     <Compile Include="CapaPresentacion\VistaAdmin\GestionServicioA\GestionServiciosA.Designer.cs">
       <DependentUpon>GestionServiciosA.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaPresentacion\VistaAdmin\Seguridad\FormBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaAdmin\Seguridad\FormBackup.Designer.cs">
+      <DependentUpon>FormBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaAdmin\Seguridad\FormContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaAdmin\Seguridad\FormContrasena.Designer.cs">
+      <DependentUpon>FormContrasena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaAdmin\Seguridad\FormRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaAdmin\Seguridad\FormRestore.Designer.cs">
+      <DependentUpon>FormRestore.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionServicioLaboratorio\ServicioLaboratorio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,12 +440,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CapaPresentacion\VistaAdmin\GestionUsuarios\EliminarUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaAdmin\GestionUsuarios\EliminarUsuario.Designer.cs">
-      <DependentUpon>EliminarUsuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticaClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -631,6 +644,15 @@
     <EmbeddedResource Include="CapaPresentacion\VistaAdmin\GestionServicioA\GestionServiciosA.resx">
       <DependentUpon>GestionServiciosA.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaAdmin\Seguridad\FormBackup.resx">
+      <DependentUpon>FormBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaAdmin\Seguridad\FormContrasena.resx">
+      <DependentUpon>FormContrasena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaAdmin\Seguridad\FormRestore.resx">
+      <DependentUpon>FormRestore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionServicioLaboratorio\ServicioLaboratorio.resx">
       <DependentUpon>ServicioLaboratorio.cs</DependentUpon>
     </EmbeddedResource>
@@ -660,9 +682,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="CapaPresentacion\VistaAdmin\GestionUsuarios\EliminarUsuario.resx">
-      <DependentUpon>EliminarUsuario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticaClientes.resx">
       <DependentUpon>EstadisticaClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -853,6 +872,9 @@
       <DependentUpon>MyEntityFramework.edmx</DependentUpon>
       <LastGenOutput>MyEntityFramework.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\proteger %282%29.png" />
+    <None Include="Resources\proteger %281%29.png" />
+    <None Include="Resources\proteger.png" />
     <None Include="Resources\recargar.png" />
     <None Include="Resources\ventas %281%29.png" />
     <None Include="Resources\cesta-de-la-compra %281%29.png" />

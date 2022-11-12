@@ -31,11 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdminInicio));
             this.panelDesplegable = new System.Windows.Forms.Panel();
+            this.panelSeguridad = new System.Windows.Forms.Panel();
+            this.buttonRestore = new System.Windows.Forms.Button();
+            this.buttonBackup = new System.Windows.Forms.Button();
+            this.buttonSeguridad = new System.Windows.Forms.Button();
             this.panelServicios = new System.Windows.Forms.Panel();
             this.buttonGestionServicios = new System.Windows.Forms.Button();
             this.buttonServicios = new System.Windows.Forms.Button();
             this.panelUsuariosE = new System.Windows.Forms.Panel();
-            this.buttonEliminarUsuario = new System.Windows.Forms.Button();
             this.buttonAgregarUsuario = new System.Windows.Forms.Button();
             this.buttonUsuario = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
@@ -60,6 +63,7 @@
             this.buttonCloseForm = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panelDesplegable.SuspendLayout();
+            this.panelSeguridad.SuspendLayout();
             this.panelServicios.SuspendLayout();
             this.panelUsuariosE.SuspendLayout();
             this.panelLaboratorio.SuspendLayout();
@@ -74,6 +78,8 @@
             // 
             this.panelDesplegable.AutoScroll = true;
             this.panelDesplegable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelDesplegable.Controls.Add(this.panelSeguridad);
+            this.panelDesplegable.Controls.Add(this.buttonSeguridad);
             this.panelDesplegable.Controls.Add(this.panelServicios);
             this.panelDesplegable.Controls.Add(this.buttonServicios);
             this.panelDesplegable.Controls.Add(this.panelUsuariosE);
@@ -94,12 +100,80 @@
             this.panelDesplegable.TabIndex = 0;
             this.panelDesplegable.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesplegable_Paint);
             // 
+            // panelSeguridad
+            // 
+            this.panelSeguridad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelSeguridad.Controls.Add(this.buttonRestore);
+            this.panelSeguridad.Controls.Add(this.buttonBackup);
+            this.panelSeguridad.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSeguridad.Location = new System.Drawing.Point(0, 673);
+            this.panelSeguridad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelSeguridad.Name = "panelSeguridad";
+            this.panelSeguridad.Size = new System.Drawing.Size(219, 71);
+            this.panelSeguridad.TabIndex = 19;
+            // 
+            // buttonRestore
+            // 
+            this.buttonRestore.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonRestore.FlatAppearance.BorderSize = 0;
+            this.buttonRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRestore.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRestore.ForeColor = System.Drawing.Color.LightGray;
+            this.buttonRestore.Location = new System.Drawing.Point(0, 31);
+            this.buttonRestore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonRestore.Name = "buttonRestore";
+            this.buttonRestore.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.buttonRestore.Size = new System.Drawing.Size(219, 31);
+            this.buttonRestore.TabIndex = 3;
+            this.buttonRestore.Text = "Restore";
+            this.buttonRestore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRestore.UseVisualStyleBackColor = true;
+            this.buttonRestore.Click += new System.EventHandler(this.buttonRestore_Click);
+            // 
+            // buttonBackup
+            // 
+            this.buttonBackup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonBackup.FlatAppearance.BorderSize = 0;
+            this.buttonBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBackup.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBackup.ForeColor = System.Drawing.Color.LightGray;
+            this.buttonBackup.Location = new System.Drawing.Point(0, 0);
+            this.buttonBackup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonBackup.Name = "buttonBackup";
+            this.buttonBackup.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.buttonBackup.Size = new System.Drawing.Size(219, 31);
+            this.buttonBackup.TabIndex = 2;
+            this.buttonBackup.Text = "Backup";
+            this.buttonBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonBackup.UseVisualStyleBackColor = true;
+            this.buttonBackup.Click += new System.EventHandler(this.buttonBackup_Click);
+            // 
+            // buttonSeguridad
+            // 
+            this.buttonSeguridad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.buttonSeguridad.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonSeguridad.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonSeguridad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSeguridad.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSeguridad.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonSeguridad.Image = global::CapaPresentacion.Properties.Resources.proteger__2_;
+            this.buttonSeguridad.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSeguridad.Location = new System.Drawing.Point(0, 616);
+            this.buttonSeguridad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSeguridad.Name = "buttonSeguridad";
+            this.buttonSeguridad.Size = new System.Drawing.Size(219, 57);
+            this.buttonSeguridad.TabIndex = 18;
+            this.buttonSeguridad.Text = "Seguridad";
+            this.buttonSeguridad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSeguridad.UseVisualStyleBackColor = false;
+            this.buttonSeguridad.Click += new System.EventHandler(this.buttonSeguridad_Click);
+            // 
             // panelServicios
             // 
             this.panelServicios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.panelServicios.Controls.Add(this.buttonGestionServicios);
             this.panelServicios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelServicios.Location = new System.Drawing.Point(0, 614);
+            this.panelServicios.Location = new System.Drawing.Point(0, 578);
             this.panelServicios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelServicios.Name = "panelServicios";
             this.panelServicios.Size = new System.Drawing.Size(219, 38);
@@ -133,7 +207,7 @@
             this.buttonServicios.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonServicios.Image = global::CapaPresentacion.Properties.Resources.biologia;
             this.buttonServicios.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonServicios.Location = new System.Drawing.Point(0, 557);
+            this.buttonServicios.Location = new System.Drawing.Point(0, 521);
             this.buttonServicios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonServicios.Name = "buttonServicios";
             this.buttonServicios.Size = new System.Drawing.Size(219, 57);
@@ -146,32 +220,13 @@
             // panelUsuariosE
             // 
             this.panelUsuariosE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelUsuariosE.Controls.Add(this.buttonEliminarUsuario);
             this.panelUsuariosE.Controls.Add(this.buttonAgregarUsuario);
             this.panelUsuariosE.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUsuariosE.Location = new System.Drawing.Point(0, 486);
             this.panelUsuariosE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelUsuariosE.Name = "panelUsuariosE";
-            this.panelUsuariosE.Size = new System.Drawing.Size(219, 71);
+            this.panelUsuariosE.Size = new System.Drawing.Size(219, 35);
             this.panelUsuariosE.TabIndex = 15;
-            // 
-            // buttonEliminarUsuario
-            // 
-            this.buttonEliminarUsuario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonEliminarUsuario.FlatAppearance.BorderSize = 0;
-            this.buttonEliminarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEliminarUsuario.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEliminarUsuario.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonEliminarUsuario.Location = new System.Drawing.Point(0, 31);
-            this.buttonEliminarUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonEliminarUsuario.Name = "buttonEliminarUsuario";
-            this.buttonEliminarUsuario.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonEliminarUsuario.Size = new System.Drawing.Size(219, 31);
-            this.buttonEliminarUsuario.TabIndex = 3;
-            this.buttonEliminarUsuario.Text = "Eliminar";
-            this.buttonEliminarUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEliminarUsuario.UseVisualStyleBackColor = true;
-            this.buttonEliminarUsuario.Click += new System.EventHandler(this.buttonEliminarUsuario_Click_1);
             // 
             // buttonAgregarUsuario
             // 
@@ -186,7 +241,7 @@
             this.buttonAgregarUsuario.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonAgregarUsuario.Size = new System.Drawing.Size(219, 31);
             this.buttonAgregarUsuario.TabIndex = 2;
-            this.buttonAgregarUsuario.Text = "Agregar";
+            this.buttonAgregarUsuario.Text = "Gestion";
             this.buttonAgregarUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAgregarUsuario.UseVisualStyleBackColor = true;
             this.buttonAgregarUsuario.Click += new System.EventHandler(this.buttonAgregarUsuario_Click_1);
@@ -220,7 +275,7 @@
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogout.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonLogout.Location = new System.Drawing.Point(0, 652);
+            this.buttonLogout.Location = new System.Drawing.Point(0, 744);
             this.buttonLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(219, 38);
@@ -590,6 +645,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAdminInicio";
             this.panelDesplegable.ResumeLayout(false);
+            this.panelSeguridad.ResumeLayout(false);
             this.panelServicios.ResumeLayout(false);
             this.panelUsuariosE.ResumeLayout(false);
             this.panelLaboratorio.ResumeLayout(false);
@@ -628,12 +684,15 @@
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelUsuariosE;
-        private System.Windows.Forms.Button buttonEliminarUsuario;
         private System.Windows.Forms.Button buttonAgregarUsuario;
         private System.Windows.Forms.Button buttonUsuario;
         private System.Windows.Forms.Label labelApellido;
         private System.Windows.Forms.Panel panelServicios;
         private System.Windows.Forms.Button buttonGestionServicios;
         private System.Windows.Forms.Button buttonServicios;
+        private System.Windows.Forms.Panel panelSeguridad;
+        private System.Windows.Forms.Button buttonRestore;
+        private System.Windows.Forms.Button buttonBackup;
+        private System.Windows.Forms.Button buttonSeguridad;
     }
 }

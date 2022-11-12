@@ -16,6 +16,7 @@ namespace CapaLogica.LVendedor
     {
 
         private int dniClienteB;
+        private string emailClienteB;
         public void rellenarDataGridCliente(DataGridView dataGrid)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
@@ -72,14 +73,16 @@ namespace CapaLogica.LVendedor
                 using (bd_blulightEntities db = new bd_blulightEntities())
                 {
                     int dni = Int32.Parse(textBoxes[2].Text);
+                    string email = textBoxes[4].Text.ToString();
                     var valPersona = db.Persona.Where(p => p.dni.Equals(dni)).ToList();
-                    if (valPersona.Count == 0)
+                    var valPersona2 = db.Persona.Where(p => p.email.Equals(email)).ToList();
+                    if (valPersona.Count == 0 && valPersona2.Count == 0)
                     {
                         Persona persona = new Persona();
                         persona.dni = dni;
                         persona.nombre = textBoxes[0].Text.ToString();
                         persona.apellido = textBoxes[1].Text.ToString();
-                        persona.email = textBoxes[4].Text.ToString();
+                        persona.email = email;
                         persona.telefono = textBoxes[5].Text.ToString();
                         persona.direccion = textBoxes[3].Text.ToString();
                         persona.activo = true;
@@ -93,15 +96,27 @@ namespace CapaLogica.LVendedor
                     }
                     else
                     {
+                        if(valPersona.Count > 0)
                         MessageBox.Show("DNI ya registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        if (valPersona2.Count > 0)
+                            MessageBox.Show("Email ya registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                     
              }
              else
              {
-                if (!validation) MessageBox.Show("Ingrese todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                if (!valEmail) MessageBox.Show("Email inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (!validation)
+                {
+                    MessageBox.Show("Ingrese todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    if (!valEmail) MessageBox.Show("Email inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+               
+                
             }
 
 
@@ -130,6 +145,7 @@ namespace CapaLogica.LVendedor
             textBoxes[5].Text = dataGrid.CurrentRow.Cells[5].Value.ToString();
             textBoxes[6].Text = dataGrid.CurrentRow.Cells[2].Value.ToString();
             dniClienteB = Int32.Parse(dataGrid.CurrentRow.Cells[2].Value.ToString());
+            emailClienteB = textBoxes[4].Text;
             var activo = dataGrid.CurrentRow.Cells[6].Value.ToString();
 
             buttons[0].Text = "Restablecer";
@@ -156,7 +172,7 @@ namespace CapaLogica.LVendedor
                     textBoxes[5].Text = cliente[0].telefono;
                     textBoxes[3].Text = cliente[0].direccion;
                     dniClienteB = dni;
-
+                    emailClienteB = textBoxes[4].Text;
                     buttons[0].Text = "Restablecer";
                     buttons[1].Enabled = true;
                     buttons[2].Enabled = true;
@@ -188,8 +204,10 @@ namespace CapaLogica.LVendedor
                 using (bd_blulightEntities db = new bd_blulightEntities())
                 {
                     int dni = Int32.Parse(textBoxes[2].Text);
+                    string email = textBoxes[4].Text.ToString();
                     var valPersona = db.Persona.Where(p => p.dni.Equals(dni)).ToList();
-                    if (dniClienteB == dni || valPersona.Count == 0)
+                    var valPersona2 = db.Persona.Where(p => p.email.Equals(email)).ToList();
+                    if ((dniClienteB == dni || valPersona.Count == 0) && (valPersona2.Count == 0 || emailClienteB.Equals(email)))
                     {
                         Persona persona = db.Persona.Where(p => p.dni.Equals(dni)).FirstOrDefault();
                         
@@ -208,14 +226,19 @@ namespace CapaLogica.LVendedor
                     }
                     else
                     {
-                        MessageBox.Show("DNI ya registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (dniClienteB != dni && valPersona.Count > 0)
+                            MessageBox.Show("DNI ya registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        if (!emailClienteB.Equals(email) && valPersona2.Count > 0)
+                            MessageBox.Show("Email ya registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                     }
                 }
             }
             else
             {
                 if (!validation) MessageBox.Show("Ingrese todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                if (!valEmail) MessageBox.Show("Email inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (!valEmail && !textBoxes[4].Text.Equals("")) MessageBox.Show("Email inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }

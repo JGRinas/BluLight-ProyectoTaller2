@@ -48,8 +48,12 @@ namespace CapaPresentacion.VistaAdmin.GestionUsuarios
                 List<TextBox> textBoxes = new List<TextBox>();
                 textBoxes.Add(textBoxUsuario);
                 textBoxes.Add(textBoxContrasena);
+                List<Button> buttons = new List<Button>();
+                buttons.Add(buttonRegistrarUsuario);
+                buttons.Add(buttonModificar);
+                buttons.Add(buttonEliminar);
                 int dni = Int32.Parse(textBoxDniBuscar.Text);
-                user.buscarEmpleado(listLabels, dni, buttonRegistrarUsuario, textBoxes, comboBoxTiposUsuario);
+                user.buscarEmpleado(listLabels, dni, buttons, textBoxes, comboBoxTiposUsuario);
             }
             
         }
@@ -66,16 +70,87 @@ namespace CapaPresentacion.VistaAdmin.GestionUsuarios
             listLabels.Add(labelLaboratorio);
             listLabels.Add(labelTelefono);
             listLabels.Add(labelEmail);
-
+            List<Button> buttons = new List<Button>();
+            buttons.Add(buttonRegistrarUsuario);
+            buttons.Add(buttonModificar);
+            buttons.Add(buttonEliminar);
+         
             if (buttonRegistrarUsuario.Text.Equals("Registrar"))
             {
                 user.registrarUsuario(textBoxes, comboBoxTiposUsuario, listLabels, buttonRegistrarUsuario);
             }
             else
             {
-                user.modificarUsuario(textBoxes, comboBoxTiposUsuario, listLabels, buttonRegistrarUsuario);
+                user.restablecerCampos(textBoxes, listLabels, buttons, comboBoxTiposUsuario);
             }
- 
+
+            dataGridViewEmpleados.Rows.Clear();
+            user.rellenarDataGridEmpleado(dataGridViewEmpleados);
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            List<TextBox> textBoxes = new List<TextBox>();
+            textBoxes.Add(textBoxUsuario);
+            textBoxes.Add(textBoxContrasena);
+            List<Label> listLabels = new List<Label>();
+            listLabels.Add(labelNombreYApellido);
+            listLabels.Add(labelDni);
+            listLabels.Add(labelTitulo);
+            listLabels.Add(labelLaboratorio);
+            listLabels.Add(labelTelefono);
+            listLabels.Add(labelEmail);
+            List<Button> buttons = new List<Button>();
+            buttons.Add(buttonRegistrarUsuario);
+            buttons.Add(buttonModificar);
+            buttons.Add(buttonEliminar);
+           
+            int dni = Int32.Parse(labelDni.Text);
+
+            if (buttonEliminar.Text.Equals("Eliminar"))
+            {
+                user.eliminarUsuario(dni);
+                user.restablecerCampos(textBoxes, listLabels, buttons, comboBoxTiposUsuario);
+            }
+            else
+            {
+                user.restaurarUsuario(dni);
+                user.restablecerCampos(textBoxes, listLabels, buttons, comboBoxTiposUsuario);
+            }
+
+            dataGridViewEmpleados.Rows.Clear();
+            user.rellenarDataGridEmpleado(dataGridViewEmpleados);
+        }
+
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+            List<TextBox> textBoxes = new List<TextBox>();
+            textBoxes.Add(textBoxUsuario);
+            textBoxes.Add(textBoxContrasena);
+            List<Label> listLabels = new List<Label>();
+            listLabels.Add(labelNombreYApellido);
+            listLabels.Add(labelDni);
+            listLabels.Add(labelTitulo);
+            listLabels.Add(labelLaboratorio);
+            listLabels.Add(labelTelefono);
+            listLabels.Add(labelEmail);
+            List<Button> buttons = new List<Button>();
+            buttons.Add(buttonRegistrarUsuario);
+            buttons.Add(buttonModificar);
+            buttons.Add(buttonEliminar);
+
+            if (!textBoxUsuario.Text.Equals("") && !textBoxContrasena.Text.Equals("") && comboBoxTiposUsuario.SelectedIndex != -1)
+            {
+                user.modificarUsuario(textBoxes, comboBoxTiposUsuario, listLabels);
+                user.restablecerCampos(textBoxes, listLabels, buttons, comboBoxTiposUsuario);
+            }
+            else
+            {
+                MessageBox.Show("Complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+
+            
             dataGridViewEmpleados.Rows.Clear();
             user.rellenarDataGridEmpleado(dataGridViewEmpleados);
         }

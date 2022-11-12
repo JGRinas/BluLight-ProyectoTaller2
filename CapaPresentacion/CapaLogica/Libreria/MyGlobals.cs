@@ -25,5 +25,7 @@ namespace CapaLogica
 
         public static Producto productoSeleccionado = new Producto();
         public static int indexProducto = new int();
+
+        public static bool confirmacionContrasena = false;
     }
 }
