@@ -333,6 +333,7 @@
     <Compile Include="CapaLogica\LAdmin\LProduct.cs" />
     <Compile Include="CapaLogica\LAdmin\LServicioA.cs" />
     <Compile Include="CapaLogica\LAdmin\LUsuariosA.cs" />
+    <Compile Include="CapaLogica\LDirector\LStatServicios.cs" />
     <Compile Include="CapaLogica\Libreria\Encrypt.cs" />
     <Compile Include="CapaLogica\Libreria\Librerias.cs" />
     <Compile Include="CapaLogica\Libreria\LUser.cs" />
@@ -855,6 +856,13 @@
       <DependentUpon>MyEntityFramework.edmx</DependentUpon>
       <LastGenOutput>MyEntityFramework.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\cliente_inscribirc.png" />
+    <None Include="Resources\servicios_ofrecidosc.png" />
+    <None Include="Resources\serviciosc.png" />
+    <None Include="Resources\jornadasc2.png" />
+    <None Include="Resources\jornadasc1.png" />
+    <None Include="Resources\jornadasc.png" />
+    <None Include="Resources\solicitudc1.png" />
     <None Include="Resources\biologia.png" />
     <None Include="Resources\perfil-del-usuario.png" />
     <None Include="Resources\microscopio %281%29.png" />

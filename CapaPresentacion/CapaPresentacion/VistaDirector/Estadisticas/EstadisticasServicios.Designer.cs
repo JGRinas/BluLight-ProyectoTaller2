@@ -31,98 +31,205 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            this.panelCategorias = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelTitulo = new System.Windows.Forms.Label();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartGlobales = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panelGlobales = new System.Windows.Forms.Panel();
+            this.checkedListBoxCategorias = new System.Windows.Forms.CheckedListBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkedListBoxAnio = new System.Windows.Forms.CheckedListBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.labelServicios = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.checkBoxTodos = new System.Windows.Forms.CheckBox();
+            this.panelCategorias.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartGlobales)).BeginInit();
+            this.panelGlobales.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panelCategorias
+            // 
+            this.panelCategorias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelCategorias.Controls.Add(this.chart2);
+            this.panelCategorias.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelCategorias.Location = new System.Drawing.Point(678, 18);
+            this.panelCategorias.Name = "panelCategorias";
+            this.panelCategorias.Size = new System.Drawing.Size(591, 728);
+            this.panelCategorias.TabIndex = 23;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.panel1.Controls.Add(this.labelTitulo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(760, 559);
-            this.panel1.TabIndex = 0;
+            this.panel1.Size = new System.Drawing.Size(1269, 18);
+            this.panel1.TabIndex = 21;
+            // 
+            // labelTitulo
+            // 
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
+            this.labelTitulo.ForeColor = System.Drawing.Color.White;
+            this.labelTitulo.Location = new System.Drawing.Point(453, 0);
+            this.labelTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Size = new System.Drawing.Size(324, 19);
+            this.labelTitulo.TabIndex = 2;
+            this.labelTitulo.Text = "Estadísticas de Ventas de Servicios";
+            // 
+            // chart2
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart2.Legends.Add(legend1);
+            this.chart2.Location = new System.Drawing.Point(28, 335);
+            this.chart2.Name = "chart2";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart2.Series.Add(series1);
+            this.chart2.Size = new System.Drawing.Size(524, 343);
+            this.chart2.TabIndex = 1;
+            this.chart2.Text = "chart2";
+            // 
+            // chartGlobales
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chartGlobales.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartGlobales.Legends.Add(legend2);
+            this.chartGlobales.Location = new System.Drawing.Point(29, 335);
+            this.chartGlobales.Name = "chartGlobales";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartGlobales.Series.Add(series2);
+            this.chartGlobales.Size = new System.Drawing.Size(524, 343);
+            this.chartGlobales.TabIndex = 2;
+            this.chartGlobales.Text = "chartGlobales";
+            title1.Name = "Title1";
+            this.chartGlobales.Titles.Add(title1);
+            // 
+            // panelGlobales
+            // 
+            this.panelGlobales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelGlobales.Controls.Add(this.panel2);
+            this.panelGlobales.Controls.Add(this.chartGlobales);
+            this.panelGlobales.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelGlobales.Location = new System.Drawing.Point(0, 18);
+            this.panelGlobales.Name = "panelGlobales";
+            this.panelGlobales.Size = new System.Drawing.Size(690, 728);
+            this.panelGlobales.TabIndex = 22;
+            // 
+            // checkedListBoxCategorias
+            // 
+            this.checkedListBoxCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.checkedListBoxCategorias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.checkedListBoxCategorias.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.checkedListBoxCategorias.FormattingEnabled = true;
+            this.checkedListBoxCategorias.Location = new System.Drawing.Point(16, 40);
+            this.checkedListBoxCategorias.Name = "checkedListBoxCategorias";
+            this.checkedListBoxCategorias.Size = new System.Drawing.Size(175, 122);
+            this.checkedListBoxCategorias.TabIndex = 3;
+            this.checkedListBoxCategorias.SelectedValueChanged += new System.EventHandler(this.checkedListBoxCategoria_SelectedValueChanged);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.labelServicios);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.checkedListBoxAnio);
+            this.panel2.Location = new System.Drawing.Point(-1, 112);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(760, 127);
-            this.panel2.TabIndex = 0;
+            this.panel2.Size = new System.Drawing.Size(690, 195);
+            this.panel2.TabIndex = 3;
+            // 
+            // checkedListBoxAnio
+            // 
+            this.checkedListBoxAnio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.checkedListBoxAnio.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.checkedListBoxAnio.FormattingEnabled = true;
+            this.checkedListBoxAnio.Items.AddRange(new object[] {
+            "2022",
+            "2021"});
+            this.checkedListBoxAnio.Location = new System.Drawing.Point(87, 80);
+            this.checkedListBoxAnio.Name = "checkedListBoxAnio";
+            this.checkedListBoxAnio.Size = new System.Drawing.Size(114, 49);
+            this.checkedListBoxAnio.TabIndex = 4;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.chart1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 127);
+            this.panel3.Controls.Add(this.checkBoxTodos);
+            this.panel3.Controls.Add(this.checkedListBoxCategorias);
+            this.panel3.Location = new System.Drawing.Point(289, 14);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(760, 432);
-            this.panel3.TabIndex = 1;
+            this.panel3.Size = new System.Drawing.Size(218, 166);
+            this.panel3.TabIndex = 5;
             // 
-            // labelServicios
+            // checkBoxTodos
             // 
-            this.labelServicios.AutoSize = true;
-            this.labelServicios.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelServicios.ForeColor = System.Drawing.Color.White;
-            this.labelServicios.Location = new System.Drawing.Point(193, 47);
-            this.labelServicios.Name = "labelServicios";
-            this.labelServicios.Size = new System.Drawing.Size(375, 33);
-            this.labelServicios.TabIndex = 2;
-            this.labelServicios.Text = "Estadística de Servicios";
-            // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(0, 0);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Servicios";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(760, 432);
-            this.chart1.TabIndex = 1;
-            this.chart1.Text = "chartProd";
+            this.checkBoxTodos.AutoSize = true;
+            this.checkBoxTodos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.checkBoxTodos.Location = new System.Drawing.Point(16, 17);
+            this.checkBoxTodos.Name = "checkBoxTodos";
+            this.checkBoxTodos.Size = new System.Drawing.Size(56, 17);
+            this.checkBoxTodos.TabIndex = 4;
+            this.checkBoxTodos.Text = "Todos";
+            this.checkBoxTodos.UseVisualStyleBackColor = true;
+            this.checkBoxTodos.CheckStateChanged += new System.EventHandler(this.checkBoxTodos_CheckStateChanged);
             // 
             // EstadisticasServicios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(760, 559);
+            this.ClientSize = new System.Drawing.Size(1269, 746);
+            this.Controls.Add(this.panelCategorias);
+            this.Controls.Add(this.panelGlobales);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EstadisticasServicios";
             this.Text = "EstadisticasServicios";
+            this.panelCategorias.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartGlobales)).EndInit();
+            this.panelGlobales.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
+        private System.Windows.Forms.Panel panelCategorias;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label labelTitulo;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartGlobales;
+        private System.Windows.Forms.Panel panelGlobales;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label labelServicios;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.CheckedListBox checkedListBoxCategorias;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog2;
+        private System.Windows.Forms.CheckedListBox checkedListBoxAnio;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.CheckBox checkBoxTodos;
     }
 }

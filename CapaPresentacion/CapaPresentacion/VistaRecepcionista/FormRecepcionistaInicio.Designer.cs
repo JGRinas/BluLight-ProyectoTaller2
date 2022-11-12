@@ -32,7 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelClientes = new System.Windows.Forms.Panel();
             this.buttonGestionarClientes = new System.Windows.Forms.Button();
-            this.buttonClientes = new System.Windows.Forms.Button();
             this.buttonCerrarSesion = new System.Windows.Forms.Button();
             this.panelServicios = new System.Windows.Forms.Panel();
             this.buttonSolicitudes = new System.Windows.Forms.Button();
@@ -52,6 +51,7 @@
             this.bunifuImageButton3 = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuImageButton1 = new Bunifu.UI.WinForms.BunifuImageButton();
             this.buttonCloseForm = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.buttonClientes = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelClientes.SuspendLayout();
             this.panelServicios.SuspendLayout();
@@ -83,8 +83,8 @@
             this.panelClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.panelClientes.Controls.Add(this.buttonGestionarClientes);
             this.panelClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelClientes.Location = new System.Drawing.Point(0, 309);
-            this.panelClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelClientes.Location = new System.Drawing.Point(0, 354);
+            this.panelClientes.Margin = new System.Windows.Forms.Padding(2);
             this.panelClientes.Name = "panelClientes";
             this.panelClientes.Size = new System.Drawing.Size(180, 35);
             this.panelClientes.TabIndex = 11;
@@ -97,7 +97,7 @@
             this.buttonGestionarClientes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGestionarClientes.ForeColor = System.Drawing.Color.LightGray;
             this.buttonGestionarClientes.Location = new System.Drawing.Point(0, 0);
-            this.buttonGestionarClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonGestionarClientes.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGestionarClientes.Name = "buttonGestionarClientes";
             this.buttonGestionarClientes.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.buttonGestionarClientes.Size = new System.Drawing.Size(180, 25);
@@ -106,24 +106,6 @@
             this.buttonGestionarClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonGestionarClientes.UseVisualStyleBackColor = true;
             this.buttonGestionarClientes.Click += new System.EventHandler(this.buttonGestionarClientes_Click);
-            // 
-            // buttonClientes
-            // 
-            this.buttonClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.buttonClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonClientes.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClientes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClientes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonClientes.Location = new System.Drawing.Point(0, 284);
-            this.buttonClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonClientes.Name = "buttonClientes";
-            this.buttonClientes.Size = new System.Drawing.Size(180, 25);
-            this.buttonClientes.TabIndex = 10;
-            this.buttonClientes.Text = "Clientes";
-            this.buttonClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonClientes.UseVisualStyleBackColor = false;
-            this.buttonClientes.Click += new System.EventHandler(this.buttonClientes_Click);
             // 
             // buttonCerrarSesion
             // 
@@ -134,7 +116,7 @@
             this.buttonCerrarSesion.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCerrarSesion.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonCerrarSesion.Location = new System.Drawing.Point(0, 463);
-            this.buttonCerrarSesion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCerrarSesion.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCerrarSesion.Name = "buttonCerrarSesion";
             this.buttonCerrarSesion.Size = new System.Drawing.Size(180, 25);
             this.buttonCerrarSesion.TabIndex = 7;
@@ -148,8 +130,8 @@
             this.panelServicios.Controls.Add(this.buttonSolicitudes);
             this.panelServicios.Controls.Add(this.buttonNuevaSolicitud);
             this.panelServicios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelServicios.Location = new System.Drawing.Point(0, 228);
-            this.panelServicios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelServicios.Location = new System.Drawing.Point(0, 258);
+            this.panelServicios.Margin = new System.Windows.Forms.Padding(2);
             this.panelServicios.Name = "panelServicios";
             this.panelServicios.Size = new System.Drawing.Size(180, 56);
             this.panelServicios.TabIndex = 6;
@@ -162,7 +144,7 @@
             this.buttonSolicitudes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSolicitudes.ForeColor = System.Drawing.Color.LightGray;
             this.buttonSolicitudes.Location = new System.Drawing.Point(0, 25);
-            this.buttonSolicitudes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSolicitudes.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSolicitudes.Name = "buttonSolicitudes";
             this.buttonSolicitudes.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.buttonSolicitudes.Size = new System.Drawing.Size(180, 25);
@@ -180,7 +162,7 @@
             this.buttonNuevaSolicitud.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNuevaSolicitud.ForeColor = System.Drawing.Color.LightGray;
             this.buttonNuevaSolicitud.Location = new System.Drawing.Point(0, 0);
-            this.buttonNuevaSolicitud.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonNuevaSolicitud.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNuevaSolicitud.Name = "buttonNuevaSolicitud";
             this.buttonNuevaSolicitud.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.buttonNuevaSolicitud.Size = new System.Drawing.Size(180, 25);
@@ -198,10 +180,12 @@
             this.buttonServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonServicios.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonServicios.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonServicios.Location = new System.Drawing.Point(0, 203);
-            this.buttonServicios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonServicios.Image = global::CapaPresentacion.Properties.Resources.biologia;
+            this.buttonServicios.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonServicios.Location = new System.Drawing.Point(0, 218);
+            this.buttonServicios.Margin = new System.Windows.Forms.Padding(2);
             this.buttonServicios.Name = "buttonServicios";
-            this.buttonServicios.Size = new System.Drawing.Size(180, 25);
+            this.buttonServicios.Size = new System.Drawing.Size(180, 40);
             this.buttonServicios.TabIndex = 5;
             this.buttonServicios.Text = "Servicios";
             this.buttonServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -214,8 +198,8 @@
             this.panelJornada.Controls.Add(this.buttonBaja);
             this.panelJornada.Controls.Add(this.buttonInscribir);
             this.panelJornada.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelJornada.Location = new System.Drawing.Point(0, 147);
-            this.panelJornada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelJornada.Location = new System.Drawing.Point(0, 162);
+            this.panelJornada.Margin = new System.Windows.Forms.Padding(2);
             this.panelJornada.Name = "panelJornada";
             this.panelJornada.Size = new System.Drawing.Size(180, 56);
             this.panelJornada.TabIndex = 4;
@@ -228,7 +212,7 @@
             this.buttonBaja.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBaja.ForeColor = System.Drawing.Color.RosyBrown;
             this.buttonBaja.Location = new System.Drawing.Point(0, 25);
-            this.buttonBaja.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBaja.Margin = new System.Windows.Forms.Padding(2);
             this.buttonBaja.Name = "buttonBaja";
             this.buttonBaja.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.buttonBaja.Size = new System.Drawing.Size(180, 25);
@@ -246,7 +230,7 @@
             this.buttonInscribir.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonInscribir.ForeColor = System.Drawing.Color.LightGray;
             this.buttonInscribir.Location = new System.Drawing.Point(0, 0);
-            this.buttonInscribir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonInscribir.Margin = new System.Windows.Forms.Padding(2);
             this.buttonInscribir.Name = "buttonInscribir";
             this.buttonInscribir.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.buttonInscribir.Size = new System.Drawing.Size(180, 25);
@@ -264,10 +248,12 @@
             this.buttonJornada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonJornada.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonJornada.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonJornada.Image = global::CapaPresentacion.Properties.Resources.jornadasc2;
+            this.buttonJornada.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonJornada.Location = new System.Drawing.Point(0, 122);
-            this.buttonJornada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonJornada.Margin = new System.Windows.Forms.Padding(2);
             this.buttonJornada.Name = "buttonJornada";
-            this.buttonJornada.Size = new System.Drawing.Size(180, 25);
+            this.buttonJornada.Size = new System.Drawing.Size(180, 40);
             this.buttonJornada.TabIndex = 3;
             this.buttonJornada.Text = "Jornadas";
             this.buttonJornada.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -374,7 +360,7 @@
             this.bunifuImageButton3.ImageZoomSize = new System.Drawing.Size(34, 33);
             this.bunifuImageButton3.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton3.InitialImage")));
             this.bunifuImageButton3.Location = new System.Drawing.Point(468, 0);
-            this.bunifuImageButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuImageButton3.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuImageButton3.Name = "bunifuImageButton3";
             this.bunifuImageButton3.Rotation = 0;
             this.bunifuImageButton3.ShowActiveImage = true;
@@ -411,7 +397,7 @@
             this.bunifuImageButton1.ImageZoomSize = new System.Drawing.Size(34, 33);
             this.bunifuImageButton1.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.InitialImage")));
             this.bunifuImageButton1.Location = new System.Drawing.Point(502, 0);
-            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuImageButton1.Name = "bunifuImageButton1";
             this.bunifuImageButton1.Rotation = 0;
             this.bunifuImageButton1.ShowActiveImage = true;
@@ -448,7 +434,7 @@
             this.buttonCloseForm.ImageZoomSize = new System.Drawing.Size(34, 33);
             this.buttonCloseForm.InitialImage = ((System.Drawing.Image)(resources.GetObject("buttonCloseForm.InitialImage")));
             this.buttonCloseForm.Location = new System.Drawing.Point(536, 0);
-            this.buttonCloseForm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCloseForm.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCloseForm.Name = "buttonCloseForm";
             this.buttonCloseForm.Rotation = 0;
             this.buttonCloseForm.ShowActiveImage = true;
@@ -462,6 +448,26 @@
             this.buttonCloseForm.Zoom = 20;
             this.buttonCloseForm.ZoomSpeed = 10;
             this.buttonCloseForm.Click += new System.EventHandler(this.buttonCloseForm_Click);
+            // 
+            // buttonClientes
+            // 
+            this.buttonClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.buttonClientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonClientes.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClientes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClientes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonClientes.Image = global::CapaPresentacion.Properties.Resources.cliente_inscribirc;
+            this.buttonClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonClientes.Location = new System.Drawing.Point(0, 314);
+            this.buttonClientes.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonClientes.Name = "buttonClientes";
+            this.buttonClientes.Size = new System.Drawing.Size(180, 40);
+            this.buttonClientes.TabIndex = 10;
+            this.buttonClientes.Text = "Clientes";
+            this.buttonClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonClientes.UseVisualStyleBackColor = false;
+            this.buttonClientes.Click += new System.EventHandler(this.buttonClientes_Click);
             // 
             // FormRecepcionistaInicio
             // 

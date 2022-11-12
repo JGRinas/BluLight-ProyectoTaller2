@@ -129,8 +129,8 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
                     
                 }
                 else {
-                    MessageBox.Show("Error al dar de baja. La persona o la jornada indicadas no se " +
-                        "encuentra/n en la base de datos. Por favor, intente nuevamente.",
+                    MessageBox.Show("Error al dar de baja. La persona seleccionada no se " +
+                        "encuentra inscripta a la jornada seleccionada.",
                         "Error al dar debaja", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

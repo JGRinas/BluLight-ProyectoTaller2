@@ -113,6 +113,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cliente_inscribirc {
+            get {
+                object obj = ResourceManager.GetObject("cliente_inscribirc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap construccion_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("construccion-removebg-preview", resourceCulture);
@@ -146,6 +156,36 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap inventario {
             get {
                 object obj = ResourceManager.GetObject("inventario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jornadasc {
+            get {
+                object obj = ResourceManager.GetObject("jornadasc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jornadasc1 {
+            get {
+                object obj = ResourceManager.GetObject("jornadasc1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jornadasc2 {
+            get {
+                object obj = ResourceManager.GetObject("jornadasc2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +266,36 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap redimensionar {
             get {
                 object obj = ResourceManager.GetObject("redimensionar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap servicios_ofrecidosc {
+            get {
+                object obj = ResourceManager.GetObject("servicios_ofrecidosc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap serviciosc {
+            get {
+                object obj = ResourceManager.GetObject("serviciosc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap solicitudc {
+            get {
+                object obj = ResourceManager.GetObject("solicitudc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
