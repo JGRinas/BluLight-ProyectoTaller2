@@ -1,14 +1,19 @@
-﻿using CapaPresentacion.CapaLogica.LDirector;
+﻿using CapaLogica;
+using CapaPresentacion.CapaLogica.LDirector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static LinqToDB.Reflection.Methods.LinqToDB.Insert;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 
 namespace Proyecto2022.CapaPresentacion.VistaAdmin.Estadisticas
 {
@@ -149,7 +154,25 @@ namespace Proyecto2022.CapaPresentacion.VistaAdmin.Estadisticas
             }
         }
 
-        private void btnInforme_Click(object sender, EventArgs e)
+        private void btnAnexar1_Click(object sender, EventArgs e)
+        {
+            var chartImage = new MemoryStream();
+            chartGlobales.SaveImage(chartImage, ChartImageFormat.Png);
+            MyGlobals.imagenChartGlobales.Add(iTextSharp.text.Image.GetInstance(chartImage.GetBuffer()));
+            MessageBox.Show("Gráfico anexado al informe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void btnAnexar2_Click(object sender, EventArgs e)
+        {
+            var chartImage = new MemoryStream();
+            chartTorta.SaveImage(chartImage, ChartImageFormat.Png);
+            MyGlobals.imagenChartTorta.Add(iTextSharp.text.Image.GetInstance(chartImage.GetBuffer()));
+            MessageBox.Show("Gráfico anexado al informe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void btnGenerarInforme_Click(object sender, EventArgs e)
         {
             statServicios1.generarInformeServicios(chartGlobales);
         }

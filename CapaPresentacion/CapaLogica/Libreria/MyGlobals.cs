@@ -1,10 +1,28 @@
 ﻿using CapaPresentacion.CapaData.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using CapaLogica;
+using CapaPresentacion.CapaData.Model;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using LinqToDB.Tools;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace CapaLogica
 {
@@ -32,5 +50,8 @@ namespace CapaLogica
         public static int idServSelecc; //id servicio del servicio seleccionado
         public static int idLabSelecc; //lab del servicio seleccionado
 
+        //informe de servicios
+        public static List<iTextSharp.text.Image> imagenChartGlobales = new List<iTextSharp.text.Image>();
+        public static List<iTextSharp.text.Image> imagenChartTorta = new List<iTextSharp.text.Image>();
     }
 }

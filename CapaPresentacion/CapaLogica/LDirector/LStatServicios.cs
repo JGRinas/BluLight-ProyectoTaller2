@@ -166,19 +166,23 @@ namespace CapaPresentacion.CapaLogica.LDirector
                 titulo = titulo + "s " + checkedListAnio.CheckedItems[0].ToString() + " y " 
                 + checkedListAnio.CheckedItems[1].ToString();
 
-                if (checkedListBoxCategorias.CheckedItems.Count < 3)
+                if (checkedListBoxCategorias.CheckedItems.Count < checkedListBoxCategorias.Items.Count)
                 {
                     titulo = titulo + ", categorías ";
                     for (int i = 0; i < checkedListBoxCategorias.CheckedItems.Count; i++)
                     {
                         titulo = titulo + checkedListBoxCategorias.CheckedItems[i].ToString();
-                        titulo = titulo + ", ";
+                        
+                        if (i+1 < checkedListBoxCategorias.CheckedItems.Count) {
+                            titulo = titulo + ", ";
+                        }
+                        
                     }
-
+                    titulo = titulo + ".";
                 }
                 else
                 {
-                    titulo = titulo + ", múltiples categorías ";
+                    titulo = titulo + "todas las categorías de servicios.";
                 }
 
             }
@@ -330,19 +334,23 @@ namespace CapaPresentacion.CapaLogica.LDirector
             {
                 titulo = titulo + "2021";
 
-                if (checkedListBoxCategorias.CheckedItems.Count < 3)
+                if (checkedListBoxCategorias.CheckedItems.Count < checkedListBoxCategorias.Items.Count)
                 {
-                    titulo = titulo + ", categorías ";
+                    titulo = titulo + ", categorías de servicios ";
                     for (int i = 0; i < checkedListBoxCategorias.CheckedItems.Count; i++)
                     {
                         titulo = titulo + checkedListBoxCategorias.CheckedItems[i].ToString();
-                        titulo = titulo + ", ";
+                        
+                        if (i + 1 < checkedListBoxCategorias.CheckedItems.Count)
+                        {
+                            titulo = titulo + ", ";
+                        }
                     }
-
+                    titulo = titulo + ".";
                 }
                 else
                 {
-                    titulo = titulo + ", múltiples categorías ";
+                    titulo = titulo + ", todas las categorías de servicios.";
                 }
 
             }
@@ -353,9 +361,10 @@ namespace CapaPresentacion.CapaLogica.LDirector
         public void generarInformeServicios(Chart chart1)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string date = Regex.Replace(System.DateTime.Now.ToString(), @"\s", "");
-            date = Regex.Replace(date, @"/", "");
-            date = Regex.Replace(date, @":", "");
+            string date = System.DateTime.Now.ToString();
+            //string date = Regex.Replace(System.DateTime.Now.ToString(), @"\s", "");
+            //date = Regex.Replace(date, @"/", "");
+            //date = Regex.Replace(date, @":", "");
 
             //MessageBox.Show(path + @"\venta" + date + ".pdf");
             FileStream fs = new FileStream(@"" + path + @"\venta" + date + ".pdf", FileMode.Create);
@@ -377,6 +386,8 @@ namespace CapaPresentacion.CapaLogica.LDirector
             //SALTO DE LINEA
             doc.Add(iTextSharp.text.Chunk.NEWLINE);
 
+            doc.Add(new Paragraph("Punto de venta: BluLight"));
+            doc.Add(iTextSharp.text.Chunk.NEWLINE);
 
             //doc.Add(new Paragraph("Punto de venta: BluLight"));
             //doc.Add(iTextSharp.text.Chunk.NEWLINE);
@@ -388,10 +399,25 @@ namespace CapaPresentacion.CapaLogica.LDirector
             //doc.Add(iTextSharp.text.Chunk.NEWLINE);
 
             //Gráficos
-            var chartImage = new MemoryStream();
-            chart1.SaveImage(chartImage, ChartImageFormat.Png);
-            iTextSharp.text.Image Chart_image = iTextSharp.text.Image.GetInstance(chartImage.GetBuffer());
-            doc.Add(Chart_image);
+            foreach (iTextSharp.text.Image imagen in MyGlobals.imagenChartGlobales) {
+                doc.Add(imagen);
+                doc.Add(iTextSharp.text.Chunk.NEWLINE);
+                doc.Add(iTextSharp.text.Chunk.NEWLINE);
+            }
+
+            foreach (iTextSharp.text.Image imagen in MyGlobals.imagenChartTorta)
+            {
+                doc.Add(imagen);
+                doc.Add(iTextSharp.text.Chunk.NEWLINE);
+                doc.Add(iTextSharp.text.Chunk.NEWLINE);
+            }
+
+            //var chartImage = new MemoryStream();
+            //chart1.SaveImage(chartImage, ChartImageFormat.Png);
+            //iTextSharp.text.Image Chart_image = iTextSharp.text.Image.GetInstance(chartImage.GetBuffer());
+            //doc.Add(Chart_image);
+
+
 
             //Encabezado de columna
             //PdfPTable tbl = new PdfPTable(4);
