@@ -361,10 +361,10 @@ namespace CapaPresentacion.CapaLogica.LDirector
         public void generarInformeServicios(Chart chart1)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string date = System.DateTime.Now.ToString();
-            //string date = Regex.Replace(System.DateTime.Now.ToString(), @"\s", "");
-            //date = Regex.Replace(date, @"/", "");
-            //date = Regex.Replace(date, @":", "");
+            string date = Regex.Replace(System.DateTime.Now.ToString(), @"\s", "");
+            string date2 = System.DateTime.Now.ToString();
+            date = Regex.Replace(date, @"/", "");
+            date = Regex.Replace(date, @":", "");
 
             //MessageBox.Show(path + @"\venta" + date + ".pdf");
             FileStream fs = new FileStream(@"" + path + @"\venta" + date + ".pdf", FileMode.Create);
@@ -374,6 +374,8 @@ namespace CapaPresentacion.CapaLogica.LDirector
 
             doc.Open();
 
+            iTextSharp.text.Chunk linea = new iTextSharp.text.Chunk(new iTextSharp.text.pdf.draw.LineSeparator());
+
             //titulo y autor
             doc.AddAuthor("BluLight");
             doc.AddTitle("PDF Generado");
@@ -382,12 +384,16 @@ namespace CapaPresentacion.CapaLogica.LDirector
             iTextSharp.text.Font standarFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
             //encabezado
-            doc.Add(new Paragraph("Informe de Ventas de Servicios - Fecha:  " + date));
+            doc.Add(new Paragraph("Informe de ventas de servicios: " + date + "                                                              Fecha: " + date2));
+            doc.Add(linea);
             //SALTO DE LINEA
             doc.Add(iTextSharp.text.Chunk.NEWLINE);
 
-            doc.Add(new Paragraph("Punto de venta: BluLight"));
+            var pathLogo = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Resources\marca_peq.png");
+            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(pathLogo);
+            doc.Add(logo);
             doc.Add(iTextSharp.text.Chunk.NEWLINE);
+            doc.Add(linea);
 
             //doc.Add(new Paragraph("Punto de venta: BluLight"));
             //doc.Add(iTextSharp.text.Chunk.NEWLINE);

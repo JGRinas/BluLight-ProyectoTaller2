@@ -440,16 +440,20 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string date = Regex.Replace(System.DateTime.Now.ToString(), @"\s", "");
+            string date2 = System.DateTime.Now.ToString();
             date = Regex.Replace(date, @"/", "");
             date = Regex.Replace(date, @":", "");
 
             //MessageBox.Show(path + @"\venta" + date + ".pdf");
             FileStream fs = new FileStream(@"" + path + @"\venta" + date + ".pdf", FileMode.Create);
 
-            Document doc = new Document(PageSize.LETTER, 5, 5, 7, 7);
+            Document doc = new Document(PageSize.LETTER, 30f, 30f, 30f, 30f);
             PdfWriter pw = PdfWriter.GetInstance(doc, fs);
 
             doc.Open();
+
+            //dibujar lineas
+            iTextSharp.text.Chunk linea = new iTextSharp.text.Chunk(new iTextSharp.text.pdf.draw.LineSeparator());
 
             //titulo y autor
             doc.AddAuthor("BluLight");
@@ -459,10 +463,23 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
             iTextSharp.text.Font standarFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
             //encabezado
-            doc.Add(new Paragraph("Comprobante de venta " + date));
+            doc.Add(new Paragraph("Comprobante de venta: " + date + "                                                              Fecha: " + date2));
+            doc.Add(linea);
             //SALTO DE LINEA
             doc.Add(iTextSharp.text.Chunk.NEWLINE);
 
+            //LOGO
+            var pathLogo = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Resources\marca_peq.png");
+            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(pathLogo);
+            doc.Add(logo);
+
+            doc.Add(iTextSharp.text.Chunk.NEWLINE);
+            doc.Add(new Paragraph("Dirección: Caseros 3.039, piso 2°, de la Ciudad Autónoma de Buenos Aires." + "               CUIT: 30-70308853-4"));
+
+
+
+            doc.Add(linea);
+            doc.Add(iTextSharp.text.Chunk.NEWLINE);
 
             doc.Add(new Paragraph("Punto de venta: BluLight"));
             doc.Add(iTextSharp.text.Chunk.NEWLINE);
@@ -531,7 +548,7 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
             doc.Add(iTextSharp.text.Chunk.NEWLINE);
             doc.Add(iTextSharp.text.Chunk.NEWLINE);
 
-            doc.Add(new Paragraph("Total: " + total.ToString()));
+            doc.Add(new Paragraph("Total: $" + total.ToString()));
             doc.Add(iTextSharp.text.Chunk.NEWLINE);
 
             doc.Close();
@@ -579,9 +596,10 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
                     // va especificar en una instancia posterior.
                     // El empleado que realizó la venta va en la tabla Factura.
                     db.Detalle_factura_servicio.Add(detalleFactura);
+                    db.SaveChanges();
                 }
 
-                db.SaveChanges();
+                
 
                 MyGlobals.clienteLabels.Clear();
                 MyGlobals.clienteVentas.Clear();
