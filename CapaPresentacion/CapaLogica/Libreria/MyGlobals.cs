@@ -27,5 +27,9 @@ namespace CapaLogica
         public static int indexProducto = new int();
 
         public static bool confirmacionContrasena = false;
+
+        //estadisticas ventas productos
+        public static List<iTextSharp.text.Image> imagenChartProductos = new List<iTextSharp.text.Image>();
+        public static List<string> titulosImagenChartProductos = new List<string>();
     }
 }

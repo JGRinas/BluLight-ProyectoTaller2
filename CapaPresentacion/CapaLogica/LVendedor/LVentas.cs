@@ -396,6 +396,7 @@ namespace CapaPresentacion.CapaLogica.LVendedor
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string date = Regex.Replace(System.DateTime.Now.ToString(), @"\s", "");
+            string date2 = System.DateTime.Now.ToString();
             date = Regex.Replace(date, @"/", "");
             date = Regex.Replace(date, @":", "");
 
@@ -417,19 +418,19 @@ namespace CapaPresentacion.CapaLogica.LVendedor
 
 
             //SALTO DE LINEA
-            doc.Add(new Paragraph("Comprobante de venta: " + date));
+            doc.Add(new Paragraph("Comprobante de venta: " + date + "                                                              Fecha: "+ date2));
             doc.Add(linea);
             doc.Add(Chunk.NEWLINE);
 
             //insertar imagen
-            var pathLogo = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Resources\logo.png");
+            var pathLogo = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Resources\marca2.png");
             iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(pathLogo);
             doc.Add(logo);
-            doc.Add(new Paragraph("Empresa: BluLight"));
+
             doc.Add(Chunk.NEWLINE);
-            doc.Add(new Paragraph("Dirección: Caseros 3.039, piso 2°, de la Ciudad Autónoma de Buenos Aires."));
-            doc.Add(Chunk.NEWLINE);
-            doc.Add(new Paragraph("CUIT: 30-70308853-4"));
+            doc.Add(new Paragraph("Dirección: Caseros 3.039, piso 2°, de la Ciudad Autónoma de Buenos Aires." + "               CUIT: 30-70308853-4"));
+
+       
           
             doc.Add(linea);
             doc.Add(Chunk.NEWLINE);
@@ -443,11 +444,11 @@ namespace CapaPresentacion.CapaLogica.LVendedor
             doc.Add(new Paragraph("Cliente: " + MyGlobals.clienteVentas[0].nombre + " " + MyGlobals.clienteVentas[0].apellido));
            
             doc.Add(new Paragraph("DNI: " + MyGlobals.clienteVentas[0].dni));
-            doc.Add(Chunk.NEWLINE);
+            
             doc.Add(linea);
             doc.Add(new Paragraph("Detalle de la venta:"));
-            doc.Add(linea);
-            doc.Add(Chunk.NEWLINE);
+            
+        
             
             //Encabezado de columna
             PdfPTable tbl = new PdfPTable(4);
@@ -506,10 +507,10 @@ namespace CapaPresentacion.CapaLogica.LVendedor
             doc.Add(Chunk.NEWLINE);
             doc.Add(Chunk.NEWLINE);
             doc.Add(Chunk.NEWLINE);
-            doc.Add(new Paragraph("Forma de pago: " + comboBox.Text));
+            doc.Add(new Paragraph());
             doc.Add(linea);
             //doc.Add(Chunk.NEWLINE);
-            doc.Add(new Paragraph("Total: $" + total.ToString()));
+            doc.Add(new Paragraph("Total: $" + total.ToString() + "                                                                                                    Forma de pago: " + comboBox.Text));
             doc.Add(Chunk.NEWLINE);
 
             doc.Close();

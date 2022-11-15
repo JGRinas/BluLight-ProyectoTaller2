@@ -82,6 +82,7 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubFo
                 {
                     venta.generarComprobante(comboBox1);
                     venta.finalizarCompra(comboBox1);
+                    this.Close();
                 }
             }
             else

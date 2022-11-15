@@ -1,4 +1,5 @@
 ﻿using CapaPresentacion;
+using CapaPresentacion.VistaDirector;
 using Proyecto2022;
 using Proyecto2022.CapaPresentacion;
 using Proyecto2022.CapaPresentacion.VistaJefeLaboratorio;
@@ -22,8 +23,9 @@ namespace CapaPresentacion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-         // FormOpen formOpen = new FormOpen();
+            // FormOpen formOpen = new FormOpen();
             // FormVendedorInicio formOpen = new FormVendedorInicio();
+
             FormSesion formOpen = new FormSesion();
             formOpen.Show();
 

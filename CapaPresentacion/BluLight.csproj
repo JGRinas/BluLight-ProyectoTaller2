@@ -337,6 +337,7 @@
     <Compile Include="CapaLogica\LAdmin\LSeguridad.cs" />
     <Compile Include="CapaLogica\LAdmin\LServicioA.cs" />
     <Compile Include="CapaLogica\LAdmin\LUsuariosA.cs" />
+    <Compile Include="CapaLogica\LDirector\LEstadistica.cs" />
     <Compile Include="CapaLogica\Libreria\Encrypt.cs" />
     <Compile Include="CapaLogica\Libreria\Librerias.cs" />
     <Compile Include="CapaLogica\Libreria\LUser.cs" />

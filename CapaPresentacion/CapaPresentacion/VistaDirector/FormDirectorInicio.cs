@@ -24,28 +24,14 @@ namespace CapaPresentacion.VistaDirector
         public FormDirectorInicio()
         {
             InitializeComponent();
-            customizarDiseno();
-            labelNombre.Text = MyGlobals.persona.nombre;
-            labelApellido.Text = MyGlobals.persona.apellido;
-        }
-
-        private void customizarDiseno()
-        {
-            panelEstadistica.Visible = false;
-        }
-
-        private void esconderSubMenu()
-        {
-            if (panelEstadistica.Visible == true)
-                panelEstadistica.Visible = false;
-
+           /* labelNombre.Text = MyGlobals.persona.nombre;
+            labelApellido.Text = MyGlobals.persona.apellido;*/
         }
 
         private void verSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
             {
-                esconderSubMenu();
                 subMenu.Visible = true;
             }
             else
@@ -70,37 +56,26 @@ namespace CapaPresentacion.VistaDirector
 
         private void buttonEstadistica_Click(object sender, EventArgs e)
         {
-            verSubMenu(panelEstadistica);
-        }
-
-        private void buttonVentas_Click(object sender, EventArgs e)
-        {
             abrirFormHijo(new EstadisticasProductos());
-            esconderSubMenu();
         }
-
-        private void buttonJornadas_Click(object sender, EventArgs e)
+        private void buttonJornadas_Click_1(object sender, EventArgs e)
         {
             abrirFormHijo(new EstadisticasCursos());
-            esconderSubMenu();
         }
 
-        private void buttonServicios_Click(object sender, EventArgs e)
+        private void buttonServicios_Click_1(object sender, EventArgs e)
         {
             abrirFormHijo(new EstadisticasServicios());
-            esconderSubMenu();
         }
 
-        private void buttonEmpleado_Click(object sender, EventArgs e)
+        private void buttonEmpleados_Click(object sender, EventArgs e)
         {
             abrirFormHijo(new EstadisticaEmpleados());
-            esconderSubMenu();
         }
 
-        private void buttonClientes_Click(object sender, EventArgs e)
+        private void buttonClientes_Click_1(object sender, EventArgs e)
         {
             abrirFormHijo(new EstadisticaClientes());
-            esconderSubMenu();
         }
 
         private void bunifuImageButton3_Click(object sender, EventArgs e)
@@ -140,5 +115,7 @@ namespace CapaPresentacion.VistaDirector
                 this.Close();
             }
         }
+
+
     }
 }

@@ -31,13 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDirectorInicio));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCerrarSesion = new System.Windows.Forms.Button();
-            this.panelEstadistica = new System.Windows.Forms.Panel();
-            this.buttonClientes = new System.Windows.Forms.Button();
-            this.buttonEmpleado = new System.Windows.Forms.Button();
-            this.buttonServicios = new System.Windows.Forms.Button();
-            this.buttonJornadas = new System.Windows.Forms.Button();
             this.buttonVentas = new System.Windows.Forms.Button();
-            this.buttonEstadistica = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.labelApellido = new System.Windows.Forms.Label();
             this.labelNombre = new System.Windows.Forms.Label();
@@ -47,8 +41,11 @@
             this.bunifuImageButton1 = new Bunifu.UI.WinForms.BunifuImageButton();
             this.buttonCloseForm = new Bunifu.UI.WinForms.BunifuImageButton();
             this.panelss = new System.Windows.Forms.Panel();
+            this.buttonJornadas = new System.Windows.Forms.Button();
+            this.buttonServicios = new System.Windows.Forms.Button();
+            this.buttonEmpleados = new System.Windows.Forms.Button();
+            this.buttonClientes = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panelEstadistica.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -56,9 +53,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panel1.Controls.Add(this.buttonClientes);
+            this.panel1.Controls.Add(this.buttonEmpleados);
+            this.panel1.Controls.Add(this.buttonServicios);
+            this.panel1.Controls.Add(this.buttonJornadas);
             this.panel1.Controls.Add(this.buttonCerrarSesion);
-            this.panel1.Controls.Add(this.panelEstadistica);
-            this.panel1.Controls.Add(this.buttonEstadistica);
+            this.panel1.Controls.Add(this.buttonVentas);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -84,128 +84,25 @@
             this.buttonCerrarSesion.UseVisualStyleBackColor = false;
             this.buttonCerrarSesion.Click += new System.EventHandler(this.buttonCerrarSesion_Click);
             // 
-            // panelEstadistica
-            // 
-            this.panelEstadistica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelEstadistica.Controls.Add(this.buttonClientes);
-            this.panelEstadistica.Controls.Add(this.buttonEmpleado);
-            this.panelEstadistica.Controls.Add(this.buttonServicios);
-            this.panelEstadistica.Controls.Add(this.buttonJornadas);
-            this.panelEstadistica.Controls.Add(this.buttonVentas);
-            this.panelEstadistica.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEstadistica.Location = new System.Drawing.Point(0, 181);
-            this.panelEstadistica.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelEstadistica.Name = "panelEstadistica";
-            this.panelEstadistica.Size = new System.Drawing.Size(240, 156);
-            this.panelEstadistica.TabIndex = 4;
-            // 
-            // buttonClientes
-            // 
-            this.buttonClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonClientes.FlatAppearance.BorderSize = 0;
-            this.buttonClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClientes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClientes.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonClientes.Location = new System.Drawing.Point(0, 124);
-            this.buttonClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonClientes.Name = "buttonClientes";
-            this.buttonClientes.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonClientes.Size = new System.Drawing.Size(240, 31);
-            this.buttonClientes.TabIndex = 6;
-            this.buttonClientes.Text = "Clientes";
-            this.buttonClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonClientes.UseVisualStyleBackColor = true;
-            this.buttonClientes.Click += new System.EventHandler(this.buttonClientes_Click);
-            // 
-            // buttonEmpleado
-            // 
-            this.buttonEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonEmpleado.FlatAppearance.BorderSize = 0;
-            this.buttonEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEmpleado.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEmpleado.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonEmpleado.Location = new System.Drawing.Point(0, 93);
-            this.buttonEmpleado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonEmpleado.Name = "buttonEmpleado";
-            this.buttonEmpleado.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonEmpleado.Size = new System.Drawing.Size(240, 31);
-            this.buttonEmpleado.TabIndex = 5;
-            this.buttonEmpleado.Text = "Empleados";
-            this.buttonEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEmpleado.UseVisualStyleBackColor = true;
-            this.buttonEmpleado.Click += new System.EventHandler(this.buttonEmpleado_Click);
-            // 
-            // buttonServicios
-            // 
-            this.buttonServicios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonServicios.FlatAppearance.BorderSize = 0;
-            this.buttonServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonServicios.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonServicios.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonServicios.Location = new System.Drawing.Point(0, 62);
-            this.buttonServicios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonServicios.Name = "buttonServicios";
-            this.buttonServicios.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonServicios.Size = new System.Drawing.Size(240, 31);
-            this.buttonServicios.TabIndex = 4;
-            this.buttonServicios.Text = "Servicios";
-            this.buttonServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonServicios.UseVisualStyleBackColor = true;
-            this.buttonServicios.Click += new System.EventHandler(this.buttonServicios_Click);
-            // 
-            // buttonJornadas
-            // 
-            this.buttonJornadas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonJornadas.FlatAppearance.BorderSize = 0;
-            this.buttonJornadas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonJornadas.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonJornadas.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonJornadas.Location = new System.Drawing.Point(0, 31);
-            this.buttonJornadas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonJornadas.Name = "buttonJornadas";
-            this.buttonJornadas.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonJornadas.Size = new System.Drawing.Size(240, 31);
-            this.buttonJornadas.TabIndex = 3;
-            this.buttonJornadas.Text = "Jornadas";
-            this.buttonJornadas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonJornadas.UseVisualStyleBackColor = true;
-            this.buttonJornadas.Click += new System.EventHandler(this.buttonJornadas_Click);
-            // 
             // buttonVentas
             // 
+            this.buttonVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.buttonVentas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonVentas.FlatAppearance.BorderSize = 0;
+            this.buttonVentas.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.buttonVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonVentas.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVentas.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonVentas.Location = new System.Drawing.Point(0, 0);
+            this.buttonVentas.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonVentas.Image = ((System.Drawing.Image)(resources.GetObject("buttonVentas.Image")));
+            this.buttonVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonVentas.Location = new System.Drawing.Point(0, 150);
             this.buttonVentas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonVentas.Name = "buttonVentas";
-            this.buttonVentas.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonVentas.Size = new System.Drawing.Size(240, 31);
-            this.buttonVentas.TabIndex = 2;
+            this.buttonVentas.Size = new System.Drawing.Size(240, 41);
+            this.buttonVentas.TabIndex = 3;
             this.buttonVentas.Text = "Ventas";
             this.buttonVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonVentas.UseVisualStyleBackColor = true;
-            this.buttonVentas.Click += new System.EventHandler(this.buttonVentas_Click);
-            // 
-            // buttonEstadistica
-            // 
-            this.buttonEstadistica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.buttonEstadistica.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonEstadistica.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonEstadistica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEstadistica.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEstadistica.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonEstadistica.Location = new System.Drawing.Point(0, 150);
-            this.buttonEstadistica.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonEstadistica.Name = "buttonEstadistica";
-            this.buttonEstadistica.Size = new System.Drawing.Size(240, 31);
-            this.buttonEstadistica.TabIndex = 3;
-            this.buttonEstadistica.Text = "Estadisticas ";
-            this.buttonEstadistica.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEstadistica.UseVisualStyleBackColor = false;
-            this.buttonEstadistica.Click += new System.EventHandler(this.buttonEstadistica_Click);
+            this.buttonVentas.UseVisualStyleBackColor = false;
+            this.buttonVentas.Click += new System.EventHandler(this.buttonEstadistica_Click);
             // 
             // panel5
             // 
@@ -392,6 +289,86 @@
             this.panelss.Size = new System.Drawing.Size(760, 560);
             this.panelss.TabIndex = 3;
             // 
+            // buttonJornadas
+            // 
+            this.buttonJornadas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.buttonJornadas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonJornadas.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonJornadas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonJornadas.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonJornadas.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonJornadas.Image = ((System.Drawing.Image)(resources.GetObject("buttonJornadas.Image")));
+            this.buttonJornadas.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonJornadas.Location = new System.Drawing.Point(0, 191);
+            this.buttonJornadas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonJornadas.Name = "buttonJornadas";
+            this.buttonJornadas.Size = new System.Drawing.Size(240, 41);
+            this.buttonJornadas.TabIndex = 8;
+            this.buttonJornadas.Text = "Jornadas";
+            this.buttonJornadas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonJornadas.UseVisualStyleBackColor = false;
+            this.buttonJornadas.Click += new System.EventHandler(this.buttonJornadas_Click_1);
+            // 
+            // buttonServicios
+            // 
+            this.buttonServicios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.buttonServicios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonServicios.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonServicios.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonServicios.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonServicios.Image = ((System.Drawing.Image)(resources.GetObject("buttonServicios.Image")));
+            this.buttonServicios.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonServicios.Location = new System.Drawing.Point(0, 232);
+            this.buttonServicios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonServicios.Name = "buttonServicios";
+            this.buttonServicios.Size = new System.Drawing.Size(240, 41);
+            this.buttonServicios.TabIndex = 9;
+            this.buttonServicios.Text = "Servicios";
+            this.buttonServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonServicios.UseVisualStyleBackColor = false;
+            this.buttonServicios.Click += new System.EventHandler(this.buttonServicios_Click_1);
+            // 
+            // buttonEmpleados
+            // 
+            this.buttonEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.buttonEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonEmpleados.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEmpleados.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEmpleados.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonEmpleados.Image = ((System.Drawing.Image)(resources.GetObject("buttonEmpleados.Image")));
+            this.buttonEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonEmpleados.Location = new System.Drawing.Point(0, 273);
+            this.buttonEmpleados.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonEmpleados.Name = "buttonEmpleados";
+            this.buttonEmpleados.Size = new System.Drawing.Size(240, 41);
+            this.buttonEmpleados.TabIndex = 10;
+            this.buttonEmpleados.Text = "Empleados";
+            this.buttonEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEmpleados.UseVisualStyleBackColor = false;
+            this.buttonEmpleados.Click += new System.EventHandler(this.buttonEmpleados_Click);
+            // 
+            // buttonClientes
+            // 
+            this.buttonClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.buttonClientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonClientes.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClientes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClientes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonClientes.Image = ((System.Drawing.Image)(resources.GetObject("buttonClientes.Image")));
+            this.buttonClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonClientes.Location = new System.Drawing.Point(0, 314);
+            this.buttonClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonClientes.Name = "buttonClientes";
+            this.buttonClientes.Size = new System.Drawing.Size(240, 41);
+            this.buttonClientes.TabIndex = 11;
+            this.buttonClientes.Text = "Clientes";
+            this.buttonClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonClientes.UseVisualStyleBackColor = false;
+            this.buttonClientes.Click += new System.EventHandler(this.buttonClientes_Click_1);
+            // 
             // FormDirectorInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -406,7 +383,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDirectorInicio";
             this.panel1.ResumeLayout(false);
-            this.panelEstadistica.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -418,21 +394,19 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonCerrarSesion;
-        private System.Windows.Forms.Panel panelEstadistica;
-        private System.Windows.Forms.Button buttonJornadas;
         private System.Windows.Forms.Button buttonVentas;
-        private System.Windows.Forms.Button buttonEstadistica;
         private System.Windows.Forms.Panel panel3;
         private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton3;
         private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton1;
         private Bunifu.UI.WinForms.BunifuImageButton buttonCloseForm;
         private System.Windows.Forms.Panel panelss;
-        private System.Windows.Forms.Button buttonServicios;
-        private System.Windows.Forms.Button buttonClientes;
-        private System.Windows.Forms.Button buttonEmpleado;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelApellido;
         private System.Windows.Forms.Label labelNombre;
+        private System.Windows.Forms.Button buttonClientes;
+        private System.Windows.Forms.Button buttonEmpleados;
+        private System.Windows.Forms.Button buttonServicios;
+        private System.Windows.Forms.Button buttonJornadas;
     }
 }
