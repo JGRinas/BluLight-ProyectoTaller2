@@ -69,14 +69,20 @@ namespace CapaPresentacion.CapaPresentacion.VistaRecepcionista.Servicios.Childre
 
         private void datagridServicios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //List<Label> labels = new List<Label>();
+            //labels.Add(labelNombreServ);
+            //labels.Add(labelLab);
+            //labels.Add(labelIdServicio);
+            //List<ComboBox> comboBoxes = new List<ComboBox>();
+            //comboBoxes.Add(comboBoxLab);
+            //comboBoxes.Add(comboBoxCategoria);
+            //textBoxCantidad.Enabled = true;
             List<Label> labels = new List<Label>();
-            labels.Add(labelNombreServicio);
+            labels.Add(labelNombreServ);
             labels.Add(labelIdServicio);
-            List<ComboBox> comboBoxes = new List<ComboBox>();
-            comboBoxes.Add(comboBoxLab);
-            comboBoxes.Add(comboBoxCategoria);
+            labels.Add(labelLab);
             textBoxCantidad.Enabled = true;
-            venta.obtenerServicioDelDataGrid(labels, comboBoxes, textBoxNombreServicio, btnAgregarServicio, datagridServicios);
+            venta.obtenerServicioDelDataGrid(labels, textBoxNombreServicio, btnAgregarServicio, datagridServicios);
         }
 
         private void buttonBuscarServicioNombre_Click(object sender, EventArgs e)
@@ -84,6 +90,7 @@ namespace CapaPresentacion.CapaPresentacion.VistaRecepcionista.Servicios.Childre
             List<Label> labels = new List<Label>();
             labels.Add(labelNombreServ);
             labels.Add(labelIdServicio);
+            labels.Add(labelLab);
             textBoxCantidad.Enabled = true;
             venta.buscarServicio(labels, textBoxNombreServicio, btnAgregarServicio);
         }
@@ -95,7 +102,7 @@ namespace CapaPresentacion.CapaPresentacion.VistaRecepcionista.Servicios.Childre
             comboBoxes.Add(comboBoxCategoria);
 
             datagridServicios.Rows.Clear();
-            venta.buscarProductoCateYColor(comboBoxes, datagridServicios);
+            venta.buscarServicioFiltro(comboBoxes, datagridServicios);
         }
 
         private void buttonMostrarTodos_Click(object sender, EventArgs e)
@@ -106,9 +113,14 @@ namespace CapaPresentacion.CapaPresentacion.VistaRecepcionista.Servicios.Childre
 
         private void buttonAgregarServicio_Click(object sender, EventArgs e)
         {
-            //int idP = Int32.Parse(labelIdServicio.Text);
 
-            venta.agregarServicioCarrito(MyGlobals.idServSelecc, textBoxCantidad, MyGlobals.idLabSelecc);
+            if (textBoxCantidad.Text != "")
+            {
+                venta.agregarServicioCarrito(MyGlobals.idServSelecc, textBoxCantidad, MyGlobals.idLabSelecc);
+            }
+            else {
+                MessageBox.Show("Seleccione la cantidad del servicio.","Error", MessageBoxButtons.OK);
+            }
 
             datagridServicios.Rows.Clear();
             venta.rellenarDataGridServicios(datagridServicios);

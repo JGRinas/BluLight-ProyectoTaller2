@@ -75,7 +75,7 @@ namespace CapaPresentacion.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitu
             if (solicitud1.formatoIdSolicitud(textBoxBuscarId.Text)) //validación del formato
             {
                 dataGridSolicitudes.Rows.Clear();
-                solicitud1.filtrarId(dataGridSolicitudes, textBoxBuscarId.Text, btnMostrarTodos, 1);
+                solicitud1.filtrarIdBaja(dataGridSolicitudes, textBoxBuscarId.Text, btnMostrarTodos, 1);
             }
             else
             {

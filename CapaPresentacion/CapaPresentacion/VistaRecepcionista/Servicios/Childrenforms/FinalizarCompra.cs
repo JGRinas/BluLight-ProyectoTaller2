@@ -43,6 +43,7 @@ namespace CapaPresentacion.CapaPresentacion.VistaRecepcionista.Servicios.Childre
                 textBoxServicios.Text += servicios[i].nombre + " x" + cantidad[i] + ". \n";
             }
             labelCliente.Text = MyGlobals.clienteVentas[0].nombre + " " + MyGlobals.clienteVentas[0].apellido;
+            labelDni.Text = MyGlobals.clienteVentas[0].dni.ToString();
             labelVendedor.Text = MyGlobals.persona.nombre + " " + MyGlobals.persona.apellido;
         }
 

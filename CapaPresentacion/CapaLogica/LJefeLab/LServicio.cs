@@ -52,12 +52,12 @@ namespace CapaLogica.Libreria
                             if (servicio.activo)
                             {
                                 boton.Value = "Baja";
-                                boton.Style.BackColor = Color.Red;
+                                boton.Style.BackColor = Color.Coral;
                             }
                             else
                             {
                                 boton.Value = "Alta";
-                                boton.Style.BackColor = Color.Blue;
+                                boton.Style.BackColor = Color.Aquamarine;
                              }
                             
                             

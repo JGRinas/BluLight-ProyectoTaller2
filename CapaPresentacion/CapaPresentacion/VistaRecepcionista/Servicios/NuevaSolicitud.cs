@@ -99,25 +99,31 @@ namespace CapaPresentacion.VistaRecepcionista.Servicios
 
         private void btnFinalizarCompra_Click(object sender, EventArgs e)
         {
-            FinalizarCompra finalizarCompra = new FinalizarCompra();
-            finalizarCompra.ShowDialog();
-            if (MyGlobals.servicioVentas.Count == 0)
+            if (MyGlobals.clienteVentas.Count != 0)
             {
-                List<Button> buttons = new List<Button>();
-                buttons.Add(btnBuscarServicio);
-                buttons.Add(btnFinalizarCompra);
-                //buttons.Add(btnCancelarCompra);
+                FinalizarCompra finalizarCompra = new FinalizarCompra();
+                finalizarCompra.ShowDialog();
+                if (MyGlobals.servicioVentas.Count == 0)
+                {
+                    List<Button> buttons = new List<Button>();
+                    buttons.Add(btnBuscarServicio);
+                    buttons.Add(btnFinalizarCompra);
+                    //buttons.Add(btnCancelarCompra);
 
-                List<Label> labels = new List<Label>();
-                labels.Add(labelApellidoC);
-                labels.Add(labelDniC);
-                labels.Add(labelEmailC);
-                labels.Add(labelNombreC);
-                labels.Add(labelTotal);
+                    List<Label> labels = new List<Label>();
+                    labels.Add(labelApellidoC);
+                    labels.Add(labelDniC);
+                    labels.Add(labelEmailC);
+                    labels.Add(labelNombreC);
+                    labels.Add(labelTotal);
 
-                venta.cancelarVenta(buttons, labels);
-                datagridCarrito.Rows.Clear();
-                venta.rellenarDataGridCarritoServicios(datagridCarrito);
+                    venta.cancelarVenta(buttons, labels);
+                    datagridCarrito.Rows.Clear();
+                    venta.rellenarDataGridCarritoServicios(datagridCarrito);
+                }
+            }
+            else {
+                MessageBox.Show("¡Seleccione el cliente!","Error", MessageBoxButtons.OK);
             }
         }
 

@@ -264,7 +264,6 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                 int idLab = Int32.Parse(filtrarIdSolicitud(idSolicitud)[2]);
                 int idEmpleado = Int32.Parse(filtrarIdEmpleado(textoEmpleado));
 
-                MessageBox.Show(idEmpleado + "bien", "BIEN AHI", MessageBoxButtons.OK);
 
                 using (bd_blulightEntities db = new bd_blulightEntities())
                 {
@@ -280,7 +279,9 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                         solicitud.First().idEmpleado = idEmpleado;
                         //solicitud.First().fechaFinalizacion = dsadasds;
                         db.SaveChanges();
+                        MessageBox.Show("El estado de la solicitud ha sido promovida a REALIZADA.", "Solicitud promovida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+
                 }
             }
         }
@@ -294,7 +295,7 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                 int idLab = Int32.Parse(filtrarIdSolicitud(idSolicitud)[2]);
                 int idEmpleado = Int32.Parse(filtrarIdEmpleado(textoEmpleado));
 
-                MessageBox.Show(idEmpleado + "El estado de la solicitud ha sido promovido a ENTREGADO", "Estado de solicitud promovido", MessageBoxButtons.OK);
+                MessageBox.Show("El estado de la solicitud ha sido promovido a ENTREGADO", "Estado de solicitud promovido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 using (bd_blulightEntities db = new bd_blulightEntities())
                 {
@@ -348,7 +349,7 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
             } else { return false; }
         }
 
-        public void filtrarId(BunifuDataGridView datagrid, string idSolicitud, Button boton, int param)
+        public void filtrarIdBaja(BunifuDataGridView datagrid, string idSolicitud, Button boton, int param)
         {
 
             int idFacturaServ = Int32.Parse(filtrarIdSolicitud(idSolicitud)[0]);
@@ -361,6 +362,68 @@ namespace CapaPresentacion.CapaLogica.LJefeLab
                 e.idLab == MyGlobals.empleado.idLab 
                 && e.idEstado == param
                 && e.idServicio == idServicio 
+                && e.idFacturaServ == idFacturaServ).ToList();
+
+                if (solicitudes.Count > 0)
+                {
+                    foreach (Detalle_factura_servicio solicitud in solicitudes)
+                    {
+                        
+                        int fila = datagrid.Rows.Add();
+                        datagrid.Rows[fila].DefaultCellStyle.BackColor = Color.White;
+
+                        string activo = "";
+                        DataGridViewButtonCell botonAltaBaja = new DataGridViewButtonCell();
+
+                        if (solicitud.activo == true)
+                        {
+                            datagrid.Rows[fila].Cells["columnActivo"].Value = "Si";
+                            datagrid.Rows[fila].DefaultCellStyle.BackColor = Color.White;
+                            //datagrid.Rows[fila].Cells["columnAltaBaja"].Value = "Baja";
+                            botonAltaBaja.Value = "Baja";
+                            botonAltaBaja.Style.BackColor = Color.Coral;
+
+                        }
+                        else
+                        {
+                            datagrid.Rows[fila].Cells["columnActivo"].Value = "No";
+                            datagrid.Rows[fila].DefaultCellStyle.BackColor = Color.Gray;
+                            //datagrid.Rows[fila].Cells["columnAltaBaja"].Value = "Alta";
+                            botonAltaBaja.Value = "Alta";
+                            botonAltaBaja.Style.BackColor = Color.Aquamarine;
+                        }
+
+                        datagrid.Rows[fila].Cells["columnAltaBaja"] = botonAltaBaja;
+                        datagrid.Rows[fila].Cells["columnIdSolicitud"].Value = solicitud.idFacturaServ + "-" + solicitud.idServicio + "-" + solicitud.idLab;
+                        datagrid.Rows[fila].Cells["columnNombreServicio"].Value = solicitud.Servicio_laboratorio.Servicio.nombre;
+                        datagrid.Rows[fila].Cells["columnCantidad"].Value = solicitud.cantidad;
+                        datagrid.Rows[fila].Cells["columnDniCliente"].Value = solicitud.Factura_servicio.Persona.dni;
+                        datagrid.Rows[fila].Cells["columnNombreCliente"].Value = solicitud.Factura_servicio.Persona.nombre + " " + solicitud.Factura_servicio.Persona.apellido;
+                        datagrid.Rows[fila].Cells["columnActivo"].Value = activo;
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se ha encontrado la solicitud", "Solicitud no encontrada", MessageBoxButtons.OK);
+                }
+                boton.Enabled = true; //habilita el botón "Mostrar todos"
+            }
+        }
+
+        public void filtrarId(BunifuDataGridView datagrid, string idSolicitud, Button boton, int param)
+        {
+
+            int idFacturaServ = Int32.Parse(filtrarIdSolicitud(idSolicitud)[0]);
+            int idServicio = Int32.Parse(filtrarIdSolicitud(idSolicitud)[1]);
+
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                List<Detalle_factura_servicio> solicitudes = new List<Detalle_factura_servicio>();
+                solicitudes = db.Detalle_factura_servicio.Where(e =>
+                e.idLab == MyGlobals.empleado.idLab
+                && e.idEstado == param
+                && e.idServicio == idServicio
                 && e.idFacturaServ == idFacturaServ).ToList();
 
                 if (solicitudes.Count > 0)

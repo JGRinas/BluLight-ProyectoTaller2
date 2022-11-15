@@ -51,7 +51,8 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionServicios
 
         private void btnRegistrarServicio_Click(object sender, EventArgs e)
         {
-            int idServicio = Int32.Parse(comboBoxServicios.SelectedItem.ToString().Substring(0, 1));
+            //int idServicio = Int32.Parse(comboBoxServicios.SelectedItem.ToString().Substring(0, 1));
+            int idServicio = Int32.Parse((comboBoxServicios.SelectedItem.ToString().Substring(0, comboBoxServicios.SelectedItem.ToString().IndexOf("-") - 1)).Trim());
             int idLaboratorio = (int)MyGlobals.empleado.idLab;
             servicio.agregarServicioLaboratorio(idServicio,idLaboratorio);
             DataGridServicioDelLab.Rows.Clear();

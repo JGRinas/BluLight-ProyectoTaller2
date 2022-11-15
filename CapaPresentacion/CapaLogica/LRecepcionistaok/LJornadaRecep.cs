@@ -66,19 +66,32 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
                 int dniPersona = Int32.Parse(labelDni.Text);
                 Persona persona = db.Persona.Where(p => p.dni.Equals(dniPersona)).FirstOrDefault();
 
+                
+
                 if (jornada != null && persona != null && jornada.inscriptos < jornada.cupo)
                 {
-                    jornada.inscriptos += 1;
-                    db.SaveChanges();
-                    Inscripto_jornada inscripcion = new Inscripto_jornada();
-                    inscripcion.idJornada = jornada.idJornada;
-                    inscripcion.idPersona = persona.idPersona;
-                    inscripcion.fechaInscripcion = DateTime.Now.Date;
-                    inscripcion.horaInscripcion = DateTime.Now.TimeOfDay;
-                    inscripcion.activo = true;
-                    db.Inscripto_jornada.Add(inscripcion);
-                    db.SaveChanges();
-                    MessageBox.Show("¡Inscripción a jornada realizada con éxito!", "Inscribir a jornada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    int idPersona = persona.idPersona;
+                    int idJornada = jornada.idJornada;
+                    var yaInscripto = db.Inscripto_jornada.Where(ins => ins.idPersona == idPersona && ins.idJornada == idJornada).ToList();
+
+                    if (yaInscripto.Count == 0)
+                    {
+
+                        jornada.inscriptos += 1;
+                        db.SaveChanges();
+                        Inscripto_jornada inscripcion = new Inscripto_jornada();
+                        inscripcion.idJornada = jornada.idJornada;
+                        inscripcion.idPersona = persona.idPersona;
+                        inscripcion.fechaInscripcion = DateTime.Now.Date;
+                        inscripcion.horaInscripcion = DateTime.Now.TimeOfDay;
+                        inscripcion.activo = true;
+                        db.Inscripto_jornada.Add(inscripcion);
+                        db.SaveChanges();
+                        MessageBox.Show("¡Inscripción a jornada realizada con éxito!", "Inscribir a jornada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else {
+                        MessageBox.Show("¡La persona seleccionada ya está inscripta en la jornada!","Error al inscribir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else {
                     MessageBox.Show("No es posible inscribir a la jornada. ¡Cupo lleno!", "Inscribir a jornada", MessageBoxButtons.OK, MessageBoxIcon.Information);

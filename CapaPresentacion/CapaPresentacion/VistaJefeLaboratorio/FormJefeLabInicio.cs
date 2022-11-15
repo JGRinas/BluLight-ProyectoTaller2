@@ -37,7 +37,7 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio
             panelSolicitudes.Visible = false;
             panelServicios.Visible = false;
             panelCursos.Visible = false;
-            panelReportes.Visible = false;
+            //panelReportes.Visible = false;
         }
 
         private void esconderSubMenu()
@@ -49,8 +49,8 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio
             if (panelServicios.Visible == true)
                 panelServicios.Visible = false;
 
-            if (panelReportes.Visible == true)
-                panelReportes.Visible = false;
+            //if (panelReportes.Visible == true)
+            //    panelReportes.Visible = false;
 
             if (panelCursos.Visible == true)
                 panelCursos.Visible = false;
@@ -108,10 +108,10 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio
             esconderSubMenu();
         }
 
-        private void buttonReportes_Click(object sender, EventArgs e)
-        {
-            verSubMenu(panelReportes);
-        }
+        //private void buttonReportes_Click(object sender, EventArgs e)
+        //{
+        //    verSubMenu(panelReportes);
+        //}
         private void buttonNuevoReporte_Click(object sender, EventArgs e)
         {
             abrirFormHijo(new NuevoReporte());

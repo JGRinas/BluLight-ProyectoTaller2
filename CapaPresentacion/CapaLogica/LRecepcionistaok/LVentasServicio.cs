@@ -18,6 +18,8 @@ using Image = System.Drawing.Image;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using System.Drawing.Printing;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using CapaPresentacion.CapaLogica.LAdmin;
 
 namespace CapaPresentacion.CapaLogica.LRecepcionistaok
 {
@@ -48,7 +50,7 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
             }
         }
 
-        public void buscarClienteEnVentas(TextBox dniC, List<Label> labels, Button button)
+        public void buscarClienteEnVentas(System.Windows.Forms.TextBox dniC, List<Label> labels, System.Windows.Forms.Button button)
         {
             if (dniC.Text.Equals(""))
             {
@@ -78,7 +80,7 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
             }
 
         }
-        public void buscarClienteEnVentasDataGrid(TextBox dniC, List<Label> labels, Button button, DataGridView dataGrid)
+        public void buscarClienteEnVentasDataGrid(System.Windows.Forms.TextBox dniC, List<Label> labels, System.Windows.Forms.Button button, DataGridView dataGrid)
         {
             labels[0].Text = dataGrid.CurrentRow.Cells[1].Value.ToString();
             labels[0].Visible = true;
@@ -157,7 +159,7 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
             }
         }
 
-        public void buscarServicio(List<Label> labels, TextBox textBox, Button button)
+        public void buscarServicio(List<Label> labels, System.Windows.Forms.TextBox textBox, System.Windows.Forms.Button button)
         {
             if (textBox.Text.Equals(""))
             {
@@ -172,6 +174,7 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
                     {
                         labels[0].Text = servicio.FirstOrDefault().Servicio.nombre;
                         labels[1].Text = servicio.FirstOrDefault().idServicio.ToString();
+                        labels[2].Text = servicio.FirstOrDefault().Laboratorio.nombre;
                         MyGlobals.idServSelecc = servicio.FirstOrDefault().idServicio;
                         MyGlobals.idLabSelecc = servicio.FirstOrDefault().idLab;
 
@@ -186,97 +189,147 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
 
         }
 
-        public void buscarProductoCateYColor(List<ComboBox> comboBoxes, DataGridView dataGrid)
+        public void buscarServicioFiltro(List<System.Windows.Forms.ComboBox> comboBoxes, DataGridView datagridServicios)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
-                List<Producto> Products = new List<Producto>();
-                int idCategoria = comboBoxes[1].SelectedIndex + 1;
-                int idColor = comboBoxes[0].SelectedIndex + 1;
-                Products = db.Producto.ToList();
-
-                int tamano = 60;
-
-                if (Products.Count > 0)
+                List<Servicio_laboratorio> servicios;
+                if (comboBoxes[0].SelectedIndex != -1 && comboBoxes[1].SelectedIndex != -1)
                 {
+                    int idLabSeleccionado = Int32.Parse(comboBoxes[0].SelectedItem.ToString().Substring(0, comboBoxes[0].SelectedItem.ToString().IndexOf("-")).Trim());
+                    int idCategoriaSeleccionado = Int32.Parse(comboBoxes[1].SelectedItem.ToString().Substring(0, comboBoxes[0].SelectedItem.ToString().IndexOf("-")).Trim());
+                    servicios = db.Servicio_laboratorio.Where(slab => slab.idLab == idLabSeleccionado && slab.Servicio.Categoria_servicio.idCategoriaServ == idCategoriaSeleccionado).ToList();
+                }
+                else if (comboBoxes[0].SelectedIndex != -1 && comboBoxes[1].SelectedIndex == -1)
+                {
+                    int idLabSeleccionado = Int32.Parse(comboBoxes[0].SelectedItem.ToString().Substring(0, comboBoxes[0].SelectedItem.ToString().IndexOf("-")).Trim());
+                    servicios = db.Servicio_laboratorio.Where(slab => slab.idLab == idLabSeleccionado).ToList();
+                }
+                else 
+                {
+                    servicios = db.Servicio_laboratorio.ToList();
+                }
 
-                    foreach (Producto product in Products)
+                if (servicios.Count > 0)
+                {
+                    foreach (Servicio_laboratorio servicio in servicios)
                     {
-                        if (product.Categoria_producto.idCategoriaProd == idCategoria && product.Color_producto.idColor == idColor)
+                        if (servicio.activo)
                         {
-                            int fila = dataGrid.Rows.Add();
 
-                            dataGrid.Rows[fila].Cells["ColumnId"].Value = product.idProducto;
-                            dataGrid.Rows[fila].Cells["ColumnTitulo"].Value = product.nombre;
-                            dataGrid.Rows[fila].Cells["ColumnCategorIA"].Value = product.Categoria_producto.categoria;
-                            dataGrid.Rows[fila].Cells["ColumnColor"].Value = product.Color_producto.color;
-                            dataGrid.Rows[fila].Cells["ColumnStock"].Value = product.stock;
-                            dataGrid.Rows[fila].Cells["ColumnPrecio"].Value = product.precio;
 
-                            Image thumb = uploadImage.byteToImage(product.imagen).GetThumbnailImage(tamano, tamano, null, IntPtr.Zero);
-                            dataGrid.Rows[fila].Height = tamano;
-                            dataGrid.Rows[fila].Cells["ColumnImagen"].Value = thumb;
-                        }
+                            Servicio_laboratorio serv = MyGlobals.servicioVentas.Where(p => p.idServicio.Equals(servicio.idServicio)).FirstOrDefault();
+                            var existe = MyGlobals.servicioVentas.IndexOf(serv);
+                            int cantidad = 0;
+                            if (existe != -1)
+                            {
+                                cantidad = MyGlobals.cantidadServicio[existe];
+                            }
 
-                        if (product.Categoria_producto.idCategoriaProd == idCategoria && idColor == 0)
-                        {
-                            int fila = dataGrid.Rows.Add();
+                            int fila = datagridServicios.Rows.Add();
 
-                            dataGrid.Rows[fila].Cells["ColumnId"].Value = product.idProducto;
-                            dataGrid.Rows[fila].Cells["ColumnTitulo"].Value = product.nombre;
-                            dataGrid.Rows[fila].Cells["ColumnCategorIA"].Value = product.Categoria_producto.categoria;
-                            dataGrid.Rows[fila].Cells["ColumnColor"].Value = product.Color_producto.color;
-                            dataGrid.Rows[fila].Cells["ColumnStock"].Value = product.stock;
-                            dataGrid.Rows[fila].Cells["ColumnPrecio"].Value = product.precio;
+                            datagridServicios.Rows[fila].Cells["ColumnId"].Value = servicio.idServicio + " - " + servicio.idLab;
+                            datagridServicios.Rows[fila].Cells["ColumnNombre"].Value = servicio.Servicio.nombre;
+                            datagridServicios.Rows[fila].Cells["ColumnLab"].Value = servicio.Laboratorio.nombre;
+                            datagridServicios.Rows[fila].Cells["ColumnPrecio"].Value = servicio.Servicio.precio;
+                            datagridServicios.Rows[fila].Cells["ColumnCategoria"].Value = servicio.Servicio.Categoria_servicio.categoria;
 
-                            Image thumb = uploadImage.byteToImage(product.imagen).GetThumbnailImage(tamano, tamano, null, IntPtr.Zero);
-                            dataGrid.Rows[fila].Height = tamano;
-                            dataGrid.Rows[fila].Cells["ColumnImagen"].Value = thumb;
-                        }
-
-                        if (idCategoria == 0 && product.Color_producto.idColor == idColor)
-                        {
-                            int fila = dataGrid.Rows.Add();
-
-                            dataGrid.Rows[fila].Cells["ColumnId"].Value = product.idProducto;
-                            dataGrid.Rows[fila].Cells["ColumnTitulo"].Value = product.nombre;
-                            dataGrid.Rows[fila].Cells["ColumnCategorIA"].Value = product.Categoria_producto.categoria;
-                            dataGrid.Rows[fila].Cells["ColumnColor"].Value = product.Color_producto.color;
-                            dataGrid.Rows[fila].Cells["ColumnStock"].Value = product.stock;
-                            dataGrid.Rows[fila].Cells["ColumnPrecio"].Value = product.precio;
-
-                            Image thumb = uploadImage.byteToImage(product.imagen).GetThumbnailImage(tamano, tamano, null, IntPtr.Zero);
-                            dataGrid.Rows[fila].Height = tamano;
-                            dataGrid.Rows[fila].Cells["ColumnImagen"].Value = thumb;
                         }
                     }
                 }
-            }
+
+            }   
         }
 
-        public void obtenerServicioDelDataGrid(List<Label> labels, List<ComboBox> comboBoxes, TextBox textBox, Button button, DataGridView dataGrid)
+        //public void buscarProductoCateYColor(List<ComboBox> comboBoxes, DataGridView dataGrid)
+        //{
+        //    using (bd_blulightEntities db = new bd_blulightEntities())
+        //    {
+        //        List<Producto> Products = new List<Producto>();
+        //        int idCategoria = comboBoxes[1].SelectedIndex + 1;
+        //        int idColor = comboBoxes[0].SelectedIndex + 1;
+        //        Products = db.Producto.ToList();
+
+        //        int tamano = 60;
+
+        //        if (Products.Count > 0)
+        //        {
+
+        //            foreach (Producto product in Products)
+        //            {
+        //                if (product.Categoria_producto.idCategoriaProd == idCategoria && product.Color_producto.idColor == idColor)
+        //                {
+        //                    int fila = dataGrid.Rows.Add();
+
+        //                    dataGrid.Rows[fila].Cells["ColumnId"].Value = product.idProducto;
+        //                    dataGrid.Rows[fila].Cells["ColumnTitulo"].Value = product.nombre;
+        //                    dataGrid.Rows[fila].Cells["ColumnCategorIA"].Value = product.Categoria_producto.categoria;
+        //                    dataGrid.Rows[fila].Cells["ColumnColor"].Value = product.Color_producto.color;
+        //                    dataGrid.Rows[fila].Cells["ColumnStock"].Value = product.stock;
+        //                    dataGrid.Rows[fila].Cells["ColumnPrecio"].Value = product.precio;
+
+        //                    Image thumb = uploadImage.byteToImage(product.imagen).GetThumbnailImage(tamano, tamano, null, IntPtr.Zero);
+        //                    dataGrid.Rows[fila].Height = tamano;
+        //                    dataGrid.Rows[fila].Cells["ColumnImagen"].Value = thumb;
+        //                }
+
+        //                if (product.Categoria_producto.idCategoriaProd == idCategoria && idColor == 0)
+        //                {
+        //                    int fila = dataGrid.Rows.Add();
+
+        //                    dataGrid.Rows[fila].Cells["ColumnId"].Value = product.idProducto;
+        //                    dataGrid.Rows[fila].Cells["ColumnTitulo"].Value = product.nombre;
+        //                    dataGrid.Rows[fila].Cells["ColumnCategorIA"].Value = product.Categoria_producto.categoria;
+        //                    dataGrid.Rows[fila].Cells["ColumnColor"].Value = product.Color_producto.color;
+        //                    dataGrid.Rows[fila].Cells["ColumnStock"].Value = product.stock;
+        //                    dataGrid.Rows[fila].Cells["ColumnPrecio"].Value = product.precio;
+
+        //                    Image thumb = uploadImage.byteToImage(product.imagen).GetThumbnailImage(tamano, tamano, null, IntPtr.Zero);
+        //                    dataGrid.Rows[fila].Height = tamano;
+        //                    dataGrid.Rows[fila].Cells["ColumnImagen"].Value = thumb;
+        //                }
+
+        //                if (idCategoria == 0 && product.Color_producto.idColor == idColor)
+        //                {
+        //                    int fila = dataGrid.Rows.Add();
+
+        //                    dataGrid.Rows[fila].Cells["ColumnId"].Value = product.idProducto;
+        //                    dataGrid.Rows[fila].Cells["ColumnTitulo"].Value = product.nombre;
+        //                    dataGrid.Rows[fila].Cells["ColumnCategorIA"].Value = product.Categoria_producto.categoria;
+        //                    dataGrid.Rows[fila].Cells["ColumnColor"].Value = product.Color_producto.color;
+        //                    dataGrid.Rows[fila].Cells["ColumnStock"].Value = product.stock;
+        //                    dataGrid.Rows[fila].Cells["ColumnPrecio"].Value = product.precio;
+
+        //                    Image thumb = uploadImage.byteToImage(product.imagen).GetThumbnailImage(tamano, tamano, null, IntPtr.Zero);
+        //                    dataGrid.Rows[fila].Height = tamano;
+        //                    dataGrid.Rows[fila].Cells["ColumnImagen"].Value = thumb;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
+        public void obtenerServicioDelDataGrid(List<Label> labels, System.Windows.Forms.TextBox textBox, System.Windows.Forms.Button button, DataGridView dataGrid)
         {
             textBox.Text = dataGrid.CurrentRow.Cells[1].Value.ToString();
             labels[0].Text = dataGrid.CurrentRow.Cells[1].Value.ToString();
             labels[1].Text = dataGrid.CurrentRow.Cells[0].Value.ToString();
-
-            using (bd_blulightEntities db = new bd_blulightEntities())
-            {
-                var prod = dataGrid.CurrentRow.Cells[5].Value.ToString();
-                Categoria_producto categoria = db.Categoria_producto.Where(c => c.categoria.Equals(prod)).FirstOrDefault();
-
-                prod = dataGrid.CurrentRow.Cells[6].Value.ToString();
-                Color_producto color = db.Color_producto.Where(c => c.color.Equals(prod)).FirstOrDefault();
-
-                comboBoxes[0].SelectedIndex = color.idColor - 1;
-                comboBoxes[1].SelectedIndex = categoria.idCategoriaProd - 1;
-            }
+            labels[2].Text = dataGrid.CurrentRow.Cells[2].Value.ToString();
 
 
+            //string idServ = dataGrid.CurrentRow.Cells[0].Value.ToString().Substring(0, dataGrid.CurrentRow.Cells[0].Value.ToString().IndexOf("-"));
+            //string idLab = dataGrid.CurrentRow.Cells[0].Value.ToString().Substring(dataGrid.CurrentRow.Cells[0].Value.ToString().IndexOf("-"), dataGrid.CurrentRow.Cells[0].Value.ToString().Length - 1);
+
+            System.Windows.Forms.TextBox nombreServicio = new System.Windows.Forms.TextBox();
+            nombreServicio.Text = dataGrid.CurrentRow.Cells[1].Value.ToString();
+            //MyGlobals.idServSelecc = Int32.Parse(idServ);
+            //MyGlobals.idLabSelecc = Int32.Parse(idLab);
+
+            this.buscarServicio(labels, nombreServicio, button);
             button.Enabled = true;
         }
 
-        public void agregarServicioCarrito(int idS, TextBox cantidadS, int idLab)
+        public void agregarServicioCarrito(int idS, System.Windows.Forms.TextBox cantidadS, int idLab)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
@@ -302,7 +355,7 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
                     MyGlobals.servicioVentas2.Add(servicio.Servicio);
                     MyGlobals.cantidadServicio.Add(cantidad);
                     MyGlobals.dataGridServiciosVentas.Rows.Clear();
-                    rellenarDataGridCarritoServicios(MyGlobals.dataGridProductosVentas);
+                    rellenarDataGridCarritoServicios(MyGlobals.dataGridServiciosVentas);
                     MessageBox.Show("El Servicio fue agregado!", "Agregar servicio", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //}
 
@@ -316,31 +369,28 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
 
-                if (MyGlobals.productoVentas.Count > 0)
+                if (MyGlobals.servicioVentas.Count > 0)
                 {
-                    ((DataGridViewTextBoxColumn)dataGrid.Columns["ColumnCantidad"]).MaxInputLength = 9;
+                    //((DataGridViewTextBoxColumn)dataGrid.Columns["ColumnCantidad"]).MaxInputLength = 9;
 
-                    foreach (Producto product in MyGlobals.productoVentas)
+                    foreach (Servicio servicio in MyGlobals.servicioVentas2)
                     {
-                        if (product.activo && product.stock > 0)
+                        if (servicio.activo == true)
                         {
                             int fila = dataGrid.Rows.Add();
-                            dataGrid.Rows[fila].Cells["ColumnId"].Value = fila.ToString();
-                            dataGrid.Rows[fila].Cells["ColumnTitulo"].Value = product.nombre;
-                            dataGrid.Rows[fila].Cells["ColumnCantidad"].Value = MyGlobals.cantidadProducto[fila];
-                            dataGrid.Rows[fila].Cells["ColumnSubtotal"].Value = product.precio * Int32.Parse(dataGrid.Rows[fila].Cells["ColumnCantidad"].Value.ToString());
-                            Image thumb = uploadImage.byteToImage(product.imagen).GetThumbnailImage(70, 70, null, IntPtr.Zero);
-                            dataGrid.Rows[fila].Height = 70;
-                            dataGrid.Rows[fila].Cells["ColumnImagen"].Value = thumb;
-                            dataGrid.Rows[fila].Cells["ColumnAccion"].Value = "Eliminar";
-                            dataGrid.Rows[fila].Cells["ColumnEditar"].Value = "Editar";
+                            dataGrid.Rows[fila].Cells["ColumnId"].Value = servicio.idServicio;
+                            dataGrid.Rows[fila].Cells["ColumnNombre"].Value = servicio.nombre;
+                            dataGrid.Rows[fila].Cells["ColumnPrecio"].Value = servicio.precio;
+                            dataGrid.Rows[fila].Cells["ColumnCategoria"].Value = servicio.Categoria_servicio.categoria;
+                            dataGrid.Rows[fila].Cells["ColumnActivo"].Value = "Si";
+                            
                         }
                     }
                 }
             }
         }
 
-        public void cancelarVenta(List<Button> buttons, List<Label> labels)
+        public void cancelarVenta(List<System.Windows.Forms.Button> buttons, List<Label> labels)
         {
 
 
@@ -353,7 +403,7 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
                 label.Text = "";
             }
 
-            foreach (Button button in buttons)
+            foreach (System.Windows.Forms.Button button in buttons)
             {
                 button.Enabled = false;
             }
@@ -374,7 +424,7 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
 
         /*FINALIZAR COMPRA*/
 
-        public void rellenarComboBoxMetodoPago(ComboBox comboBox)
+        public void rellenarComboBoxMetodoPago(System.Windows.Forms.ComboBox comboBox)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
@@ -490,7 +540,7 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
             MessageBox.Show("Comprobante generado", "Finalizar venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void finalizarCompra(ComboBox metodoPago)
+        public void finalizarCompra(System.Windows.Forms.ComboBox metodoPago)
         {
             using (bd_blulightEntities db = new bd_blulightEntities())
             {
@@ -540,7 +590,7 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
             }
         }
 
-        public void editarProducto(TextBox cantidadP)
+        public void editarProducto(System.Windows.Forms.TextBox cantidadP)
         {
             int cantidad = Int32.Parse(cantidadP.Text);
             if (MyGlobals.productoSeleccionado.stock >= cantidad)
@@ -553,7 +603,7 @@ namespace CapaPresentacion.CapaLogica.LRecepcionistaok
                 MessageBox.Show("La cantidad es más alta que el stock del producto", "Editar Producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public void cambiarProducto(int idP, TextBox cantidadP)
+        public void cambiarProducto(int idP, System.Windows.Forms.TextBox cantidadP)
         {
             int cantidad = Int32.Parse(cantidadP.Text);
             using (bd_blulightEntities db = new bd_blulightEntities())

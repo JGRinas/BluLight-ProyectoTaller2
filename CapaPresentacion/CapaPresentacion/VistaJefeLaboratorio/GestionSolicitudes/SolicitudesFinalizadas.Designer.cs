@@ -65,9 +65,11 @@
             this.btnMostrarTodos.TabIndex = 67;
             this.btnMostrarTodos.Text = "Mostrar todas";
             this.btnMostrarTodos.UseVisualStyleBackColor = true;
+            this.btnMostrarTodos.Click += new System.EventHandler(this.btnMostrarTodos_Click);
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -98,6 +100,7 @@
             this.btnBuscarDni.TabIndex = 72;
             this.btnBuscarDni.Text = "Buscar por DNI";
             this.btnBuscarDni.UseVisualStyleBackColor = true;
+            this.btnBuscarDni.Click += new System.EventHandler(this.btnBuscarDni_Click);
             // 
             // btnFiltrarServicio
             // 
@@ -111,6 +114,7 @@
             this.btnFiltrarServicio.TabIndex = 71;
             this.btnFiltrarServicio.Text = "Filtrar por servicio";
             this.btnFiltrarServicio.UseVisualStyleBackColor = true;
+            this.btnFiltrarServicio.Click += new System.EventHandler(this.btnFiltrarServicio_Click);
             // 
             // comboBoxServicios
             // 
@@ -142,6 +146,7 @@
             this.btnBuscarId.TabIndex = 68;
             this.btnBuscarId.Text = "Buscar por ID";
             this.btnBuscarId.UseVisualStyleBackColor = true;
+            this.btnBuscarId.Click += new System.EventHandler(this.btnBuscarId_Click);
             // 
             // labelPrincipal
             // 
