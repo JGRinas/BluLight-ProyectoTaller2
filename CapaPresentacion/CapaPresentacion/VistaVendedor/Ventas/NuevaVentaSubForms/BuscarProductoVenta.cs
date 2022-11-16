@@ -68,14 +68,18 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubFo
 
         private void dataGridViewProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            List<Label> labels = new List<Label>();
-            labels.Add(labelNombreP);
-            labels.Add(labelCodigoP);
-            List<ComboBox> comboBoxes = new List<ComboBox>();
-            comboBoxes.Add(comboBoxColor);
-            comboBoxes.Add(comboBoxCategoria);
-            textBoxCantidad.Enabled = true;
-            venta.obtenerProductoDelDataGrid(labels, comboBoxes, textBoxNombreProducto, buttonAgregarProducto,pictureBoxProduct,dataGridViewProductos);
+            if (dataGridViewProductos.CurrentRow != null)
+            {
+                List<Label> labels = new List<Label>();
+                labels.Add(labelNombreP);
+                labels.Add(labelCodigoP);
+                List<ComboBox> comboBoxes = new List<ComboBox>();
+                comboBoxes.Add(comboBoxColor);
+                comboBoxes.Add(comboBoxCategoria);
+                textBoxCantidad.Enabled = true;
+                venta.obtenerProductoDelDataGrid(labels, comboBoxes, textBoxNombreProducto, buttonAgregarProducto, pictureBoxProduct, dataGridViewProductos);
+            }
+               
         }
 
         private void buttonBuscarProductoNombre_Click(object sender, EventArgs e)

@@ -31,5 +31,17 @@ namespace CapaLogica
         //estadisticas ventas productos
         public static List<iTextSharp.text.Image> imagenChartProductos = new List<iTextSharp.text.Image>();
         public static List<string> titulosImagenChartProductos = new List<string>();
+
+        //Servicios
+        public static List<Servicio_laboratorio> servicioVentas = new List<Servicio_laboratorio>(); //servicios del carrito
+        public static List<Servicio> servicioVentas2 = new List<Servicio>();
+        public static DataGridView dataGridServiciosVentas = new DataGridView();
+        public static List<int> cantidadServicio = new List<int>(); //cantidad
+        public static int idServSelecc; //id servicio del servicio seleccionado
+        public static int idLabSelecc; //lab del servicio seleccionado
+
+        //informe de servicios
+        public static List<iTextSharp.text.Image> imagenChartGlobales = new List<iTextSharp.text.Image>();
+        public static List<iTextSharp.text.Image> imagenChartTorta = new List<iTextSharp.text.Image>();
     }
 }

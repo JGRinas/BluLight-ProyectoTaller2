@@ -35,7 +35,6 @@
             this.buttonClientes = new System.Windows.Forms.Button();
             this.buttonCerrarSesion = new System.Windows.Forms.Button();
             this.panelServicios = new System.Windows.Forms.Panel();
-            this.buttonSolicitudes = new System.Windows.Forms.Button();
             this.buttonNuevaSolicitud = new System.Windows.Forms.Button();
             this.buttonServicios = new System.Windows.Forms.Button();
             this.panelJornada = new System.Windows.Forms.Panel();
@@ -74,9 +73,9 @@
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(240, 600);
+            this.panel1.Size = new System.Drawing.Size(240, 601);
             this.panel1.TabIndex = 0;
             // 
             // panelClientes
@@ -84,7 +83,7 @@
             this.panelClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.panelClientes.Controls.Add(this.buttonGestionarClientes);
             this.panelClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelClientes.Location = new System.Drawing.Point(0, 381);
+            this.panelClientes.Location = new System.Drawing.Point(0, 407);
             this.panelClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelClientes.Name = "panelClientes";
             this.panelClientes.Size = new System.Drawing.Size(240, 43);
@@ -116,10 +115,12 @@
             this.buttonClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClientes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClientes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonClientes.Location = new System.Drawing.Point(0, 350);
+            this.buttonClientes.Image = global::CapaPresentacion.Properties.Resources.cliente_inscribirc;
+            this.buttonClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonClientes.Location = new System.Drawing.Point(0, 358);
             this.buttonClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonClientes.Name = "buttonClientes";
-            this.buttonClientes.Size = new System.Drawing.Size(240, 31);
+            this.buttonClientes.Size = new System.Drawing.Size(240, 49);
             this.buttonClientes.TabIndex = 10;
             this.buttonClientes.Text = "Clientes";
             this.buttonClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -134,7 +135,7 @@
             this.buttonCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCerrarSesion.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCerrarSesion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonCerrarSesion.Location = new System.Drawing.Point(0, 569);
+            this.buttonCerrarSesion.Location = new System.Drawing.Point(0, 570);
             this.buttonCerrarSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCerrarSesion.Name = "buttonCerrarSesion";
             this.buttonCerrarSesion.Size = new System.Drawing.Size(240, 31);
@@ -146,32 +147,13 @@
             // panelServicios
             // 
             this.panelServicios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelServicios.Controls.Add(this.buttonSolicitudes);
             this.panelServicios.Controls.Add(this.buttonNuevaSolicitud);
             this.panelServicios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelServicios.Location = new System.Drawing.Point(0, 281);
+            this.panelServicios.Location = new System.Drawing.Point(0, 317);
             this.panelServicios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelServicios.Name = "panelServicios";
-            this.panelServicios.Size = new System.Drawing.Size(240, 69);
+            this.panelServicios.Size = new System.Drawing.Size(240, 41);
             this.panelServicios.TabIndex = 6;
-            // 
-            // buttonSolicitudes
-            // 
-            this.buttonSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonSolicitudes.FlatAppearance.BorderSize = 0;
-            this.buttonSolicitudes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSolicitudes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSolicitudes.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonSolicitudes.Location = new System.Drawing.Point(0, 31);
-            this.buttonSolicitudes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSolicitudes.Name = "buttonSolicitudes";
-            this.buttonSolicitudes.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonSolicitudes.Size = new System.Drawing.Size(240, 31);
-            this.buttonSolicitudes.TabIndex = 3;
-            this.buttonSolicitudes.Text = "Solicitudes";
-            this.buttonSolicitudes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSolicitudes.UseVisualStyleBackColor = true;
-            this.buttonSolicitudes.Click += new System.EventHandler(this.buttonSolicitudes_Click);
             // 
             // buttonNuevaSolicitud
             // 
@@ -199,10 +181,12 @@
             this.buttonServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonServicios.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonServicios.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonServicios.Location = new System.Drawing.Point(0, 250);
+            this.buttonServicios.Image = global::CapaPresentacion.Properties.Resources.biologia;
+            this.buttonServicios.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonServicios.Location = new System.Drawing.Point(0, 268);
             this.buttonServicios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonServicios.Name = "buttonServicios";
-            this.buttonServicios.Size = new System.Drawing.Size(240, 31);
+            this.buttonServicios.Size = new System.Drawing.Size(240, 49);
             this.buttonServicios.TabIndex = 5;
             this.buttonServicios.Text = "Servicios";
             this.buttonServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -215,7 +199,7 @@
             this.panelJornada.Controls.Add(this.buttonBaja);
             this.panelJornada.Controls.Add(this.buttonInscribir);
             this.panelJornada.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelJornada.Location = new System.Drawing.Point(0, 181);
+            this.panelJornada.Location = new System.Drawing.Point(0, 199);
             this.panelJornada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelJornada.Name = "panelJornada";
             this.panelJornada.Size = new System.Drawing.Size(240, 69);
@@ -227,7 +211,7 @@
             this.buttonBaja.FlatAppearance.BorderSize = 0;
             this.buttonBaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBaja.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBaja.ForeColor = System.Drawing.Color.LightGray;
+            this.buttonBaja.ForeColor = System.Drawing.Color.RosyBrown;
             this.buttonBaja.Location = new System.Drawing.Point(0, 31);
             this.buttonBaja.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonBaja.Name = "buttonBaja";
@@ -265,10 +249,12 @@
             this.buttonJornada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonJornada.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonJornada.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonJornada.Image = global::CapaPresentacion.Properties.Resources.jornadasc2;
+            this.buttonJornada.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonJornada.Location = new System.Drawing.Point(0, 150);
             this.buttonJornada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonJornada.Name = "buttonJornada";
-            this.buttonJornada.Size = new System.Drawing.Size(240, 31);
+            this.buttonJornada.Size = new System.Drawing.Size(240, 49);
             this.buttonJornada.TabIndex = 3;
             this.buttonJornada.Text = "Jornadas";
             this.buttonJornada.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -282,7 +268,7 @@
             this.panel5.Controls.Add(this.label1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(240, 150);
             this.panel5.TabIndex = 0;
@@ -306,7 +292,7 @@
             this.labelNombre.BackColor = System.Drawing.Color.Transparent;
             this.labelNombre.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombre.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelNombre.Location = new System.Drawing.Point(17, 88);
+            this.labelNombre.Location = new System.Drawing.Point(17, 89);
             this.labelNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(63, 20);
@@ -331,9 +317,9 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(240, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(760, 600);
+            this.panel2.Size = new System.Drawing.Size(760, 601);
             this.panel2.TabIndex = 1;
             // 
             // panelss
@@ -341,9 +327,9 @@
             this.panelss.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.panelss.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelss.Location = new System.Drawing.Point(0, 41);
-            this.panelss.Margin = new System.Windows.Forms.Padding(4);
+            this.panelss.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelss.Name = "panelss";
-            this.panelss.Size = new System.Drawing.Size(760, 559);
+            this.panelss.Size = new System.Drawing.Size(760, 560);
             this.panelss.TabIndex = 1;
             // 
             // panel3
@@ -354,7 +340,7 @@
             this.panel3.Controls.Add(this.buttonCloseForm);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(760, 41);
             this.panel3.TabIndex = 0;
@@ -475,11 +461,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.ClientSize = new System.Drawing.Size(1000, 601);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormRecepcionistaInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VistaRecepcionistaInicio";
@@ -507,7 +493,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button buttonCerrarSesion;
         private System.Windows.Forms.Panel panelServicios;
-        private System.Windows.Forms.Button buttonSolicitudes;
         private System.Windows.Forms.Button buttonNuevaSolicitud;
         private System.Windows.Forms.Button buttonServicios;
         private System.Windows.Forms.Panel panelJornada;

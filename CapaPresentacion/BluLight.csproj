@@ -337,14 +337,21 @@
     <Compile Include="CapaLogica\LAdmin\LSeguridad.cs" />
     <Compile Include="CapaLogica\LAdmin\LServicioA.cs" />
     <Compile Include="CapaLogica\LAdmin\LUsuariosA.cs" />
-    <Compile Include="CapaLogica\LDirector\LEstadistica.cs" />
+    <Compile Include="CapaLogica\LDirector\LStatProductos.cs" />
+    <Compile Include="CapaLogica\LDirector\LStatServicios.cs" />
     <Compile Include="CapaLogica\Libreria\Encrypt.cs" />
     <Compile Include="CapaLogica\Libreria\Librerias.cs" />
     <Compile Include="CapaLogica\Libreria\LUser.cs" />
     <Compile Include="CapaLogica\Libreria\MyGlobals.cs" />
     <Compile Include="CapaLogica\Libreria\TextBoxEvent.cs" />
     <Compile Include="CapaLogica\Libreria\UploadImage.cs" />
+    <Compile Include="CapaLogica\LJefeLab\LJornadaJefeLab.cs" />
     <Compile Include="CapaLogica\LJefeLab\LServicio.cs" />
+    <Compile Include="CapaLogica\LJefeLab\LSolicitud.cs" />
+    <Compile Include="CapaLogica\LRecepcionistaok\LJornadaRecep.cs" />
+    <Compile Include="CapaLogica\LRecepcionistaok\LPersona.cs" />
+    <Compile Include="CapaLogica\LRecepcionistaok\LServiciosR.cs" />
+    <Compile Include="CapaLogica\LRecepcionistaok\LVentasServicio.cs" />
     <Compile Include="CapaLogica\LVendedor\LClient.cs" />
     <Compile Include="CapaLogica\LVendedor\LProductV.cs" />
     <Compile Include="CapaLogica\LVendedor\LVentas.cs" />
@@ -403,11 +410,119 @@
     <Compile Include="CapaPresentacion\VistaAdmin\Seguridad\FormRestore.Designer.cs">
       <DependentUpon>FormRestore.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticasServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticasServicios.designer.cs">
+      <DependentUpon>EstadisticasServicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\FormJefeLabInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\FormJefeLabInicio.designer.cs">
+      <DependentUpon>FormJefeLabInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\GestionJornadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\GestionJornadas.Designer.cs">
+      <DependentUpon>GestionJornadas.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionServicioLaboratorio\ServicioLaboratorio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionServicioLaboratorio\ServicioLaboratorio.designer.cs">
       <DependentUpon>ServicioLaboratorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Activar_Desact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Activar_Desact.Designer.cs">
+      <DependentUpon>Activar_Desact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover.Designer.cs">
+      <DependentUpon>Promover.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover_2.Designer.cs">
+      <DependentUpon>Promover_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover_3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover_3.Designer.cs">
+      <DependentUpon>Promover_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesEntregadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesEntregadas.Designer.cs">
+      <DependentUpon>SolicitudesEntregadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesFinalizadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesFinalizadas.Designer.cs">
+      <DependentUpon>SolicitudesFinalizadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesPendientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesPendientes.Designer.cs">
+      <DependentUpon>SolicitudesPendientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\FormRecepcionistaInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\FormRecepcionistaInicio.designer.cs">
+      <DependentUpon>FormRecepcionistaInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientesRecepcionista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientesRecepcionista.Designer.cs">
+      <DependentUpon>GestionClientesRecepcionista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Jornadas\Bajas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Jornadas\Bajas.Designer.cs">
+      <DependentUpon>Bajas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Jornadas\Inscribir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Jornadas\Inscribir.Designer.cs">
+      <DependentUpon>Inscribir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\BuscarClienteVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\BuscarClienteVenta.Designer.cs">
+      <DependentUpon>BuscarClienteVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\BuscarServicioVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\BuscarServicioVenta.Designer.cs">
+      <DependentUpon>BuscarServicioVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\FinalizarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\FinalizarCompra.Designer.cs">
+      <DependentUpon>FinalizarCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\NuevaSolicitud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\NuevaSolicitud.Designer.cs">
+      <DependentUpon>NuevaSolicitud.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\VistaVendedor\Ventas\NuevaVentaSubForms\BuscarClienteVenta.cs">
       <SubType>Form</SubType>
@@ -441,35 +556,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticaClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticaClientes.Designer.cs">
-      <DependentUpon>EstadisticaClientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticaEmpleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticaEmpleados.Designer.cs">
-      <DependentUpon>EstadisticaEmpleados.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticasCursos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticasCursos.Designer.cs">
-      <DependentUpon>EstadisticasCursos.cs</DependentUpon>
-    </Compile>
     <Compile Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticasProductos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticasProductos.Designer.cs">
       <DependentUpon>EstadisticasProductos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticasServicios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticasServicios.Designer.cs">
-      <DependentUpon>EstadisticasServicios.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\VistaAdmin\FormAdminInicio.cs">
       <SubType>Form</SubType>
@@ -500,108 +591,6 @@
     </Compile>
     <Compile Include="CapaPresentacion\VistaDirector\FormDirectorInicio.Designer.cs">
       <DependentUpon>FormDirectorInicio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\FormJefeLabInicio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\FormJefeLabInicio.Designer.cs">
-      <DependentUpon>FormJefeLabInicio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\AgregarJornada.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\AgregarJornada.Designer.cs">
-      <DependentUpon>AgregarJornada.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\EliminarJornada.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\EliminarJornada.Designer.cs">
-      <DependentUpon>EliminarJornada.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\ModificarJornada.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\ModificarJornada.Designer.cs">
-      <DependentUpon>ModificarJornada.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionLaboratorios\DesvincularInvestigador.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionLaboratorios\DesvincularInvestigador.Designer.cs">
-      <DependentUpon>DesvincularInvestigador.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionLaboratorios\VincularInvestigador.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionLaboratorios\VincularInvestigador.Designer.cs">
-      <DependentUpon>VincularInvestigador.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionReportes\ListaReportes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionReportes\ListaReportes.Designer.cs">
-      <DependentUpon>ListaReportes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionReportes\NuevoReporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionReportes\NuevoReporte.Designer.cs">
-      <DependentUpon>NuevoReporte.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesActivas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesActivas.Designer.cs">
-      <DependentUpon>SolicitudesActivas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesFinalizadas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesFinalizadas.Designer.cs">
-      <DependentUpon>SolicitudesFinalizadas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesPendientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesPendientes.Designer.cs">
-      <DependentUpon>SolicitudesPendientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientes.Designer.cs">
-      <DependentUpon>GestionClientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaRecepcionista\Jornadas\Bajas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaRecepcionista\Jornadas\Bajas.Designer.cs">
-      <DependentUpon>Bajas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaRecepcionista\Jornadas\Inscribir.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaRecepcionista\Jornadas\Inscribir.Designer.cs">
-      <DependentUpon>Inscribir.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\NuevaSolicitud.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\NuevaSolicitud.Designer.cs">
-      <DependentUpon>NuevaSolicitud.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\Solicitudes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaRecepcionista\Servicios\Solicitudes.Designer.cs">
-      <DependentUpon>Solicitudes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaRecepcionista\FormRecepcionistaInicio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\VistaRecepcionista\FormRecepcionistaInicio.Designer.cs">
-      <DependentUpon>FormRecepcionistaInicio.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\VistaVendedor\FormVendedorInicio.cs">
       <SubType>Form</SubType>
@@ -654,8 +643,62 @@
     <EmbeddedResource Include="CapaPresentacion\VistaAdmin\Seguridad\FormRestore.resx">
       <DependentUpon>FormRestore.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticasServicios.resx">
+      <DependentUpon>EstadisticasServicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\FormJefeLabInicio.resx">
+      <DependentUpon>FormJefeLabInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\GestionJornadas.resx">
+      <DependentUpon>GestionJornadas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionServicioLaboratorio\ServicioLaboratorio.resx">
       <DependentUpon>ServicioLaboratorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Activar_Desact.resx">
+      <DependentUpon>Activar_Desact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover.resx">
+      <DependentUpon>Promover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover_2.resx">
+      <DependentUpon>Promover_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\Promover_3.resx">
+      <DependentUpon>Promover_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesEntregadas.resx">
+      <DependentUpon>SolicitudesEntregadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesFinalizadas.resx">
+      <DependentUpon>SolicitudesFinalizadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesPendientes.resx">
+      <DependentUpon>SolicitudesPendientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\FormRecepcionistaInicio.resx">
+      <DependentUpon>FormRecepcionistaInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientesRecepcionista.resx">
+      <DependentUpon>GestionClientesRecepcionista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Jornadas\Bajas.resx">
+      <DependentUpon>Bajas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Jornadas\Inscribir.resx">
+      <DependentUpon>Inscribir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\BuscarClienteVenta.resx">
+      <DependentUpon>BuscarClienteVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\BuscarServicioVenta.resx">
+      <DependentUpon>BuscarServicioVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Servicios\Childrenforms\FinalizarCompra.resx">
+      <DependentUpon>FinalizarCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Servicios\NuevaSolicitud.resx">
+      <DependentUpon>NuevaSolicitud.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaVendedor\Ventas\NuevaVentaSubForms\BuscarClienteVenta.resx">
       <DependentUpon>BuscarClienteVenta.cs</DependentUpon>
@@ -683,20 +726,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticaClientes.resx">
-      <DependentUpon>EstadisticaClientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticaEmpleados.resx">
-      <DependentUpon>EstadisticaEmpleados.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticasCursos.resx">
-      <DependentUpon>EstadisticasCursos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticasProductos.resx">
       <DependentUpon>EstadisticasProductos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaDirector\Estadisticas\EstadisticasServicios.resx">
-      <DependentUpon>EstadisticasServicios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaAdmin\FormAdminInicio.resx">
       <DependentUpon>FormAdminInicio.cs</DependentUpon>
@@ -712,57 +743,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaDirector\FormDirectorInicio.resx">
       <DependentUpon>FormDirectorInicio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\FormJefeLabInicio.resx">
-      <DependentUpon>FormJefeLabInicio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\AgregarJornada.resx">
-      <DependentUpon>AgregarJornada.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\EliminarJornada.resx">
-      <DependentUpon>EliminarJornada.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionJornadas\ModificarJornada.resx">
-      <DependentUpon>ModificarJornada.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionLaboratorios\DesvincularInvestigador.resx">
-      <DependentUpon>DesvincularInvestigador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionLaboratorios\VincularInvestigador.resx">
-      <DependentUpon>VincularInvestigador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionReportes\ListaReportes.resx">
-      <DependentUpon>ListaReportes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionReportes\NuevoReporte.resx">
-      <DependentUpon>NuevoReporte.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesActivas.resx">
-      <DependentUpon>SolicitudesActivas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesFinalizadas.resx">
-      <DependentUpon>SolicitudesFinalizadas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaJefeLaboratorio\GestionSolicitudes\SolicitudesPendientes.resx">
-      <DependentUpon>SolicitudesPendientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Gestionar ClientesR\GestionClientes.resx">
-      <DependentUpon>GestionClientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Jornadas\Bajas.resx">
-      <DependentUpon>Bajas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Jornadas\Inscribir.resx">
-      <DependentUpon>Inscribir.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Servicios\NuevaSolicitud.resx">
-      <DependentUpon>NuevaSolicitud.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\Servicios\Solicitudes.resx">
-      <DependentUpon>Solicitudes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\VistaRecepcionista\FormRecepcionistaInicio.resx">
-      <DependentUpon>FormRecepcionistaInicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\VistaVendedor\FormVendedorInicio.resx">
       <DependentUpon>FormVendedorInicio.cs</DependentUpon>
@@ -873,6 +853,48 @@
       <DependentUpon>MyEntityFramework.edmx</DependentUpon>
       <LastGenOutput>MyEntityFramework.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\vista1.gif" />
+    <None Include="Resources\ver21.png" />
+    <None Include="Resources\ver1.png" />
+    <None Include="Resources\undraw_Welcoming_re_x0qo-removebg-preview1.png" />
+    <None Include="Resources\undraw_Scientist_0ft9-removebg-preview1.png" />
+    <None Include="Resources\undraw_moonlight_5ksn-removebg-preview1.png" />
+    <None Include="Resources\space998641 %281%291.jpg" />
+    <None Include="Resources\space1.jpg" />
+    <None Include="Resources\solicitudc11.png" />
+    <None Include="Resources\solicitudc2.png" />
+    <None Include="Resources\apagado1.png" />
+    <None Include="Resources\arbol-de-la-planta1.png" />
+    <None Include="Resources\biologia1.png" />
+    <None Include="Resources\boton-menos1.png" />
+    <None Include="Resources\cerrar1.png" />
+    <Content Include="Resources\cliente_inscribirc.png" />
+    <None Include="Resources\cliente_inscribirc1.png" />
+    <None Include="Resources\construccion-removebg-preview1.png" />
+    <None Include="Resources\empleado-del-mes1.png" />
+    <None Include="Resources\Inicio1.jpg" />
+    <None Include="Resources\inventario1.png" />
+    <Content Include="Resources\jornadasc.png" />
+    <Content Include="Resources\jornadasc1.png" />
+    <None Include="Resources\jornadasc11.png" />
+    <Content Include="Resources\jornadasc2.png" />
+    <None Include="Resources\jornadasc3.png" />
+    <None Include="Resources\jornadasc21.png" />
+    <None Include="Resources\logo1.png" />
+    <None Include="Resources\marca1.png" />
+    <None Include="Resources\marca_peq1.png" />
+    <None Include="Resources\marca31.png" />
+    <None Include="Resources\maximizar1.png" />
+    <None Include="Resources\microscopio %281%291.png" />
+    <None Include="Resources\nature verdee1.png" />
+    <None Include="Resources\nature21.png" />
+    <None Include="Resources\perfil-del-usuario1.png" />
+    <None Include="Resources\redimensionar1.png" />
+    <None Include="Resources\serviciosc1.png" />
+    <Content Include="Resources\servicios_ofrecidosc.png" />
+    <None Include="Resources\servicios_ofrecidosc1.png" />
+    <Content Include="Resources\solicitudc.png" />
+    <Content Include="Resources\solicitudc1.png" />
     <None Include="Resources\proteger %282%29.png" />
     <None Include="Resources\proteger %281%29.png" />
     <None Include="Resources\proteger.png" />

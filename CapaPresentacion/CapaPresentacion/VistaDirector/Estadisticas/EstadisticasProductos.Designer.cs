@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.chartProductosVendidos = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonImprimirInforme = new System.Windows.Forms.Button();
             this.labelTotalProductos = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonImprimirInforme = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -87,17 +87,17 @@
             // 
             // chartProductosVendidos
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chartProductosVendidos.ChartAreas.Add(chartArea7);
+            chartArea1.Name = "ChartArea1";
+            this.chartProductosVendidos.ChartAreas.Add(chartArea1);
             this.chartProductosVendidos.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend7.Name = "Legend1";
-            this.chartProductosVendidos.Legends.Add(legend7);
+            legend1.Name = "Legend1";
+            this.chartProductosVendidos.Legends.Add(legend1);
             this.chartProductosVendidos.Location = new System.Drawing.Point(0, 0);
             this.chartProductosVendidos.Name = "chartProductosVendidos";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Productos";
-            this.chartProductosVendidos.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Productos";
+            this.chartProductosVendidos.Series.Add(series1);
             this.chartProductosVendidos.Size = new System.Drawing.Size(760, 418);
             this.chartProductosVendidos.TabIndex = 0;
             this.chartProductosVendidos.Text = "Productos";
@@ -112,6 +112,36 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(760, 45);
             this.panel4.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(175, 45);
+            this.button1.TabIndex = 38;
+            this.button1.Text = "Anexar grafico";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonImprimirInforme
+            // 
+            this.buttonImprimirInforme.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonImprimirInforme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImprimirInforme.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonImprimirInforme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonImprimirInforme.Location = new System.Drawing.Point(585, 0);
+            this.buttonImprimirInforme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonImprimirInforme.Name = "buttonImprimirInforme";
+            this.buttonImprimirInforme.Size = new System.Drawing.Size(175, 45);
+            this.buttonImprimirInforme.TabIndex = 37;
+            this.buttonImprimirInforme.Text = "Imprimir informe";
+            this.buttonImprimirInforme.UseVisualStyleBackColor = true;
+            this.buttonImprimirInforme.Click += new System.EventHandler(this.buttonImprimirInforme_Click_1);
             // 
             // labelTotalProductos
             // 
@@ -223,36 +253,6 @@
             this.label1.Size = new System.Drawing.Size(208, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Productos vendidos";
-            // 
-            // buttonImprimirInforme
-            // 
-            this.buttonImprimirInforme.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonImprimirInforme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonImprimirInforme.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonImprimirInforme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.buttonImprimirInforme.Location = new System.Drawing.Point(585, 0);
-            this.buttonImprimirInforme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonImprimirInforme.Name = "buttonImprimirInforme";
-            this.buttonImprimirInforme.Size = new System.Drawing.Size(175, 45);
-            this.buttonImprimirInforme.TabIndex = 37;
-            this.buttonImprimirInforme.Text = "Imprimir informe";
-            this.buttonImprimirInforme.UseVisualStyleBackColor = true;
-            this.buttonImprimirInforme.Click += new System.EventHandler(this.buttonImprimirInforme_Click_1);
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 45);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "Anexar grafico";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // EstadisticasProductos
             // 

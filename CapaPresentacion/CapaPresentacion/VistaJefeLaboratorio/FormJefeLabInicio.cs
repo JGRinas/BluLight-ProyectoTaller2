@@ -1,7 +1,7 @@
 ﻿using CapaLogica;
 using CapaPresentacion;
+using CapaPresentacion.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes;
 using Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionCursos;
-using Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionReportes;
 using Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionServicios;
 using Proyecto2022.CapaPresentacion.VistaJefeLaboratorio.GestionSolicitudes;
 using System;
@@ -36,7 +36,7 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio
             panelSolicitudes.Visible = false;
             panelServicios.Visible = false;
             panelCursos.Visible = false;
-            panelReportes.Visible = false;
+      
         }
 
         private void esconderSubMenu()
@@ -47,9 +47,6 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio
 
             if (panelServicios.Visible == true)
                 panelServicios.Visible = false;
-
-            if (panelReportes.Visible == true)
-                panelReportes.Visible = false;
 
             if (panelCursos.Visible == true)
                 panelCursos.Visible = false;
@@ -97,52 +94,27 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio
 
         private void buttonSolicitudesActivas_Click(object sender, EventArgs e)
         {
-            abrirFormHijo(new SolicitudesActivas());
+            abrirFormHijo(new SolicitudesFinalizadas());
             esconderSubMenu();
         }
 
         private void buttonSolicitudesFinalizadas_Click(object sender, EventArgs e)
         {
-            abrirFormHijo(new SolicitudesFinalizadas());
+            abrirFormHijo(new SolicitudesEntregadas());
             esconderSubMenu();
         }
 
-        private void buttonReportes_Click(object sender, EventArgs e)
-        {
-            verSubMenu(panelReportes);
-        }
-        private void buttonNuevoReporte_Click(object sender, EventArgs e)
-        {
-            abrirFormHijo(new NuevoReporte());
-            esconderSubMenu();
-        }
 
-        private void buttonListaReportes_Click(object sender, EventArgs e)
-        {
-            abrirFormHijo(new ListaReportes());
-            esconderSubMenu();
-        }
         private void buttonCurso_Click(object sender, EventArgs e)
         {
             verSubMenu(panelCursos);
         }
         private void buttonAgregarCurso_Click(object sender, EventArgs e)
         {
-            abrirFormHijo(new AgregarJornada());
+            abrirFormHijo(new GestionJornadas());
             esconderSubMenu();
         }
 
-        private void buttonEliminarCurso_Click(object sender, EventArgs e)
-        {
-            abrirFormHijo(new EliminarJornada());
-            esconderSubMenu();
-        }
-
-        private void buttonModificarCurso_Click(object sender, EventArgs e)
-        {
-            abrirFormHijo(new ModificarJornada());
-            esconderSubMenu();
-        }
         private void buttonServicio_Click(object sender, EventArgs e)
         {
             verSubMenu(panelServicios);
@@ -183,6 +155,12 @@ namespace Proyecto2022.CapaPresentacion.VistaJefeLaboratorio
                 formLogout.Show();
                 this.Close();
             }
+        }
+
+        private void btnBajas_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new Activar_Desact());
+            esconderSubMenu();
         }
     }
 }

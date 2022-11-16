@@ -25,6 +25,5 @@ namespace CapaPresentacion.CapaData.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura_producto> Factura_producto { get; set; }
-        public virtual Factura_servicio Factura_servicio { get; set; }
     }
 }

@@ -89,20 +89,24 @@ namespace CapaPresentacion.CapaPresentacion.VistaAdmin.GestionEmpleado
 
         private void dataGridViewEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            List<TextBox> textBoxes = new List<TextBox>();
-            textBoxes.Add(textBoxNombre);
-            textBoxes.Add(textBoxApellido);
-            textBoxes.Add(textBoxDni);
-            textBoxes.Add(textBoxTelefono);
-            textBoxes.Add(textBoxEmail);
-            textBoxes.Add(textBoxTitulo);
-            textBoxes.Add(textBoxDniBuscar);
-            List<Button> buttons = new List<Button>();
-            buttons.Add(buttonModificar);
-            buttons.Add(buttonEliminar);
-            buttons.Add(buttonRegistrarUsuario);
+            if (dataGridViewEmpleados.CurrentRow != null)
+            {
+                List<TextBox> textBoxes = new List<TextBox>();
+                textBoxes.Add(textBoxNombre);
+                textBoxes.Add(textBoxApellido);
+                textBoxes.Add(textBoxDni);
+                textBoxes.Add(textBoxTelefono);
+                textBoxes.Add(textBoxEmail);
+                textBoxes.Add(textBoxTitulo);
+                textBoxes.Add(textBoxDniBuscar);
+                List<Button> buttons = new List<Button>();
+                buttons.Add(buttonModificar);
+                buttons.Add(buttonEliminar);
+                buttons.Add(buttonRegistrarUsuario);
 
-            emp.obtenerEmpleado(textBoxes, comboBoxLaboratorio, dataGridViewEmpleados, buttons);
+                emp.obtenerEmpleado(textBoxes, comboBoxLaboratorio, dataGridViewEmpleados, buttons);
+            }
+               
 
         }
 

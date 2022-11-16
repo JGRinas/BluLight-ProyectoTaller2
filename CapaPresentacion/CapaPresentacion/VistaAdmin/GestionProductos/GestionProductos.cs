@@ -73,21 +73,24 @@ namespace Proyecto2022.CapaPresentacion.VistaAdmin.GestionarProductos
 
         private void dataGridViewProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var listTextBoxProductAdd = new List<TextBox>();
-            listTextBoxProductAdd.Add(textBoxTitulo);
-            listTextBoxProductAdd.Add(textBoxStock);
-            listTextBoxProductAdd.Add(textBoxPrecio);
+            if (dataGridViewProduct.CurrentRow != null)
+            {
+                var listTextBoxProductAdd = new List<TextBox>();
+                listTextBoxProductAdd.Add(textBoxTitulo);
+                listTextBoxProductAdd.Add(textBoxStock);
+                listTextBoxProductAdd.Add(textBoxPrecio);
 
-            var comboBox = new List<ComboBox>();
-            comboBox.Add(comboBoxCategoria);
-            comboBox.Add(comboBoxColor);
+                var comboBox = new List<ComboBox>();
+                comboBox.Add(comboBoxCategoria);
+                comboBox.Add(comboBoxColor);
 
-            int id = Int32.Parse(dataGridViewProduct.CurrentRow.Cells[0].Value.ToString());
+                int id = Int32.Parse(dataGridViewProduct.CurrentRow.Cells[0].Value.ToString());
 
-            producto.obtenerProducto(id, listTextBoxProductAdd, pictureBoxProductA, comboBox, dataGridViewProduct, buttonEliminar);
-            buttonModificar.Enabled = true;
-            buttonEliminar.Enabled = true;
-            buttonRegistrarProducto.Text = "Restablecer";
+                producto.obtenerProducto(id, listTextBoxProductAdd, pictureBoxProductA, comboBox, dataGridViewProduct, buttonEliminar);
+                buttonModificar.Enabled = true;
+                buttonEliminar.Enabled = true;
+                buttonRegistrarProducto.Text = "Restablecer";
+            } 
         }
 
         private void buttonEliminar_Click(object sender, EventArgs e)

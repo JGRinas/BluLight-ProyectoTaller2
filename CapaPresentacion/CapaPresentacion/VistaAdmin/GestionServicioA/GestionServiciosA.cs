@@ -54,7 +54,9 @@ namespace CapaPresentacion.CapaPresentacion.VistaAdmin.GestionServicioA
 
         private void bunifuDataGridViewServicio_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var textBoxes = new List<TextBox>();
+            if (bunifuDataGridViewServicio.CurrentRow != null)
+            {
+                var textBoxes = new List<TextBox>();
             textBoxes.Add(textBoxNombre);
             textBoxes.Add(textBoxPrecio);
 
@@ -64,6 +66,9 @@ namespace CapaPresentacion.CapaPresentacion.VistaAdmin.GestionServicioA
             buttonModificar.Enabled = true;
             buttonEliminar.Enabled = true;
             buttonRegistrar.Text = "Restablecer";
+
+            }
+                
         }
 
         private void buttonModificar_Click(object sender, EventArgs e)

@@ -15,11 +15,11 @@ namespace Proyecto2022.CapaPresentacion.VistaAdmin.Estadisticas
 {
     public partial class EstadisticasProductos : Form
     {
-        LEstadistica estadistica;
+        LStatProductos estadistica;
         public EstadisticasProductos()
         {
             InitializeComponent();
-            estadistica = new LEstadistica();
+            estadistica = new LStatProductos();
             dateTimePickerDesde.Value = DateTime.Now.AddMonths(-1);
             dateTimePickerHasta.Value = DateTime.Now;
             List<DateTimePicker> dateTime = new List<DateTimePicker>();

@@ -36,33 +36,27 @@
             this.buttonNuevoServicio = new System.Windows.Forms.Button();
             this.buttonServicio = new System.Windows.Forms.Button();
             this.panelCursos = new System.Windows.Forms.Panel();
-            this.buttonModificarCurso = new System.Windows.Forms.Button();
-            this.buttonEliminarCurso = new System.Windows.Forms.Button();
             this.buttonAgregarCurso = new System.Windows.Forms.Button();
             this.buttonCurso = new System.Windows.Forms.Button();
-            this.panelReportes = new System.Windows.Forms.Panel();
-            this.buttonListaReportes = new System.Windows.Forms.Button();
-            this.buttonNuevoReporte = new System.Windows.Forms.Button();
-            this.buttonReportes = new System.Windows.Forms.Button();
             this.panelSolicitudes = new System.Windows.Forms.Panel();
+            this.btnBajas = new System.Windows.Forms.Button();
             this.buttonSolicitudesFinalizadas = new System.Windows.Forms.Button();
             this.buttonSolicitudesActivas = new System.Windows.Forms.Button();
             this.buttonSolicitudesPendientes = new System.Windows.Forms.Button();
-            this.buttonSolicitudes = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.labelApellido = new System.Windows.Forms.Label();
             this.labelNombre = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panelHijoJ = new System.Windows.Forms.Panel();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.buttonMinimizar = new Bunifu.UI.WinForms.BunifuImageButton();
             this.buttonMaximizar = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuImageButton1 = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.panelHijoJ = new System.Windows.Forms.Panel();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.buttonSolicitudes = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panelServicios.SuspendLayout();
             this.panelCursos.SuspendLayout();
-            this.panelReportes.SuspendLayout();
             this.panelSolicitudes.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -77,8 +71,6 @@
             this.panel2.Controls.Add(this.buttonServicio);
             this.panel2.Controls.Add(this.panelCursos);
             this.panel2.Controls.Add(this.buttonCurso);
-            this.panel2.Controls.Add(this.panelReportes);
-            this.panel2.Controls.Add(this.buttonReportes);
             this.panel2.Controls.Add(this.panelSolicitudes);
             this.panel2.Controls.Add(this.buttonSolicitudes);
             this.panel2.Controls.Add(this.panelLogo);
@@ -99,10 +91,10 @@
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogout.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonLogout.Location = new System.Drawing.Point(0, 584);
+            this.buttonLogout.Location = new System.Drawing.Point(0, 563);
             this.buttonLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(219, 38);
+            this.buttonLogout.Size = new System.Drawing.Size(240, 38);
             this.buttonLogout.TabIndex = 19;
             this.buttonLogout.Text = "Cerrar Sesión";
             this.buttonLogout.UseVisualStyleBackColor = false;
@@ -113,10 +105,10 @@
             this.panelServicios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.panelServicios.Controls.Add(this.buttonNuevoServicio);
             this.panelServicios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelServicios.Location = new System.Drawing.Point(0, 540);
+            this.panelServicios.Location = new System.Drawing.Point(0, 464);
             this.panelServicios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelServicios.Name = "panelServicios";
-            this.panelServicios.Size = new System.Drawing.Size(219, 44);
+            this.panelServicios.Size = new System.Drawing.Size(240, 44);
             this.panelServicios.TabIndex = 18;
             // 
             // buttonNuevoServicio
@@ -130,9 +122,9 @@
             this.buttonNuevoServicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNuevoServicio.Name = "buttonNuevoServicio";
             this.buttonNuevoServicio.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonNuevoServicio.Size = new System.Drawing.Size(219, 30);
+            this.buttonNuevoServicio.Size = new System.Drawing.Size(240, 30);
             this.buttonNuevoServicio.TabIndex = 2;
-            this.buttonNuevoServicio.Text = "Gestion";
+            this.buttonNuevoServicio.Text = "Gestión";
             this.buttonNuevoServicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNuevoServicio.UseVisualStyleBackColor = true;
             this.buttonNuevoServicio.Click += new System.EventHandler(this.buttonNuevoServicio_Click);
@@ -143,14 +135,16 @@
             this.buttonServicio.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonServicio.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.buttonServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonServicio.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonServicio.Font = new System.Drawing.Font("Consolas", 9.7F, System.Drawing.FontStyle.Bold);
             this.buttonServicio.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonServicio.Location = new System.Drawing.Point(0, 509);
+            this.buttonServicio.Image = global::CapaPresentacion.Properties.Resources.servicios_ofrecidosc;
+            this.buttonServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonServicio.Location = new System.Drawing.Point(0, 415);
             this.buttonServicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonServicio.Name = "buttonServicio";
-            this.buttonServicio.Size = new System.Drawing.Size(219, 31);
+            this.buttonServicio.Size = new System.Drawing.Size(240, 49);
             this.buttonServicio.TabIndex = 17;
-            this.buttonServicio.Text = "Servicios";
+            this.buttonServicio.Text = "Servicios del Lab.";
             this.buttonServicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonServicio.UseVisualStyleBackColor = false;
             this.buttonServicio.Click += new System.EventHandler(this.buttonServicio_Click);
@@ -158,51 +152,13 @@
             // panelCursos
             // 
             this.panelCursos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelCursos.Controls.Add(this.buttonModificarCurso);
-            this.panelCursos.Controls.Add(this.buttonEliminarCurso);
             this.panelCursos.Controls.Add(this.buttonAgregarCurso);
             this.panelCursos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelCursos.Location = new System.Drawing.Point(0, 409);
+            this.panelCursos.Location = new System.Drawing.Point(0, 374);
             this.panelCursos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelCursos.Name = "panelCursos";
-            this.panelCursos.Size = new System.Drawing.Size(219, 100);
+            this.panelCursos.Size = new System.Drawing.Size(240, 41);
             this.panelCursos.TabIndex = 16;
-            // 
-            // buttonModificarCurso
-            // 
-            this.buttonModificarCurso.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonModificarCurso.FlatAppearance.BorderSize = 0;
-            this.buttonModificarCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonModificarCurso.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonModificarCurso.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonModificarCurso.Location = new System.Drawing.Point(0, 62);
-            this.buttonModificarCurso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonModificarCurso.Name = "buttonModificarCurso";
-            this.buttonModificarCurso.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonModificarCurso.Size = new System.Drawing.Size(219, 31);
-            this.buttonModificarCurso.TabIndex = 4;
-            this.buttonModificarCurso.Text = "Modificar";
-            this.buttonModificarCurso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonModificarCurso.UseVisualStyleBackColor = true;
-            this.buttonModificarCurso.Click += new System.EventHandler(this.buttonModificarCurso_Click);
-            // 
-            // buttonEliminarCurso
-            // 
-            this.buttonEliminarCurso.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonEliminarCurso.FlatAppearance.BorderSize = 0;
-            this.buttonEliminarCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEliminarCurso.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEliminarCurso.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonEliminarCurso.Location = new System.Drawing.Point(0, 31);
-            this.buttonEliminarCurso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonEliminarCurso.Name = "buttonEliminarCurso";
-            this.buttonEliminarCurso.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonEliminarCurso.Size = new System.Drawing.Size(219, 31);
-            this.buttonEliminarCurso.TabIndex = 3;
-            this.buttonEliminarCurso.Text = "Eliminar";
-            this.buttonEliminarCurso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEliminarCurso.UseVisualStyleBackColor = true;
-            this.buttonEliminarCurso.Click += new System.EventHandler(this.buttonEliminarCurso_Click);
             // 
             // buttonAgregarCurso
             // 
@@ -215,9 +171,9 @@
             this.buttonAgregarCurso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAgregarCurso.Name = "buttonAgregarCurso";
             this.buttonAgregarCurso.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonAgregarCurso.Size = new System.Drawing.Size(219, 31);
+            this.buttonAgregarCurso.Size = new System.Drawing.Size(240, 31);
             this.buttonAgregarCurso.TabIndex = 2;
-            this.buttonAgregarCurso.Text = "Agregar";
+            this.buttonAgregarCurso.Text = "Gestión";
             this.buttonAgregarCurso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAgregarCurso.UseVisualStyleBackColor = true;
             this.buttonAgregarCurso.Click += new System.EventHandler(this.buttonAgregarCurso_Click);
@@ -230,94 +186,49 @@
             this.buttonCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCurso.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCurso.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonCurso.Location = new System.Drawing.Point(0, 378);
+            this.buttonCurso.Image = global::CapaPresentacion.Properties.Resources.jornadasc;
+            this.buttonCurso.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonCurso.Location = new System.Drawing.Point(0, 325);
             this.buttonCurso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCurso.Name = "buttonCurso";
-            this.buttonCurso.Size = new System.Drawing.Size(219, 31);
+            this.buttonCurso.Size = new System.Drawing.Size(240, 49);
             this.buttonCurso.TabIndex = 15;
             this.buttonCurso.Text = "Jornadas";
             this.buttonCurso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCurso.UseVisualStyleBackColor = false;
             this.buttonCurso.Click += new System.EventHandler(this.buttonCurso_Click);
             // 
-            // panelReportes
-            // 
-            this.panelReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelReportes.Controls.Add(this.buttonListaReportes);
-            this.panelReportes.Controls.Add(this.buttonNuevoReporte);
-            this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportes.Location = new System.Drawing.Point(0, 312);
-            this.panelReportes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelReportes.Name = "panelReportes";
-            this.panelReportes.Size = new System.Drawing.Size(219, 66);
-            this.panelReportes.TabIndex = 14;
-            // 
-            // buttonListaReportes
-            // 
-            this.buttonListaReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonListaReportes.FlatAppearance.BorderSize = 0;
-            this.buttonListaReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonListaReportes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonListaReportes.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonListaReportes.Location = new System.Drawing.Point(0, 31);
-            this.buttonListaReportes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonListaReportes.Name = "buttonListaReportes";
-            this.buttonListaReportes.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonListaReportes.Size = new System.Drawing.Size(219, 31);
-            this.buttonListaReportes.TabIndex = 3;
-            this.buttonListaReportes.Text = "Reportes";
-            this.buttonListaReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonListaReportes.UseVisualStyleBackColor = true;
-            this.buttonListaReportes.Click += new System.EventHandler(this.buttonListaReportes_Click);
-            // 
-            // buttonNuevoReporte
-            // 
-            this.buttonNuevoReporte.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonNuevoReporte.FlatAppearance.BorderSize = 0;
-            this.buttonNuevoReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNuevoReporte.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNuevoReporte.ForeColor = System.Drawing.Color.LightGray;
-            this.buttonNuevoReporte.Location = new System.Drawing.Point(0, 0);
-            this.buttonNuevoReporte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonNuevoReporte.Name = "buttonNuevoReporte";
-            this.buttonNuevoReporte.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonNuevoReporte.Size = new System.Drawing.Size(219, 31);
-            this.buttonNuevoReporte.TabIndex = 2;
-            this.buttonNuevoReporte.Text = "Nuevo Reporte";
-            this.buttonNuevoReporte.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNuevoReporte.UseVisualStyleBackColor = true;
-            this.buttonNuevoReporte.Click += new System.EventHandler(this.buttonNuevoReporte_Click);
-            // 
-            // buttonReportes
-            // 
-            this.buttonReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.buttonReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonReportes.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonReportes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReportes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonReportes.Location = new System.Drawing.Point(0, 281);
-            this.buttonReportes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonReportes.Name = "buttonReportes";
-            this.buttonReportes.Size = new System.Drawing.Size(219, 31);
-            this.buttonReportes.TabIndex = 13;
-            this.buttonReportes.Text = "Reportes";
-            this.buttonReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonReportes.UseVisualStyleBackColor = false;
-            this.buttonReportes.Click += new System.EventHandler(this.buttonReportes_Click);
-            // 
             // panelSolicitudes
             // 
             this.panelSolicitudes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelSolicitudes.Controls.Add(this.btnBajas);
             this.panelSolicitudes.Controls.Add(this.buttonSolicitudesFinalizadas);
             this.panelSolicitudes.Controls.Add(this.buttonSolicitudesActivas);
             this.panelSolicitudes.Controls.Add(this.buttonSolicitudesPendientes);
             this.panelSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSolicitudes.Location = new System.Drawing.Point(0, 181);
+            this.panelSolicitudes.Location = new System.Drawing.Point(0, 199);
             this.panelSolicitudes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSolicitudes.Name = "panelSolicitudes";
-            this.panelSolicitudes.Size = new System.Drawing.Size(219, 100);
+            this.panelSolicitudes.Size = new System.Drawing.Size(240, 126);
             this.panelSolicitudes.TabIndex = 9;
+            // 
+            // btnBajas
+            // 
+            this.btnBajas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBajas.FlatAppearance.BorderSize = 0;
+            this.btnBajas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBajas.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBajas.ForeColor = System.Drawing.Color.RosyBrown;
+            this.btnBajas.Location = new System.Drawing.Point(0, 93);
+            this.btnBajas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBajas.Name = "btnBajas";
+            this.btnBajas.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnBajas.Size = new System.Drawing.Size(240, 31);
+            this.btnBajas.TabIndex = 5;
+            this.btnBajas.Text = "Baja de solicitudes";
+            this.btnBajas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBajas.UseVisualStyleBackColor = true;
+            this.btnBajas.Click += new System.EventHandler(this.btnBajas_Click);
             // 
             // buttonSolicitudesFinalizadas
             // 
@@ -330,9 +241,9 @@
             this.buttonSolicitudesFinalizadas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSolicitudesFinalizadas.Name = "buttonSolicitudesFinalizadas";
             this.buttonSolicitudesFinalizadas.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonSolicitudesFinalizadas.Size = new System.Drawing.Size(219, 31);
+            this.buttonSolicitudesFinalizadas.Size = new System.Drawing.Size(240, 31);
             this.buttonSolicitudesFinalizadas.TabIndex = 4;
-            this.buttonSolicitudesFinalizadas.Text = "Finalizadas";
+            this.buttonSolicitudesFinalizadas.Text = "Entregadas";
             this.buttonSolicitudesFinalizadas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSolicitudesFinalizadas.UseVisualStyleBackColor = true;
             this.buttonSolicitudesFinalizadas.Click += new System.EventHandler(this.buttonSolicitudesFinalizadas_Click);
@@ -348,9 +259,9 @@
             this.buttonSolicitudesActivas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSolicitudesActivas.Name = "buttonSolicitudesActivas";
             this.buttonSolicitudesActivas.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonSolicitudesActivas.Size = new System.Drawing.Size(219, 31);
+            this.buttonSolicitudesActivas.Size = new System.Drawing.Size(240, 31);
             this.buttonSolicitudesActivas.TabIndex = 3;
-            this.buttonSolicitudesActivas.Text = "Activas";
+            this.buttonSolicitudesActivas.Text = "Finalizadas";
             this.buttonSolicitudesActivas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSolicitudesActivas.UseVisualStyleBackColor = true;
             this.buttonSolicitudesActivas.Click += new System.EventHandler(this.buttonSolicitudesActivas_Click);
@@ -366,30 +277,12 @@
             this.buttonSolicitudesPendientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSolicitudesPendientes.Name = "buttonSolicitudesPendientes";
             this.buttonSolicitudesPendientes.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonSolicitudesPendientes.Size = new System.Drawing.Size(219, 31);
+            this.buttonSolicitudesPendientes.Size = new System.Drawing.Size(240, 31);
             this.buttonSolicitudesPendientes.TabIndex = 2;
             this.buttonSolicitudesPendientes.Text = "Pendientes";
             this.buttonSolicitudesPendientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSolicitudesPendientes.UseVisualStyleBackColor = true;
             this.buttonSolicitudesPendientes.Click += new System.EventHandler(this.buttonSolicitudesPendientes_Click);
-            // 
-            // buttonSolicitudes
-            // 
-            this.buttonSolicitudes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.buttonSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonSolicitudes.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonSolicitudes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSolicitudes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSolicitudes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonSolicitudes.Location = new System.Drawing.Point(0, 150);
-            this.buttonSolicitudes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSolicitudes.Name = "buttonSolicitudes";
-            this.buttonSolicitudes.Size = new System.Drawing.Size(219, 31);
-            this.buttonSolicitudes.TabIndex = 8;
-            this.buttonSolicitudes.Text = "Solicitudes";
-            this.buttonSolicitudes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSolicitudes.UseVisualStyleBackColor = false;
-            this.buttonSolicitudes.Click += new System.EventHandler(this.buttonSolicitudes_Click);
             // 
             // panelLogo
             // 
@@ -400,7 +293,7 @@
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(219, 150);
+            this.panelLogo.Size = new System.Drawing.Size(240, 150);
             this.panelLogo.TabIndex = 7;
             // 
             // labelApellido
@@ -422,7 +315,7 @@
             this.labelNombre.BackColor = System.Drawing.Color.Transparent;
             this.labelNombre.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombre.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelNombre.Location = new System.Drawing.Point(18, 91);
+            this.labelNombre.Location = new System.Drawing.Point(19, 91);
             this.labelNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(63, 20);
@@ -453,6 +346,21 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(760, 39);
             this.panel5.TabIndex = 3;
+            // 
+            // panelHijoJ
+            // 
+            this.panelHijoJ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.panelHijoJ.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelHijoJ.Location = new System.Drawing.Point(240, 39);
+            this.panelHijoJ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelHijoJ.Name = "panelHijoJ";
+            this.panelHijoJ.Size = new System.Drawing.Size(760, 562);
+            this.panelHijoJ.TabIndex = 4;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 20;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // buttonMinimizar
             // 
@@ -565,20 +473,25 @@
             this.bunifuImageButton1.ZoomSpeed = 10;
             this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
             // 
-            // panelHijoJ
+            // buttonSolicitudes
             // 
-            this.panelHijoJ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.panelHijoJ.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelHijoJ.Location = new System.Drawing.Point(240, 39);
-            this.panelHijoJ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelHijoJ.Name = "panelHijoJ";
-            this.panelHijoJ.Size = new System.Drawing.Size(760, 562);
-            this.panelHijoJ.TabIndex = 4;
-            // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 20;
-            this.bunifuElipse1.TargetControl = this;
+            this.buttonSolicitudes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.buttonSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonSolicitudes.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonSolicitudes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSolicitudes.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSolicitudes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonSolicitudes.Image = global::CapaPresentacion.Properties.Resources.solicitudc;
+            this.buttonSolicitudes.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSolicitudes.Location = new System.Drawing.Point(0, 150);
+            this.buttonSolicitudes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSolicitudes.Name = "buttonSolicitudes";
+            this.buttonSolicitudes.Size = new System.Drawing.Size(240, 49);
+            this.buttonSolicitudes.TabIndex = 8;
+            this.buttonSolicitudes.Text = "Solicitudes";
+            this.buttonSolicitudes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSolicitudes.UseVisualStyleBackColor = false;
+            this.buttonSolicitudes.Click += new System.EventHandler(this.buttonSolicitudes_Click);
             // 
             // FormJefeLabInicio
             // 
@@ -596,7 +509,6 @@
             this.panel2.ResumeLayout(false);
             this.panelServicios.ResumeLayout(false);
             this.panelCursos.ResumeLayout(false);
-            this.panelReportes.ResumeLayout(false);
             this.panelSolicitudes.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
@@ -614,13 +526,7 @@
         private System.Windows.Forms.Button buttonSolicitudesPendientes;
         private System.Windows.Forms.Button buttonSolicitudes;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Panel panelReportes;
-        private System.Windows.Forms.Button buttonListaReportes;
-        private System.Windows.Forms.Button buttonNuevoReporte;
-        private System.Windows.Forms.Button buttonReportes;
         private System.Windows.Forms.Panel panelCursos;
-        private System.Windows.Forms.Button buttonModificarCurso;
-        private System.Windows.Forms.Button buttonEliminarCurso;
         private System.Windows.Forms.Button buttonAgregarCurso;
         private System.Windows.Forms.Button buttonCurso;
         private System.Windows.Forms.Panel panelServicios;
@@ -636,5 +542,6 @@
         private System.Windows.Forms.Label labelApellido;
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Button buttonLogout;
+        private System.Windows.Forms.Button btnBajas;
     }
 }

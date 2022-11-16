@@ -44,7 +44,28 @@ namespace CapaLogica.Libreria
                             dataGrid.Rows[fila].Cells["ColumnPrecio"].Value = servicio.Servicio.precio;
                             dataGrid.Rows[fila].Cells["ColumnCategoria"].Value = servicio.Servicio.Categoria_servicio.categoria;
                             dataGrid.Rows[fila].Cells["ColumnActivo"].Value = activo;
-                        }
+
+                         
+                            DataGridViewButtonCell boton = new DataGridViewButtonCell();
+                            
+
+                            if (servicio.activo)
+                            {
+                                boton.Value = "Baja";
+                                boton.Style.BackColor = Color.Coral;
+                            }
+                            else
+                            {
+                                boton.Value = "Alta";
+                                boton.Style.BackColor = Color.Aquamarine;
+                             }
+                            
+                            
+                            boton.FlatStyle = FlatStyle.Flat;
+                            //boton.UseColumnTextForButtonValue = true;
+                            dataGrid.Rows[fila].Cells["ColumnAccion"] = boton;
+
+                    }
                     }
                // }
             }
@@ -139,6 +160,32 @@ namespace CapaLogica.Libreria
                 }
                 else { MessageBox.Show("El servicio ya existe", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information); }
             }
+
+        public void eliminarServicio(int idServicio)
+        {
+            using (bd_blulightEntities db = new bd_blulightEntities())
+            {
+                var servicio = db.Servicio_laboratorio.Where(
+                    e => e.idServicio == idServicio
+                    && e.idLab == MyGlobals.empleado.idLab).ToList();
+
+                if(servicio.Count > 0)
+                {
+                    //MessageBox.Show(idServicio + "", "BIEN");
+                    if (servicio.First().activo == true)
+                    {
+                        servicio.First().activo = false;
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        servicio.First().activo = true;
+                        db.SaveChanges();
+                    }
+                    
+                }
+            }
+        }
 
     }
 }

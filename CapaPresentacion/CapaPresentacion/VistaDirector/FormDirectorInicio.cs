@@ -1,5 +1,4 @@
 ﻿using CapaLogica;
-using CapaPresentacion.VistaDirector.Estadisticas;
 using Proyecto2022.CapaPresentacion.VistaAdmin.Estadisticas;
 using System;
 using System.Collections.Generic;
@@ -24,8 +23,8 @@ namespace CapaPresentacion.VistaDirector
         public FormDirectorInicio()
         {
             InitializeComponent();
-           /* labelNombre.Text = MyGlobals.persona.nombre;
-            labelApellido.Text = MyGlobals.persona.apellido;*/
+            labelNombre.Text = MyGlobals.persona.nombre;
+            labelApellido.Text = MyGlobals.persona.apellido;
         }
 
         private void verSubMenu(Panel subMenu)
@@ -58,24 +57,10 @@ namespace CapaPresentacion.VistaDirector
         {
             abrirFormHijo(new EstadisticasProductos());
         }
-        private void buttonJornadas_Click_1(object sender, EventArgs e)
-        {
-            abrirFormHijo(new EstadisticasCursos());
-        }
 
         private void buttonServicios_Click_1(object sender, EventArgs e)
         {
             abrirFormHijo(new EstadisticasServicios());
-        }
-
-        private void buttonEmpleados_Click(object sender, EventArgs e)
-        {
-            abrirFormHijo(new EstadisticaEmpleados());
-        }
-
-        private void buttonClientes_Click_1(object sender, EventArgs e)
-        {
-            abrirFormHijo(new EstadisticaClientes());
         }
 
         private void bunifuImageButton3_Click(object sender, EventArgs e)

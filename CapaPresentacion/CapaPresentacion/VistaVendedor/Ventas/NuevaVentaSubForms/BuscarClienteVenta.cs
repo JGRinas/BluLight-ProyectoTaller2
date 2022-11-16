@@ -75,13 +75,17 @@ namespace CapaPresentacion.CapaPresentacion.VistaVendedor.Ventas.NuevaVentaSubFo
         }
         private void dataGridViewClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            List<Label> labels = new List<Label>();
+            if (dataGridViewClientes.CurrentRow != null)
+            {
+                List<Label> labels = new List<Label>();
 
-            labels.Add(labelNombreC);
-            labels.Add(labelApellidoC);
-            labels.Add(labelDniC);
+                labels.Add(labelNombreC);
+                labels.Add(labelApellidoC);
+                labels.Add(labelDniC);
 
-            venta.buscarClienteEnVentasDataGrid(textBoxClienteBuscar, labels, buttonAgregarCliente, dataGridViewClientes);
+                venta.buscarClienteEnVentasDataGrid(textBoxClienteBuscar, labels, buttonAgregarCliente, dataGridViewClientes);
+            }
+                
         }
         private void buttonAgregarCliente_Click(object sender, EventArgs e)
         {

@@ -130,21 +130,25 @@ namespace CapaPresentacion.VistaVendedor.Gestionar_Clientes
 
         private void dataGridViewClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            List<TextBox> TextBoxClient = new List<TextBox>();
-            TextBoxClient.Add(textBoxName);
-            TextBoxClient.Add(textBoxSurname);
-            TextBoxClient.Add(textBoxDni);
-            TextBoxClient.Add(textBoxAddress);
-            TextBoxClient.Add(textBoxEmail);
-            TextBoxClient.Add(textBoxPhone);
-            TextBoxClient.Add(textBoxDniBuscar);
+            if (dataGridViewClientes.CurrentRow != null)
+            {
+                List<TextBox> TextBoxClient = new List<TextBox>();
+                TextBoxClient.Add(textBoxName);
+                TextBoxClient.Add(textBoxSurname);
+                TextBoxClient.Add(textBoxDni);
+                TextBoxClient.Add(textBoxAddress);
+                TextBoxClient.Add(textBoxEmail);
+                TextBoxClient.Add(textBoxPhone);
+                TextBoxClient.Add(textBoxDniBuscar);
 
-            List<Button> buttons = new List<Button>();
-            buttons.Add(buttonRegistrar);
-            buttons.Add(buttonModificarCliente);
-            buttons.Add(buttonEliminarCliente);
+                List<Button> buttons = new List<Button>();
+                buttons.Add(buttonRegistrar);
+                buttons.Add(buttonModificarCliente);
+                buttons.Add(buttonEliminarCliente);
 
-            client.obtenerClienteEnDataGrid(TextBoxClient, buttons, dataGridViewClientes);
+                client.obtenerClienteEnDataGrid(TextBoxClient, buttons, dataGridViewClientes);
+            }
+                
         }
 
         private void textBoxDniBuscar_KeyPress(object sender, KeyPressEventArgs e)

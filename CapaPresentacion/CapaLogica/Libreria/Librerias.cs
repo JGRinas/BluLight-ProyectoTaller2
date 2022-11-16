@@ -11,5 +11,19 @@ namespace CapaLogica.Libreria
     {
         public TextBoxEvent textBoxEvent = new TextBoxEvent();
         public UploadImage uploadImage = new UploadImage();
+
+        public bool validarFecha(DateTime fecha)
+        {
+            DateTime fechaActual = DateTime.Now;
+
+            if (fecha < fechaActual)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

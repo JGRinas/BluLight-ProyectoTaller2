@@ -204,12 +204,12 @@ namespace CapaLogica.LVendedor
                 using (bd_blulightEntities db = new bd_blulightEntities())
                 {
                     int dni = Int32.Parse(textBoxes[2].Text);
-                    string email = textBoxes[4].Text.ToString();
+                    string email = textBoxes[4].Text;
                     var valPersona = db.Persona.Where(p => p.dni.Equals(dni)).ToList();
                     var valPersona2 = db.Persona.Where(p => p.email.Equals(email)).ToList();
                     if ((dniClienteB == dni || valPersona.Count == 0) && (valPersona2.Count == 0 || emailClienteB.Equals(email)))
                     {
-                        Persona persona = db.Persona.Where(p => p.dni.Equals(dni)).FirstOrDefault();
+                        Persona persona = db.Persona.Where(p => p.dni.Equals(dniClienteB)).FirstOrDefault();
                         
                         persona.dni = dni;
                         persona.nombre = textBoxes[0].Text.ToString();

@@ -40,15 +40,15 @@ namespace CapaPresentacion.CapaLogica.LAdmin
             try
             {
                 MessageBox.Show(ruta.Text);
-                string str1 = string.Format("ALTER DATABASE [" + database + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
+                string str1 = string.Format(@"ALTER DATABASE [" + database + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
                 SqlCommand cmd1 = new SqlCommand(str1, conexion);
                 cmd1.ExecuteNonQuery();
 
-                string str2 = "USE MASTER RESTORE DATABASE [" + database + "] FROM DISK = '" + ruta.Text + "' WITH REPLACE;";
+                string str2 = @"USE [master] RESTORE DATABASE [" + database + "] FROM DISK = '" + ruta.Text + "' WITH REPLACE;";
                 SqlCommand cmd2 = new SqlCommand(str2, conexion);
                 cmd2.ExecuteNonQuery();
 
-                string str3 = string.Format("ALTER DATABASE [" + database + "] SET MULTI_USER");
+                string str3 = string.Format(@"ALTER DATABASE [" + database + "] SET MULTI_USER");
                 SqlCommand cmd3 = new SqlCommand(str3, conexion);
                 cmd3.ExecuteNonQuery();
 

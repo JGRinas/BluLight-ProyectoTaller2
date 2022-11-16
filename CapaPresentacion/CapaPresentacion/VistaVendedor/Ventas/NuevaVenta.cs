@@ -41,9 +41,10 @@ namespace CapaPresentacion.VistaVendedor.Ventas
                     decimal total = 0;
                     for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
                     {
-                        total = MyGlobals.productoVentas[i].precio * MyGlobals.cantidadProducto[i];
+                        total += MyGlobals.productoVentas[i].precio * MyGlobals.cantidadProducto[i];
                         labelTotal.Text = total.ToString();
                     }
+                   
                 }
             }
         }
@@ -89,7 +90,7 @@ namespace CapaPresentacion.VistaVendedor.Ventas
                 decimal total = 0;
                 for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
                 {
-                    total = MyGlobals.productoVentas[i].precio * MyGlobals.cantidadProducto[i];
+                    total += MyGlobals.productoVentas[i].precio * MyGlobals.cantidadProducto[i];
                     labelTotal.Text = total.ToString();
                 }
             }
@@ -120,36 +121,39 @@ namespace CapaPresentacion.VistaVendedor.Ventas
 
         private void dataGridViewCarrito_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 5)
+            if (dataGridViewCarrito.CurrentRow != null)
             {
-                venta.borrarProductoCarrito(dataGridViewCarrito);
-
-                dataGridViewCarrito.Rows.Clear();
-                venta.rellenarDataGridCarritoProductos(dataGridViewCarrito);
-                decimal total = 0;
-                for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
+                if (e.ColumnIndex == 5)
                 {
-                    total = MyGlobals.productoVentas[i].precio * MyGlobals.cantidadProducto[i];
-                    labelTotal.Text = total.ToString();
+                    venta.borrarProductoCarrito(dataGridViewCarrito);
+
+                    dataGridViewCarrito.Rows.Clear();
+                    venta.rellenarDataGridCarritoProductos(dataGridViewCarrito);
+                    decimal total = 0;
+                    for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
+                    {
+                        total += MyGlobals.productoVentas[i].precio * MyGlobals.cantidadProducto[i];
+                        labelTotal.Text = total.ToString();
+                    }
+                }
+                if (e.ColumnIndex == 6)
+                {
+                    MyGlobals.productoSeleccionado = MyGlobals.productoVentas[e.RowIndex];
+                    MyGlobals.indexProducto = e.RowIndex;
+
+                    EditarProducto editarProducto = new EditarProducto();
+                    editarProducto.ShowDialog();
+                    dataGridViewCarrito.Rows.Clear();
+                    venta.rellenarDataGridCarritoProductos(dataGridViewCarrito);
+                    decimal total = 0;
+                    for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
+                    {
+                        total += MyGlobals.productoVentas[i].precio * MyGlobals.cantidadProducto[i];
+                        labelTotal.Text = total.ToString();
+                    }
                 }
             }
-            if (e.ColumnIndex == 6)
-            {
-               MyGlobals.productoSeleccionado = MyGlobals.productoVentas[e.RowIndex];
-               MyGlobals.indexProducto = e.RowIndex;
-
-               EditarProducto editarProducto = new EditarProducto();
-                editarProducto.ShowDialog();
-                dataGridViewCarrito.Rows.Clear();
-                venta.rellenarDataGridCarritoProductos(dataGridViewCarrito);
-                decimal total = 0;
-                for (int i = 0; i < MyGlobals.productoVentas.Count; i++)
-                {
-                    total = MyGlobals.productoVentas[i].precio * MyGlobals.cantidadProducto[i];
-                    labelTotal.Text = total.ToString();
-                }
-            }
-
+          
         }
 
         private void buttonFinalizarCompra_Click(object sender, EventArgs e)

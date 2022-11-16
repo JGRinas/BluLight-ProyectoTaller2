@@ -44,18 +44,22 @@ namespace Proyecto2022.CapaPresentacion.VistaAdmin.GestionLaboratorios
 
         private void dataGridLaboratorio_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            lab.obtenerLaboratorio(textBoxNombreLaboratorio, dataGridLaboratorio);
-            buttonRegistrarLaboratorio.Text = "Restablecer";
-            buttonModificarLaboratorio.Enabled = true;
-            buttonEliminar.Enabled = true;
-            if (dataGridLaboratorio.CurrentRow.Cells["columnActivo"].Value.ToString().Equals("No"))
+            if (dataGridLaboratorio.CurrentRow != null)
             {
-                buttonEliminar.Text = "Restaurar";
+                lab.obtenerLaboratorio(textBoxNombreLaboratorio, dataGridLaboratorio);
+                buttonRegistrarLaboratorio.Text = "Restablecer";
+                buttonModificarLaboratorio.Enabled = true;
+                buttonEliminar.Enabled = true;
+                if (dataGridLaboratorio.CurrentRow.Cells["columnActivo"].Value.ToString().Equals("No"))
+                {
+                    buttonEliminar.Text = "Restaurar";
+                }
+                else
+                {
+                    buttonEliminar.Text = "Eliminar";
+                }
             }
-            else
-            {
-                buttonEliminar.Text = "Eliminar";
-            }
+            
         }
 
         private void buttonModificarLaboratorio_Click(object sender, EventArgs e)
